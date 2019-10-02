@@ -1,17 +1,5 @@
-;;; -*- Mode:Lisp; Syntax:ANSI-Common-Lisp; Coding:utf-8 -*-
-
-(cl:defpackage #:cl-num-utils.quadrature
-  (:use #:cl
-        #:alexandria
-        #:anaphora
-        #:cl-num-utils.arithmetic
-        #:cl-num-utils.interval
-        #:cl-num-utils.utilities
-        #:let-plus)
-  (:export
-   #:romberg-quadrature))
-
-(cl:in-package #:cl-num-utils.quadrature)
+;;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS.QUADRATURE -*-
+(cl:in-package #:num-utils.quadrature)
 
 ;;;; Richardson extrapolation (general framework)
 

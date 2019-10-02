@@ -1,38 +1,6 @@
-;;; -*- Mode:Lisp; Syntax:ANSI-Common-Lisp; Coding:utf-8 -*-
+;;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS.ARITHMETIC -*-
+(in-package #:num-utils.arithmetic)
 
-(defpackage #:cl-num-utils.arithmetic
-  (:use #:cl
-        #:alexandria
-        #:anaphora
-        #:cl-num-utils.utilities
-        #:let-plus)
-  (:export
-   #:multf
-   #:same-sign?
-   #:square
-   #:absolute-square
-   #:abs-diff
-   #:log10
-   #:log2
-   #:1c
-   #:divides?
-   #:as-integer
-   #:numseq
-   #:ivec
-   #:sum
-   #:product
-   #:cumulative-sum
-   #:cumulative-product
-   #:l2norm-square
-   #:l2norm
-   #:normalize-probabilities
-   #:floor*
-   #:ceiling*
-   #:round*
-   #:truncate*))
-
-(in-package #:cl-num-utils.arithmetic)
-
 ;;; simple arithmetic
 
 (define-modify-macro multf (coefficient) * "Multiply place by COEFFICIENT.")
@@ -88,7 +56,7 @@ library function."
 (defun as-integer (number)
   "If NUMBER represents an integer (as an integer, complex, or float, etc), return it as an integer, otherwise signal an error.  Floats are converted with RATIONALIZE."
   (declare (inline as-integer))
-  (etypecase number
+  (typecase number
     (integer number)
     (complex
      (assert (zerop (imagpart number)) ()
@@ -113,7 +81,7 @@ library function."
                                                 'fixnum
                                                 (type-of from)))
                               (t (let ((to (+ from (* by length))))
-                                   (etypecase to
+                                   (typecase to
                                      (fixnum (if (typep from 'fixnum)
                                                  'fixnum
                                                  'integer))

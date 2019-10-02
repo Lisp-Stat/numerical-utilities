@@ -1,28 +1,6 @@
-;;; -*- Mode:Lisp; Syntax:ANSI-Common-Lisp; Coding:utf-8 -*-
-(cl:defpackage #:cl-num-utils.matrix
-  (:use #:cl
-        #:alexandria
-        #:anaphora
-        #:cl-num-utils.elementwise
-        #:cl-num-utils.num=
-        #:cl-num-utils.print-matrix
-        #:cl-num-utils.utilities
-        #:cl-slice
-        #:let-plus)
-  (:export
-   #:diagonal-vector
-   #:diagonal-matrix
-   #:wrapped-matrix
-   #:lower-triangular-matrix
-   #:upper-triangular-matrix
-   #:triangular-matrix
-   #:hermitian-matrix
-   #:diagonal-matrix-elements
-   #:wrapped-matrix-elements
-   #:transpose))
+;;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS.MATRIX -*-
+(in-package #:num-utils.matrix)
 
-(in-package #:cl-num-utils.matrix)
-
 (defgeneric diagonal-vector (matrix)
   (:documentation "Return the diagonal elements of MATRIX as a vector.")
   (:method ((matrix array))
@@ -145,11 +123,11 @@ Return the array."
                            :masked-fn (lambda (,row ,col)
                                         (when (,masked-test ,row ,col)
                                           ,masked-string))))))
-       (defmethod slice ((,matrix ,type) &rest slices)
+       (defmethod select ((,matrix ,type) &rest slices)
          ;; NOTE: certain slices return matrices which preserve special structure.  Currently we handle the case when the slice is the same for both dimensions by default, and the matrix is square.
          (if (and (not (cdr slices)) (aops:square-matrix? ,matrix))
-             (,type (slice ,elements-accessor (car slices) (car slices)))
-             (apply #'slice (aops:as-array ,matrix) slices))))))
+             (,type (select ,elements-accessor (car slices) (car slices)))
+             (apply #'select (aops:as-array ,matrix) slices))))))
 
 (define-wrapped-matrix lower-triangular-matrix elements
     "Lower triangular matrix.  ELEMENTS in the upper triangle are treated as zero."

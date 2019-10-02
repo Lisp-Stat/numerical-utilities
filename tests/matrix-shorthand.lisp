@@ -1,75 +1,80 @@
-;;; -*- Mode:Lisp; Syntax:ANSI-Common-Lisp; Coding:utf-8 -*-
+;;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS-TESTS -*-
+;;;; Copyright (c) 2019 by Symbolics Pte. Ltd. All rights reserved.
+(in-package #:num-utils-tests)
 
-(in-package #:cl-num-utils-tests)
+#+genera (setf *print-array* t)
 
-(defsuite matrix-shorthand-suite (tests))
+(def-suite matrix-shorthand
+    :description "Tests matrix-shorthand functions"
+    :in all-tests)
+(in-suite matrix-shorthand)
 
-(deftest lower-triangular-shorthand-test (matrix-shorthand-suite)
+(test lower-triangular-shorthand-test
   (let ((matrix #2A((1 2)
                     (3 4)))
         (lower-triangular-mx (lower-triangular-mx t
                                (1)
                                (3 4))))
-    (assert-equality #'num= (lower-triangular-matrix matrix) lower-triangular-mx)
-    (assert-equality #'num= lower-triangular-mx (lower-triangular-mx t
+    (is (num= (lower-triangular-matrix matrix) lower-triangular-mx))
+    (is (num= lower-triangular-mx (lower-triangular-mx t
                                                   (1 9) ; 9 should be ignored
-                                                  (3 4)))
-    (assert-equality #'num= (lower-triangular-mx t
+                                                  (3 4))))
+    (is (num= (lower-triangular-mx t
                               (1 2 3)
                               (3 4 5))
         (lower-triangular-mx t
           (1 2 17)
-          (3 4 5)))
-    (assert-equality #'num= (lower-triangular-mx t
+          (3 4 5))))
+    (is (num= (lower-triangular-mx t
                               (1 2)
                               (3 4)
                               (5 6))
         (lower-triangular-mx t
           (1 19)
           (3 4)
-          (5 6)))))
+          (5 6))))))
 
-(deftest upper-triangular-shorthand-test (matrix-shorthand-suite)
+(test upper-triangular-shorthand-test
   (let ((matrix #2A((1 2)
                     (3 4)))
         (upper-triangular-mx (upper-triangular-mx t
                    (1 2)
                    (3 4))))
-    (assert-equality #'num= (upper-triangular-matrix matrix) upper-triangular-mx)
-    (assert-equality #'num= upper-triangular-mx (upper-triangular-mx t
+    (is (num= (upper-triangular-matrix matrix) upper-triangular-mx))
+    (is (num= upper-triangular-mx (upper-triangular-mx t
                                       (1 2)
-                                      (9 4))) ; 9 should be ignored
-    (assert-equality #'num= (upper-triangular-mx t
+                                      (9 4)))) ; 9 should be ignored
+    (is (num= (upper-triangular-mx t
                               (1 2 3)
                               (3 4 5))
         (upper-triangular-mx t
           (1 2 3)
-          (19 4 5)))
-    (assert-equality #'num= (upper-triangular-mx t
+          (19 4 5))))
+    (is (num= (upper-triangular-mx t
                               (1 2)
                               (3 4)
                               (5 6))
         (upper-triangular-mx t
           (1 2)
           (3 4)
-          (19 6)))))
+          (19 6))))))
 
-(deftest hermitian-shorthand-test (matrix-shorthand-suite)
+(test hermitian-shorthand-test
   (let ((matrix #2A((1 2)
                     (3 4)))
         (hermitian-mx (hermitian-mx t
                         (1)
                         (3 4))))
-    (assert-equality #'num= hermitian-mx (hermitian-matrix matrix))
-    (assert-equality #'num= hermitian-mx (hermitian-mx t
+    (is (num= hermitian-mx (hermitian-matrix matrix)))
+    (is (num= hermitian-mx (hermitian-mx t
                                            (1 9) ; 9 should be ignored
-                                           (3 4)))
-    (assert-condition error (hermitian-mx t
+                                           (3 4))))
+    (signals error (hermitian-mx t
                               (1 2 3)
                               (3 4 5)))))
 
-(deftest diagonal-shorthand-test (matrix-shorthand-suite)
-  (assert-equality #'num= (diagonal-mx t 1 2 3) (diagonal-matrix #(1 2 3))))
+(test diagonal-shorthand-test
+  (is (num= (diagonal-mx t 1 2 3) (diagonal-matrix #(1 2 3)))))
 
-(deftest vec-shorthand-test (matrix-shorthand-suite)
-  (assert-equality #'num= (vec t 1 2 3) #(1 2 3)))
+(test vec-shorthand-test
+  (is (num= (vec t 1 2 3) #(1 2 3))))

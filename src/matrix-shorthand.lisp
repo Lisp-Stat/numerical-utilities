@@ -1,24 +1,6 @@
-;;; -*- Mode:Lisp; Syntax:ANSI-Common-Lisp; Coding:utf-8 -*-
-(cl:defpackage #:cl-num-utils.matrix-shorthand
-  (:nicknames #:clnu.mx)
-  (:use #:cl
-        #:alexandria
-        #:anaphora
-        #:cl-num-utils.matrix
-        #:cl-num-utils.utilities
-        #:let-plus)
-  (:export
-   #:vec
-   #:mx
-   #:diagonal-mx
-   #:lower-triangular-mx
-   #:hermitian-mx
-   #:upper-triangular-mx))
+;;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS.MATRIX-SHORTHAND -*-
+(in-package #:num-utils.matrix-shorthand)
 
-(in-package #:cl-num-utils.matrix-shorthand)
-
-
-
 (defun vec (element-type &rest elements)
   "Return a vector with elements coerced to ELEMENT-TYPE."
   (map `(simple-array ,element-type (*))

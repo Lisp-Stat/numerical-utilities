@@ -1,42 +1,47 @@
-;;; -*- Mode:Lisp; Syntax:ANSI-Common-Lisp; Coding:utf-8 -*-
+;;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS-TESTS -*-
+;;;; Copyright (c) 2019 by Symbolics Pte. Ltd. All rights reserved.
+(in-package #:num-utils-tests)
 
-(in-package #:cl-num-utils-tests)
+#+genera (setf *print-array* t)
 
-(defsuite num=-tests (tests))
+(def-suite num=
+    :description "Tests num= functions"
+    :in all-tests)
+(in-suite num=)
 
-(deftest num=-number-test (num=-tests)
+(test num=-number-test
   (let ((*num=-tolerance* 1e-3))
-    (assert-equality #'num= 1 1)
-    (assert-equality #'num= 1 1.0)
-    (assert-equality #'num= 1 1.001)
-    (assert-false (num= 1 2))
-    (assert-false (num= 1 1.01))))
+    (is (num= 1 1))
+    (is (num= 1 1.0))
+    (is (num= 1 1.001))
+    (not (num= 1 2))
+    (not (num= 1 1.01))))
 
-(deftest num=-list-test (num=-tests)
+(test num=-list-test
   (let ((*num=-tolerance* 1e-3))
-    (assert-equality #'num= nil nil)
-    (assert-equality #'num= '(1) '(1.001))
-    (assert-equality #'num= '(1 2) '(1.001 1.999))
-    (assert-false (num= '(0 1) '(0 1.02)))
-    (assert-false (num= nil '(1)))))
+    (is (num= nil nil))
+    (is (num= '(1) '(1.001)))
+    (is (num= '(1 2) '(1.001 1.999)))
+    (not (num= '(0 1) '(0 1.02)))
+    (not (num= nil '(1)))))
 
-(deftest num=-array-test (num=-tests)
+(test num=-array-test
   (let* ((*num=-tolerance* 1e-3)
          (a #(0 1 2))
          (b #2A((0 1)
                 (2 3))))
-    (assert-equality #'num= a a)
-    (assert-equality #'num= a #(0 1.001 2))
-    (assert-equality #'num= a #(0 1.001 2.001))
-    (assert-equality #'num= b b)
-    (assert-equality #'num= b #2A((0 1)
-                                (2.001 3)))
-    (assert-false (num= a b))
-    (assert-false (num= a #(0 1)))
-    (assert-false (num= a #(0 1.01 2)))
-    (assert-false (num= b #2A((0 1))))
-    (assert-false (num= b #2A((0 1.01)
-                            (2 3))))))
+    (is (num= a a))
+    (is (num= a #(0 1.001 2)))
+    (is (num= a #(0 1.001 2.001)))
+    (is (num= b b))
+    (is (num= b #2A((0 1)
+		    (2.001 3))))
+    (not (num= a b))
+    (not (num= a #(0 1)))
+    (not (num= a #(0 1.01 2)))
+    (not (num= b #2A((0 1))))
+    (not (num= b #2A((0 1.01)
+		     (2 3))))))
 
 (defstruct num=-test-struct
   "Structure for testing DEFINE-STRUCTURE-num=."
@@ -44,13 +49,13 @@
 
 (define-structure-num= num=-test-struct a b)
 
-(deftest num=-structure-test (num=-tests)
+(test num=-structure-test
   (let ((*num=-tolerance* 1e-3)
         (a (make-num=-test-struct :a 0 :b 1))
         (b (make-num=-test-struct :a "string" :b nil)))
-    (assert-equality #'num= a a)
-    (assert-equality #'num= a (make-num=-test-struct :a 0 :b 1))
-    (assert-equality #'num= a (make-num=-test-struct :a 0 :b 1.001))
-    (assert-false (num= a (make-num=-test-struct :a 0 :b 1.01)))
-    (assert-equality #'num= b b)
-    (assert-false (num= a b))))
+    (is (num= a a))
+    (is (num= a (make-num=-test-struct :a 0 :b 1)))
+    (is (num= a (make-num=-test-struct :a 0 :b 1.001)))
+    (not (num= a (make-num=-test-struct :a 0 :b 1.01)))
+    (is (num= b b))
+    (not (num= a b))))

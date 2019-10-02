@@ -1,37 +1,5 @@
-;;; -*- Mode:Lisp; Syntax:ANSI-Common-Lisp; Coding:utf-8 -*-
-
-(cl:defpackage #:cl-num-utils.elementwise
-  (:use #:cl
-        #:alexandria
-        #:cl-num-utils.arithmetic
-        #:cl-num-utils.utilities
-        #:let-plus)
-  (:export
-   #:elementwise-float-contagion
-   #:e+
-   #:e-
-   #:e*
-   #:e/
-   #:e2+
-   #:e2-
-   #:e2*
-   #:e2/
-   #:e1-
-   #:e1/
-   #:e2log
-   #:e2exp
-   #:e1log
-   #:e1exp
-   #:eexpt
-   #:eexp
-   #:elog
-   #:esqrt
-   #:econjugate
-   #:ereduce
-   #:emin
-   #:emax))
-
-(cl:in-package #:cl-num-utils.elementwise)
+;;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS.ELEMENTWISE -*-
+(cl:in-package #:num-utils.elementwise)
 
 (defun elementwise-float-contagion (&rest objects)
   "Return the resulting float type when objects (or their elements) are combined using arithmetic operations."
@@ -121,10 +89,12 @@
 (define-e1 -)
 (define-e1 /)
 (define-e1 log)
-(define-e1 exp :function eexp)
-(define-e1 sqrt :function esqrt)
+(define-e1 floor     :function efloor)   ; TODO: Add to exported symbols
+(define-e1 ceiling   :function eceiling) ; TODO: Add to exported symbols
+(define-e1 exp       :function eexp)
+(define-e1 sqrt      :function esqrt)
 (define-e1 conjugate :function econjugate)
-(define-e1 square :function esquare)
+(define-e1 square    :function esquare)
 
 (defmacro define-e2 (operation
                      &key (function (symbolicate '#:e2 operation))
@@ -137,6 +107,18 @@
      (:documentation ,docstring)
      (:method ((a number) (b number))
        (,operation a b))
+
+     ;; Vector class hierarchy. Includes specialised SBCL vectors.
+     ;; TODO: See if neccessary. Added during debugging, but this was not the problem.
+     (:method ((a vector) (b number))
+       (mapping-array (m a b) (,operation (m a) b)))
+     (:method ((a number) (b vector))
+       (mapping-array (m b a) (,operation a (m b))))
+     (:method ((a vector) (b vector))
+       (assert (equal (array-dimensions a) (array-dimensions b)))
+       (mapping-array (m a b) (,operation (m a) (m b))))
+
+     ;; Array class hierarchy
      (:method ((a array) (b number))
        (mapping-array (m a b) (,operation (m a) b)))
      (:method ((a number) (b array))

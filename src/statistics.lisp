@@ -1,53 +1,6 @@
-;;; -*- Mode:Lisp; Syntax:ANSI-Common-Lisp; Coding:utf-8 -*-
-(cl:defpackage #:cl-num-utils.statistics
-  (:nicknames #:clnu.stats)
-  (:use #:cl
-        #:anaphora
-        #:alexandria
-        #:cl-num-utils.arithmetic
-        #:cl-num-utils.num=
-        #:cl-num-utils.utilities
-        #:let-plus)
-  (:shadow #:mean
-           #:variance
-           #:median)
-  (:export
-   #:tally
-   #:add
-   #:pool
-   #:empty-accumulator
-   #:not-enough-elements-in-accumulator
-   #:information-not-collected-in-accumulator
-   #:central-sample-moments
-   #:central-sample-moments-degree
-   #:*central-sample-moments-default-degree*
-   #:mean
-   #:variance
-   #:sd
-   #:central-m2
-   #:central-m3
-   #:central-m4
-   #:skewness
-   #:kurtosis
-   #:median
-   #:sorted-reals
-   #:sorted-reals-elements
-   #:empirical-quantile
-   #:empirical-quantile-probabilities
-   #:quantile
-   #:quantiles
-   #:ensure-sorted-reals
-   #:ensure-sorted-vector
-   #:weighted-quantiles
-   #:make-sparse-counter
-   #:sparse-counter
-   #:sparse-counter-count
-   #:sparse-counter-table
-   #:tabulate
-   #:cross-tabulate))
+;;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS.STATISTICS -*-
+(in-package #:num-utils.statistics)
 
-(in-package #:cl-num-utils.statistics)
-
 ;;; Generic interface for accumulators
 ;;;
 ;;; Accumulators are used for one-pass calculation of moments.
@@ -451,7 +404,7 @@ for any vector SAMPLE."
          (alist (sort (as-alist sparse-counter) #'>= :key #'cdr))
          (tally (reduce #'+ alist :key #'cdr))
          ((&values print-length truncated?)
-          (cl-num-utils.print-matrix:print-length-truncate varieties)))
+          (num-utils.print-matrix:print-length-truncate varieties)))
     (print-unreadable-object (sparse-counter stream :type t)
       (format stream "tally: ~D, varieties: ~D" tally varieties)
       (loop repeat print-length

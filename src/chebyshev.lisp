@@ -1,19 +1,5 @@
-;;; -*- Mode:Lisp; Syntax:ANSI-Common-Lisp; Coding:utf-8 -*-
-(defpackage #:cl-num-utils.chebyshev
-  (:use #:cl
-        #:alexandria
-        #:anaphora
-        #:cl-num-utils.interval
-        #:cl-num-utils.utilities
-        #:let-plus)
-  (:export
-   #:chebyshev-root
-   #:chebyshev-roots
-   #:chebyshev-regression
-   #:chebyshev-evaluate
-   #:chebyshev-approximate))
-
-(in-package #:cl-num-utils.chebyshev)
+;;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS.CHEBYSHEV -*-
+(in-package #:num-utils.chebyshev)
 
 (declaim (inline chebyshev-recursion))
 (defun chebyshev-recursion (x value previous-value)

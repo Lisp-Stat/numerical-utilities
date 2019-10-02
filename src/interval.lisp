@@ -1,39 +1,5 @@
-;;; -*- Mode:Lisp; Syntax:ANSI-Common-Lisp; Coding:utf-8 -*-
-
-(defpackage #:cl-num-utils.interval
-  (:use #:cl
-        #:alexandria
-        #:anaphora
-        #:cl-num-utils.num=
-        #:cl-num-utils.utilities
-        #:let-plus)
-  (:export
-   #:left
-   #:open-left?
-   #:right
-   #:open-right?
-   #:&interval
-   #:interval
-   #:finite-interval
-   #:plusinf-interval
-   #:minusinf-interval
-   #:real-line
-   #:plusminus-interval
-   #:interval-length
-   #:interval-midpoint
-   #:in-interval?
-   #:extend-interval
-   #:extendf-interval
-   #:interval-hull
-   #:relative
-   #:spacer
-   #:split-interval
-   #:shrink-interval
-   #:grid-in
-   #:subintervals-in
-   #:shift-interval))
-
-(in-package #:cl-num-utils.interval)
+;;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS.INTERVAL -*-
+(in-package #:num-utils.interval)
 
 ;;; TODO: rewrite interface
 ;;; TODO: open/closed, general accessors LEFT, RIGHT, CLOSED-LEFT? CLOSED-RIGHT?

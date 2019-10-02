@@ -1,19 +1,5 @@
-;;; -*- Mode:Lisp; Syntax:ANSI-Common-Lisp; Coding:utf-8 -*-
-
-(defpackage #:cl-num-utils.num=
-  (:use #:cl
-        #:alexandria
-        #:anaphora
-        #:let-plus)
-  (:export
-   #:num-delta
-   #:*num=-tolerance*
-   #:num=
-   #:num=-function
-   #:define-num=-with-accessors
-   #:define-structure-num=))
-
-(in-package #:cl-num-utils.num=)
+;;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS.NUM= -*-
+(in-package #:num-utils.num=)
 
 (defparameter *num=-tolerance* 1d-5 "Default tolerance for NUM=.")
 

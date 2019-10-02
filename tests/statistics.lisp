@@ -1,9 +1,14 @@
-;;; -*- Mode:Lisp; Syntax:ANSI-Common-Lisp; Coding:utf-8 -*-
+;;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS-TESTS -*-
+;;;; Copyright (c) 2019 by Symbolics Pte. Ltd. All rights reserved.
+(in-package #:num-utils-tests)
 
-(in-package #:cl-num-utils-tests)
+#+genera (setf *print-array* t)
 
-(defsuite statistics-tests (tests))
-
+(def-suite statistics
+    :description "Tests statistics functions"
+    :in all-tests)
+(in-suite statistics)
+
 ;;; testing cental moments
 
 (defun precise-central-moments (sequence)
@@ -39,7 +44,7 @@ Slow, but useful for testing as it does not suffer from approximation error."
 ;;; randomized tests
 
 (defun random-floats (n mean &optional (element-type 'double-float))
-  "Return a N-element vector of random floats (with given ELEMENT-TYPE).  A uniform random number from either [-1,0] or [0,3] (with equal probability) is added to MEAN, which ensures nonzero third and fourth central moments.  Higher abolute value of MEAN makes the calculation of higher central moments more ill-conditioned when using floats."
+  "Return a N-element vector of random floats (with given ELEMENT-TYPE).  A uniform random number from either [-1,0] or [0,3] (with equal probability) is added to MEAN, which ensures nonzero third and fourth central moments.  Higher absolute value of MEAN makes the calculation of higher central moments more ill-conditioned when using floats."
   (let ((mean (coerce mean element-type))
         (one (coerce 1 element-type)))
     (aops:generate* element-type
@@ -64,10 +69,10 @@ Slow, but useful for testing as it does not suffer from approximation error."
          ((&accessors-r/o mean central-m2 central-m3 central-m4)
           (central-sample-moments v :degree 4))
          (*num=-tolerance* 1e-8))
-    (assert-equality #'num= mean m-p)
-    (assert-equality #'num= central-m2 m2-p)
-    (assert-equality #'num= central-m3 m3-p)
-    (assert-equality #'num= central-m4 m4-p)))
+    (is (num= mean m-p))
+    (is (num= central-m2 m2-p))
+    (is (num= central-m3 m3-p))
+    (is (num= central-m4 m4-p))))
 
 (defun test-weighted-moments (n mean &key (weight-range 4) (element-type 'double-float))
   "Test that moments calculated precisely and with accumulators are equal."
@@ -77,18 +82,18 @@ Slow, but useful for testing as it does not suffer from approximation error."
          ((&accessors-r/o mean central-m2 central-m3 central-m4)
           (central-sample-moments v :degree 4 :weights w))
          (*num=-tolerance* 1e-8))
-    (assert-equality #'num= mean m-p)
-    (assert-equality #'num= central-m2 m2-p)
-    (assert-equality #'num= central-m3 m3-p)
-    (assert-equality #'num= central-m4 m4-p)))
+    (is (num= mean m-p))
+    (is (num= central-m2 m2-p))
+    (is (num= central-m3 m3-p))
+    (is (num= central-m4 m4-p))))
 
-(deftest central-moments-test1 (statistics-tests)
+(test central-moments-1
   (test-moments 1000 0)
   (test-moments 1000 10)
   (test-moments 1000 100)
   (test-moments 1000 1000000))
 
-(deftest central-moments-test2 (statistics-tests)
+(test central-moments-2
   (test-weighted-moments 10 0)
   (test-weighted-moments 1000 10)
   (test-weighted-moments 1000 100)
@@ -103,14 +108,15 @@ Slow, but useful for testing as it does not suffer from approximation error."
          (m2 (central-sample-moments v2 :degree 4))
          (m12 (pool m1 m2))
          (*num=-tolerance* 1e-8))
-    (assert-equality #'num= (mean m) (mean m12))))
+    (is (num= (mean m) (mean m12)))))
 
-(deftest pooled-moments-test1 (statistics-tests)
+(test pooled-moments
   (test-pooled-moments 1000 0)
   (test-pooled-moments 1000 10)
   (test-pooled-moments 1000 100)
   (test-pooled-moments 1000 1000000))
 
+;; Commented out by Papp
 ;; (addtest (statistics-tests)
 ;;   test-ratio
 ;;   (let+ ((v (map1 #'bit-to-boolean #*000011111))
@@ -118,22 +124,22 @@ Slow, but useful for testing as it does not suffer from approximation error."
 ;;     (ensure-same ratio 5/9)
 ;;     (ensure-same (tally acc) 9)))
 
-(deftest test-invalid-types (statistics-tests)
-  (assert-condition error (add (central-sample-moments) 'foo))
-  (assert-condition error (add (central-sample-moments) #(1 2 3)))
-  ;; (ensure-error (add (autocovariance-accumulator 9) 'foo))
+(test invalid-types
+  (signals error (add (central-sample-moments) 'foo))
+  (signals error (add (central-sample-moments) #(1 2 3)))
+  ;; (ensure-error (add (autocovariance-accumulator 9) 'foo)) ; This line and following commented out by Papp
   ;; (ensure-error (add (autocovariance-accumulator 9) #(1 2 3)))
   )
 
-(deftest test-mean (statistics-tests)
-  (assert-equalp 2 (mean (iota 5)))
-  (assert-equalp 4 (mean (iota 9))))
+(test mean
+  (is (equalp 2 (mean (iota 5))))
+  (is (equalp 4 (mean (iota 9)))))
 
-(deftest test-variance (statistics-tests)
- (assert-equalp 15/2 (variance (iota 9)))
- (assert-equalp 35 (variance (iota 20))))
+(test variance
+ (is (equalp 15/2 (variance (iota 9))))
+ (is (equalp 35 (variance (iota 20)))))
 
-(deftest pooled-moments-test (statistics-tests)
+(test pooled-moments
   (let ((v #(62.944711253834164d0 81.15843153081796d0 25.397393118645773d0
              82.67519197788647d0 26.471834961609876d0 19.50812790113414d0
              55.69965251750717d0 9.376334465151004d0 91.50142635930303d0
@@ -141,9 +147,12 @@ Slow, but useful for testing as it does not suffer from approximation error."
              91.43334482781893d0 97.07515698488776d0 60.05604715628141d0
              28.377247312878072d0 84.35221790928993d0 83.14710996278352d0
              58.44153198534443d0 91.89848934771322d0)))
-    (assert-equality #'num=  (central-sample-moments v :degree 4)
-        (pool (central-sample-moments (subseq v 0 7) :degree 4)
-              (central-sample-moments (subseq v 7) :degree 4)))))
+    (is (num= (central-sample-moments v :degree 4)
+	      (pool (central-sample-moments (subseq v 0 7) :degree 4)
+		    (central-sample-moments (subseq v 7) :degree 4))))))
+
+#| These were commented out when inherited from Papp.
+   See note in README about adding histograms.
 
 ;; (addtest (statistics-tests)
 ;;   sse-off-center-test
@@ -241,27 +250,29 @@ Slow, but useful for testing as it does not suffer from approximation error."
 ;;          (acc-pooled (pool acc1 acc2))
 ;;          (*lift-equality-test* #'==))
 ;;     (assert-equality  acc acc-pooled)))
+|#
 
-(deftest quantiles (statistics-tests)
+(test quantiles
   (let ((sample #(0.0 1.0))
         (quantiles (numseq 0 1 :length 11 :type 'double-float))
         (weights #(1 1))
         (expected-xs #(0.0 0.0 0.0 0.1 0.3 0.5 0.7 0.9 1.0 1.0 1.0)))
-    (assert-equality #'num= expected-xs
-        (map 'vector (curry #'quantile sample) quantiles))
-    (assert-equality #'num= expected-xs
-        (quantiles sample quantiles))
-    (assert-equality #'num= expected-xs
-        (weighted-quantiles sample weights quantiles))))
+    (is (num= expected-xs
+	      (map 'vector (curry #'quantile sample) quantiles)))
+    (is (num= expected-xs
+	      (quantiles sample quantiles)))
+    (is (num= expected-xs
+	      (weighted-quantiles sample weights quantiles)))))
 
-(deftest quantile-probabilities (statistics-tests)
+(test quantile-probabilities
   (let* ((n 10)
-         (sample (sort (aops:generate (lambda () (random (* n 2))) n) #'<))
-         (empirical-quantile-probabilities n))
-    (assert-equalp sample
-        (quantiles sample (empirical-quantile-probabilities
-                                       (length sample))))))
+         (sample (sort (aops:generate (lambda () (random (* n 2))) n) #'<)))
+    (is (equalp sample
+		(quantiles sample (empirical-quantile-probabilities
+				   (length sample)))))))
 
+#| These were commented out by Papp when the code was inherited.
+   See note in README.org about histograms needing to be added.
 ;; (addtest (statistics-tests)
 ;;   (let+ ((end 5)
 ;;          (index 0)                      ; to make sure we have 1 of each
@@ -371,3 +382,4 @@ Slow, but useful for testing as it does not suffer from approximation error."
 ;;     ;; (assert-equality  (relative-frequency histogram 3) 3/6)
 ;;     ;; (assert-equality  (relative-frequency histogram 7) 0)
 ;;     (assert-equality  (limits histogram) '((1 . 4)))))
+|#

@@ -1,18 +1,25 @@
-(in-package #:cl-num-utils-tests)
+;;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS-TESTS -*-
+;;;; Copyright (c) 2019 by Symbolics Pte. Ltd. All rights reserved.
+(in-package #:num-utils-tests)
 
-(defsuite extended-real-tests (tests))
+#+genera (setf *print-array* t)
 
-;;; helper macros for defining tests
+(def-suite extended-real
+    :description "Test extended real functions"
+    :in all-tests)
+(in-suite extended-real)
+
+;;; helper functions for defining tests
 
 (defun assert-relation (relation &rest argument-lists)
   "Assert RELATION called with each set of arguments."
   (loop for a in argument-lists
-        do (assert-true (apply relation a))))
+        do (is (apply relation a))))
 
 (defun assert-not-relation (relation &rest argument-lists)
   "Assert that RELATION does not hold, called with each set of arguments."
   (loop for a in argument-lists
-        do (assert-false (apply relation a))))
+        do (not (apply relation a))))
 
 (defun assert-paired-relation (relation1 relation2 &rest argument-lists)
   (apply #'assert-relation relation1 argument-lists)
@@ -24,15 +31,15 @@
 
 (defun assert-relation-corner-cases (&rest relations)
   (loop for r in relations
-        do (assert-true (funcall r 1))
-           (assert-true (funcall r :plusinf))
-           (assert-true (funcall r :minusinf))
-           (assert-condition error (funcall r))))
+        do (is (funcall r 1))
+           (is (funcall r :plusinf))
+           (is (funcall r :minusinf))
+           (signals error (funcall r))))
 
-(deftest relation-corner-cases-test (extended-real-tests)
+(test relation-corner-cases-test
   (assert-relation-corner-cases #'xreal:= #'xreal:< #'xreal:> #'xreal:>= #'xreal:<=))
 
-(deftest strict-inequalities-test (extended-real-tests)
+(test strict-inequalities-test
   (assert-paired-relation #'xreal:< #'xreal:>
                           ;; < pairs
                           '(1 2)
@@ -58,7 +65,7 @@
                               '(1 :plusinf 2)
                               '(1 :plusinf :plusinf)))
 
-(deftest inequalities-test (extended-real-tests)
+(test inequalities-test
   (assert-paired-relation #'xreal:<= #'xreal:>=
                           ;; <= pairs
                           '(1 1)
@@ -84,7 +91,7 @@
                               '(1 3 2)
                               '(1 :plusinf 2)))
 
-(deftest equality-test (extended-real-tests)
+(test equality-test
   (assert-relation #'xreal:=
                    ;; = pairs
                    '(1 1)
@@ -93,7 +100,7 @@
                    ;; = sequences
                    '(2 2 2)
                    '(:plusinf :plusinf :plusinf)
-                   '(:minusinf :minusinf :minusinf))
+		   '(:minusinf :minusinf :minusinf))
   (assert-not-relation #'xreal:=
                        ;; not = pairs
                        '(1 2)

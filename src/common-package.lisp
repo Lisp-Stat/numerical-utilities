@@ -1,13 +1,13 @@
-;;; -*- Mode:Lisp; Syntax:ANSI-Common-Lisp; Coding:utf-8 -*-
+;;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: CL-USER -*-
 
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (unless (find-package '#:cl-num-utils)
-    (defpackage #:cl-num-utils
+  (unless (find-package '#:num-utils)
+    (defpackage #:num-utils
       (:nicknames #:clnu)
       (:use #:cl))))
 
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (in-package #:cl-num-utils)
+  (in-package #:num-utils)
 
   (flet ((reexport (package)
            "Reexport all external symbols of package."
@@ -16,13 +16,13 @@
                (when (eq (symbol-package symbol) package)
                  (import symbol)
                  (export symbol))))))
-    (reexport '#:cl-num-utils.arithmetic)
-    (reexport '#:cl-num-utils.chebyshev)
-    (reexport '#:cl-num-utils.elementwise)
-    (reexport '#:cl-num-utils.interval)
-    (reexport '#:cl-num-utils.matrix)
-    (reexport '#:cl-num-utils.num=)
-    (reexport '#:cl-num-utils.statistics)
-    (reexport '#:cl-num-utils.utilities)
-    (reexport '#:cl-num-utils.rootfinding)
-    (reexport '#:cl-num-utils.quadrature)))
+    (reexport '#:num-utils.arithmetic)
+    (reexport '#:num-utils.chebyshev)
+    (reexport '#:num-utils.elementwise)
+    (reexport '#:num-utils.interval)
+    (reexport '#:num-utils.matrix)
+    (reexport '#:num-utils.num=)
+    (reexport '#:num-utils.statistics)
+    (reexport '#:num-utils.utilities)
+    (reexport '#:num-utils.rootfinding)
+    (reexport '#:num-utils.quadrature)))

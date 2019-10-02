@@ -1,33 +1,5 @@
-;;; -*- Mode:Lisp; Syntax:ANSI-Common-Lisp; -*-
-
-(cl:defpackage #:cl-num-utils.utilities
-  (:use #:cl
-        #:alexandria
-        #:anaphora
-        #:let-plus)
-  (:export
-   #:gethash*
-   #:splice-when
-   #:splice-awhen
-   #:curry*
-   #:check-types
-   #:define-with-multiple-bindings
-   #:unlessf
-   #:within?
-   #:fixnum?
-   #:simple-fixnum-vector
-   #:as-simple-fixnum-vector
-   #:as-double-float
-   #:with-double-floats
-   #:simple-double-float-vector
-   #:generate-sequence
-   #:expanding
-   #:bic
-   #:binary-search
-   #:as-alist
-   #:as-plist))
-
-(cl:in-package #:cl-num-utils.utilities)
+;;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS.UTILITIES -*-
+(cl:in-package #:num-utils.utilities)
 
 (defmacro gethash* (key hash-table
                     &optional (datum "Key not found.")

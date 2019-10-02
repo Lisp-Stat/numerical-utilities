@@ -1,16 +1,5 @@
-;;; -*- Mode:Lisp; Syntax:ANSI-Common-Lisp; Coding:utf-8 -*-
-
-(cl:defpackage #:cl-num-utils.print-matrix
-  (:use #:cl
-        #:alexandria
-        #:anaphora
-        #:let-plus)
-  (:export
-   #:print-length-truncate
-   #:*print-matrix-precision*
-   #:print-matrix))
-
-(cl:in-package #:cl-num-utils.print-matrix)
+;;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS.PRINT-MATRIX -*-
+(cl:in-package #:num-utils.print-matrix)
 
 (defun print-length-truncate (dimension)
   "Return values (min dimension *print-length*) and whether the constraint is binding."

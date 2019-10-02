@@ -1,21 +1,5 @@
-;;; -*- Mode:Lisp; Syntax:ANSI-Common-Lisp; Coding:utf-8 -*-
-
-(defpackage #:cl-num-utils.extended-real
-  (:use #:cl #:alexandria)
-  (:nicknames #:xreal)
-  (:shadow #:= #:< #:> #:<= #:>=)
-  (:export
-   :infinite?
-   :extended-real
-   :=
-   :<
-   :>
-   :<=
-   :>=
-   :with-template
-   :lambda-template))
-
-(in-package #:cl-num-utils.extended-real)
+;;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS.EXTENDED-REAL -*-
+(in-package #:num-utils.extended-real)
 
 (deftype infinite ()
   "Representing infinity (extending the real line)."

@@ -1,28 +1,31 @@
-;;; -*- Mode:Lisp; Syntax:ANSI-Common-Lisp; Coding:utf-8 -*-
+;;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS-TESTS -*-
+;;;; Copyright (c) 2019 by Symbolics Pte. Ltd. All rights reserved.
+(in-package #:num-utils-tests)
 
-(in-package #:cl-num-utils-tests)
+(def-suite utilities
+    :description "Tests root finding functions"
+    :in all-tests)
+(in-suite utilities)
 
-(defsuite utilities-tests (tests))
-
-(deftest gethash-test (utilities-tests)
+(test gethash
   (let ((table (make-hash-table :test #'eq)))
     (setf (gethash 'a table) 1)
-    (assert-eql 1 (gethash* 'a table))
-    (assert-condition error (gethash* 'b table))))
+    (is (= 1 (gethash* 'a table)))
+    (signals error (gethash* 'b table))))
 
-(deftest biconditional-test (utilities-tests)
-  (assert-true (bic t t))
-  (assert-true (bic nil nil))
-  (assert-false (bic t nil))
-  (assert-false (bic nil t)))
+(test biconditional
+  (is (bic t t))
+  (is (bic nil nil))
+  (not (bic t nil))
+  (not (bic nil t)))
 
-(deftest splice-when (utilities-tests)
-  (assert-equal '(a b c) `(a ,@(splice-when t 'b) c))
-  (assert-equal '(a c) `(a ,@(splice-when nil 'b) c))
-  (assert-equal '(a b c) `(a ,@(splice-awhen 'b it) c))
-  (assert-equal '(a c) `(a ,@(splice-awhen (not 'b) it) c)))
+(test splice-when
+  (is (equal '(a b c) `(a ,@(splice-when t 'b) c)))
+  (is (equal '(a c) `(a ,@(splice-when nil 'b) c)))
+  (is (equal '(a b c) `(a ,@(splice-awhen 'b it) c)))
+  (is (equal '(a c) `(a ,@(splice-awhen (not 'b) it) c))))
 
-(deftest with-double-floats (utilities-tests)
+(test with-double-floats
   (let ((a 1)
         (c 4)
         (d 5))
@@ -30,9 +33,10 @@
                          (b a)
                          c
                          (d))
-      (assert-eql a 2d0)
-      (assert-eql b 1d0)
-      (assert-eql c 4d0)
-      (assert-eql d 5d0))))
+      (is (= a 2d0))
+      (is (= b 1d0))
+      (is (= c 4d0))
+      (is (= d 5d0)))))
 
-;;; FIXME: write tests for other utilities
+;;; TODO (Papp): write tests for other utilities
+

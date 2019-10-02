@@ -1,17 +1,5 @@
-;;; -*- Mode:Lisp; Syntax:ANSI-Common-Lisp; -*-
-
-(cl:defpackage #:cl-num-utils.rootfinding
-  (:use #:cl
-        #:alexandria
-        #:cl-num-utils.interval
-        #:cl-num-utils.utilities
-        #:let-plus)
-  (:export
-   #:*rootfinding-epsilon*
-   #:*rootfinding-delta-relative*
-   #:root-bisection))
-
-(cl:in-package #:cl-num-utils.rootfinding)
+;;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS.ROOTFINDING -*-
+(cl:in-package #:num-utils.rootfinding)
 
 ;;; Testing convergence of rootfinding methods
 

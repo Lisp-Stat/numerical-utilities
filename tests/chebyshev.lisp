@@ -1,8 +1,13 @@
-;;; -*- Mode:Lisp; Syntax:ANSI-Common-Lisp; Coding:utf-8 -*-
+;;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS-TESTS -*-
+;;;; Copyright (c) 2019 by Symbolics Pte. Ltd. All rights reserved.
+(in-package #:num-utils-tests)
 
-(in-package #:cl-num-utils-tests)
+#+genera (setf *print-array* t)
 
-(defsuite chebyshev-tests (tests))
+(def-suite chebyshev
+    :description "Test chebyshev functions"
+    :in all-tests)
+(in-suite chebyshev)
 
 (defun maximum-on-grid (f interval &optional (n-grid 1000))
   "Maximum of F on a grid of N-GRID equidistand points in INTERVAL."
@@ -22,19 +27,19 @@
   (let ((f-approx (apply #'chebyshev-approximate f interval n-polynomials rest)))
     (approximation-error f f-approx test-interval)))
 
-(deftest chebyshev-open-inf (chebyshev-tests)
-  (assert-true (<= (test-chebyshev-approximate (lambda (x) (/ x (+ 4 x)))
-                                               (interval 2 :plusinf) 15
-                                               (interval 2 102))
-                   1e-5))
-  (assert-true (<= (test-chebyshev-approximate (lambda (x) (exp (- x)))
-                                               (interval 0 :plusinf) 15
-                                               (interval 0 10)
-                                               :n-points 30)
-                   1e-4)))
+(test chebyshev-open-inf
+  (is (<= (test-chebyshev-approximate (lambda (x) (/ x (+ 4 x)))
+				      (interval 2 :plusinf) 15
+				      (interval 2 102))
+	  1e-5))
+  (is (<= (test-chebyshev-approximate (lambda (x) (exp (- x)))
+				      (interval 0 :plusinf) 15
+				      (interval 0 10)
+				      :n-points 30)
+	  1e-4)))
 
-(deftest chebyshev-finite-interval (chebyshev-tests)
-  (assert-true (<= (test-chebyshev-approximate (lambda (x) (/ (1+ (expt x 2))))
-                                               (interval -3d0 2d0) 20
-                                               (interval -1.5d0 1d0))
-                   1e-3)))
+(test chebyshev-finite-interval
+  (is (<= (test-chebyshev-approximate (lambda (x) (/ (1+ (expt x 2))))
+				      (interval -3d0 2d0) 20
+				      (interval -1.5d0 1d0))
+	  1e-3)))
