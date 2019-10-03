@@ -24,25 +24,24 @@ replacement.
 
 * Status
 It appears that this library was in the midst of a reorganization when
-release. As near as I can tell from the [[https://github.com/tpapp/cl-num-utils/commit/a0f522b44b465fc071623f9662bdde0163be6467][github history]], all the files
+released. As near as I can tell from the [[https://github.com/tpapp/cl-num-utils/commit/a0f522b44b465fc071623f9662bdde0163be6467][github history]], all the files
 in cl-num-utils were moved to src/old/, and then selectively moved
-into src/ as they were clean up and unit tests written. Some, such as
-data-frame, were moved by Papp into separate projects. The status of
-the files currently in src/old/ is unknown, but I suspect some of them
-could be dusted off and moved into src/ to be used. Check in
-data-frames project first because I think some were moved there
-without being removed from cl-num-utils.
+into src/ as they were cleaned up and unit tests written. Some, such
+as data-frame, were moved by Papp into separate projects. Several of
+the files in old/ could be dusted off and moved into src/ to be
+used. Check in data-frames project first because I think some were
+moved there without being removed from cl-num-utils.
 
 There was a fair amount of code commented out by the original
 author. Where we have commented code, we use the block comment syntax
-#| ... |#, and noted the person performing the deletion. We have also
+#| ... |#, and noted the person performing the removal. We have also
 added comments throughout the code to make it more readable, or to
 include our research notes.
 
 * Known Issues
 ** Test Failures
 [[https://github.com/Symbolics/num-utils/issues/1][Issue 1]] describes a problem with the wrapped-bivariate-to-array test
-in tests/matrix.lisp. This fails under fiveam, but pass on clunit. I
+in tests/matrix.lisp. This fails under fiveam, but passes on clunit. I
 believe there to be a bug, either in fiveam or num-utils (or,
 possibly, clunit). The [[https://common-lisp.net/project/fiveam/docs/api/macro_005FIT.BESE.FIVEAM_003A_003AIS.html][fiveam reason-arg]] is misleading, it will print
 the two values, and they are equal. However this only happens after
@@ -62,7 +61,7 @@ reason-args output. The /first/ time, the results are different. The
 /second/ time they are the same, making it appear that the result is a
 false negative. It is not.
 
-This test needs to be looked into further. The test code will not read
+This test needs to be looked into further. The test code will not win
 any 'most readable code of the year' award, and the answer is buried
 below several layers of macro expansions, funcalls and currying.
 
@@ -74,7 +73,7 @@ testing on CCL. [[https://github.com/tpapp/cl-num-utils/issues/15][papp15]] repo
 not work on other implementations. Please report any such problems on
 the [[https://github.com/Symbolics/num-utils/issues][Github issue tracker]].
 
-** Symbol conflicts with =alexandria=
+** Symbol conflicts with alexandria
 Importing both =num-utils= and =alexandria= will result in symbol
 conflicts.  There are two solutions for this: either import only parts
 of =num-utils= (see the packages named in each file), or shadow some
@@ -88,16 +87,14 @@ symbols, e.g.
 #+END_SRC
 
 * Reporting Bugs and Contributing
-We encourage participants and contributors. When contributing to this
+We welcom participants and contributors. When contributing to this
 repository, please first discuss major changes to the existing code
 you wish to make via a github issue. Minor changes and major additions
-are welcome as long as they are released under the Boost License (add
-to your file).
+are welcome as long as they are released under the Boost License.
 
 ** Pull Request Process
 
-1. Ensure any install or build dependencies are removed before the end
-   of the a build.
+1. Ensure any install or build dependencies are removed, e.g. .gitignore
 2. Update the README.org with details of changes to the interface.
 3. Increase the version numbers in any examples files and the ASDF file.
 4. Update README.org to the new version that this Pull Request would
@@ -107,12 +104,12 @@ Bugs are tracked on Github, please [[https://github.com/Symbolics/num-utils/issu
 
 * TODO
 ** Tasks (by Nunez)
-- Refactor/rename packages, e.g. consolidate all the matrix utilities into num-util/mops (matrix operations), num-utils/elementwise, num-utils/arithmetic, etc.
+- Refactor/rename packages, e.g. consolidate all the matrix utilities into num-util/mops (matrix operations), num-utils/elementwise, num-utils/arithmetic, etc. This way the library can be loaded piecemeal.
 - Silence SBCL compiler warnings for tests where we are expecting to signal an error
 - More CCL testing
 - Test for more specific conditions with fiveam:signal test (now is generic error)
 - Investigate unit test failure in wrapped-bivariate-to-array
-- Restore arithmetic-types.lisp and write tests
+- Restore old/arithmetic-types.lisp and write tests
 ** Tasks (by Papp)
 - Finish histogram code and tests
 - Decide whether recursive indexes are practical.
