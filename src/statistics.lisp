@@ -426,104 +426,105 @@ for any vector SAMPLE."
     (map nil (lambda (s1 s2)
                (add it (cons s1 s2))) sequence1 sequence2)))
 
-;; ;;; NOTE old code below
-
-;; ;;; Generic interface
-
-;; ;; (defgeneric sweep (accumulator object &key key)
-;; ;;   (:documentation "Apply ACCUMULATOR to elements of OBJECT.  When ACCUMULATOR
-;; ;;   is a function, it is used to generate a conforming accumulator.")
-;; ;;   (:method (accumulator (sequence sequence) &key (key #'identity))
-;; ;;     (with-conforming-accumulator (accumulator add)
-;; ;;       (map nil (compose #'add key) sequence)))
-;; ;;   (:method (accumulator (array array) &key (key #'identity))
-;; ;;     (with-conforming-accumulator (accumulator add)
-;; ;;       (map nil (compose #'add key) (flatten-array array)))))
-
-;; ;; (defgeneric sample-ratio (object)
-;; ;;   (:documentation "Return the proportion of non-nil elements.")
-;; ;;   (:method (object)
-;; ;;     (let ((accumulator (sweep (sample-ratio-accumulator) object)))
-;; ;;       (values (sample-ratio accumulator) accumulator))))
 
 
-;; ;; ;;; Specific accumulators
+;;; NOTE: Papp: old code below
 
-;; ;; ;;; tallier
+;;; Generic interface
+
+;; (defgeneric sweep (accumulator object &key key)
+;;   (:documentation "Apply ACCUMULATOR to elements of OBJECT.  When ACCUMULATOR
+;;   is a function, it is used to generate a conforming accumulator.")
+;;   (:method (accumulator (sequence sequence) &key (key #'identity))
+;;     (with-conforming-accumulator (accumulator add)
+;;       (map nil (compose #'add key) sequence)))
+;;   (:method (accumulator (array array) &key (key #'identity))
+;;     (with-conforming-accumulator (accumulator add)
+;;       (map nil (compose #'add key) (flatten-array array)))))
+
+;; (defgeneric sample-ratio (object)
+;;   (:documentation "Return the proportion of non-nil elements.")
+;;   (:method (object)
+;;     (let ((accumulator (sweep (sample-ratio-accumulator) object)))
+;;       (values (sample-ratio accumulator) accumulator))))
 
 
-;; ;; (defmethod == ((a tallier) (b tallier) &optional tolerance)
-;; ;;   (declare (ignore tolerance))
-;; ;;   (= (tallier-tally a) (tallier-tally b)))
+;;; Specific accumulators
 
-;; ;; ;;; sample ratio
+;;; tallier
 
-;; ;; (defstruct (sample-ratio-accumulator
-;; ;;             (:constructor sample-ratio-accumulator ())
-;; ;;             (:include tallier))
-;; ;;   "Sample ratio accumulator."
-;; ;;   (count 0 :type fixnum))
+;; (defmethod == ((a tallier) (b tallier) &optional tolerance)
+;;   (declare (ignore tolerance))
+;;   (= (tallier-tally a) (tallier-tally b)))
 
-;; ;; (defmethod add ((accumulator sample-ratio-accumulator) object)
-;; ;;   (let+ (((&structure sample-ratio-accumulator- tally count) accumulator))
-;; ;;     (incf tally)
-;; ;;     (when object
-;; ;;       (incf count))))
+;;; sample ratio
 
-;; ;; (defmethod sample-ratio ((accumulator sample-ratio-accumulator))
-;; ;;   (let+ (((&structure-r/o sample-ratio-accumulator- tally count) accumulator))
-;; ;;     (/ count tally)))
+;; (defstruct (sample-ratio-accumulator
+;;             (:constructor sample-ratio-accumulator ())
+;;             (:include tallier))
+;;   "Sample ratio accumulator."
+;;   (count 0 :type fixnum))
 
-;; ;; ;;; mean accumulator for scalars
+;; (defmethod add ((accumulator sample-ratio-accumulator) object)
+;;   (let+ (((&structure sample-ratio-accumulator- tally count) accumulator))
+;;     (incf tally)
+;;     (when object
+;;       (incf count))))
 
-;; ;; ;; (defun pooled-mean (tally1 mean1 tally2 mean2
-;; ;; ;;                     &optional (tally (+ tally1 tally2)))
-;; ;; ;;   "Pooled mean.  For internal use."
-;; ;; ;;   (/ (+ (* tally1 mean1) (* tally2 mean2)) tally))
+;; (defmethod sample-ratio ((accumulator sample-ratio-accumulator))
+;;   (let+ (((&structure-r/o sample-ratio-accumulator- tally count) accumulator))
+;;     (/ count tally)))
 
-;; ;; ;; (defmethod pool2 ((acc1 mean-accumulator) (acc2 mean-accumulator))
-;; ;; ;;   (let+ (((&structure mean-accumulator- (tally1 tally) (mean1 mean)) acc1)
-;; ;; ;;          ((&structure mean-accumulator- (tally2 tally) (mean2 mean)) acc2)
-;; ;; ;;          (tally (+ tally1 tally2)))
-;; ;; ;;     (mean-accumulator tally (pooled-mean tally1 mean1 tally2 mean2 tally))))
+;;; mean accumulator for scalars
 
-;; ;; ;; (defmethod == ((acc1 mean-accumulator) (acc2 mean-accumulator)
-;; ;; ;;                &optional (tolerance *==-tolerance*))
-;; ;; ;;   (let+ (((&structure mean-accumulator- (tally1 tally) (mean1 mean)) acc1)
-;; ;; ;;          ((&structure mean-accumulator- (tally2 tally) (mean2 mean)) acc2))
-;; ;; ;;     (and (= tally1 tally2)
-;; ;; ;;          (== mean1 mean2 tolerance))))
+;; (defun pooled-mean (tally1 mean1 tally2 mean2
+;;                     &optional (tally (+ tally1 tally2)))
+;;   "Pooled mean.  For internal use."
+;;   (/ (+ (* tally1 mean1) (* tally2 mean2)) tally))
 
-;; ;; ;;; mean accumulator for arrays
+;; (defmethod pool2 ((acc1 mean-accumulator) (acc2 mean-accumulator))
+;;   (let+ (((&structure mean-accumulator- (tally1 tally) (mean1 mean)) acc1)
+;;          ((&structure mean-accumulator- (tally2 tally) (mean2 mean)) acc2)
+;;          (tally (+ tally1 tally2)))
+;;     (mean-accumulator tally (pooled-mean tally1 mean1 tally2 mean2 tally))))
 
-;; ;; (defstruct (array-mean-accumulator
-;; ;;              (:constructor array-mean-accumulator% (mean)))
-;; ;;   "Array of accumulators."
-;; ;;   (tally 0 :type fixnum)
-;; ;;   (mean nil :type array :read-only t))
+;; (defmethod == ((acc1 mean-accumulator) (acc2 mean-accumulator)
+;;                &optional (tolerance *==-tolerance*))
+;;   (let+ (((&structure mean-accumulator- (tally1 tally) (mean1 mean)) acc1)
+;;          ((&structure mean-accumulator- (tally2 tally) (mean2 mean)) acc2))
+;;     (and (= tally1 tally2)
+;;          (== mean1 mean2 tolerance))))
 
-;; ;; (define-structure-let+ (array-mean-accumulator) tally mean)
+;;; mean accumulator for arrays
 
-;; ;; (defun array-mean-accumulator (dimensions)
-;; ;;   "Create an array mean accumulator for array."
-;; ;;   (array-mean-accumulator% (make-array dimensions :initial-element 0d0)))
+;; (defstruct (array-mean-accumulator
+;;              (:constructor array-mean-accumulator% (mean)))
+;;   "Array of accumulators."
+;;   (tally 0 :type fixnum)
+;;   (mean nil :type array :read-only t))
 
-;; ;; (defmethod add ((accumulator array-mean-accumulator) object)
-;; ;;   (let+ (((&array-mean-accumulator tally nil) accumulator)
-;; ;;          ((&array-mean-accumulator-r/o nil mean) accumulator)
-;; ;;          (array (aprog1 (as-array object)
-;; ;;                   (assert (common-dimensions it mean))))
-;; ;;          (tally (incf tally)))
-;; ;;     (dotimes (index (array-total-size array))
-;; ;;       (incf-mean (row-major-aref mean index)
-;; ;;                  (row-major-aref array index) tally))))
+;; (define-structure-let+ (array-mean-accumulator) tally mean)
 
-;; ;; (define-structure-slot-accessor mean array-mean-accumulator :read-only? t)
+;; (defun array-mean-accumulator (dimensions)
+;;   "Create an array mean accumulator for array."
+;;   (array-mean-accumulator% (make-array dimensions :initial-element 0d0)))
 
-;; ;; (define-conforming-accumulator (mean (array array))
-;; ;;   (array-mean-accumulator (array-dimensions array)))
+;; (defmethod add ((accumulator array-mean-accumulator) object)
+;;   (let+ (((&array-mean-accumulator tally nil) accumulator)
+;;          ((&array-mean-accumulator-r/o nil mean) accumulator)
+;;          (array (aprog1 (as-array object)
+;;                   (assert (common-dimensions it mean))))
+;;          (tally (incf tally)))
+;;     (dotimes (index (array-total-size array))
+;;       (incf-mean (row-major-aref mean index)
+;;                  (row-major-aref array index) tally))))
 
-;; ;;; covariance
+;; (define-structure-slot-accessor mean array-mean-accumulator :read-only? t)
+
+;; (define-conforming-accumulator (mean (array array))
+;;   (array-mean-accumulator (array-dimensions array)))
+
+;;; covariance
 
 ;; (defstruct sample-covariance
 ;;   "Sample covariance calculated on-line/single-pass.
@@ -783,49 +784,49 @@ for any vector SAMPLE."
 ;; (defmethod keys-and-values ((object sparse-accumulator-array))
 ;;   (keys-and-values (sparse-accumulator-array-table object)))
 
-;; ;;; moments accumulator
+;;; moments accumulator
 
-;; ;; (defclass moments-accumulator-array (sparse-accumulator-array )
-;; ;;   ()
-;; ;;   (:documentation ""))
+;; (defclass moments-accumulator-array (sparse-accumulator-array )
+;;   ()
+;;   (:documentation ""))
 
-;; ;; (defun moments-accumulator-array (rank &key (accumulator #'mean-accumulator))
-;; ;;   (make-instance 'moments-accumulator-array :rank rank
-;; ;;                  :init-function (lambda (&rest rest)
-;; ;;                                   (declare (ignore rest))
-;; ;;                                   (funcall accumulator))))
+;; (defun moments-accumulator-array (rank &key (accumulator #'mean-accumulator))
+;;   (make-instance 'moments-accumulator-array :rank rank
+;;                  :init-function (lambda (&rest rest)
+;;                                   (declare (ignore rest))
+;;                                   (funcall accumulator))))
 
-;; ;;; acf accumulator
+;;; acf accumulator
 
-;; ;; (defstruct (residual-pair (:constructor residual-pair (x x-index y y-index)))
-;; ;;   "Pair of residuals."
-;; ;;   (x)
-;; ;;   (x-index nil :type fixnum)
-;; ;;   (y)
-;; ;;   (y-index nil :type fixnum))
+;; (defstruct (residual-pair (:constructor residual-pair (x x-index y y-index)))
+;;   "Pair of residuals."
+;;   (x)
+;;   (x-index nil :type fixnum)
+;;   (y)
+;;   (y-index nil :type fixnum))
 
-;; ;; (defclass acf-accumulator (sparse-accumulator-array)
-;; ;;   ()
-;; ;;   (:documentation ""))
+;; (defclass acf-accumulator (sparse-accumulator-array)
+;;   ()
+;;   (:documentation ""))
 
-;; ;; (defmethod add ((instance acf-accumulator) (residual-pair residual-pair))
-;; ;;   ;; !!! factor out part, write compiler macro
-;; ;;   (let+ (((&structure residual-pair- x x-index y y-index) residual-pair))
-;; ;;     (when (<= x-index y-index)
-;; ;;       (add-with-subscripts% instance (* x y) (list (- y-index x-index))))))
+;; (defmethod add ((instance acf-accumulator) (residual-pair residual-pair))
+;;   ;; !!! factor out part, write compiler macro
+;;   (let+ (((&structure residual-pair- x x-index y y-index) residual-pair))
+;;     (when (<= x-index y-index)
+;;       (add-with-subscripts% instance (* x y) (list (- y-index x-index))))))
 
 
-;; ;;; Histograms
-;; ;;;
-;; ;;; data structures for counting the frequencies of multivariate indexes
-;; ;;; (always of the same rank).  Building block for a histogram, but does not
-;; ;;; have information on where the indexes came from.  Frequencies can only be
-;; ;;; added, not set or subtracted.  The total is available, but is not
-;; ;;; necessarily cached/saved.  Some combinations of subscripts may be invalid
-;; ;;; or unavailable, in that case an error is raised.
-;; ;;;
-;; ;;; !! define condition
-;; ;;; !! write methods for using an array as frequencies
+;;; Histograms
+;;;
+;;; data structures for counting the frequencies of multivariate indexes
+;;; (always of the same rank).  Building block for a histogram, but does not
+;;; have information on where the indexes came from.  Frequencies can only be
+;;; added, not set or subtracted.  The total is available, but is not
+;;; necessarily cached/saved.  Some combinations of subscripts may be invalid
+;;; or unavailable, in that case an error is raised.
+;;;
+;;; !! define condition
+;;; !! write methods for using an array as frequencies
 
 ;; (defstruct (histogram-accumulator
 ;;             (:include sparse-accumulator-array))
@@ -923,208 +924,208 @@ for any vector SAMPLE."
 ;;                                     bins))
 ;;          object))
 
-;; ;; (defun histogram-from-matrix (matrix &rest bins)
-;; ;;   (let+ ((histogram (apply #'make-hashed-histogram bins))
-;; ;;          ((nrow ncol) (array-dimensions matrix)))
-;; ;;     (assert (= (subscript-rank histogram) ncol))
-;; ;;     (loop for row :below nrow do
-;; ;;       (apply #'add-observation histogram
-;; ;;              1 (coerce (subarray matrix row) 'list)))
-;; ;;     histogram))
+;; (defun histogram-from-matrix (matrix &rest bins)
+;;   (let+ ((histogram (apply #'make-hashed-histogram bins))
+;;          ((nrow ncol) (array-dimensions matrix)))
+;;     (assert (= (subscript-rank histogram) ncol))
+;;     (loop for row :below nrow do
+;;       (apply #'add-observation histogram
+;;              1 (coerce (subarray matrix row) 'list)))
+;;     histogram))
 
-;; ;; (defclass binned-data ()
-;; ;;   ((indexes :accessor indexes :initarg :indexes)))
+;; (defclass binned-data ()
+;;   ((indexes :accessor indexes :initarg :indexes)))
 
-;; ;; (defmethod indexes ((vector vector))
-;; ;;   vector)
+;; (defmethod indexes ((vector vector))
+;;   vector)
 
-;; ;; (defmethod as-array ((binned-data binned-data) &key copy?)
-;; ;;   (maybe-copy-array (indexes binned-data) copy?))
+;; (defmethod as-array ((binned-data binned-data) &key copy?)
+;;   (maybe-copy-array (indexes binned-data) copy?))
 
-;; ;; (defgeneric bin-limit (binned-data)
-;; ;;   (:documentation "Return an integer which larger than all indexes (but does not
-;; ;;   have to be the smallest of such values).")
-;; ;;   (:method ((vector vector))
-;; ;;     (1+ (reduce #'max vector)))
-;; ;;   (:method ((binned-data binned-data))
-;; ;;     (bin-limit (indexes binned-data))))
+;; (defgeneric bin-limit (binned-data)
+;;   (:documentation "Return an integer which larger than all indexes (but does not
+;;   have to be the smallest of such values).")
+;;   (:method ((vector vector))
+;;     (1+ (reduce #'max vector)))
+;;   (:method ((binned-data binned-data))
+;;     (bin-limit (indexes binned-data))))
 
-;; ;; (defgeneric bin-origin (binned-data bin-index)
-;; ;;   (:documentation "Return information on the particular bin (what value/range is
-;; ;;   mapped to this bin) if available.")
-;; ;;   (:method ((vector vector) bin-index)
-;; ;;     bin-index)
-;; ;;   (:method ((binned-data binned-data) bin-index)
-;; ;;     bin-index))
+;; (defgeneric bin-origin (binned-data bin-index)
+;;   (:documentation "Return information on the particular bin (what value/range is
+;;   mapped to this bin) if available.")
+;;   (:method ((vector vector) bin-index)
+;;     bin-index)
+;;   (:method ((binned-data binned-data) bin-index)
+;;     bin-index))
 
-;; ;; (defgeneric bin-origins (binned-data)
-;; ;;   (:documentation "Bin origin for all bins.")
-;; ;;   (:method (binned-data)
-;; ;;     (iter
-;; ;;       (for bin-index :below (bin-limit binned-data))
-;; ;;       (collect (bin-origin binned-data bin-index) :result-type vector))))
+;; (defgeneric bin-origins (binned-data)
+;;   (:documentation "Bin origin for all bins.")
+;;   (:method (binned-data)
+;;     (iter
+;;       (for bin-index :below (bin-limit binned-data))
+;;       (collect (bin-origin binned-data bin-index) :result-type vector))))
 
-;; ;; ;;; continuous bins
+;; ;;; continuous bins
 
-;; ;; (defclass continuous-binned-data (binned-data)
-;; ;;   ((breaks :accessor breaks :initarg :breaks))
-;; ;;   (:documentation "Used for binning real numbers."))
+;; (defclass continuous-binned-data (binned-data)
+;;   ((breaks :accessor breaks :initarg :breaks))
+;;   (:documentation "Used for binning real numbers."))
 
-;; ;; (defmethod bin-limit ((binned-data continuous-binned-data))
-;; ;;   (length (breaks binned-data)))
+;; (defmethod bin-limit ((binned-data continuous-binned-data))
+;;   (length (breaks binned-data)))
 
-;; ;; (defmethod bin-origin ((binned-data continuous-binned-data) bin-index)
-;; ;;   (bind (((:slots-r/o breaks) binned-data))
-;; ;;     (make-interval (aref breaks bin-index)
-;; ;;                    (let ((right-index (1+ bin-index)))
-;; ;;                      (when (< right-index (length breaks))
-;; ;;                        (aref breaks right-index))))))
+;; (defmethod bin-origin ((binned-data continuous-binned-data) bin-index)
+;;   (bind (((:slots-r/o breaks) binned-data))
+;;     (make-interval (aref breaks bin-index)
+;;                    (let ((right-index (1+ bin-index)))
+;;                      (when (< right-index (length breaks))
+;;                        (aref breaks right-index))))))
 
-;; ;; (defun bin-using-breaks (vector breaks &key (below 0)
-;; ;;                          (above (- (length breaks) 2)) copy? skip-check?)
-;; ;;   (make-instance 'continuous-binned-data
-;; ;;                  :indexes (map 'simple-fixnum-vector
-;; ;;                                (irregular-bins breaks :below below :above above
-;; ;;                                                :copy? copy?
-;; ;;                                                :skip-check? skip-check?)
-;; ;;                                vector)
-;; ;;                  :breaks breaks))
+;; (defun bin-using-breaks (vector breaks &key (below 0)
+;;                          (above (- (length breaks) 2)) copy? skip-check?)
+;;   (make-instance 'continuous-binned-data
+;;                  :indexes (map 'simple-fixnum-vector
+;;                                (irregular-bins breaks :below below :above above
+;;                                                :copy? copy?
+;;                                                :skip-check? skip-check?)
+;;                                vector)
+;;                  :breaks breaks))
 
-;; ;; (defun bin-using-quantiles (vector quantiles)
-;; ;;   "Bin VECTOR using its quantiles.  Quantiles has to contain 0 and 1.  Highest
-;; ;; element is put in the last bin."
-;; ;;   (assert (and (vector-satisfies? quantiles #'<)
-;; ;;                (= (aref quantiles 0) 0)
-;; ;;                (= (vector-last quantiles) 1)))
-;; ;;   (bin-using-breaks vector (sample-quantiles vector quantiles)
-;; ;;                     :skip-check? t))
+;; (defun bin-using-quantiles (vector quantiles)
+;;   "Bin VECTOR using its quantiles.  Quantiles has to contain 0 and 1.  Highest
+;; element is put in the last bin."
+;;   (assert (and (vector-satisfies? quantiles #'<)
+;;                (= (aref quantiles 0) 0)
+;;                (= (vector-last quantiles) 1)))
+;;   (bin-using-breaks vector (sample-quantiles vector quantiles)
+;;                     :skip-check? t))
 
-;; ;; ;;; discrete bins
+;; ;;; discrete bins
 
-;; ;; (defclass discrete-binned-data (binned-data)
-;; ;;   ((keys :accessor keys :initarg :keys)))
+;; (defclass discrete-binned-data (binned-data)
+;;   ((keys :accessor keys :initarg :keys)))
 
-;; ;; (defmethod bin-limit ((binned-data discrete-binned-data))
-;; ;;   (length (keys binned-data)))
+;; (defmethod bin-limit ((binned-data discrete-binned-data))
+;;   (length (keys binned-data)))
 
-;; ;; (defmethod bin-origin ((binned-data discrete-binned-data) bin-index)
-;; ;;   (aref (keys binned-data) bin-index))
+;; (defmethod bin-origin ((binned-data discrete-binned-data) bin-index)
+;;   (aref (keys binned-data) bin-index))
 
-;; ;; (defmethod bin-origins ((binned-data discrete-binned-data))
-;; ;;   (keys binned-data))
+;; (defmethod bin-origins ((binned-data discrete-binned-data))
+;;   (keys binned-data))
 
-;; ;; (defun bin-discrete (vector &key (test #'eql))
-;; ;;   "Bin discrete data, using TEST.  The implementation uses a hash-table, and
-;; ;; TEST has to be acceptable to MAKE-HASH-TABLE."
-;; ;;   (let ((table (make-hash-table :test test)))
-;; ;;     (map nil (lambda (v)
-;; ;;                (setf (gethash v table) t))
-;; ;;          vector)
-;; ;;     (let ((keys (sort (coerce (hash-table-keys table) 'vector) #'<)))
-;; ;;       (iter
-;; ;;         (for key :in-vector keys :with-index key-index)
-;; ;;         (setf (gethash key table) key-index))
-;; ;;       (make-instance 'discrete-binned-datann==
-;; ;;                      :indexes (map 'vector (lambda (v) (gethash v table)) vector)
-;; ;;                      :keys keys))))
-
-
-;; ;; (defun weighted-mean-accumulator ()
-;; ;;   "Accumulator for online calculation of the weighted mean of observations.  Called
-;; ;; with X (a real number) for accumulating the mean.  When called with no
-;; ;; arguments, return (values MEAN SW N), MEAN is double-float, SW (sum of weights) is
-;; ;; double-float, N is fixnum."
-;; ;;   ;; West (1979)
-;; ;;   (let ((n 0)
-;; ;;         (mean 0)
-;; ;;         (sw 0))
-;; ;;     (lambda (&optional x w)
-;; ;;       (if x
-;; ;;           (progn
-;; ;;             (incf n)
-;; ;;             (incf sw w)
-;; ;;             (incf mean (/ (* (- x mean) w) sw)))
-;; ;;           (values mean sw n)))))
+;; (defun bin-discrete (vector &key (test #'eql))
+;;   "Bin discrete data, using TEST.  The implementation uses a hash-table, and
+;; TEST has to be acceptable to MAKE-HASH-TABLE."
+;;   (let ((table (make-hash-table :test test)))
+;;     (map nil (lambda (v)
+;;                (setf (gethash v table) t))
+;;          vector)
+;;     (let ((keys (sort (coerce (hash-table-keys table) 'vector) #'<)))
+;;       (iter
+;;         (for key :in-vector keys :with-index key-index)
+;;         (setf (gethash key table) key-index))
+;;       (make-instance 'discrete-binned-datann==
+;;                      :indexes (map 'vector (lambda (v) (gethash v table)) vector)
+;;                      :keys keys))))
 
 
-;; ;; (defun weighted-sse-accumulator ()
-;; ;;   "Accumulator for weighted sum of squared errors.  When called without arguments,
-;; ;; return (values SSE SW MEAN N), where SW is the sum of weights."
-;; ;;   ;; West (1979)
-;; ;;   (declare (optimize speed))
-;; ;;   (let ((n 0)
-;; ;;         (mean 0d0)
-;; ;;         (sse 0d0)
-;; ;;         (sw 0d0))
-;; ;;     (declare (fixnum n))
-;; ;;     (lambda (&optional x w)
-;; ;;       (if x
-;; ;;           (let ((previous-sw sw))
-;; ;;             (incf n)
-;; ;;             (incf sw w)
-;; ;;             (let* ((q (- x mean))
-;; ;;                    (r (/ (* q w) sw)))
-;; ;;               (incf sse (* previous-sw q r))
-;; ;;               (incf mean r)))
-;; ;;           (values sse sw mean n)))))
+;; (defun weighted-mean-accumulator ()
+;;   "Accumulator for online calculation of the weighted mean of observations.  Called
+;; with X (a real number) for accumulating the mean.  When called with no
+;; arguments, return (values MEAN SW N), MEAN is double-float, SW (sum of weights) is
+;; double-float, N is fixnum."
+;;   ;; West (1979)
+;;   (let ((n 0)
+;;         (mean 0)
+;;         (sw 0))
+;;     (lambda (&optional x w)
+;;       (if x
+;;           (progn
+;;             (incf n)
+;;             (incf sw w)
+;;             (incf mean (/ (* (- x mean) w) sw)))
+;;           (values mean sw n)))))
 
-;; ;; (defgeneric weighted-mean (object weights)
-;; ;;   (:documentation "Return the weighted sample mean.")
-;; ;;   (:method ((sequence sequence) (weights sequence))
-;; ;;     (apply-accumulator (weighted-mean-accumulator) sequence weights)))
 
-;; ;; (defgeneric weighted-variance (object weights)
-;; ;;   (:documentation "Return the weighted sample mean.  If there are second and third
-;; ;;   values, they are the mean and the sum of weights.")
-;; ;;   (:method ((sequence sequence) (weights sequence))
-;; ;;     (bind (((:values sse sw mean)
-;; ;;             (apply-accumulator (weighted-sse-accumulator) sequence weights)))
-;; ;;       (values (/ sse (1- sw)) mean))))
+;; (defun weighted-sse-accumulator ()
+;;   "Accumulator for weighted sum of squared errors.  When called without arguments,
+;; return (values SSE SW MEAN N), where SW is the sum of weights."
+;;   ;; West (1979)
+;;   (declare (optimize speed))
+;;   (let ((n 0)
+;;         (mean 0d0)
+;;         (sse 0d0)
+;;         (sw 0d0))
+;;     (declare (fixnum n))
+;;     (lambda (&optional x w)
+;;       (if x
+;;           (let ((previous-sw sw))
+;;             (incf n)
+;;             (incf sw w)
+;;             (let* ((q (- x mean))
+;;                    (r (/ (* q w) sw)))
+;;               (incf sse (* previous-sw q r))
+;;               (incf mean r)))
+;;           (values sse sw mean n)))))
 
-;; ;;; !!! todo: mean and variance for matrices
-;; ;;;           covariance (by stacking vectors?)
-;; ;;;           correlation (matrix)
+;; (defgeneric weighted-mean (object weights)
+;;   (:documentation "Return the weighted sample mean.")
+;;   (:method ((sequence sequence) (weights sequence))
+;;     (apply-accumulator (weighted-mean-accumulator) sequence weights)))
 
-;; ;; (defun sample-cov (a b &key (a-mean (mean a)) (b-mean (mean b)))
-;; ;;   "Sample covariance between A and B.  Means will be used when provided."
-;; ;;   (let* ((a (coerce a 'vector))
-;; ;;          (b (coerce b 'vector))
-;; ;;          (size (length a))
-;; ;;          (sum 0))
-;; ;;     (assert (= (length b) size) () "Vectors do not have the same length.")
-;; ;;     (dotimes (i size)
-;; ;;       (incf sum (* (- (aref a i) a-mean)
-;; ;;                    (- (aref b i) b-mean))))
-;; ;;     (sample-second-moment% sum size)))
+;; (defgeneric weighted-variance (object weights)
+;;   (:documentation "Return the weighted sample mean.  If there are second and third
+;;   values, they are the mean and the sum of weights.")
+;;   (:method ((sequence sequence) (weights sequence))
+;;     (bind (((:values sse sw mean)
+;;             (apply-accumulator (weighted-sse-accumulator) sequence weights)))
+;;       (values (/ sse (1- sw)) mean))))
 
-;; ;; (defun sample-corr (a b &key (a-mean (mean a)) (b-mean (mean b)))
-;; ;;   "Sample correlation between A and B.  Means will be used when provided."
-;; ;;   (/ (sample-cov a b :a-mean a-mean :b-mean b-mean)
-;; ;;      (sample-sd a a-mean) (sample-sd b b-mean)))
+;;; !!! todo: mean and variance for matrices
+;;;           covariance (by stacking vectors?)
+;;;           correlation (matrix)
 
-;; ;;; sensible behavior for sequences and arrays
+;; (defun sample-cov (a b &key (a-mean (mean a)) (b-mean (mean b)))
+;;   "Sample covariance between A and B.  Means will be used when provided."
+;;   (let* ((a (coerce a 'vector))
+;;          (b (coerce b 'vector))
+;;          (size (length a))
+;;          (sum 0))
+;;     (assert (= (length b) size) () "Vectors do not have the same length.")
+;;     (dotimes (i size)
+;;       (incf sum (* (- (aref a i) a-mean)
+;;                    (- (aref b i) b-mean))))
+;;     (sample-second-moment% sum size)))
 
-;; ;; (defmethod size ((sequence sequence))
-;; ;;   (length sequence))
+;; (defun sample-corr (a b &key (a-mean (mean a)) (b-mean (mean b)))
+;;   "Sample correlation between A and B.  Means will be used when provided."
+;;   (/ (sample-cov a b :a-mean a-mean :b-mean b-mean)
+;;      (sample-sd a a-mean) (sample-sd b b-mean)))
 
-;; ;; (defmethod size ((array array))
-;; ;;   (array-total-size array))
+;;; sensible behavior for sequences and arrays
 
-;; ;; (defmethod sum ((sequence sequence))
-;; ;;   (reduce #'+ sequence))
+;; (defmethod size ((sequence sequence))
+;;   (length sequence))
 
-;; ;; (defmethod sum ((array array))
-;; ;;   (iter
-;; ;;     (for index :from 0 :below (array-total-size array))
-;; ;;     (summing (row-major-aref array index))))
+;; (defmethod size ((array array))
+;;   (array-total-size array))
 
-;; ;; (defmethod sse ((sequence sequence) &optional (mean (mean sequence)))
-;; ;;   (reduce #'+ sequence :key (lambda (x) (expt (- x mean) 2))))
+;; (defmethod sum ((sequence sequence))
+;;   (reduce #'+ sequence))
 
-;; ;; (defmethod sse ((array array) &optional (mean (mean array)))
-;; ;;   (iter
-;; ;;     (for index :from 0 :below (array-total-size array))
-;; ;;     (summing (expt (- (row-major-aref array index) mean) 2))))
+;; (defmethod sum ((array array))
+;;   (iter
+;;     (for index :from 0 :below (array-total-size array))
+;;     (summing (row-major-aref array index))))
+
+;; (defmethod sse ((sequence sequence) &optional (mean (mean sequence)))
+;;   (reduce #'+ sequence :key (lambda (x) (expt (- x mean) 2))))
+
+;; (defmethod sse ((array array) &optional (mean (mean array)))
+;;   (iter
+;;     (for index :from 0 :below (array-total-size array))
+;;     (summing (expt (- (row-major-aref array index) mean) 2))))
 
 ;; (defun subranges (ranges &key shadow-ranges)
 ;;   "Given a sequence of integer ranges with elements (start . end),

@@ -63,7 +63,7 @@
     (list #'hermitian-matrix
           #'lower-triangular-matrix
           #'upper-triangular-matrix)))
-
+#+ignore
 (test wrapped-bivariate-to-array
   (let+ ((a (mx t
               (1 2)
@@ -75,7 +75,6 @@
       (list #'hermitian-matrix
             #'lower-triangular-matrix
             #'upper-triangular-matrix))))
-
 
 ;;; Transliteration of clunit deftest
 ;;; Commented out reason-args because they make the failure appear to be a false positive

@@ -125,8 +125,8 @@ Slow, but useful for testing as it does not suffer from approximation error."
 ;;     (ensure-same (tally acc) 9)))
 
 (test invalid-types
-  (signals error (add (central-sample-moments) 'foo))
-  (signals error (add (central-sample-moments) #(1 2 3)))
+  (signals error (add (central-sample-moments '#(1.0d0 2.0do)) 'foo))
+  (signals error (add (central-sample-moments '#(1.0d0 2.0do)) #(1 2 3)))
   ;; (ensure-error (add (autocovariance-accumulator 9) 'foo)) ; This line and following commented out by Papp
   ;; (ensure-error (add (autocovariance-accumulator 9) #(1 2 3)))
   )
