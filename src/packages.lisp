@@ -16,14 +16,17 @@
    #:within?
    #:fixnum?
    #:simple-fixnum-vector
+   #:simple-single-float-vector   
    #:as-simple-fixnum-vector
    #:as-double-float
    #:with-double-floats
    #:simple-double-float-vector
+   #:make-vector
    #:generate-sequence
    #:expanding
    #:bic
    #:binary-search
+   #:sequencep
    #:as-alist
    #:as-plist))
 
@@ -111,12 +114,19 @@
         #:num-utils.interval
         #:num-utils.utilities
         #:let-plus)
-  (:export
+  (:export ; These should probably be renamed in verb-object form
    #:chebyshev-root
    #:chebyshev-roots
    #:chebyshev-regression
-   #:chebyshev-evaluate
+   #:evaluate-chebyshev
    #:chebyshev-approximate))
+
+(defpackage #:num-utils.polynomial
+  (:use #:cl
+        #:alexandria
+        #:num-utils.utilities)
+  (:nicknames #:poly)
+  (:export #:evaluate-polynomial))
 
 (cl:defpackage #:num-utils.elementwise
   (:use #:cl

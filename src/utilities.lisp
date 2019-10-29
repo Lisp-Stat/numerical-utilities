@@ -117,6 +117,10 @@ Example:
   "Simple vector of double-float elements."
   `(simple-array double-float (,length)))
 
+(deftype simple-single-float-vector (&optional (length '*))
+  "Simple vector of single-float elements."
+  `(simple-array single-float (,length)))
+
 (defun generate-sequence (result-type size function)
   "Like MAKE-SEQUENCE, but using a function to fill the result."
   (map-into (make-sequence result-type size) function))
@@ -161,3 +165,21 @@ If value is below (or above) the first (last) break, NIL (T) is returned."
   (:documentation "Return OBJECT as a PLIST.  Semantics depends on OBJECT.  The default method uses AS-ALIST.")
   (:method (object)
     (alist-plist (as-alist object))))
+
+(declaim (inline sequencep))
+(defun sequencep (x)
+  "Return T if X is type SEQUENCE."
+  (typep x 'sequence))
+
+(defun make-vector (element-type &rest initial-contents)
+  (make-array (length initial-contents) :element-type element-type
+              :initial-contents initial-contents))
+
+(define-compiler-macro make-vector (element-type &rest initial-contents)
+  `(let ((vec (make-array ,(length initial-contents)
+                          :element-type ,element-type)))
+     ,@(let ((i -1))
+	    (mapcar (lambda (form)
+		      `(setf (aref vec ,(incf i)) ,form))
+		    initial-contents))
+     vec))

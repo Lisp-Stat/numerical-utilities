@@ -65,7 +65,7 @@ points (zeroes of the corresponding Chebyshev polynomial)."
                            (weighted-sum values)))))
       coefficients)))
 
-(defun chebyshev-evaluate (coefficients x)
+(defun evaluate-chebyshev (coefficients x)
   "Return the sum of Chebyshev polynomials, weighted by COEFFICIENTS, at X."
   (let ((value (coerce x 'double-float))
         (previous-value 1d0)
@@ -123,7 +123,7 @@ either end) using the given number of Chebyshev polynomials."
                                     (funcall f (ab-to-cinf z a 1d0 left)))
                                   n-polynomials n-points)))
       (lambda (x)
-        (chebyshev-evaluate coefficients (cinf-to-ab x a 1d0 left)))))
+        (evaluate-chebyshev coefficients (cinf-to-ab x a 1d0 left)))))
   (:method (f (interval finite-interval) n-polynomials n-points)
     (let+ (((&interval (left open-left?) (right open-right?)) interval))
       (assert (< left right))
@@ -139,4 +139,4 @@ either end) using the given number of Chebyshev polynomials."
                                                                  slope)))
                                                  n-polynomials n-points)))
         (lambda (x)
-          (chebyshev-evaluate coefficients (+ intercept (* slope x))))))))
+          (evaluate-chebyshev coefficients (+ intercept (* slope x))))))))

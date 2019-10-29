@@ -29,12 +29,13 @@
    (:file "matrix-shorthand")
    (:file "statistics")
    (:file "chebyshev")
+   (:file "polynomial")
    (:file "rootfinding")
    (:file "quadrature")
    (:file "common-package")))
 
 (asdf:defsystem #:num-utils/tests
-  :description "Unit tests for NUM-UTILS.."
+  :description "Unit tests for NUM-UTILS."
   :author "Steven Nunez <steve.nunez@symbolics.com.sg"
   :license "Same as NUM-UTILS -- this is part of the NUM-UTILS library."
   #+asdf-unicode :encoding #+asdf-unicode :utf-8
@@ -50,6 +51,7 @@
    (:file "arithmetic")
 ;; (:file "arithmetic-type") ; No tests included in Papp's version
    (:file "chebyshev")
+   (:file "polynomial")   
    (:file "elementwise")
    (:file "extended-real")
    (:file "interval")

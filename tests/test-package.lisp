@@ -15,9 +15,10 @@
         #:num-utils.matrix
         #:num-utils.matrix-shorthand
         #:num-utils.num=
+        #:num-utils.polynomial
         #:num-utils.quadrature
-        #:num-utils.statistics
         #:num-utils.rootfinding
+        #:num-utils.statistics
         #:num-utils.utilities)
   (:shadowing-import-from #:num-utils.statistics #:mean :variance #:median)
   (:export
