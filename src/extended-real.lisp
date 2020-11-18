@@ -1,4 +1,4 @@
-;;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS.EXTENDED-REAL -*-
+;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS.EXTENDED-REAL -*-
 (in-package #:num-utils.extended-real)
 
 (deftype infinite ()

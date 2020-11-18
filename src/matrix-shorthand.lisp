@@ -1,4 +1,4 @@
-;;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS.MATRIX-SHORTHAND -*-
+;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS.MATRIX-SHORTHAND -*-
 (in-package #:num-utils.matrix-shorthand)
 
 (defun vec (element-type &rest elements)

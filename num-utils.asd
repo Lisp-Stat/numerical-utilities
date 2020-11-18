@@ -1,12 +1,12 @@
-;;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: CL-USER -*-
-;;;; Copyright (c) 2010 by Tamas K. Papp <tkpapp@gmail.com>
-;;;; Copyright (c) 2019 by Symbolics Pte. Ltd. All rights reserved.
+;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: CL-USER -*-
+;;; Copyright (c) 2010 by Tamas K. Papp <tkpapp@gmail.com>
+;;; Copyright (c) 2019-2020 by Symbolics Pte. Ltd. All rights reserved.
 
 (asdf:defsystem #:num-utils
   :description "Numerical utilities for Common Lisp"
-  :version "0.0.2"
-  :author "Steven Nunez <steve.nunez@symbolics.com.sg"
-  :license "Boost Software License - Version 1.0"
+  :version      (:read-file-form "version.sexp")
+  :author "Steven Nunez <steve@symbolics.tech>"
+  :license "MS-PL"
   :depends-on (#:anaphora
                #:alexandria
                #:array-operations
@@ -36,7 +36,7 @@
 
 (asdf:defsystem #:num-utils/tests
   :description "Unit tests for NUM-UTILS."
-  :author "Steven Nunez <steve.nunez@symbolics.com.sg"
+  :author "Steven Nunez <steve@symbolics.tech>"
   :license "Same as NUM-UTILS -- this is part of the NUM-UTILS library."
   #+asdf-unicode :encoding #+asdf-unicode :utf-8
   :depends-on (#:num-utils
@@ -51,7 +51,7 @@
    (:file "arithmetic")
 ;; (:file "arithmetic-type") ; No tests included in Papp's version
    (:file "chebyshev")
-   (:file "polynomial")   
+   (:file "polynomial")
    (:file "elementwise")
    (:file "extended-real")
    (:file "interval")

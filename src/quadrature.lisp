@@ -1,4 +1,4 @@
-;;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS.QUADRATURE -*-
+;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS.QUADRATURE -*-
 (cl:in-package #:num-utils.quadrature)
 
 ;;;; Richardson extrapolation (general framework)

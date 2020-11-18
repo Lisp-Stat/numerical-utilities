@@ -1,4 +1,4 @@
-;;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: CL-USER -*-
+;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: CL-USER -*-
 
 (cl:defpackage #:num-utils.utilities
   (:use #:cl
@@ -16,7 +16,7 @@
    #:within?
    #:fixnum?
    #:simple-fixnum-vector
-   #:simple-single-float-vector   
+   #:simple-single-float-vector
    #:as-simple-fixnum-vector
    #:as-double-float
    #:with-double-floats

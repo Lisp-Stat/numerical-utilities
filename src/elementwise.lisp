@@ -1,4 +1,4 @@
-;;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS.ELEMENTWISE -*-
+;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS.ELEMENTWISE -*-
 (cl:in-package #:num-utils.elementwise)
 
 (defun elementwise-float-contagion (&rest objects)

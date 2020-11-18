@@ -1,4 +1,4 @@
-;;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS.ROOTFINDING -*-
+;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS.ROOTFINDING -*-
 (cl:in-package #:num-utils.rootfinding)
 
 ;;; Testing convergence of rootfinding methods

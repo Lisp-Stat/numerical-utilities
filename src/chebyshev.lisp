@@ -1,4 +1,4 @@
-;;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS.CHEBYSHEV -*-
+;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS.CHEBYSHEV -*-
 (in-package #:num-utils.chebyshev)
 
 (declaim (inline chebyshev-recursion))

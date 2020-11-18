@@ -1,4 +1,4 @@
-;;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS.NUM= -*-
+;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS.NUM= -*-
 (in-package #:num-utils.num=)
 
 (defparameter *num=-tolerance* 1d-5 "Default tolerance for NUM=.")

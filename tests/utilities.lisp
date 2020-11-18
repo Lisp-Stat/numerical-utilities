@@ -1,5 +1,5 @@
-;;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS-TESTS -*-
-;;;; Copyright (c) 2019 by Symbolics Pte. Ltd. All rights reserved.
+;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS-TESTS -*-
+;;; Copyright (c) 2019 by Symbolics Pte. Ltd. All rights reserved.
 (in-package #:num-utils-tests)
 
 (def-suite utilities
