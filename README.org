@@ -37,10 +37,10 @@
   moved there without being removed from cl-num-utils.
 
   There was a fair amount of code commented out by the original
-  author. Where we have commented code, we use the block comment syntax
-  #| ... |#, and noted the person performing the removal. We have also
-  added comments throughout the code to make it more readable, or to
-  include our research notes.
+  author. Where we have commented code, we use the block comment
+  syntax =#| ... |#=, and noted the person performing the removal. We
+  have also added comments throughout the code to make it more
+  readable, or to include our research notes.
 
 * Known Issues
 ** Test Failures
@@ -71,9 +71,9 @@
 
    Until this is resolved, use this function with caution.
 
-   Papp's [[https://github.com/tpapp/cl-num-utils/issues/16][issue #16]] is no longer an issue. The functionality was moved
+   Papp's [[https://github.com/tpapp/cl-num-utils/issues/16][issue #16]] is no longer a problem. The functionality was moved
    to =SELECT= (Papp's =CL-SLICE=). It should have been closed but was
-   not before Papp abandonded the library.
+   not before Papp abandoned the library.
 
 ** Implementation Support
    Development is primarily done with SBCL and CCL on MS
