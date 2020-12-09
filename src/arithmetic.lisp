@@ -5,7 +5,7 @@
 
 (define-modify-macro multf (coefficient) * "Multiply place by COEFFICIENT.")
 
-(defun same-sign? (&rest arguments)
+(defun same-sign-p (&rest arguments)
   "Test whether all arguments have the same sign (ie all are positive, negative, or zero)."
   (if arguments
       (let+ (((first . rest) arguments)

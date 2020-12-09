@@ -38,7 +38,7 @@
         #:let-plus)
   (:export
    #:multf
-   #:same-sign?
+   #:same-sign-p
    #:square
    #:absolute-square
    #:abs-diff
@@ -134,7 +134,7 @@
         #:num-utils.arithmetic
         #:num-utils.utilities
         #:let-plus)
-  (:nicknames #:nuem)			;num-util elementwise mathmatics
+  (:nicknames #:elmt)			;num-util elementwise mathmatics
   (:export
    #:elementwise-float-contagion
    #:e+
@@ -212,7 +212,7 @@
    #:transpose))
 
 (cl:defpackage #:num-utils.matrix-shorthand
-  (:nicknames #:clnu.mx)
+  (:nicknames #:nu.mx)
   (:use #:cl
         #:alexandria
         #:anaphora
@@ -250,7 +250,7 @@
    #:root-bisection))
 
 (cl:defpackage #:num-utils.statistics
-  (:nicknames #:clnu.stats)
+  (:nicknames #:nu.stats)
   (:use #:cl
         #:anaphora
         #:alexandria
@@ -295,3 +295,30 @@
    #:sparse-counter-table
    #:tabulate
    #:cross-tabulate))
+
+(cl:defpackage #:num-utils.test-utilities
+  (:use #:cl)
+
+  (:import-from #:num-utils.num=
+		#:num-delta)
+
+  (:import-from #:num-utils.arithmetic
+		#:square)
+
+  (:export #:test-results ; struct for results
+
+	   ;; struct accessors
+	   #:worst-case ; the row at which the worst error occurred
+	   #:min-error  ; the smallest relative error found
+	   #:max-error  ; the largest relative error found
+	   #:mean-error ; the mean error found
+	   #:test-count ; the number of test cases
+	   #:variance   ; the variance of the errors found
+	   #:variance1  ; the unbiased variance of the errors found
+	   #:rms        ; the Root Mean Square, or quadratic mean of the error
+
+	   ;; Testing functions
+	   #:test-fn
+	   #:compare-fns
+	   #:compare-vectors))
+

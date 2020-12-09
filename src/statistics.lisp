@@ -53,7 +53,7 @@
 Allows on-line, numerically stable calculation of moments.  See
 \cite{bennett2009numerically} and \cite{pebay2008formulas} for the description
 of the algorithm.  M_2, ..., M_4 in the paper are s2, ..., s4 in the code."
-  (m 0d0 :type real)
+  (m  0d0 :type real)
   (s2 0d0 :type (or (real 0) null))
   (s3 0d0 :type (or real null))
   (s4 0d0 :type (or (real 0) null)))
@@ -164,7 +164,7 @@ When WEIGHTS are given, they need to be a sequence of matching length.")
           (map nil (curry #'add it) sequence)))))
 
 (defmacro define-central-sample-moment (function (variable degree) &body body)
-  "FIXME documentation, factor our general part"
+  "FIXME documentation, factor out general part"
   (check-type degree (integer 1 4))
   (let+ (((&values remaining-forms declarations docstring)
           (parse-body body :documentation t))

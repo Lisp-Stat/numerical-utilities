@@ -2,7 +2,7 @@
 (in-package #:num-utils.interval)
 
 ;;; TODO: rewrite interface
-;;; TODO: open/closed, general accessors LEFT, RIGHT, CLOSED-LEFT? CLOSED-RIGHT?
+;;; TODO: open/closed, general accessors LEFT, RIGHT, CLOSED-LEFT-P CLOSED-RIGHT-P
 
 ;;; basic interval definitions and interface
 

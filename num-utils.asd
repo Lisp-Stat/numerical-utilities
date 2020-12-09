@@ -32,6 +32,7 @@
    (:file "polynomial")
    (:file "rootfinding")
    (:file "quadrature")
+   (:file "test-utilities")
    (:file "common-package")))
 
 (asdf:defsystem #:num-utils/tests

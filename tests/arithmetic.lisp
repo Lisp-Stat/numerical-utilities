@@ -10,8 +10,8 @@
 (in-suite arithmetic)
 
 (test arithmetic-functions
-  (is (same-sign? 1 2 3))
-  (not (same-sign? 1 -2 3))
+  (is  (same-sign-p 1 2 3))
+  (not (same-sign-p 1 -2 3))
   (is (= 4 (square 2)))
   (is (= 4.0 (absolute-square 2.0)))
   (is (= 25 (absolute-square #C(3 4))))
@@ -20,7 +20,7 @@
   (is (num= 2 (log10 100)))
   (is (num= 8 (log2 256)))
   (is (= 1/5 (1c 4/5)))
-  (is (divides? 8 2))
+  (is  (divides? 8 2))
   (not (divides? 8 3))
   (is (= 2 (as-integer 2.0)))
   (signals error (as-integer 2.5)))
