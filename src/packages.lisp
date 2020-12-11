@@ -305,17 +305,17 @@
   (:import-from #:num-utils.arithmetic
 		#:square)
 
-  (:export #:test-results ; struct for results
+  (:export #:test-results
 
 	   ;; struct accessors
-	   #:worst-case ; the row at which the worst error occurred
-	   #:min-error  ; the smallest relative error found
-	   #:max-error  ; the largest relative error found
-	   #:mean-error ; the mean error found
-	   #:test-count ; the number of test cases
-	   #:variance   ; the variance of the errors found
-	   #:variance1  ; the unbiased variance of the errors found
-	   #:rms        ; the Root Mean Square, or quadratic mean of the error
+	   #:worst-case ; row at which the worst error occurred
+	   #:min-error  ; smallest relative error found
+	   #:max-error  ; largest relative error found
+	   #:mean-error ; mean error found
+	   #:test-count ; number of test cases
+	   #:variance0  ; variance of the errors found
+	   #:variance1  ; unbiased variance of the errors found
+	   #:rms        ; Root Mean Square, or quadratic mean of the error
 
 	   ;; Testing functions
 	   #:test-fn

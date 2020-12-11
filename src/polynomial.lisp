@@ -17,9 +17,9 @@ X must be of the same type as COEFFICIENTS."
        (declare (double-float sum x)
 		(simple-double-float-vector coefficients))
        (dotimes (index (the fixnum (length coefficients)))
-	 (setf sum (+ (aref coefficients index)
-		      (* x sum))))
-       sum))
+	 (the double-float (setf sum (+ (aref coefficients index)
+					(* x sum)))))
+       (the double-float sum)))
     (single-float
      (let ((sum 0s0))
        (declare (single-float sum x)
@@ -28,16 +28,14 @@ X must be of the same type as COEFFICIENTS."
 	 (setf sum (+ (aref coefficients index)
 		      (* x sum))))
        sum))
-    (fixnum				; The usefulness of optimising
-					; this branch is doubtful,
-					; since we cannot guarentee
-					; the result is a fixnum
+    (fixnum				; The usefulness of optimising this branch is doubtful,
+					; since we cannot guarantee the result is a fixnum
      (let ((sum 0))
        (declare (fixnum sum x)
 		(simple-fixnum-vector coefficients))
        (dotimes (index (the fixnum (length coefficients)))
 	 (setf sum (+ (aref coefficients index)
-		      (* x sum))))
+		      (the fixnum (* x sum)))))
        sum))
     (t					; Here for completeness
      (let ((sum 0))

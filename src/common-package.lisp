@@ -3,7 +3,7 @@
 (eval-when (:compile-toplevel :load-toplevel :execute)
   (unless (find-package '#:num-utils)
     (defpackage #:num-utils
-      (:nicknames #:clnu)
+      (:nicknames #:nu)
       (:use #:cl))))
 
 (eval-when (:compile-toplevel :load-toplevel :execute)
@@ -25,4 +25,5 @@
     (reexport '#:num-utils.statistics)
     (reexport '#:num-utils.utilities)
     (reexport '#:num-utils.rootfinding)
+    (reexport '#:num-utils.test-utilities)
     (reexport '#:num-utils.quadrature)))

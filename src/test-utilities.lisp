@@ -1,4 +1,5 @@
 ;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS.TEST-UTILITIES -*-
+;;; Copyright (c) 2020 by Symbolics Pte. Ltd. All rights reserved.
 (cl:in-package #:num-utils.test-utilities)
 
 ;;; Utilities for testing accuracy of mathmatical functions
@@ -16,14 +17,14 @@
 
 (defstruct (test-results :conc-name)
   "Differences between reference values and computed values"
-  (worst-case   0 :type integer)	; the row at which the worst error occurred
-  (min-error  0d0 :type double-float)	; the smallest relative error found
-  (max-error  0d0 :type double-float)	; the largest relative error found
-  (mean-error 0d0 :type double-float)	; the mean error found
-  (test-count   0 :type integer)	; the number of test cases
-  (variance   0d0 :type double-float)	; the variance of the errors found
-  (variance1  0d0 :type double-float)	; the unbiased variance of the errors found
-  (rms        0d0 :type double-float))	; the Root Mean Square, or quadratic mean of the error
+  (worst-case   0 :type integer)	; row at which the worst error occurred
+  (min-error  0d0 :type double-float)	; smallest relative error found
+  (max-error  0d0 :type double-float)	; largest relative error found
+  (mean-error 0d0 :type double-float)	; mean error found
+  (test-count   0 :type integer)	; number of test cases
+  (variance0  0d0 :type double-float)	; variance of the errors found
+  (variance1  0d0 :type double-float)	; unbiased variance of the errors found
+  (rms        0d0 :type double-float))	; Root Mean Square, or quadratic mean of the error
 
 
 
@@ -43,7 +44,8 @@
 ;;; paramaterization values from the FN-PARAM-COLUMNS.
 
 #| Examples:
-To run the Boost Gamma tests using the test values in the special-functions tests directory:
+To run the Boost Gamma tests using the test values in the
+special-functions tests directory:
 
 (test-fn (select factorials t 1) ; expected values are all rows of the 2nd column (0 based indexing)
 #'(lambda (i params)
@@ -65,7 +67,7 @@ To run the Boost Gamma tests using the test values in the special-functions test
     for delta = (num-delta (aref expected-column i) (funcall fn i fn-param-columns))
     when (> delta max-delta) :do (progn (setf max-delta delta)
 					(setf worst-case i))
-      minimize delta into min
+    minimize delta into min
     maximize delta into max
     sum      delta into sum
     sum      (square delta) into sum-of-delta-squares
@@ -75,7 +77,7 @@ To run the Boost Gamma tests using the test values in the special-functions test
 				       :max-error  max
 				       :mean-error (/ sum count)
 				       :test-count count
-				       :variance   (/ (- sum-of-delta-squares
+				       :variance0  (/ (- sum-of-delta-squares
 							 (/ (square sum)
 							    count))
 						      count)
@@ -126,7 +128,7 @@ The example assumes that special-functions test data for erf is loaded
 				       :max-error  max
 				       :mean-error (/ sum count)
 				       :test-count count
-				       :variance   (/ (- sum-of-delta-squares
+				       :variance0   (/ (- sum-of-delta-squares
 							 (/ (square sum)
 							    count))
 						      count)
@@ -167,7 +169,7 @@ The example assumes that special-functions test data for erf is loaded
 				       :max-error  max
 				       :mean-error (/ sum count)
 				       :test-count count
-				       :variance   (/ (- sum-of-delta-squares
+				       :variance0   (/ (- sum-of-delta-squares
 							 (/ (square sum)
 							    count))
 						      count)
