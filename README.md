@@ -22,7 +22,7 @@
   <p align="center">
   Numerical utilities for statistical computing.
 	<br />
-    <a href="https://github.com/lisp-stat/numerical-utilities/docs/numerical-utilities.md"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/lisp-stat/numerical-utilities/docs/numerical-utilities"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <a href="https://github.com/lisp-stat/numerical-utilities">View Demo</a>
@@ -121,7 +121,9 @@ An ANSI Common Lisp implementation. Developed and tested with
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+```
+(nu:median '(1 2 3 4 5 6 7 8 9 10)) ; => 11/2
+```
 
 _For more examples, please refer to the [Documentation](https://lisp-stat.dev/)_
 
@@ -159,15 +161,15 @@ Project Link: [https://github.com/lisp-stat/numerical-utilities](https://github.
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/lisp-stat/repo.svg?style=for-the-badge
+[contributors-shield]: https://img.shields.io/github/contributors/lisp-stat/numerical-utilities.svg?style=for-the-badge
 [contributors-url]: https://github.com/lisp-stat/numerical-utilities/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/lisp-stat/repo.svg?style=for-the-badge
+[forks-shield]: https://img.shields.io/github/forks/lisp-stat/numerical-utilities.svg?style=for-the-badge
 [forks-url]: https://github.com/lisp-stat/numerical-utilities/network/members
-[stars-shield]: https://img.shields.io/github/stars/lisp-stat/repo.svg?style=for-the-badge
+[stars-shield]: https://img.shields.io/github/stars/lisp-stat/numerical-utilities.svg?style=for-the-badge
 [stars-url]: https://github.com/lisp-stat/numerical-utilities/stargazers
-[issues-shield]: https://img.shields.io/github/issues/lisp-stat/repo.svg?style=for-the-badge
+[issues-shield]: https://img.shields.io/github/issues/lisp-stat/numerical-utilities.svg?style=for-the-badge
 [issues-url]: https://github.com/lisp-stat/numerical-utilities/issues
-[license-shield]: https://img.shields.io/github/license/lisp-stat/repo.svg?style=for-the-badge
+[license-shield]: https://img.shields.io/github/license/lisp-stat/numerical-utilities.svg?style=for-the-badge
 [license-url]: https://github.com/lisp-stat/numerical-utilities/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/company/symbolics/
