@@ -21,8 +21,7 @@
 
   <p align="center">
   Numerical utilities for statistical computing.
-
-    <br />
+	<br />
     <a href="https://github.com/lisp-stat/numerical-utilities/docs/numerical-utilities.md"><strong>Explore the docs »</strong></a>
     <br />
     <br />
@@ -161,14 +160,14 @@ Project Link: [https://github.com/lisp-stat/numerical-utilities](https://github.
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [contributors-shield]: https://img.shields.io/github/contributors/lisp-stat/repo.svg?style=for-the-badge
-[contributors-url]: https://github.com/lisp-stat/repo/graphs/contributors
+[contributors-url]: https://github.com/lisp-stat/numerical-utilities/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/lisp-stat/repo.svg?style=for-the-badge
-[forks-url]: https://github.com/lisp-stat/repo/network/members
+[forks-url]: https://github.com/lisp-stat/numerical-utilities/network/members
 [stars-shield]: https://img.shields.io/github/stars/lisp-stat/repo.svg?style=for-the-badge
-[stars-url]: https://github.com/lisp-stat/repo/stargazers
+[stars-url]: https://github.com/lisp-stat/numerical-utilities/stargazers
 [issues-shield]: https://img.shields.io/github/issues/lisp-stat/repo.svg?style=for-the-badge
-[issues-url]: https://github.com/lisp-stat/repo/issues
+[issues-url]: https://github.com/lisp-stat/numerical-utilities/issues
 [license-shield]: https://img.shields.io/github/license/lisp-stat/repo.svg?style=for-the-badge
-[license-url]: https://github.com/lisp-stat/repo/blob/master/LICENSE.txt
+[license-url]: https://github.com/lisp-stat/numerical-utilities/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/lisp-stat
+[linkedin-url]: https://www.linkedin.com/company/symbolics/
