@@ -22,11 +22,9 @@
   <p align="center">
   Numerical utilities for statistical computing.
 	<br />
-    <a href="https://github.com/lisp-stat/numerical-utilities/docs/numerical-utilities"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/Lisp-Stat/numerical-utilities/blob/master/docs/numerical-utilities.md"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/lisp-stat/numerical-utilities">View Demo</a>
-    ·
     <a href="https://github.com/lisp-stat/numerical-utilities/issues">Report Bug</a>
     ·
     <a href="https://github.com/lisp-stat/numerical-utilities/issues">Request Feature</a>
@@ -170,6 +168,6 @@ Project Link: [https://github.com/lisp-stat/numerical-utilities](https://github.
 [issues-shield]: https://img.shields.io/github/issues/lisp-stat/numerical-utilities.svg?style=for-the-badge
 [issues-url]: https://github.com/lisp-stat/numerical-utilities/issues
 [license-shield]: https://img.shields.io/github/license/lisp-stat/numerical-utilities.svg?style=for-the-badge
-[license-url]: https://github.com/lisp-stat/numerical-utilities/blob/master/LICENSE.txt
+[license-url]: https://github.com/lisp-stat/numerical-utilities/blob/master/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/company/symbolics/
