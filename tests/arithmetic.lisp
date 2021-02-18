@@ -23,6 +23,10 @@
   (is  (divides? 8 2))
   (not (divides? 8 3))
   (is (= 2 (as-integer 2.0)))
+  (is (= 5 (sequence-maximum #(0 1 2 3 4 5))))
+  (is (= 5 (sequence-maximum '(0 1 2 3 4 5))))
+  (is (= 0 (sequence-minimum #(0 1 2 3 4 5))))
+  (is (= 0 (sequence-minimum '(0 1 2 3 4 5))))
   (signals error (as-integer 2.5)))
 
 (test arithmetic-sequences

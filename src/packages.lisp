@@ -32,7 +32,7 @@
 
 (defpackage #:num-utils.arithmetic
   (:use #:cl
-        #:alexandria
+        #:alexandria-2
         #:anaphora
         #:num-utils.utilities
         #:let-plus)
@@ -59,7 +59,9 @@
    #:floor*
    #:ceiling*
    #:round*
-   #:truncate*))
+   #:truncate*
+   #:sequence-maximum
+   #:sequence-minimum))
 
 (defpackage #:num-utils.num=
   (:use #:cl

@@ -68,6 +68,18 @@ library function."
 
 ;;; arithmetic sequences
 
+(defun sequence-minimum (x)
+  "Return the minimum value in the sequence"
+  (check-type x alexandria:proper-sequence)
+  (cond ((listp x) (apply 'min x))
+	((vectorp x) (reduce #'min x))))
+
+(defun sequence-maximum (x)
+  "Return the maximum value in the sequence"
+  (check-type x alexandria:proper-sequence)
+  (cond ((listp x) (apply 'max x))
+	((vectorp x) (reduce #'max x))))
+
 (defun numseq (from to &key length (by (unless length 1)) type)
   "Return a sequence between FROM and TO, progressing by BY, of the given LENGTH.  Only 3 of these a parameters should be given, the missing one (NIL) should be inferred automatically.  The sign of BY is adjusted if necessary.  If TYPE is LIST, the result is a list, otherwise it determines the element type of the resulting simple array.  If TYPE is nil, it as autodetected from the arguments (as a FIXNUM, a RATIONAL, or some subtype of FLOAT).  Note that the implementation may upgrade the element type."
   (flet ((seq% (from by length)

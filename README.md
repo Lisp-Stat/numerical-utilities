@@ -20,7 +20,7 @@
   <h3 align="center">Numerical Utilities</h3>
 
   <p align="center">
-  Numerical utilities for statistical computing.
+  Numerical utilities for statistical computing
 	<br />
     <a href="https://github.com/Lisp-Stat/numerical-utilities/blob/master/docs/numerical-utilities.md"><strong>Explore the docs »</strong></a>
     <br />
@@ -62,14 +62,14 @@
 
 
 <!-- ABOUT THE PROJECT -->
-## About The Project
+## About the Project
 
   This library is a collection of packages useful in numerical
   applications, each big enough to be its own package, but too small
   to split out into a separate ASDF system. Included are:
 
-  - =num==, a comparison operator for floats
-  - simple arithmetic functions, like =sum= and =l2norm=
+  - `num=`, a comparison operator for floats
+  - simple arithmetic functions, like `sum` and `l2norm`
   - element-wise operations for arrays and vectors
   - intervals
   - special matrices and shorthand for their input
@@ -92,7 +92,7 @@
 <!-- GETTING STARTED -->
 ## Getting Started
 
-To get a local copy up and running follow these steps.
+To get a local copy up and running follow these steps:
 
 ### Prerequisites
 
@@ -112,19 +112,18 @@ An ANSI Common Lisp implementation. Developed and tested with
    (asdf:clear-source-registry)
    ```
 3. Load the system
-   ```
+   ```lisp
    (ql:quickload :num-utils)
    ```
 
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-```
-(nu:median '(1 2 3 4 5 6 7 8 9 10)) ; => 11/2
+```lisp
+(nu:median '(1 2 3 4 5 6 7 8 9 10)) ; -> 11/2
 ```
 
 _For more examples, please refer to the [Documentation](https://lisp-stat.dev/)_
-
 
 
 <!-- ROADMAP -->
@@ -134,7 +133,7 @@ See the [open issues](https://github.com/lisp-stat/numerical-utilities/issues) f
 
 ## Resources
 
-See the Lisp-Stat [resources](https://lisp-stat.dev/resources) and
+This system is part of the [Lisp-Stat](https://www.lisp-stat.dev/) project; that should be your first stop for information. Also see the  [resources](https://lisp-stat.dev/resources) and
 [community](https://lisp-stat.dev/community) pages for more
 information.
 
