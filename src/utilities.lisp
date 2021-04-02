@@ -1,5 +1,5 @@
 ;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS.UTILITIES -*-
-(cl:in-package #:num-utils.utilities)
+(cl:in-package :num-utils.utilities)
 
 (defmacro gethash* (key hash-table
                     &optional (datum "Key not found.")

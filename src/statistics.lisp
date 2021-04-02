@@ -323,7 +323,8 @@ for any vector SAMPLE."
 (defgeneric median (object)
   (:documentation "Median of OBJECT.")
   (:method ((object sequence))
-    (alexandria:median object))
+    (alexandria:median object)
+    (:documentation "Returns median of SAMPLE.  SAMPLE must be a sequence of real numbers."))
   (:method (object)
     (quantile object 0.5)))
 
