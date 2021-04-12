@@ -28,7 +28,8 @@
    #:binary-search
    #:sequencep
    #:as-alist
-   #:as-plist))
+   #:as-plist
+   #:putprop))
 
 (defpackage #:num-utils.arithmetic
   (:use #:cl

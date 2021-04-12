@@ -1,8 +1,10 @@
 ;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS.TEST-UTILITIES -*-
-;;; Copyright (c) 2020 by Symbolics Pte. Ltd. All rights reserved.
-(cl:in-package #:num-utils.test-utilities)
+;;; Copyright (c) 2020-2021 by Symbolics Pte. Ltd. All rights reserved.
+(cl:in-package :num-utils.test-utilities)
 
 ;;; Utilities for testing accuracy of mathmatical functions
+;;; This does not test the utility functions in num-utils, it is for
+;;; testing the accuracy of the functions in special-functions
 
 ;;; TEST-FN         - Compare a function against known reference values. Used in unit tests.
 ;;; COMPARE-FN      - Compare a function against a reference implementation, e.g. Cephes

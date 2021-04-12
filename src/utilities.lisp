@@ -184,3 +184,8 @@ If value is below (or above) the first (last) break, NIL (T) is returned."
 		      `(setf (aref vec ,(incf i)) ,form))
 		    initial-contents))
      vec))
+
+(defmacro putprop (symbol value indicator)
+  "Gives SYMBOL an INDICATOR property of VALUE.
+After this is done (CL:GET symbol indicator) returns VALUE)"
+  `(setf (get ,symbol ,indicator) ,value))

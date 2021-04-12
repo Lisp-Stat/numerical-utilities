@@ -38,5 +38,11 @@
       (is (= c 4d0))
       (is (= d 5d0)))))
 
+(test put-prop
+  (putprop 'a "foo" 'test-prop)
+  (is (string= "foo" (get 'a 'test-prop))))
+
+
+
 ;;; TODO (Papp): write tests for other utilities
 
