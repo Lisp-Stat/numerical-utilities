@@ -323,8 +323,8 @@ for any vector SAMPLE."
 (defgeneric median (object)
   (:documentation "Median of OBJECT.")
   (:method ((object sequence))
-    (alexandria:median object)
-    (:documentation "Returns median of SAMPLE.  SAMPLE must be a sequence of real numbers."))
+    "Returns median of SAMPLE.  SAMPLE must be a sequence of real numbers."
+    (alexandria:median object))
   (:method (object)
     (quantile object 0.5)))
 
@@ -379,11 +379,13 @@ for any vector SAMPLE."
   (make-sparse-counter% :table (make-hash-table :test test)))
 
 (defmethod add ((accumulator sparse-counter) object &key (weight 1))
+  "Increments the count of OBJECT in SPARSE-COUNTER, optionally with a weight"
   (assert (non-negative-real-p weight) () "Weight has to be nonnegative.")
   (incf (gethash object (sparse-counter-table accumulator) 0) weight)
   object)
 
 (defmethod tally ((accumulator sparse-counter))
+  "Return the total 'weight' of the accumulator"
   (let ((sum 0))
     (maphash (lambda (object count)
                (declare (ignore object))
