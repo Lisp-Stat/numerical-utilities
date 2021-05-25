@@ -1,6 +1,8 @@
 ;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS.MATRIX -*-
 (in-package #:num-utils.matrix)
 
+;;; This package should be moved to array-operations
+
 (defgeneric diagonal-vector (matrix)
   (:documentation "Return the diagonal elements of MATRIX as a vector.")
   (:method ((matrix array))
@@ -260,3 +262,13 @@ Implements _both_ real symmetric and complex Hermitian matrices --- as technical
         (hermitian-matrix (transpose (aops:as-array matrix)))))
   (:method ((diagonal diagonal-matrix))
     diagonal))
+
+
+;;; map
+(defmethod aops:map-array (array function
+			   &optional (retval (make-array (array-dimensions array))))
+  "Apply FUNCTION to each element of ARRAY
+Return a new array, or write into the optional 3rd argument."
+  (dotimes (i (array-total-size array) retval)
+    (setf (row-major-aref retval i)
+          (funcall function (row-major-aref array i)))))
