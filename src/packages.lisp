@@ -26,7 +26,7 @@
    #:expanding
    #:bic
    #:binary-search
-   #:sequencep
+   #:sequencep				;remove and use alexandria?
    #:as-alist
    #:as-plist
    #:putprop))
@@ -212,7 +212,8 @@
    #:hermitian-matrix
    #:diagonal-matrix-elements
    #:wrapped-matrix-elements
-   #:transpose))
+   #:transpose
+   #:map-array))
 
 (cl:defpackage #:num-utils.matrix-shorthand
   (:nicknames #:nu.mx)

@@ -135,9 +135,8 @@
     (assert-slice lower-triangular-matrix)
     (assert-slice hermitian-matrix)))
 
-
-(deftest map-array (transformations)
+(test map-array
   (let ((a #2A((1 2) (3 4))))
-    (assert-equalp #2A((2 3) (4 5))
-      (aops:map-array a #'1+))))
+    (is (equalp #2A((2 3) (4 5))
+		(aops:map-array a #'1+)))))
 
