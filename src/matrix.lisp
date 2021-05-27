@@ -265,7 +265,7 @@ Implements _both_ real symmetric and complex Hermitian matrices --- as technical
 
 
 ;;; map
-(defmethod aops:map-array (array function
+(defmethod map-array (array function
 			   &optional (retval (make-array (array-dimensions array))))
   "Apply FUNCTION to each element of ARRAY
 Return a new array, or write into the optional 3rd argument."

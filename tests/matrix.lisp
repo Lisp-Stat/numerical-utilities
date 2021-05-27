@@ -138,5 +138,5 @@
 (test map-array
   (let ((a #2A((1 2) (3 4))))
     (is (equalp #2A((2 3) (4 5))
-		(aops:map-array a #'1+)))))
+		(map-array a #'1+)))))
 
