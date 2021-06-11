@@ -152,6 +152,7 @@
    #:e1/
    #:e2log
    #:e2exp
+   #:e2mod
    #:e1log
    #:e1exp
    #:eexpt
