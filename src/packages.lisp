@@ -157,6 +157,7 @@
    #:eexpt
    #:eexp
    #:elog
+   #:emod
    #:esqrt
    #:efloor
    #:eceiling

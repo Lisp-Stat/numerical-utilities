@@ -69,13 +69,13 @@ library function."
 ;;; arithmetic sequences
 
 (defun sequence-minimum (x)
-  "Return the minimum value in the sequence"
+  "Return the minimum value in the sequence X"
   (check-type x alexandria:proper-sequence)
   (cond ((listp x) (apply 'min x))
 	((vectorp x) (reduce #'min x))))
 
 (defun sequence-maximum (x)
-  "Return the maximum value in the sequence"
+  "Return the maximum value in the sequence X"
   (check-type x alexandria:proper-sequence)
   (cond ((listp x) (apply 'max x))
 	((vectorp x) (reduce #'max x))))

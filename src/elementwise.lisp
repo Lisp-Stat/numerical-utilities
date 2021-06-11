@@ -89,8 +89,8 @@
 (define-e1 -)
 (define-e1 /)
 (define-e1 log)
-(define-e1 floor     :function efloor)   ; TODO: Add to exported symbols
-(define-e1 ceiling   :function eceiling) ; TODO: Add to exported symbols
+(define-e1 floor     :function efloor)
+(define-e1 ceiling   :function eceiling)
 (define-e1 exp       :function eexp)
 (define-e1 sqrt      :function esqrt)
 (define-e1 conjugate :function econjugate)
@@ -100,7 +100,7 @@
                      &key (function (symbolicate '#:e2 operation))
                           (docstring (format nil "Bivariate elementwise ~A."
                                       operation)))
-  "Define an univariate elementwise operation."
+  "Define a bivariate elementwise operation."
   (check-types (function operation) symbol)
   `(defgeneric ,function (a b)
      (declare (optimize speed))
@@ -134,6 +134,7 @@
 (define-e2 /)
 (define-e2 expt :function eexpt)
 (define-e2 log)
+(define-e2 mod :function emod)
 
 (defun elog (a &optional (base nil base?))
   "Elementwise logarithm."

@@ -48,7 +48,7 @@
     (is (num= #(1.0) (elog #(10) 10)))
     (is (num= a (eexp (elog a))))))
 
-;;; Commented out by Papp
+;;; Commented out by Papp. Should these be in array-operations?
 ;; (deftest (elementwise-tests)
 ;;   stack-tests
 ;;   (let ((a (array* '(2 3) t

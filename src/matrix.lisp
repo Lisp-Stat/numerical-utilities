@@ -265,6 +265,8 @@ Implements _both_ real symmetric and complex Hermitian matrices --- as technical
 
 
 ;;; map
+
+;; This is similar to the unexported elementwise:mapping-array macro
 (defmethod map-array (array function
 			   &optional (retval (make-array (array-dimensions array))))
   "Apply FUNCTION to each element of ARRAY
