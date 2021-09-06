@@ -18,6 +18,11 @@
   "Square of number."
   (expt number 2))
 
+(declaim (inline cube))
+(defun cube (number)
+  "Cube of number."
+  (expt number 3))
+
 (declaim (inline absolute-square))
 (defun absolute-square (number)
   "Number multiplied by its complex conjugate."
@@ -28,16 +33,23 @@
   "Absolute difference of A and B."
   (abs (- a b)))
 
-;;;; Aliases for commonly used log bases.
-(declaim (inline log10 log2))
+;;; Aliases for commonly used log bases.
+;;; Why logarithms? The CL spec lets `log' return a single float for
+;;; an integer argument, which is not what we want.
+(declaim (inline log10 log2 ln))
 
 (defun log10 (number)
   "Abbreviation for decimal logarithm."
-  (log number 10))
+  (log number 10d0))
 
 (defun log2 (number)
   "Abbreviation for binary logarithm."
-  (log number 2))
+  (log number 2d0))
+
+(defun ln (n)
+  "Natural logarithm."
+  (log n (exp 1d0)))
+
 
 (declaim (inline 1c))
 

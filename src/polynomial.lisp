@@ -2,6 +2,10 @@
 ;;; Copyright (c) 2019 by Symbolics Pte. Ltd. All rights reserved.
 (in-package #:num-utils.polynomial)
 
+;;; If this turns out to have poor performance, see
+;;; https://github.com/ruricolist/horner
+;;; or the assembler version from Cephes
+
 ;;; Expect optimisation warnings here for FIXNUM and T branches. T
 ;;; branch could probably be removed, as it covers relatively few use
 ;;; cases.
@@ -44,6 +48,16 @@ X must be of the same type as COEFFICIENTS."
 	 (setf sum (+ (aref coefficients index)
 		      (* x sum))))
        sum))))
+
+
+;; Imported from:
+
+
+
+
+
+
+
 
 #+ignore
 (defun evaluate-polynomial (coefficients x)

@@ -28,8 +28,7 @@
    #:binary-search
    #:sequencep				;remove and use alexandria?
    #:as-alist
-   #:as-plist
-   #:putprop))
+   #:as-plist))
 
 (defpackage #:num-utils.arithmetic
   (:use #:cl
@@ -41,6 +40,7 @@
    #:multf
    #:same-sign-p
    #:square
+   #:cube
    #:absolute-square
    #:abs-diff
    #:log10
@@ -301,6 +301,29 @@
    #:sparse-counter-table
    #:tabulate
    #:cross-tabulate))
+
+(uiop:define-package #:num-utils.log-exp
+    (:use #:cl #:let-plus)
+
+  (:import-from #:num-utils.arithmetic
+		#:ln
+		#:square)
+  (:import-from #:num-utils.polynomial
+		#:evaluate-polynomial)
+  (:import-from #:num-utils.utilities
+		#:simple-double-float-vector)
+
+  (:export #:log1+
+	   #:log1-
+	   #:log1+/x
+	   #:exp-1
+	   #:exp-1/x
+	   #:expt-1
+	   #:log1-exp
+	   #:log1+exp
+	   #:log2-exp
+	   #:logexp-1
+	   #:hypot))
 
 (cl:defpackage #:num-utils.test-utilities
   (:use #:cl)

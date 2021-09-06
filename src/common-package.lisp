@@ -26,4 +26,5 @@
     (reexport '#:num-utils.utilities)
     (reexport '#:num-utils.rootfinding)
     (reexport '#:num-utils.test-utilities)
-    (reexport '#:num-utils.quadrature)))
+    (reexport '#:num-utils.quadrature)
+    (reexport '#:num-utils.log-exp)))

@@ -32,6 +32,7 @@
    (:file "polynomial")
    (:file "rootfinding")
    (:file "quadrature")
+   (:file #:log-exp)
    (:file "test-utilities")
    (:file "common-package")))
 
@@ -62,6 +63,7 @@
    (:file "quadrature")
    (:file "rootfinding")
    (:file "statistics")
+   (:file #:log-exp)
    (:file "utilities"))
   :perform (asdf:test-op (o s)
 			 (uiop:symbol-call :fiveam :run!
