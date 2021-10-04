@@ -1,8 +1,8 @@
-;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: CL-USER -*-
+;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: ASDF -*-
 ;;; Copyright (c) 2010 by Tamas K. Papp <tkpapp@gmail.com>
 ;;; Copyright (c) 2019-2020 by Symbolics Pte. Ltd. All rights reserved.
 
-(asdf:defsystem #:num-utils
+(defsystem "num-utils"
   :description "Numerical utilities for Common Lisp"
   :version      (:read-file-form "version.sexp")
   :author "Steven Nunez <steve@symbolics.tech>"
@@ -32,11 +32,11 @@
    (:file "polynomial")
    (:file "rootfinding")
    (:file "quadrature")
-   (:file #:log-exp)
+   (:file "log-exp")
    (:file "test-utilities")
    (:file "common-package")))
 
-(asdf:defsystem #:num-utils/tests
+(defsystem "num-utils/tests"
   :description "Unit tests for NUM-UTILS."
   :author "Steven Nunez <steve@symbolics.tech>"
   :license "Same as NUM-UTILS -- this is part of the NUM-UTILS library."
@@ -63,9 +63,9 @@
    (:file "quadrature")
    (:file "rootfinding")
    (:file "statistics")
-   (:file #:log-exp)
+   (:file "log-exp")
    (:file "utilities"))
-  :perform (asdf:test-op (o s)
+  :perform (test-op (o s)
 			 (uiop:symbol-call :fiveam :run!
 					   (uiop:find-symbol* :all-tests
 							      :num-utils-tests))))

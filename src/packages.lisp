@@ -323,7 +323,8 @@
 	   #:log1+exp
 	   #:log2-exp
 	   #:logexp-1
-	   #:hypot))
+	   #:hypot
+	   #:log1pmx))
 
 (cl:defpackage #:num-utils.test-utilities
   (:use #:cl)

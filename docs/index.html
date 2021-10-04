@@ -114,8 +114,9 @@ ul.no-bullet {list-style: none}
       <li><a id="toc-num_002dutils_002fpolynomial_002elisp" href="#The-num_002dutils_002fpolynomial_2024lisp-file">2.1.14 <tt>num-utils/polynomial.lisp</tt></a></li>
       <li><a id="toc-num_002dutils_002frootfinding_002elisp" href="#The-num_002dutils_002frootfinding_2024lisp-file">2.1.15 <tt>num-utils/rootfinding.lisp</tt></a></li>
       <li><a id="toc-num_002dutils_002fquadrature_002elisp" href="#The-num_002dutils_002fquadrature_2024lisp-file">2.1.16 <tt>num-utils/quadrature.lisp</tt></a></li>
-      <li><a id="toc-num_002dutils_002ftest_002dutilities_002elisp" href="#The-num_002dutils_002ftest_002dutilities_2024lisp-file">2.1.17 <tt>num-utils/test-utilities.lisp</tt></a></li>
-      <li><a id="toc-num_002dutils_002fcommon_002dpackage_002elisp" href="#The-num_002dutils_002fcommon_002dpackage_2024lisp-file">2.1.18 <tt>num-utils/common-package.lisp</tt></a></li>
+      <li><a id="toc-num_002dutils_002flog_002dexp_002elisp" href="#The-num_002dutils_002flog_002dexp_2024lisp-file">2.1.17 <tt>num-utils/log-exp.lisp</tt></a></li>
+      <li><a id="toc-num_002dutils_002ftest_002dutilities_002elisp" href="#The-num_002dutils_002ftest_002dutilities_2024lisp-file">2.1.18 <tt>num-utils/test-utilities.lisp</tt></a></li>
+      <li><a id="toc-num_002dutils_002fcommon_002dpackage_002elisp" href="#The-num_002dutils_002fcommon_002dpackage_2024lisp-file">2.1.19 <tt>num-utils/common-package.lisp</tt></a></li>
     </ul></li>
   </ul></li>
   <li><a id="toc-Packages-1" href="#Packages">3 Packages</a>
@@ -134,8 +135,9 @@ ul.no-bullet {list-style: none}
     <li><a id="toc-num_002dutils_002erootfinding" href="#The-num_002dutils_2024rootfinding-package">3.12 <tt>num-utils.rootfinding</tt></a></li>
     <li><a id="toc-num_002dutils_002eelementwise" href="#The-num_002dutils_2024elementwise-package">3.13 <tt>num-utils.elementwise</tt></a></li>
     <li><a id="toc-num_002dutils_002echebyshev" href="#The-num_002dutils_2024chebyshev-package">3.14 <tt>num-utils.chebyshev</tt></a></li>
-    <li><a id="toc-num_002dutils_002ematrix" href="#The-num_002dutils_2024matrix-package">3.15 <tt>num-utils.matrix</tt></a></li>
-    <li><a id="toc-num_002dutils-1" href="#The-num_002dutils-package">3.16 <tt>num-utils</tt></a></li>
+    <li><a id="toc-num_002dutils_002elog_002dexp" href="#The-num_002dutils_2024log_002dexp-package">3.15 <tt>num-utils.log-exp</tt></a></li>
+    <li><a id="toc-num_002dutils_002ematrix" href="#The-num_002dutils_2024matrix-package">3.16 <tt>num-utils.matrix</tt></a></li>
+    <li><a id="toc-num_002dutils-1" href="#The-num_002dutils-package">3.17 <tt>num-utils</tt></a></li>
   </ul></li>
   <li><a id="toc-Definitions-1" href="#Definitions">4 Definitions</a>
   <ul class="no-bullet">
@@ -263,6 +265,7 @@ Previous: <a href="#Systems" accesskey="p" rel="prev">Systems</a>, Up: <a href="
 </li><li> <a href="#go-to-the-num_002dutils_002fpolynomial_2024lisp-file"><tt>polynomial.lisp</tt></a> (file)
 </li><li> <a href="#go-to-the-num_002dutils_002frootfinding_2024lisp-file"><tt>rootfinding.lisp</tt></a> (file)
 </li><li> <a href="#go-to-the-num_002dutils_002fquadrature_2024lisp-file"><tt>quadrature.lisp</tt></a> (file)
+</li><li> <a href="#go-to-the-num_002dutils_002flog_002dexp_2024lisp-file"><tt>log-exp.lisp</tt></a> (file)
 </li><li> <a href="#go-to-the-num_002dutils_002ftest_002dutilities_2024lisp-file"><tt>test-utilities.lisp</tt></a> (file)
 </li><li> <a href="#go-to-the-num_002dutils_002fcommon_002dpackage_2024lisp-file"><tt>common-package.lisp</tt></a> (file)
 </li></ul>
@@ -325,6 +328,8 @@ Previous: <a href="#Files" accesskey="p" rel="prev">Files</a>, Up: <a href="#Fil
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#The-num_002dutils_002fquadrature_2024lisp-file">The num-utils/quadrature.lisp file</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#The-num_002dutils_002flog_002dexp_2024lisp-file">The num-utils/log-exp.lisp file</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#The-num_002dutils_002ftest_002dutilities_2024lisp-file">The num-utils/test-utilities.lisp file</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#The-num_002dutils_002fcommon_002dpackage_2024lisp-file">The num-utils/common-package.lisp file</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
@@ -381,6 +386,7 @@ Next: <a href="#The-num_002dutils_002futilities_2024lisp-file" accesskey="n" rel
 </li><li> <a href="#go-to-the-NUM_002dUTILS_2024ROOTFINDING-package"><tt>num-utils.rootfinding</tt></a>
 </li><li> <a href="#go-to-the-NUM_002dUTILS_2024ELEMENTWISE-package"><tt>num-utils.elementwise</tt></a>
 </li><li> <a href="#go-to-the-NUM_002dUTILS_2024CHEBYSHEV-package"><tt>num-utils.chebyshev</tt></a>
+</li><li> <a href="#go-to-the-NUM_002dUTILS_2024LOG_002dEXP-package"><tt>num-utils.log-exp</tt></a>
 </li><li> <a href="#go-to-the-NUM_002dUTILS_2024MATRIX-package"><tt>num-utils.matrix</tt></a>
 </li></ul>
 </dd>
@@ -498,6 +504,7 @@ Next: <a href="#The-num_002dutils_002felementwise_2024lisp-file" accesskey="n" r
 </li><li> <a href="#go-to-the-NUM_002dUTILS_2024ARITHMETIC_2236_2236ABSOLUTE_002dSQUARE-function"><tt>absolute-square</tt></a> (function)
 </li><li> <a href="#go-to-the-NUM_002dUTILS_2024ARITHMETIC_2236_2236AS_002dINTEGER-function"><tt>as-integer</tt></a> (function)
 </li><li> <a href="#go-to-the-NUM_002dUTILS_2024ARITHMETIC_2236_2236CEILING_002a-function"><tt>ceiling*</tt></a> (function)
+</li><li> <a href="#go-to-the-NUM_002dUTILS_2024ARITHMETIC_2236_2236CUBE-function"><tt>cube</tt></a> (function)
 </li><li> <a href="#go-to-the-NUM_002dUTILS_2024ARITHMETIC_2236_2236CUMULATIVE_002dPRODUCT-function"><tt>cumulative-product</tt></a> (function)
 </li><li> <a href="#go-to-the-NUM_002dUTILS_2024ARITHMETIC_2236_2236CUMULATIVE_002dSUM-function"><tt>cumulative-sum</tt></a> (function)
 </li><li> <a href="#go-to-the-NUM_002dUTILS_2024ARITHMETIC_2236_2236DIVIDES_003f-function"><tt>divides?</tt></a> (function)
@@ -528,6 +535,7 @@ Next: <a href="#The-num_002dutils_002felementwise_2024lisp-file" accesskey="n" r
 <dt><strong>Internal Definitions</strong></dt>
 <dd><ul>
 <li> <a href="#go-to-the-NUM_002dUTILS_2024ARITHMETIC_2236_2236DEFINE_002dROUNDING_002dWITH_002dOFFSET-macro"><tt>define-rounding-with-offset</tt></a> (macro)
+</li><li> <a href="#go-to-the-NUM_002dUTILS_2024ARITHMETIC_2236_2236LN-function"><tt>ln</tt></a> (function)
 </li><li> <a href="#go-to-the-NUM_002dUTILS_2024ARITHMETIC_2236_2236SIMILAR_002dELEMENT_002dTYPE-function"><tt>similar-element-type</tt></a> (function)
 </li><li> <a href="#go-to-the-NUM_002dUTILS_2024ARITHMETIC_2236_2236SIMILAR_002dSEQUENCE_002dTYPE-function"><tt>similar-sequence-type</tt></a> (function)
 </li></ul>
@@ -632,6 +640,14 @@ Next: <a href="#The-num_002dutils_002fextended_002dreal_2024lisp-file" accesskey
 </li><li> <a href="#go-to-the-NUM_002dUTILS_2024ELEMENTWISE_2236_2236ELOG-function"><tt>elog</tt></a> (function)
 </li><li> <a href="#go-to-the-NUM_002dUTILS_2024ELEMENTWISE_2236_2236EMAX-function"><tt>emax</tt></a> (function)
 </li><li> <a href="#go-to-the-NUM_002dUTILS_2024ELEMENTWISE_2236_2236EMIN-function"><tt>emin</tt></a> (function)
+</li><li> <a href="#go-to-the-NUM_002dUTILS_2024ELEMENTWISE_2236_2236EMOD-generic-function"><tt>emod</tt></a> (generic function)
+</li><li> <a href="#go-to-the-NUM_002dUTILS_2024ELEMENTWISE_2236_2236EMOD-COMMON_002dLISP_2236_2236NUMBER-COMMON_002dLISP_2236_2236NUMBER-method"><tt>emod</tt></a> (method)
+</li><li> <a href="#go-to-the-NUM_002dUTILS_2024ELEMENTWISE_2236_2236EMOD-COMMON_002dLISP_2236_2236VECTOR-COMMON_002dLISP_2236_2236NUMBER-method"><tt>emod</tt></a> (method)
+</li><li> <a href="#go-to-the-NUM_002dUTILS_2024ELEMENTWISE_2236_2236EMOD-COMMON_002dLISP_2236_2236NUMBER-COMMON_002dLISP_2236_2236VECTOR-method"><tt>emod</tt></a> (method)
+</li><li> <a href="#go-to-the-NUM_002dUTILS_2024ELEMENTWISE_2236_2236EMOD-COMMON_002dLISP_2236_2236VECTOR-COMMON_002dLISP_2236_2236VECTOR-method"><tt>emod</tt></a> (method)
+</li><li> <a href="#go-to-the-NUM_002dUTILS_2024ELEMENTWISE_2236_2236EMOD-COMMON_002dLISP_2236_2236ARRAY-COMMON_002dLISP_2236_2236NUMBER-method"><tt>emod</tt></a> (method)
+</li><li> <a href="#go-to-the-NUM_002dUTILS_2024ELEMENTWISE_2236_2236EMOD-COMMON_002dLISP_2236_2236NUMBER-COMMON_002dLISP_2236_2236ARRAY-method"><tt>emod</tt></a> (method)
+</li><li> <a href="#go-to-the-NUM_002dUTILS_2024ELEMENTWISE_2236_2236EMOD-COMMON_002dLISP_2236_2236ARRAY-COMMON_002dLISP_2236_2236ARRAY-method"><tt>emod</tt></a> (method)
 </li><li> <a href="#go-to-the-NUM_002dUTILS_2024ELEMENTWISE_2236_2236EREDUCE-generic-function"><tt>ereduce</tt></a> (generic function)
 </li><li> <a href="#go-to-the-NUM_002dUTILS_2024ELEMENTWISE_2236_2236EREDUCE-COMMON_002dLISP_2236_2236T-COMMON_002dLISP_2236_2236ARRAY-method"><tt>ereduce</tt></a> (method)
 </li><li> <a href="#go-to-the-NUM_002dUTILS_2024ELEMENTWISE_2236_2236EREDUCE-COMMON_002dLISP_2236_2236T-COMMON_002dLISP_2236_2236SEQUENCE-method"><tt>ereduce</tt></a> (method)
@@ -903,6 +919,7 @@ Next: <a href="#The-num_002dutils_002fmatrix_002dshorthand_2024lisp-file" access
 </li><li> <a href="#go-to-the-NUM_002dUTILS_2024MATRIX_2236_2236HERMITIAN_002dMATRIX-structure"><tt>hermitian-matrix</tt></a> (structure)
 </li><li> <a href="#go-to-the-NUM_002dUTILS_2024MATRIX_2236_2236LOWER_002dTRIANGULAR_002dMATRIX-function"><tt>lower-triangular-matrix</tt></a> (function)
 </li><li> <a href="#go-to-the-NUM_002dUTILS_2024MATRIX_2236_2236LOWER_002dTRIANGULAR_002dMATRIX-structure"><tt>lower-triangular-matrix</tt></a> (structure)
+</li><li> <a href="#go-to-the-NUM_002dUTILS_2024MATRIX_2236_2236MAP_002dARRAY-COMMON_002dLISP_2236_2236T-COMMON_002dLISP_2236_2236T-method"><tt>map-array</tt></a> (method)
 </li><li> <a href="#go-to-the-NUM_002dUTILS_2024NUM_003d_2236_2236NUM_003d-NUM_002dUTILS_2024MATRIX_2236_2236DIAGONAL_002dMATRIX-NUM_002dUTILS_2024MATRIX_2236_2236DIAGONAL_002dMATRIX-method"><tt>num=</tt></a> (method)
 </li><li> <a href="#go-to-the-NUM_002dUTILS_2024NUM_003d_2236_2236NUM_003d-NUM_002dUTILS_2024MATRIX_2236_2236WRAPPED_002dMATRIX-NUM_002dUTILS_2024MATRIX_2236_2236WRAPPED_002dMATRIX-method"><tt>num=</tt></a> (method)
 </li><li> <a href="#go-to-the-NUM_002dUTILS_2024MATRIX_2236_2236TRANSPOSE-generic-function"><tt>transpose</tt></a> (generic function)
@@ -1228,7 +1245,7 @@ Next: <a href="#The-num_002dutils_002fquadrature_2024lisp-file" accesskey="n" re
 <hr>
 <span id="The-num_002dutils_002fquadrature_2024lisp-file"></span><div class="header">
 <p>
-Next: <a href="#The-num_002dutils_002ftest_002dutilities_2024lisp-file" accesskey="n" rel="next">The num-utils/test-utilities․lisp file</a>, Previous: <a href="#The-num_002dutils_002frootfinding_2024lisp-file" accesskey="p" rel="prev">The num-utils/rootfinding․lisp file</a>, Up: <a href="#Lisp-files" accesskey="u" rel="up">Lisp files</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Indexes" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#The-num_002dutils_002flog_002dexp_2024lisp-file" accesskey="n" rel="next">The num-utils/log-exp․lisp file</a>, Previous: <a href="#The-num_002dutils_002frootfinding_2024lisp-file" accesskey="p" rel="prev">The num-utils/rootfinding․lisp file</a>, Up: <a href="#Lisp-files" accesskey="u" rel="up">Lisp files</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Indexes" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="num_002dutils_002fquadrature_002elisp"></span><h4 class="subsection">2.1.16 <tt>num-utils/quadrature.lisp</tt></h4>
 <span id="go-to-the-num_002dutils_002fquadrature_2024lisp-file"></span><span id="index-num_002dutils_002fquadrature_002elisp"></span>
@@ -1325,17 +1342,54 @@ Next: <a href="#The-num_002dutils_002ftest_002dutilities_2024lisp-file" accesske
 </dl>
 
 <hr>
+<span id="The-num_002dutils_002flog_002dexp_2024lisp-file"></span><div class="header">
+<p>
+Next: <a href="#The-num_002dutils_002ftest_002dutilities_2024lisp-file" accesskey="n" rel="next">The num-utils/test-utilities․lisp file</a>, Previous: <a href="#The-num_002dutils_002fquadrature_2024lisp-file" accesskey="p" rel="prev">The num-utils/quadrature․lisp file</a>, Up: <a href="#Lisp-files" accesskey="u" rel="up">Lisp files</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Indexes" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="num_002dutils_002flog_002dexp_002elisp"></span><h4 class="subsection">2.1.17 <tt>num-utils/log-exp.lisp</tt></h4>
+<span id="go-to-the-num_002dutils_002flog_002dexp_2024lisp-file"></span><span id="index-num_002dutils_002flog_002dexp_002elisp"></span>
+<span id="index-Lisp-File_002c-num_002dutils_002flog_002dexp_002elisp"></span>
+<span id="index-File_002c-Lisp_002c-num_002dutils_002flog_002dexp_002elisp"></span>
+<dl compact="compact">
+<dt><strong>Dependency</strong></dt>
+<dd><p><a href="#go-to-the-num_002dutils_002fquadrature_2024lisp-file"><tt>quadrature.lisp</tt></a> (file)
+</p></dd>
+<dt><strong>Parent</strong></dt>
+<dd><p><a href="#go-to-the-num_002dutils-system"><tt>num-utils</tt></a> (system)
+</p></dd>
+<dt><strong>Location</strong></dt>
+<dd><p><a href="file://s:/src/num-utils/src/log-exp.lisp"><tt>log-exp.lisp</tt></a>
+</p></dd>
+<dt><strong>Exported Definitions</strong></dt>
+<dd><ul>
+<li> <a href="#go-to-the-NUM_002dUTILS_2024LOG_002dEXP_2236_2236EXP_002d1-function"><tt>exp-1</tt></a> (function)
+</li><li> <a href="#go-to-the-NUM_002dUTILS_2024LOG_002dEXP_2236_2236EXP_002d1_002fX-function"><tt>exp-1/x</tt></a> (function)
+</li><li> <a href="#go-to-the-NUM_002dUTILS_2024LOG_002dEXP_2236_2236EXPT_002d1-function"><tt>expt-1</tt></a> (function)
+</li><li> <a href="#go-to-the-NUM_002dUTILS_2024LOG_002dEXP_2236_2236HYPOT-function"><tt>hypot</tt></a> (function)
+</li><li> <a href="#go-to-the-NUM_002dUTILS_2024LOG_002dEXP_2236_2236LOG1_002b-function"><tt>log1+</tt></a> (function)
+</li><li> <a href="#go-to-the-NUM_002dUTILS_2024LOG_002dEXP_2236_2236LOG1_002b_002fX-function"><tt>log1+/x</tt></a> (function)
+</li><li> <a href="#go-to-the-NUM_002dUTILS_2024LOG_002dEXP_2236_2236LOG1_002bEXP-function"><tt>log1+exp</tt></a> (function)
+</li><li> <a href="#go-to-the-NUM_002dUTILS_2024LOG_002dEXP_2236_2236LOG1_002d-function"><tt>log1-</tt></a> (function)
+</li><li> <a href="#go-to-the-NUM_002dUTILS_2024LOG_002dEXP_2236_2236LOG1_002dEXP-function"><tt>log1-exp</tt></a> (function)
+</li><li> <a href="#go-to-the-NUM_002dUTILS_2024LOG_002dEXP_2236_2236LOG1PMX-function"><tt>log1pmx</tt></a> (function)
+</li><li> <a href="#go-to-the-NUM_002dUTILS_2024LOG_002dEXP_2236_2236LOG2_002dEXP-function"><tt>log2-exp</tt></a> (function)
+</li><li> <a href="#go-to-the-NUM_002dUTILS_2024LOG_002dEXP_2236_2236LOGEXP_002d1-function"><tt>logexp-1</tt></a> (function)
+</li></ul>
+</dd>
+</dl>
+
+<hr>
 <span id="The-num_002dutils_002ftest_002dutilities_2024lisp-file"></span><div class="header">
 <p>
-Next: <a href="#The-num_002dutils_002fcommon_002dpackage_2024lisp-file" accesskey="n" rel="next">The num-utils/common-package․lisp file</a>, Previous: <a href="#The-num_002dutils_002fquadrature_2024lisp-file" accesskey="p" rel="prev">The num-utils/quadrature․lisp file</a>, Up: <a href="#Lisp-files" accesskey="u" rel="up">Lisp files</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Indexes" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#The-num_002dutils_002fcommon_002dpackage_2024lisp-file" accesskey="n" rel="next">The num-utils/common-package․lisp file</a>, Previous: <a href="#The-num_002dutils_002flog_002dexp_2024lisp-file" accesskey="p" rel="prev">The num-utils/log-exp․lisp file</a>, Up: <a href="#Lisp-files" accesskey="u" rel="up">Lisp files</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Indexes" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="num_002dutils_002ftest_002dutilities_002elisp"></span><h4 class="subsection">2.1.17 <tt>num-utils/test-utilities.lisp</tt></h4>
+<span id="num_002dutils_002ftest_002dutilities_002elisp"></span><h4 class="subsection">2.1.18 <tt>num-utils/test-utilities.lisp</tt></h4>
 <span id="go-to-the-num_002dutils_002ftest_002dutilities_2024lisp-file"></span><span id="index-num_002dutils_002ftest_002dutilities_002elisp"></span>
 <span id="index-Lisp-File_002c-num_002dutils_002ftest_002dutilities_002elisp"></span>
 <span id="index-File_002c-Lisp_002c-num_002dutils_002ftest_002dutilities_002elisp"></span>
 <dl compact="compact">
 <dt><strong>Dependency</strong></dt>
-<dd><p><a href="#go-to-the-num_002dutils_002fquadrature_2024lisp-file"><tt>quadrature.lisp</tt></a> (file)
+<dd><p><a href="#go-to-the-num_002dutils_002flog_002dexp_2024lisp-file"><tt>log-exp.lisp</tt></a> (file)
 </p></dd>
 <dt><strong>Parent</strong></dt>
 <dd><p><a href="#go-to-the-num_002dutils-system"><tt>num-utils</tt></a> (system)
@@ -1381,7 +1435,7 @@ Next: <a href="#The-num_002dutils_002fcommon_002dpackage_2024lisp-file" accesske
 <p>
 Previous: <a href="#The-num_002dutils_002ftest_002dutilities_2024lisp-file" accesskey="p" rel="prev">The num-utils/test-utilities․lisp file</a>, Up: <a href="#Lisp-files" accesskey="u" rel="up">Lisp files</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Indexes" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="num_002dutils_002fcommon_002dpackage_002elisp"></span><h4 class="subsection">2.1.18 <tt>num-utils/common-package.lisp</tt></h4>
+<span id="num_002dutils_002fcommon_002dpackage_002elisp"></span><h4 class="subsection">2.1.19 <tt>num-utils/common-package.lisp</tt></h4>
 <span id="go-to-the-num_002dutils_002fcommon_002dpackage_2024lisp-file"></span><span id="index-num_002dutils_002fcommon_002dpackage_002elisp"></span>
 <span id="index-Lisp-File_002c-num_002dutils_002fcommon_002dpackage_002elisp"></span>
 <span id="index-File_002c-Lisp_002c-num_002dutils_002fcommon_002dpackage_002elisp"></span>
@@ -1438,6 +1492,8 @@ Next: <a href="#Definitions" accesskey="n" rel="next">Definitions</a>, Previous:
 <tr><td align="left" valign="top">&bull; <a href="#The-num_002dutils_2024elementwise-package">The num-utils.elementwise package</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#The-num_002dutils_2024chebyshev-package">The num-utils.chebyshev package</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#The-num_002dutils_2024log_002dexp-package">The num-utils.log-exp package</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#The-num_002dutils_2024matrix-package">The num-utils.matrix package</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
@@ -1710,6 +1766,7 @@ Next: <a href="#The-num_002dutils_2024matrix_002dshorthand-package" accesskey="n
 </li><li> <a href="#go-to-the-NUM_002dUTILS_2024ARITHMETIC_2236_2236ABSOLUTE_002dSQUARE-function"><tt>absolute-square</tt></a> (function)
 </li><li> <a href="#go-to-the-NUM_002dUTILS_2024ARITHMETIC_2236_2236AS_002dINTEGER-function"><tt>as-integer</tt></a> (function)
 </li><li> <a href="#go-to-the-NUM_002dUTILS_2024ARITHMETIC_2236_2236CEILING_002a-function"><tt>ceiling*</tt></a> (function)
+</li><li> <a href="#go-to-the-NUM_002dUTILS_2024ARITHMETIC_2236_2236CUBE-function"><tt>cube</tt></a> (function)
 </li><li> <a href="#go-to-the-NUM_002dUTILS_2024ARITHMETIC_2236_2236CUMULATIVE_002dPRODUCT-function"><tt>cumulative-product</tt></a> (function)
 </li><li> <a href="#go-to-the-NUM_002dUTILS_2024ARITHMETIC_2236_2236CUMULATIVE_002dSUM-function"><tt>cumulative-sum</tt></a> (function)
 </li><li> <a href="#go-to-the-NUM_002dUTILS_2024ARITHMETIC_2236_2236DIVIDES_003f-function"><tt>divides?</tt></a> (function)
@@ -1740,6 +1797,7 @@ Next: <a href="#The-num_002dutils_2024matrix_002dshorthand-package" accesskey="n
 <dt><strong>Internal Definitions</strong></dt>
 <dd><ul>
 <li> <a href="#go-to-the-NUM_002dUTILS_2024ARITHMETIC_2236_2236DEFINE_002dROUNDING_002dWITH_002dOFFSET-macro"><tt>define-rounding-with-offset</tt></a> (macro)
+</li><li> <a href="#go-to-the-NUM_002dUTILS_2024ARITHMETIC_2236_2236LN-function"><tt>ln</tt></a> (function)
 </li><li> <a href="#go-to-the-NUM_002dUTILS_2024ARITHMETIC_2236_2236SIMILAR_002dELEMENT_002dTYPE-function"><tt>similar-element-type</tt></a> (function)
 </li><li> <a href="#go-to-the-NUM_002dUTILS_2024ARITHMETIC_2236_2236SIMILAR_002dSEQUENCE_002dTYPE-function"><tt>similar-sequence-type</tt></a> (function)
 </li></ul>
@@ -2372,6 +2430,14 @@ Next: <a href="#The-num_002dutils_2024chebyshev-package" accesskey="n" rel="next
 </li><li> <a href="#go-to-the-NUM_002dUTILS_2024ELEMENTWISE_2236_2236ELOG-function"><tt>elog</tt></a> (function)
 </li><li> <a href="#go-to-the-NUM_002dUTILS_2024ELEMENTWISE_2236_2236EMAX-function"><tt>emax</tt></a> (function)
 </li><li> <a href="#go-to-the-NUM_002dUTILS_2024ELEMENTWISE_2236_2236EMIN-function"><tt>emin</tt></a> (function)
+</li><li> <a href="#go-to-the-NUM_002dUTILS_2024ELEMENTWISE_2236_2236EMOD-generic-function"><tt>emod</tt></a> (generic function)
+</li><li> <a href="#go-to-the-NUM_002dUTILS_2024ELEMENTWISE_2236_2236EMOD-COMMON_002dLISP_2236_2236NUMBER-COMMON_002dLISP_2236_2236NUMBER-method"><tt>emod</tt></a> (method)
+</li><li> <a href="#go-to-the-NUM_002dUTILS_2024ELEMENTWISE_2236_2236EMOD-COMMON_002dLISP_2236_2236VECTOR-COMMON_002dLISP_2236_2236NUMBER-method"><tt>emod</tt></a> (method)
+</li><li> <a href="#go-to-the-NUM_002dUTILS_2024ELEMENTWISE_2236_2236EMOD-COMMON_002dLISP_2236_2236NUMBER-COMMON_002dLISP_2236_2236VECTOR-method"><tt>emod</tt></a> (method)
+</li><li> <a href="#go-to-the-NUM_002dUTILS_2024ELEMENTWISE_2236_2236EMOD-COMMON_002dLISP_2236_2236VECTOR-COMMON_002dLISP_2236_2236VECTOR-method"><tt>emod</tt></a> (method)
+</li><li> <a href="#go-to-the-NUM_002dUTILS_2024ELEMENTWISE_2236_2236EMOD-COMMON_002dLISP_2236_2236ARRAY-COMMON_002dLISP_2236_2236NUMBER-method"><tt>emod</tt></a> (method)
+</li><li> <a href="#go-to-the-NUM_002dUTILS_2024ELEMENTWISE_2236_2236EMOD-COMMON_002dLISP_2236_2236NUMBER-COMMON_002dLISP_2236_2236ARRAY-method"><tt>emod</tt></a> (method)
+</li><li> <a href="#go-to-the-NUM_002dUTILS_2024ELEMENTWISE_2236_2236EMOD-COMMON_002dLISP_2236_2236ARRAY-COMMON_002dLISP_2236_2236ARRAY-method"><tt>emod</tt></a> (method)
 </li><li> <a href="#go-to-the-NUM_002dUTILS_2024ELEMENTWISE_2236_2236EREDUCE-generic-function"><tt>ereduce</tt></a> (generic function)
 </li><li> <a href="#go-to-the-NUM_002dUTILS_2024ELEMENTWISE_2236_2236EREDUCE-COMMON_002dLISP_2236_2236T-COMMON_002dLISP_2236_2236ARRAY-method"><tt>ereduce</tt></a> (method)
 </li><li> <a href="#go-to-the-NUM_002dUTILS_2024ELEMENTWISE_2236_2236EREDUCE-COMMON_002dLISP_2236_2236T-COMMON_002dLISP_2236_2236SEQUENCE-method"><tt>ereduce</tt></a> (method)
@@ -2403,7 +2469,7 @@ Next: <a href="#The-num_002dutils_2024chebyshev-package" accesskey="n" rel="next
 <hr>
 <span id="The-num_002dutils_2024chebyshev-package"></span><div class="header">
 <p>
-Next: <a href="#The-num_002dutils_2024matrix-package" accesskey="n" rel="next">The num-utils․matrix package</a>, Previous: <a href="#The-num_002dutils_2024elementwise-package" accesskey="p" rel="prev">The num-utils․elementwise package</a>, Up: <a href="#Packages" accesskey="u" rel="up">Packages</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Indexes" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#The-num_002dutils_2024log_002dexp-package" accesskey="n" rel="next">The num-utils․log-exp package</a>, Previous: <a href="#The-num_002dutils_2024elementwise-package" accesskey="p" rel="prev">The num-utils․elementwise package</a>, Up: <a href="#Packages" accesskey="u" rel="up">Packages</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Indexes" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="num_002dutils_002echebyshev"></span><h3 class="section">3.14 <tt>num-utils.chebyshev</tt></h3>
 <span id="go-to-the-NUM_002dUTILS_2024CHEBYSHEV-package"></span><span id="index-num_002dutils_002echebyshev"></span>
@@ -2446,11 +2512,48 @@ Next: <a href="#The-num_002dutils_2024matrix-package" accesskey="n" rel="next">T
 
 
 <hr>
+<span id="The-num_002dutils_2024log_002dexp-package"></span><div class="header">
+<p>
+Next: <a href="#The-num_002dutils_2024matrix-package" accesskey="n" rel="next">The num-utils․matrix package</a>, Previous: <a href="#The-num_002dutils_2024chebyshev-package" accesskey="p" rel="prev">The num-utils․chebyshev package</a>, Up: <a href="#Packages" accesskey="u" rel="up">Packages</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Indexes" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="num_002dutils_002elog_002dexp"></span><h3 class="section">3.15 <tt>num-utils.log-exp</tt></h3>
+<span id="go-to-the-NUM_002dUTILS_2024LOG_002dEXP-package"></span><span id="index-num_002dutils_002elog_002dexp"></span>
+<span id="index-Package_002c-num_002dutils_002elog_002dexp"></span>
+<dl compact="compact">
+<dt><strong>Source</strong></dt>
+<dd><p><a href="#go-to-the-num_002dutils_002fpackages_2024lisp-file"><tt>packages.lisp</tt></a> (file)
+</p></dd>
+<dt><strong>Use List</strong></dt>
+<dd><ul>
+<li> <tt>let-plus</tt>
+</li><li> <tt>common-lisp</tt>
+</li></ul>
+</dd>
+<dt><strong>Exported Definitions</strong></dt>
+<dd><ul>
+<li> <a href="#go-to-the-NUM_002dUTILS_2024LOG_002dEXP_2236_2236EXP_002d1-function"><tt>exp-1</tt></a> (function)
+</li><li> <a href="#go-to-the-NUM_002dUTILS_2024LOG_002dEXP_2236_2236EXP_002d1_002fX-function"><tt>exp-1/x</tt></a> (function)
+</li><li> <a href="#go-to-the-NUM_002dUTILS_2024LOG_002dEXP_2236_2236EXPT_002d1-function"><tt>expt-1</tt></a> (function)
+</li><li> <a href="#go-to-the-NUM_002dUTILS_2024LOG_002dEXP_2236_2236HYPOT-function"><tt>hypot</tt></a> (function)
+</li><li> <a href="#go-to-the-NUM_002dUTILS_2024LOG_002dEXP_2236_2236LOG1_002b-function"><tt>log1+</tt></a> (function)
+</li><li> <a href="#go-to-the-NUM_002dUTILS_2024LOG_002dEXP_2236_2236LOG1_002b_002fX-function"><tt>log1+/x</tt></a> (function)
+</li><li> <a href="#go-to-the-NUM_002dUTILS_2024LOG_002dEXP_2236_2236LOG1_002bEXP-function"><tt>log1+exp</tt></a> (function)
+</li><li> <a href="#go-to-the-NUM_002dUTILS_2024LOG_002dEXP_2236_2236LOG1_002d-function"><tt>log1-</tt></a> (function)
+</li><li> <a href="#go-to-the-NUM_002dUTILS_2024LOG_002dEXP_2236_2236LOG1_002dEXP-function"><tt>log1-exp</tt></a> (function)
+</li><li> <a href="#go-to-the-NUM_002dUTILS_2024LOG_002dEXP_2236_2236LOG1PMX-function"><tt>log1pmx</tt></a> (function)
+</li><li> <a href="#go-to-the-NUM_002dUTILS_2024LOG_002dEXP_2236_2236LOG2_002dEXP-function"><tt>log2-exp</tt></a> (function)
+</li><li> <a href="#go-to-the-NUM_002dUTILS_2024LOG_002dEXP_2236_2236LOGEXP_002d1-function"><tt>logexp-1</tt></a> (function)
+</li></ul>
+</dd>
+</dl>
+
+
+<hr>
 <span id="The-num_002dutils_2024matrix-package"></span><div class="header">
 <p>
-Next: <a href="#The-num_002dutils-package" accesskey="n" rel="next">The num-utils package</a>, Previous: <a href="#The-num_002dutils_2024chebyshev-package" accesskey="p" rel="prev">The num-utils․chebyshev package</a>, Up: <a href="#Packages" accesskey="u" rel="up">Packages</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Indexes" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#The-num_002dutils-package" accesskey="n" rel="next">The num-utils package</a>, Previous: <a href="#The-num_002dutils_2024log_002dexp-package" accesskey="p" rel="prev">The num-utils․log-exp package</a>, Up: <a href="#Packages" accesskey="u" rel="up">Packages</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Indexes" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="num_002dutils_002ematrix"></span><h3 class="section">3.15 <tt>num-utils.matrix</tt></h3>
+<span id="num_002dutils_002ematrix"></span><h3 class="section">3.16 <tt>num-utils.matrix</tt></h3>
 <span id="go-to-the-NUM_002dUTILS_2024MATRIX-package"></span><span id="index-num_002dutils_002ematrix"></span>
 <span id="index-Package_002c-num_002dutils_002ematrix"></span>
 <dl compact="compact">
@@ -2487,6 +2590,8 @@ Next: <a href="#The-num_002dutils-package" accesskey="n" rel="next">The num-util
 </li><li> <a href="#go-to-the-NUM_002dUTILS_2024MATRIX_2236_2236HERMITIAN_002dMATRIX-structure"><tt>hermitian-matrix</tt></a> (structure)
 </li><li> <a href="#go-to-the-NUM_002dUTILS_2024MATRIX_2236_2236LOWER_002dTRIANGULAR_002dMATRIX-function"><tt>lower-triangular-matrix</tt></a> (function)
 </li><li> <a href="#go-to-the-NUM_002dUTILS_2024MATRIX_2236_2236LOWER_002dTRIANGULAR_002dMATRIX-structure"><tt>lower-triangular-matrix</tt></a> (structure)
+</li><li> <a href="#go-to-the-NUM_002dUTILS_2024MATRIX_2236_2236MAP_002dARRAY-generic-function"><tt>map-array</tt></a> (generic function)
+</li><li> <a href="#go-to-the-NUM_002dUTILS_2024MATRIX_2236_2236MAP_002dARRAY-COMMON_002dLISP_2236_2236T-COMMON_002dLISP_2236_2236T-method"><tt>map-array</tt></a> (method)
 </li><li> <a href="#go-to-the-NUM_002dUTILS_2024MATRIX_2236_2236TRANSPOSE-generic-function"><tt>transpose</tt></a> (generic function)
 </li><li> <a href="#go-to-the-NUM_002dUTILS_2024MATRIX_2236_2236TRANSPOSE-COMMON_002dLISP_2236_2236ARRAY-method"><tt>transpose</tt></a> (method)
 </li><li> <a href="#go-to-the-NUM_002dUTILS_2024MATRIX_2236_2236TRANSPOSE-NUM_002dUTILS_2024MATRIX_2236_2236LOWER_002dTRIANGULAR_002dMATRIX-method"><tt>transpose</tt></a> (method)
@@ -2542,7 +2647,7 @@ Next: <a href="#The-num_002dutils-package" accesskey="n" rel="next">The num-util
 <p>
 Previous: <a href="#The-num_002dutils_2024matrix-package" accesskey="p" rel="prev">The num-utils․matrix package</a>, Up: <a href="#Packages" accesskey="u" rel="up">Packages</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Indexes" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="num_002dutils-1"></span><h3 class="section">3.16 <tt>num-utils</tt></h3>
+<span id="num_002dutils-1"></span><h3 class="section">3.17 <tt>num-utils</tt></h3>
 <span id="go-to-the-NUM_002dUTILS-package"></span><span id="index-num_002dutils-1"></span>
 <span id="index-Package_002c-num_002dutils"></span>
 <dl compact="compact">
@@ -3268,6 +3373,19 @@ double-floats.
 </dl>
 </dd></dl>
 <dl>
+<dt id="index-cube">Function: <strong>cube</strong> <em>NUMBER</em></dt>
+<dd><span id="go-to-the-NUM_002dUTILS_2024ARITHMETIC_2236_2236CUBE-function"></span><span id="index-Function_002c-cube"></span>
+<p>Cube of number.
+</p><dl compact="compact">
+<dt><strong>Package</strong></dt>
+<dd><p><a href="#go-to-the-NUM_002dUTILS_2024ARITHMETIC-package"><tt>num-utils.arithmetic</tt></a>
+</p></dd>
+<dt><strong>Source</strong></dt>
+<dd><p><a href="#go-to-the-num_002dutils_002farithmetic_2024lisp-file"><tt>arithmetic.lisp</tt></a> (file)
+</p></dd>
+</dl>
+</dd></dl>
+<dl>
 <dt id="index-cumulative_002dproduct">Function: <strong>cumulative-product</strong> <em>SEQUENCE &amp;key RESULT-TYPE</em></dt>
 <dd><span id="go-to-the-NUM_002dUTILS_2024ARITHMETIC_2236_2236CUMULATIVE_002dPRODUCT-function"></span><span id="index-Function_002c-cumulative_002dproduct"></span>
 <p>Cumulative product of sequence.  Return a sequence of the same kind and length; last element is the total product.  The latter is also returned as the second value.
@@ -3523,6 +3641,46 @@ X must be of the same type as COEFFICIENTS.
 </dl>
 </dd></dl>
 <dl>
+<dt id="index-exp_002d1">Function: <strong>exp-1</strong> <em>X</em></dt>
+<dd><span id="go-to-the-NUM_002dUTILS_2024LOG_002dEXP_2236_2236EXP_002d1-function"></span><span id="index-Function_002c-exp_002d1"></span>
+<p>Compute (- (exp x) 1) stably even when X is near 0
+</p><dl compact="compact">
+<dt><strong>Package</strong></dt>
+<dd><p><a href="#go-to-the-NUM_002dUTILS_2024LOG_002dEXP-package"><tt>num-utils.log-exp</tt></a>
+</p></dd>
+<dt><strong>Source</strong></dt>
+<dd><p><a href="#go-to-the-num_002dutils_002flog_002dexp_2024lisp-file"><tt>log-exp.lisp</tt></a> (file)
+</p></dd>
+</dl>
+</dd></dl>
+<dl>
+<dt id="index-exp_002d1_002fx">Function: <strong>exp-1/x</strong> <em>X</em></dt>
+<dd><span id="go-to-the-NUM_002dUTILS_2024LOG_002dEXP_2236_2236EXP_002d1_002fX-function"></span><span id="index-Function_002c-exp_002d1_002fx"></span>
+<p>Compute (/ (- (exp x) 1) x) stably even when X is near zero.
+</p><dl compact="compact">
+<dt><strong>Package</strong></dt>
+<dd><p><a href="#go-to-the-NUM_002dUTILS_2024LOG_002dEXP-package"><tt>num-utils.log-exp</tt></a>
+</p></dd>
+<dt><strong>Source</strong></dt>
+<dd><p><a href="#go-to-the-num_002dutils_002flog_002dexp_2024lisp-file"><tt>log-exp.lisp</tt></a> (file)
+</p></dd>
+</dl>
+</dd></dl>
+<dl>
+<dt id="index-expt_002d1">Function: <strong>expt-1</strong> <em>A Z</em></dt>
+<dd><span id="go-to-the-NUM_002dUTILS_2024LOG_002dEXP_2236_2236EXPT_002d1-function"></span><span id="index-Function_002c-expt_002d1"></span>
+<p>Compute (a^z)-1 stably even when A is close to 1 or Z is close to
+zero.
+</p><dl compact="compact">
+<dt><strong>Package</strong></dt>
+<dd><p><a href="#go-to-the-NUM_002dUTILS_2024LOG_002dEXP-package"><tt>num-utils.log-exp</tt></a>
+</p></dd>
+<dt><strong>Source</strong></dt>
+<dd><p><a href="#go-to-the-num_002dutils_002flog_002dexp_2024lisp-file"><tt>log-exp.lisp</tt></a> (file)
+</p></dd>
+</dl>
+</dd></dl>
+<dl>
 <dt id="index-fixnum_003f">Function: <strong>fixnum?</strong> <em>OBJECT</em></dt>
 <dd><span id="go-to-the-NUM_002dUTILS_2024UTILITIES_2236_2236FIXNUM_003f-function"></span><span id="index-Function_002c-fixnum_003f"></span>
 <p>Check of type of OBJECT is fixnum.
@@ -3588,6 +3746,20 @@ narrowing to the appropriate float type or fixnum if possible.
 </p></dd>
 <dt><strong>Source</strong></dt>
 <dd><p><a href="#go-to-the-num_002dutils_002fmatrix_2024lisp-file"><tt>matrix.lisp</tt></a> (file)
+</p></dd>
+</dl>
+</dd></dl>
+<dl>
+<dt id="index-hypot">Function: <strong>hypot</strong> <em>X Y</em></dt>
+<dd><span id="go-to-the-NUM_002dUTILS_2024LOG_002dEXP_2236_2236HYPOT-function"></span><span id="index-Function_002c-hypot"></span>
+<p>Compute the hypotenuse of X and Y without danger of floating-point
+overflow or underflow.
+</p><dl compact="compact">
+<dt><strong>Package</strong></dt>
+<dd><p><a href="#go-to-the-NUM_002dUTILS_2024LOG_002dEXP-package"><tt>num-utils.log-exp</tt></a>
+</p></dd>
+<dt><strong>Source</strong></dt>
+<dd><p><a href="#go-to-the-num_002dutils_002flog_002dexp_2024lisp-file"><tt>log-exp.lisp</tt></a> (file)
 </p></dd>
 </dl>
 </dd></dl>
@@ -3704,6 +3876,74 @@ weight on right.
 </dl>
 </dd></dl>
 <dl>
+<dt id="index-log1_002b">Function: <strong>log1+</strong> <em>X</em></dt>
+<dd><span id="go-to-the-NUM_002dUTILS_2024LOG_002dEXP_2236_2236LOG1_002b-function"></span><span id="index-Function_002c-log1_002b"></span>
+<p>Compute (log (1+ x)) stably even when X is near 0.
+</p><dl compact="compact">
+<dt><strong>Package</strong></dt>
+<dd><p><a href="#go-to-the-NUM_002dUTILS_2024LOG_002dEXP-package"><tt>num-utils.log-exp</tt></a>
+</p></dd>
+<dt><strong>Source</strong></dt>
+<dd><p><a href="#go-to-the-num_002dutils_002flog_002dexp_2024lisp-file"><tt>log-exp.lisp</tt></a> (file)
+</p></dd>
+</dl>
+</dd></dl>
+<dl>
+<dt id="index-log1_002b_002fx">Function: <strong>log1+/x</strong> <em>X</em></dt>
+<dd><span id="go-to-the-NUM_002dUTILS_2024LOG_002dEXP_2236_2236LOG1_002b_002fX-function"></span><span id="index-Function_002c-log1_002b_002fx"></span>
+<p>Compute (/ (log (+ 1 x)) x) stably even when X is near zero.
+</p><dl compact="compact">
+<dt><strong>Package</strong></dt>
+<dd><p><a href="#go-to-the-NUM_002dUTILS_2024LOG_002dEXP-package"><tt>num-utils.log-exp</tt></a>
+</p></dd>
+<dt><strong>Source</strong></dt>
+<dd><p><a href="#go-to-the-num_002dutils_002flog_002dexp_2024lisp-file"><tt>log-exp.lisp</tt></a> (file)
+</p></dd>
+</dl>
+</dd></dl>
+<dl>
+<dt id="index-log1_002bexp">Function: <strong>log1+exp</strong> <em>A</em></dt>
+<dd><span id="go-to-the-NUM_002dUTILS_2024LOG_002dEXP_2236_2236LOG1_002bEXP-function"></span><span id="index-Function_002c-log1_002bexp"></span>
+<p>Accurately compute log(1+exp(x)) even when A is near zero.
+</p><dl compact="compact">
+<dt><strong>Package</strong></dt>
+<dd><p><a href="#go-to-the-NUM_002dUTILS_2024LOG_002dEXP-package"><tt>num-utils.log-exp</tt></a>
+</p></dd>
+<dt><strong>Source</strong></dt>
+<dd><p><a href="#go-to-the-num_002dutils_002flog_002dexp_2024lisp-file"><tt>log-exp.lisp</tt></a> (file)
+</p></dd>
+</dl>
+</dd></dl>
+<dl>
+<dt id="index-log1_002d">Function: <strong>log1-</strong> <em>X</em></dt>
+<dd><span id="go-to-the-NUM_002dUTILS_2024LOG_002dEXP_2236_2236LOG1_002d-function"></span><span id="index-Function_002c-log1_002d"></span>
+<p>Compute (log (- 1 x)) stably even when X is near zero.
+</p><dl compact="compact">
+<dt><strong>Package</strong></dt>
+<dd><p><a href="#go-to-the-NUM_002dUTILS_2024LOG_002dEXP-package"><tt>num-utils.log-exp</tt></a>
+</p></dd>
+<dt><strong>Source</strong></dt>
+<dd><p><a href="#go-to-the-num_002dutils_002flog_002dexp_2024lisp-file"><tt>log-exp.lisp</tt></a> (file)
+</p></dd>
+</dl>
+</dd></dl>
+<dl>
+<dt id="index-log1_002dexp">Function: <strong>log1-exp</strong> <em>A</em></dt>
+<dd><span id="go-to-the-NUM_002dUTILS_2024LOG_002dEXP_2236_2236LOG1_002dEXP-function"></span><span id="index-Function_002c-log1_002dexp"></span>
+<p>Compute log(1-exp(x)) stably even when A is near zero.<br>
+This is sometimes known as the E_3, the third Einstein function.<br>
+See Mächler 2008 for notes on accurate calculation.
+https://cran.r-project.org/web/packages/Rmpfr/vignettes/log1mexp-note.pdf
+</p><dl compact="compact">
+<dt><strong>Package</strong></dt>
+<dd><p><a href="#go-to-the-NUM_002dUTILS_2024LOG_002dEXP-package"><tt>num-utils.log-exp</tt></a>
+</p></dd>
+<dt><strong>Source</strong></dt>
+<dd><p><a href="#go-to-the-num_002dutils_002flog_002dexp_2024lisp-file"><tt>log-exp.lisp</tt></a> (file)
+</p></dd>
+</dl>
+</dd></dl>
+<dl>
 <dt id="index-log10">Function: <strong>log10</strong> <em>NUMBER</em></dt>
 <dd><span id="go-to-the-NUM_002dUTILS_2024ARITHMETIC_2236_2236LOG10-function"></span><span id="index-Function_002c-log10"></span>
 <p>Abbreviation for decimal logarithm.
@@ -3717,6 +3957,20 @@ weight on right.
 </dl>
 </dd></dl>
 <dl>
+<dt id="index-log1pmx">Function: <strong>log1pmx</strong> <em>X</em></dt>
+<dd><span id="go-to-the-NUM_002dUTILS_2024LOG_002dEXP_2236_2236LOG1PMX-function"></span><span id="index-Function_002c-log1pmx"></span>
+<p>Compute (- (log (1+ x)) x)<br>
+Accuracy within ~2ulps for -0.227 &lt; x &lt; 0.315
+</p><dl compact="compact">
+<dt><strong>Package</strong></dt>
+<dd><p><a href="#go-to-the-NUM_002dUTILS_2024LOG_002dEXP-package"><tt>num-utils.log-exp</tt></a>
+</p></dd>
+<dt><strong>Source</strong></dt>
+<dd><p><a href="#go-to-the-num_002dutils_002flog_002dexp_2024lisp-file"><tt>log-exp.lisp</tt></a> (file)
+</p></dd>
+</dl>
+</dd></dl>
+<dl>
 <dt id="index-log2">Function: <strong>log2</strong> <em>NUMBER</em></dt>
 <dd><span id="go-to-the-NUM_002dUTILS_2024ARITHMETIC_2236_2236LOG2-function"></span><span id="index-Function_002c-log2"></span>
 <p>Abbreviation for binary logarithm.
@@ -3726,6 +3980,32 @@ weight on right.
 </p></dd>
 <dt><strong>Source</strong></dt>
 <dd><p><a href="#go-to-the-num_002dutils_002farithmetic_2024lisp-file"><tt>arithmetic.lisp</tt></a> (file)
+</p></dd>
+</dl>
+</dd></dl>
+<dl>
+<dt id="index-log2_002dexp">Function: <strong>log2-exp</strong> <em>X</em></dt>
+<dd><span id="go-to-the-NUM_002dUTILS_2024LOG_002dEXP_2236_2236LOG2_002dEXP-function"></span><span id="index-Function_002c-log2_002dexp"></span>
+<p>Compute log(2-exp(x)) stably even when X is near zero.
+</p><dl compact="compact">
+<dt><strong>Package</strong></dt>
+<dd><p><a href="#go-to-the-NUM_002dUTILS_2024LOG_002dEXP-package"><tt>num-utils.log-exp</tt></a>
+</p></dd>
+<dt><strong>Source</strong></dt>
+<dd><p><a href="#go-to-the-num_002dutils_002flog_002dexp_2024lisp-file"><tt>log-exp.lisp</tt></a> (file)
+</p></dd>
+</dl>
+</dd></dl>
+<dl>
+<dt id="index-logexp_002d1">Function: <strong>logexp-1</strong> <em>A</em></dt>
+<dd><span id="go-to-the-NUM_002dUTILS_2024LOG_002dEXP_2236_2236LOGEXP_002d1-function"></span><span id="index-Function_002c-logexp_002d1"></span>
+<p>Compute log(exp(a)-1) stably even when A is small.
+</p><dl compact="compact">
+<dt><strong>Package</strong></dt>
+<dd><p><a href="#go-to-the-NUM_002dUTILS_2024LOG_002dEXP-package"><tt>num-utils.log-exp</tt></a>
+</p></dd>
+<dt><strong>Source</strong></dt>
+<dd><p><a href="#go-to-the-num_002dutils_002flog_002dexp_2024lisp-file"><tt>log-exp.lisp</tt></a> (file)
 </p></dd>
 </dl>
 </dd></dl>
@@ -4006,7 +4286,7 @@ interval, otherwise they are undefined.
 <dl>
 <dt id="index-sequence_002dmaximum">Function: <strong>sequence-maximum</strong> <em>X</em></dt>
 <dd><span id="go-to-the-NUM_002dUTILS_2024ARITHMETIC_2236_2236SEQUENCE_002dMAXIMUM-function"></span><span id="index-Function_002c-sequence_002dmaximum"></span>
-<p>Return the maximum value in the sequence
+<p>Return the maximum value in the sequence X
 </p><dl compact="compact">
 <dt><strong>Package</strong></dt>
 <dd><p><a href="#go-to-the-NUM_002dUTILS_2024ARITHMETIC-package"><tt>num-utils.arithmetic</tt></a>
@@ -4019,7 +4299,7 @@ interval, otherwise they are undefined.
 <dl>
 <dt id="index-sequence_002dminimum">Function: <strong>sequence-minimum</strong> <em>X</em></dt>
 <dd><span id="go-to-the-NUM_002dUTILS_2024ARITHMETIC_2236_2236SEQUENCE_002dMINIMUM-function"></span><span id="index-Function_002c-sequence_002dminimum"></span>
-<p>Return the minimum value in the sequence
+<p>Return the minimum value in the sequence X
 </p><dl compact="compact">
 <dt><strong>Package</strong></dt>
 <dd><p><a href="#go-to-the-NUM_002dUTILS_2024ARITHMETIC-package"><tt>num-utils.arithmetic</tt></a>
@@ -4330,7 +4610,8 @@ Next: <a href="#Exported-conditions" accesskey="n" rel="next">Exported condition
 <dd><dl>
 <dt id="index-add-1">Method: <strong>add</strong> <em>(ACCUMULATOR <tt>sparse-counter</tt>) OBJECT &amp;key WEIGHT</em></dt>
 <dd><span id="go-to-the-NUM_002dUTILS_2024STATISTICS_2236_2236ADD-NUM_002dUTILS_2024STATISTICS_2236_2236SPARSE_002dCOUNTER-COMMON_002dLISP_2236_2236T-method"></span><span id="index-Method_002c-add"></span>
-</dd></dl>
+<p>Increments the count of OBJECT in SPARSE-COUNTER, optionally with a weight
+</p></dd></dl>
 <dl>
 <dt id="index-add-2">Method: <strong>add</strong> <em>(ACCUMULATOR <tt>sorted-reals</tt>) OBJECT &amp;key</em></dt>
 <dd><span id="go-to-the-NUM_002dUTILS_2024STATISTICS_2236_2236ADD-NUM_002dUTILS_2024STATISTICS_2236_2236SORTED_002dREALS-COMMON_002dLISP_2236_2236T-method"></span><span id="index-Method_002c-add-1"></span>
@@ -5401,6 +5682,49 @@ calculation of the central sample moments of OBJECT up to the given DEGREE.
 </dl>
 </dd></dl>
 <dl>
+<dt id="index-emod">Generic Function: <strong>emod</strong> <em>A B</em></dt>
+<dd><span id="go-to-the-NUM_002dUTILS_2024ELEMENTWISE_2236_2236EMOD-generic-function"></span><span id="index-Generic-Function_002c-emod"></span>
+<p>Bivariate elementwise MOD.
+</p><dl compact="compact">
+<dt><strong>Package</strong></dt>
+<dd><p><a href="#go-to-the-NUM_002dUTILS_2024ELEMENTWISE-package"><tt>num-utils.elementwise</tt></a>
+</p></dd>
+<dt><strong>Source</strong></dt>
+<dd><p><a href="#go-to-the-num_002dutils_002felementwise_2024lisp-file"><tt>elementwise.lisp</tt></a> (file)
+</p></dd>
+<dt><strong>Methods</strong></dt>
+<dd><dl>
+<dt id="index-emod-1">Method: <strong>emod</strong> <em>(A <tt>number</tt>) (B <tt>number</tt>)</em></dt>
+<dd><span id="go-to-the-NUM_002dUTILS_2024ELEMENTWISE_2236_2236EMOD-COMMON_002dLISP_2236_2236NUMBER-COMMON_002dLISP_2236_2236NUMBER-method"></span><span id="index-Method_002c-emod"></span>
+</dd></dl>
+<dl>
+<dt id="index-emod-2">Method: <strong>emod</strong> <em>(A <tt>vector</tt>) (B <tt>number</tt>)</em></dt>
+<dd><span id="go-to-the-NUM_002dUTILS_2024ELEMENTWISE_2236_2236EMOD-COMMON_002dLISP_2236_2236VECTOR-COMMON_002dLISP_2236_2236NUMBER-method"></span><span id="index-Method_002c-emod-1"></span>
+</dd></dl>
+<dl>
+<dt id="index-emod-3">Method: <strong>emod</strong> <em>(A <tt>number</tt>) (B <tt>vector</tt>)</em></dt>
+<dd><span id="go-to-the-NUM_002dUTILS_2024ELEMENTWISE_2236_2236EMOD-COMMON_002dLISP_2236_2236NUMBER-COMMON_002dLISP_2236_2236VECTOR-method"></span><span id="index-Method_002c-emod-2"></span>
+</dd></dl>
+<dl>
+<dt id="index-emod-4">Method: <strong>emod</strong> <em>(A <tt>vector</tt>) (B <tt>vector</tt>)</em></dt>
+<dd><span id="go-to-the-NUM_002dUTILS_2024ELEMENTWISE_2236_2236EMOD-COMMON_002dLISP_2236_2236VECTOR-COMMON_002dLISP_2236_2236VECTOR-method"></span><span id="index-Method_002c-emod-3"></span>
+</dd></dl>
+<dl>
+<dt id="index-emod-5">Method: <strong>emod</strong> <em>(A <tt>array</tt>) (B <tt>number</tt>)</em></dt>
+<dd><span id="go-to-the-NUM_002dUTILS_2024ELEMENTWISE_2236_2236EMOD-COMMON_002dLISP_2236_2236ARRAY-COMMON_002dLISP_2236_2236NUMBER-method"></span><span id="index-Method_002c-emod-4"></span>
+</dd></dl>
+<dl>
+<dt id="index-emod-6">Method: <strong>emod</strong> <em>(A <tt>number</tt>) (B <tt>array</tt>)</em></dt>
+<dd><span id="go-to-the-NUM_002dUTILS_2024ELEMENTWISE_2236_2236EMOD-COMMON_002dLISP_2236_2236NUMBER-COMMON_002dLISP_2236_2236ARRAY-method"></span><span id="index-Method_002c-emod-5"></span>
+</dd></dl>
+<dl>
+<dt id="index-emod-7">Method: <strong>emod</strong> <em>(A <tt>array</tt>) (B <tt>array</tt>)</em></dt>
+<dd><span id="go-to-the-NUM_002dUTILS_2024ELEMENTWISE_2236_2236EMOD-COMMON_002dLISP_2236_2236ARRAY-COMMON_002dLISP_2236_2236ARRAY-method"></span><span id="index-Method_002c-emod-6"></span>
+</dd></dl>
+</dd>
+</dl>
+</dd></dl>
+<dl>
 <dt id="index-ensure_002dsorted_002dreals">Generic Function: <strong>ensure-sorted-reals</strong> <em>OBJECT</em></dt>
 <dd><span id="go-to-the-NUM_002dUTILS_2024STATISTICS_2236_2236ENSURE_002dSORTED_002dREALS-generic-function"></span><span id="index-Generic-Function_002c-ensure_002dsorted_002dreals"></span>
 <p>Return the contents of OBJECT as a SORTED-REALS.
@@ -5620,6 +5944,28 @@ stands for the empty set.
 </dl>
 </dd></dl>
 <dl>
+<dt id="index-map_002darray">Generic Function: <strong>map-array</strong> <em>ARRAY FUNCTION &amp;optional RETVAL</em></dt>
+<dd><span id="go-to-the-NUM_002dUTILS_2024MATRIX_2236_2236MAP_002dARRAY-generic-function"></span><span id="index-Generic-Function_002c-map_002darray"></span>
+<dl compact="compact">
+<dt><strong>Package</strong></dt>
+<dd><p><a href="#go-to-the-NUM_002dUTILS_2024MATRIX-package"><tt>num-utils.matrix</tt></a>
+</p></dd>
+<dt><strong>Methods</strong></dt>
+<dd><dl>
+<dt id="index-map_002darray-1">Method: <strong>map-array</strong> <em>ARRAY FUNCTION &amp;optional RETVAL</em></dt>
+<dd><span id="go-to-the-NUM_002dUTILS_2024MATRIX_2236_2236MAP_002dARRAY-COMMON_002dLISP_2236_2236T-COMMON_002dLISP_2236_2236T-method"></span><span id="index-Method_002c-map_002darray"></span>
+<p>Apply FUNCTION to each element of ARRAY<br>
+Return a new array, or write into the optional 3rd argument.
+</p><dl compact="compact">
+<dt><strong>Source</strong></dt>
+<dd><p><a href="#go-to-the-num_002dutils_002fmatrix_2024lisp-file"><tt>matrix.lisp</tt></a> (file)
+</p></dd>
+</dl>
+</dd></dl>
+</dd>
+</dl>
+</dd></dl>
+<dl>
 <dt id="index-mean">Generic Function: <strong>mean</strong> <em>OBJECT &amp;key WEIGHTS</em></dt>
 <dd><span id="go-to-the-NUM_002dUTILS_2024STATISTICS_2236_2236MEAN-generic-function"></span><span id="index-Generic-Function_002c-mean"></span>
 <p>The mean of elements in OBJECT.
@@ -5655,9 +6001,10 @@ stands for the empty set.
 </p></dd>
 <dt><strong>Methods</strong></dt>
 <dd><dl>
-<dt id="index-median-1">Method: <strong>median</strong> <em>(OBJECT <tt>sequence</tt>)</em></dt>
+<dt id="index-median-1">Method: <strong>median</strong> <em>(SAMPLE <tt>sequence</tt>)</em></dt>
 <dd><span id="go-to-the-NUM_002dUTILS_2024STATISTICS_2236_2236MEDIAN-COMMON_002dLISP_2236_2236SEQUENCE-method"></span><span id="index-Method_002c-median"></span>
-</dd></dl>
+<p>Returns median of SAMPLE.  SAMPLE must be a sequence of real numbers.
+</p></dd></dl>
 <dl>
 <dt id="index-median-2">Method: <strong>median</strong> <em>OBJECT</em></dt>
 <dd><span id="go-to-the-NUM_002dUTILS_2024STATISTICS_2236_2236MEDIAN-COMMON_002dLISP_2236_2236T-method"></span><span id="index-Method_002c-median-1"></span>
@@ -5991,7 +6338,8 @@ stands for the empty set.
 <dd><dl>
 <dt id="index-tally-1">Method: <strong>tally</strong> <em>(ACCUMULATOR <tt>sparse-counter</tt>)</em></dt>
 <dd><span id="go-to-the-NUM_002dUTILS_2024STATISTICS_2236_2236TALLY-NUM_002dUTILS_2024STATISTICS_2236_2236SPARSE_002dCOUNTER-method"></span><span id="index-Method_002c-tally"></span>
-</dd></dl>
+<p>Return the total &rsquo;weight&rsquo; of the accumulator
+</p></dd></dl>
 <dl>
 <dt id="index-tally-2">Method: <strong>tally</strong> <em>(ACCUMULATOR <tt>tally-mixin</tt>)</em></dt>
 <dd><span id="go-to-the-NUM_002dUTILS_2024STATISTICS_2236_2236TALLY-NUM_002dUTILS_2024STATISTICS_2236_2236TALLY_002dMIXIN-method"></span><span id="index-Method_002c-tally-1"></span>
@@ -7120,7 +7468,7 @@ Next: <a href="#Internal-functions" accesskey="n" rel="next">Internal functions<
 <dl>
 <dt id="index-define_002de2">Macro: <strong>define-e2</strong> <em>OPERATION &amp;key FUNCTION DOCSTRING</em></dt>
 <dd><span id="go-to-the-NUM_002dUTILS_2024ELEMENTWISE_2236_2236DEFINE_002dE2-macro"></span><span id="index-Macro_002c-define_002de2"></span>
-<p>Define an univariate elementwise operation.
+<p>Define a bivariate elementwise operation.
 </p><dl compact="compact">
 <dt><strong>Package</strong></dt>
 <dd><p><a href="#go-to-the-NUM_002dUTILS_2024ELEMENTWISE-package"><tt>num-utils.elementwise</tt></a>
@@ -7778,6 +8126,19 @@ from [a,b] to [c,d].
 </p></dd>
 <dt><strong>Source</strong></dt>
 <dd><p><a href="#go-to-the-num_002dutils_002fquadrature_2024lisp-file"><tt>quadrature.lisp</tt></a> (file)
+</p></dd>
+</dl>
+</dd></dl>
+<dl>
+<dt id="index-ln">Function: <strong>ln</strong> <em>N</em></dt>
+<dd><span id="go-to-the-NUM_002dUTILS_2024ARITHMETIC_2236_2236LN-function"></span><span id="index-Function_002c-ln"></span>
+<p>Natural logarithm.
+</p><dl compact="compact">
+<dt><strong>Package</strong></dt>
+<dd><p><a href="#go-to-the-NUM_002dUTILS_2024ARITHMETIC-package"><tt>num-utils.arithmetic</tt></a>
+</p></dd>
+<dt><strong>Source</strong></dt>
+<dd><p><a href="#go-to-the-num_002dutils_002farithmetic_2024lisp-file"><tt>arithmetic.lisp</tt></a> (file)
 </p></dd>
 </dl>
 </dd></dl>
@@ -9334,6 +9695,7 @@ Next: <a href="#Function-index" accesskey="n" rel="next">Function index</a>, Pre
 <tr><td></td><td valign="top"><a href="#index-File_002c-Lisp_002c-num_002dutils_002felementwise_002elisp">File, Lisp, <tt>num-utils/elementwise.lisp</tt></a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-num_002dutils_002felementwise_2024lisp-file">The num-utils/elementwise․lisp file</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-File_002c-Lisp_002c-num_002dutils_002fextended_002dreal_002elisp">File, Lisp, <tt>num-utils/extended-real.lisp</tt></a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-num_002dutils_002fextended_002dreal_2024lisp-file">The num-utils/extended-real․lisp file</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-File_002c-Lisp_002c-num_002dutils_002finterval_002elisp">File, Lisp, <tt>num-utils/interval.lisp</tt></a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-num_002dutils_002finterval_2024lisp-file">The num-utils/interval․lisp file</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-File_002c-Lisp_002c-num_002dutils_002flog_002dexp_002elisp">File, Lisp, <tt>num-utils/log-exp.lisp</tt></a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-num_002dutils_002flog_002dexp_2024lisp-file">The num-utils/log-exp․lisp file</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-File_002c-Lisp_002c-num_002dutils_002fmatrix_002dshorthand_002elisp">File, Lisp, <tt>num-utils/matrix-shorthand.lisp</tt></a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-num_002dutils_002fmatrix_002dshorthand_2024lisp-file">The num-utils/matrix-shorthand․lisp file</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-File_002c-Lisp_002c-num_002dutils_002fmatrix_002elisp">File, Lisp, <tt>num-utils/matrix.lisp</tt></a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-num_002dutils_002fmatrix_2024lisp-file">The num-utils/matrix․lisp file</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-File_002c-Lisp_002c-num_002dutils_002fnum_003d_002elisp">File, Lisp, <tt>num-utils/num=.lisp</tt></a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-num_002dutils_002fnum_003d_2024lisp-file">The num-utils/num=․lisp file</a></td></tr>
@@ -9354,6 +9716,7 @@ Next: <a href="#Function-index" accesskey="n" rel="next">Function index</a>, Pre
 <tr><td></td><td valign="top"><a href="#index-Lisp-File_002c-num_002dutils_002felementwise_002elisp">Lisp File, <tt>num-utils/elementwise.lisp</tt></a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-num_002dutils_002felementwise_2024lisp-file">The num-utils/elementwise․lisp file</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Lisp-File_002c-num_002dutils_002fextended_002dreal_002elisp">Lisp File, <tt>num-utils/extended-real.lisp</tt></a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-num_002dutils_002fextended_002dreal_2024lisp-file">The num-utils/extended-real․lisp file</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Lisp-File_002c-num_002dutils_002finterval_002elisp">Lisp File, <tt>num-utils/interval.lisp</tt></a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-num_002dutils_002finterval_2024lisp-file">The num-utils/interval․lisp file</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Lisp-File_002c-num_002dutils_002flog_002dexp_002elisp">Lisp File, <tt>num-utils/log-exp.lisp</tt></a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-num_002dutils_002flog_002dexp_2024lisp-file">The num-utils/log-exp․lisp file</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Lisp-File_002c-num_002dutils_002fmatrix_002dshorthand_002elisp">Lisp File, <tt>num-utils/matrix-shorthand.lisp</tt></a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-num_002dutils_002fmatrix_002dshorthand_2024lisp-file">The num-utils/matrix-shorthand․lisp file</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Lisp-File_002c-num_002dutils_002fmatrix_002elisp">Lisp File, <tt>num-utils/matrix.lisp</tt></a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-num_002dutils_002fmatrix_2024lisp-file">The num-utils/matrix․lisp file</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Lisp-File_002c-num_002dutils_002fnum_003d_002elisp">Lisp File, <tt>num-utils/num=.lisp</tt></a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-num_002dutils_002fnum_003d_2024lisp-file">The num-utils/num=․lisp file</a></td></tr>
@@ -9374,6 +9737,7 @@ Next: <a href="#Function-index" accesskey="n" rel="next">Function index</a>, Pre
 <tr><td></td><td valign="top"><a href="#index-num_002dutils_002felementwise_002elisp"><tt>num-utils/elementwise.lisp</tt></a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-num_002dutils_002felementwise_2024lisp-file">The num-utils/elementwise․lisp file</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-num_002dutils_002fextended_002dreal_002elisp"><tt>num-utils/extended-real.lisp</tt></a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-num_002dutils_002fextended_002dreal_2024lisp-file">The num-utils/extended-real․lisp file</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-num_002dutils_002finterval_002elisp"><tt>num-utils/interval.lisp</tt></a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-num_002dutils_002finterval_2024lisp-file">The num-utils/interval․lisp file</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-num_002dutils_002flog_002dexp_002elisp"><tt>num-utils/log-exp.lisp</tt></a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-num_002dutils_002flog_002dexp_2024lisp-file">The num-utils/log-exp․lisp file</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-num_002dutils_002fmatrix_002dshorthand_002elisp"><tt>num-utils/matrix-shorthand.lisp</tt></a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-num_002dutils_002fmatrix_002dshorthand_2024lisp-file">The num-utils/matrix-shorthand․lisp file</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-num_002dutils_002fmatrix_002elisp"><tt>num-utils/matrix.lisp</tt></a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-num_002dutils_002fmatrix_2024lisp-file">The num-utils/matrix․lisp file</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-num_002dutils_002fnum_003d_002elisp"><tt>num-utils/num=.lisp</tt></a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-num_002dutils_002fnum_003d_2024lisp-file">The num-utils/num=․lisp file</a></td></tr>
@@ -9604,6 +9968,7 @@ Next: <a href="#Variable-index" accesskey="n" rel="next">Variable index</a>, Pre
 <tr><td></td><td valign="top"><a href="#index-copy_002dupper_002dtriangular_002dmatrix"><code>copy-upper-triangular-matrix</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Internal-functions">Internal functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-copy_002dwrapped_002dmatrix"><code>copy-wrapped-matrix</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Internal-functions">Internal functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-cross_002dtabulate"><code>cross-tabulate</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-functions">Exported functions</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-cube"><code>cube</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-functions">Exported functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-cumulative_002dproduct"><code>cumulative-product</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-functions">Exported functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-cumulative_002dsum"><code>cumulative-sum</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-functions">Exported functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-curry_002a"><code>curry*</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-macros">Exported macros</a></td></tr>
@@ -9761,6 +10126,14 @@ Next: <a href="#Variable-index" accesskey="n" rel="next">Variable index</a>, Pre
 <tr><td></td><td valign="top"><a href="#index-elog"><code>elog</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-functions">Exported functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-emax"><code>emax</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-functions">Exported functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-emin"><code>emin</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-functions">Exported functions</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-emod"><code>emod</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-generic-functions">Exported generic functions</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-emod-1"><code>emod</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-generic-functions">Exported generic functions</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-emod-2"><code>emod</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-generic-functions">Exported generic functions</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-emod-3"><code>emod</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-generic-functions">Exported generic functions</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-emod-4"><code>emod</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-generic-functions">Exported generic functions</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-emod-5"><code>emod</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-generic-functions">Exported generic functions</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-emod-6"><code>emod</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-generic-functions">Exported generic functions</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-emod-7"><code>emod</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-generic-functions">Exported generic functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-empirical_002dquantile"><code>empirical-quantile</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-functions">Exported functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-empirical_002dquantile_002dprobabilities"><code>empirical-quantile-probabilities</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-functions">Exported functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-ensure_002dsorted_002dreals"><code>ensure-sorted-reals</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-generic-functions">Exported generic functions</a></td></tr>
@@ -9785,7 +10158,10 @@ Next: <a href="#Variable-index" accesskey="n" rel="next">Variable index</a>, Pre
 <tr><td></td><td valign="top"><a href="#index-esquare-2"><code>esquare</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Internal-generic-functions">Internal generic functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-evaluate_002dchebyshev"><code>evaluate-chebyshev</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-functions">Exported functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-evaluate_002dpolynomial"><code>evaluate-polynomial</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-functions">Exported functions</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-exp_002d1"><code>exp-1</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-functions">Exported functions</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-exp_002d1_002fx"><code>exp-1/x</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-functions">Exported functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-expanding"><code>expanding</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-macros">Exported macros</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-expt_002d1"><code>expt-1</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-functions">Exported functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-extend_002dinterval"><code>extend-interval</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-generic-functions">Exported generic functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-extend_002dinterval-1"><code>extend-interval</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-generic-functions">Exported generic functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-extend_002dinterval-2"><code>extend-interval</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-generic-functions">Exported generic functions</a></td></tr>
@@ -9887,6 +10263,7 @@ Next: <a href="#Variable-index" accesskey="n" rel="next">Variable index</a>, Pre
 <tr><td></td><td valign="top"><a href="#index-Function_002c-copy_002dupper_002dtriangular_002dmatrix"><code><span class="roman">Function, </span>copy-upper-triangular-matrix</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Internal-functions">Internal functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Function_002c-copy_002dwrapped_002dmatrix"><code><span class="roman">Function, </span>copy-wrapped-matrix</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Internal-functions">Internal functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Function_002c-cross_002dtabulate"><code><span class="roman">Function, </span>cross-tabulate</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-functions">Exported functions</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Function_002c-cube"><code><span class="roman">Function, </span>cube</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-functions">Exported functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Function_002c-cumulative_002dproduct"><code><span class="roman">Function, </span>cumulative-product</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-functions">Exported functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Function_002c-cumulative_002dsum"><code><span class="roman">Function, </span>cumulative-sum</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-functions">Exported functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Function_002c-diagonal_002dmatrix"><code><span class="roman">Function, </span>diagonal-matrix</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-functions">Exported functions</a></td></tr>
@@ -9908,6 +10285,9 @@ Next: <a href="#Variable-index" accesskey="n" rel="next">Variable index</a>, Pre
 <tr><td></td><td valign="top"><a href="#index-Function_002c-ensure_002dvalid_002delements"><code><span class="roman">Function, </span>ensure-valid-elements</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Internal-functions">Internal functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Function_002c-evaluate_002dchebyshev"><code><span class="roman">Function, </span>evaluate-chebyshev</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-functions">Exported functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Function_002c-evaluate_002dpolynomial"><code><span class="roman">Function, </span>evaluate-polynomial</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-functions">Exported functions</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Function_002c-exp_002d1"><code><span class="roman">Function, </span>exp-1</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-functions">Exported functions</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Function_002c-exp_002d1_002fx"><code><span class="roman">Function, </span>exp-1/x</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-functions">Exported functions</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Function_002c-expt_002d1"><code><span class="roman">Function, </span>expt-1</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-functions">Exported functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Function_002c-extend_002dpairwise_002dcomparison"><code><span class="roman">Function, </span>extend-pairwise-comparison</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Internal-functions">Internal functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Function_002c-fixnum_003f"><code><span class="roman">Function, </span>fixnum?</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-functions">Exported functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Function_002c-floor_002a"><code><span class="roman">Function, </span>floor*</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-functions">Exported functions</a></td></tr>
@@ -9916,6 +10296,7 @@ Next: <a href="#Variable-index" accesskey="n" rel="next">Variable index</a>, Pre
 <tr><td></td><td valign="top"><a href="#index-Function_002c-hermitian_002dmatrix"><code><span class="roman">Function, </span>hermitian-matrix</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-functions">Exported functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Function_002c-hermitian_002dmatrix_002delements"><code><span class="roman">Function, </span>hermitian-matrix-elements</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Internal-functions">Internal functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Function_002c-hermitian_002dmatrix_002dp"><code><span class="roman">Function, </span>hermitian-matrix-p</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Internal-functions">Internal functions</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Function_002c-hypot"><code><span class="roman">Function, </span>hypot</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-functions">Exported functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Function_002c-in_002dinterval_003f"><code><span class="roman">Function, </span>in-interval?</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-functions">Exported functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Function_002c-infinite_003f"><code><span class="roman">Function, </span>infinite?</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-functions">Exported functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Function_002c-interval"><code><span class="roman">Function, </span>interval</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-functions">Exported functions</a></td></tr>
@@ -9931,8 +10312,17 @@ Next: <a href="#Variable-index" accesskey="n" rel="next">Variable index</a>, Pre
 <tr><td></td><td valign="top"><a href="#index-Function_002c-iterative_002dquadrature_002dsum"><code><span class="roman">Function, </span>iterative-quadrature-sum</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Internal-functions">Internal functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Function_002c-ivec"><code><span class="roman">Function, </span>ivec</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-functions">Exported functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Function_002c-l2norm"><code><span class="roman">Function, </span>l2norm</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-functions">Exported functions</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Function_002c-ln"><code><span class="roman">Function, </span>ln</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Internal-functions">Internal functions</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Function_002c-log1_002b"><code><span class="roman">Function, </span>log1+</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-functions">Exported functions</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Function_002c-log1_002b_002fx"><code><span class="roman">Function, </span>log1+/x</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-functions">Exported functions</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Function_002c-log1_002bexp"><code><span class="roman">Function, </span>log1+exp</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-functions">Exported functions</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Function_002c-log1_002d"><code><span class="roman">Function, </span>log1-</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-functions">Exported functions</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Function_002c-log1_002dexp"><code><span class="roman">Function, </span>log1-exp</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-functions">Exported functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Function_002c-log10"><code><span class="roman">Function, </span>log10</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-functions">Exported functions</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Function_002c-log1pmx"><code><span class="roman">Function, </span>log1pmx</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-functions">Exported functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Function_002c-log2"><code><span class="roman">Function, </span>log2</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-functions">Exported functions</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Function_002c-log2_002dexp"><code><span class="roman">Function, </span>log2-exp</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-functions">Exported functions</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Function_002c-logexp_002d1"><code><span class="roman">Function, </span>logexp-1</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-functions">Exported functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Function_002c-lower_002dtriangular_002dmatrix"><code><span class="roman">Function, </span>lower-triangular-matrix</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-functions">Exported functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Function_002c-lower_002dtriangular_002dmatrix_002delements"><code><span class="roman">Function, </span>lower-triangular-matrix-elements</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Internal-functions">Internal functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Function_002c-lower_002dtriangular_002dmatrix_002dp"><code><span class="roman">Function, </span>lower-triangular-matrix-p</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Internal-functions">Internal functions</a></td></tr>
@@ -10067,6 +10457,7 @@ Next: <a href="#Variable-index" accesskey="n" rel="next">Variable index</a>, Pre
 <tr><td></td><td valign="top"><a href="#index-Generic-Function_002c-eexp"><code><span class="roman">Generic Function, </span>eexp</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-generic-functions">Exported generic functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Generic-Function_002c-eexpt"><code><span class="roman">Generic Function, </span>eexpt</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-generic-functions">Exported generic functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Generic-Function_002c-efloor"><code><span class="roman">Generic Function, </span>efloor</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-generic-functions">Exported generic functions</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Generic-Function_002c-emod"><code><span class="roman">Generic Function, </span>emod</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-generic-functions">Exported generic functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Generic-Function_002c-ensure_002dsorted_002dreals"><code><span class="roman">Generic Function, </span>ensure-sorted-reals</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-generic-functions">Exported generic functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Generic-Function_002c-ereduce"><code><span class="roman">Generic Function, </span>ereduce</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-generic-functions">Exported generic functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Generic-Function_002c-esqrt"><code><span class="roman">Generic Function, </span>esqrt</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-generic-functions">Exported generic functions</a></td></tr>
@@ -10075,6 +10466,7 @@ Next: <a href="#Variable-index" accesskey="n" rel="next">Variable index</a>, Pre
 <tr><td></td><td valign="top"><a href="#index-Generic-Function_002c-kurtosis"><code><span class="roman">Generic Function, </span>kurtosis</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-generic-functions">Exported generic functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Generic-Function_002c-l2norm_002dsquare"><code><span class="roman">Generic Function, </span>l2norm-square</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-generic-functions">Exported generic functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Generic-Function_002c-left"><code><span class="roman">Generic Function, </span>left</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-generic-functions">Exported generic functions</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Generic-Function_002c-map_002darray"><code><span class="roman">Generic Function, </span>map-array</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-generic-functions">Exported generic functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Generic-Function_002c-mean"><code><span class="roman">Generic Function, </span>mean</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-generic-functions">Exported generic functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Generic-Function_002c-median"><code><span class="roman">Generic Function, </span>median</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-generic-functions">Exported generic functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Generic-Function_002c-num_003d"><code><span class="roman">Generic Function, </span>num=</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-generic-functions">Exported generic functions</a></td></tr>
@@ -10105,6 +10497,7 @@ Next: <a href="#Variable-index" accesskey="n" rel="next">Variable index</a>, Pre
 <tr><td></td><td valign="top"><a href="#index-hermitian_002dmatrix_002delements"><code>hermitian-matrix-elements</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Internal-functions">Internal functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-hermitian_002dmatrix_002dp"><code>hermitian-matrix-p</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Internal-functions">Internal functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-hermitian_002dmx"><code>hermitian-mx</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-macros">Exported macros</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-hypot"><code>hypot</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-functions">Exported functions</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="Function-index_fn_letter-I">I</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-in_002dinterval_003f"><code>in-interval?</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-functions">Exported functions</a></td></tr>
@@ -10135,8 +10528,17 @@ Next: <a href="#Variable-index" accesskey="n" rel="next">Variable index</a>, Pre
 <tr><td></td><td valign="top"><a href="#index-left"><code>left</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-generic-functions">Exported generic functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-left-1"><code>left</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-generic-functions">Exported generic functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-left-2"><code>left</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-generic-functions">Exported generic functions</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-ln"><code>ln</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Internal-functions">Internal functions</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-log1_002b"><code>log1+</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-functions">Exported functions</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-log1_002b_002fx"><code>log1+/x</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-functions">Exported functions</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-log1_002bexp"><code>log1+exp</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-functions">Exported functions</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-log1_002d"><code>log1-</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-functions">Exported functions</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-log1_002dexp"><code>log1-exp</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-functions">Exported functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-log10"><code>log10</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-functions">Exported functions</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-log1pmx"><code>log1pmx</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-functions">Exported functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-log2"><code>log2</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-functions">Exported functions</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-log2_002dexp"><code>log2-exp</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-functions">Exported functions</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-logexp_002d1"><code>logexp-1</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-functions">Exported functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-lower_002dtriangular_002dmatrix"><code>lower-triangular-matrix</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-functions">Exported functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-lower_002dtriangular_002dmatrix_002delements"><code>lower-triangular-matrix-elements</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Internal-functions">Internal functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-lower_002dtriangular_002dmatrix_002dp"><code>lower-triangular-matrix-p</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Internal-functions">Internal functions</a></td></tr>
@@ -10195,6 +10597,8 @@ Next: <a href="#Variable-index" accesskey="n" rel="next">Variable index</a>, Pre
 <tr><td></td><td valign="top"><a href="#index-make_002dvector"><code>make-vector</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-compiler-macros">Exported compiler macros</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-make_002dvector-1"><code>make-vector</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-functions">Exported functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-make_002dwrapped_002dmatrix"><code>make-wrapped-matrix</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Internal-functions">Internal functions</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-map_002darray"><code>map-array</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-generic-functions">Exported generic functions</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-map_002darray-1"><code>map-array</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-generic-functions">Exported generic functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-mapping_002darray"><code>mapping-array</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Internal-macros">Internal macros</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-max_002derror"><code>max-error</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-functions">Exported functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-mean"><code>mean</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-generic-functions">Exported generic functions</a></td></tr>
@@ -10329,6 +10733,13 @@ Next: <a href="#Variable-index" accesskey="n" rel="next">Variable index</a>, Pre
 <tr><td></td><td valign="top"><a href="#index-Method_002c-eexpt-6"><code><span class="roman">Method, </span>eexpt</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-generic-functions">Exported generic functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Method_002c-efloor"><code><span class="roman">Method, </span>efloor</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-generic-functions">Exported generic functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Method_002c-efloor-1"><code><span class="roman">Method, </span>efloor</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-generic-functions">Exported generic functions</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Method_002c-emod"><code><span class="roman">Method, </span>emod</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-generic-functions">Exported generic functions</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Method_002c-emod-1"><code><span class="roman">Method, </span>emod</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-generic-functions">Exported generic functions</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Method_002c-emod-2"><code><span class="roman">Method, </span>emod</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-generic-functions">Exported generic functions</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Method_002c-emod-3"><code><span class="roman">Method, </span>emod</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-generic-functions">Exported generic functions</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Method_002c-emod-4"><code><span class="roman">Method, </span>emod</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-generic-functions">Exported generic functions</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Method_002c-emod-5"><code><span class="roman">Method, </span>emod</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-generic-functions">Exported generic functions</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Method_002c-emod-6"><code><span class="roman">Method, </span>emod</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-generic-functions">Exported generic functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Method_002c-ensure_002dsorted_002dreals"><code><span class="roman">Method, </span>ensure-sorted-reals</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-generic-functions">Exported generic functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Method_002c-ensure_002dsorted_002dreals-1"><code><span class="roman">Method, </span>ensure-sorted-reals</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-generic-functions">Exported generic functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Method_002c-ensure_002dsorted_002dreals-2"><code><span class="roman">Method, </span>ensure-sorted-reals</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-generic-functions">Exported generic functions</a></td></tr>
@@ -10354,6 +10765,7 @@ Next: <a href="#Variable-index" accesskey="n" rel="next">Variable index</a>, Pre
 <tr><td></td><td valign="top"><a href="#index-Method_002c-l2norm_002dsquare"><code><span class="roman">Method, </span>l2norm-square</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-generic-functions">Exported generic functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Method_002c-left"><code><span class="roman">Method, </span>left</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-generic-functions">Exported generic functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Method_002c-left-1"><code><span class="roman">Method, </span>left</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-generic-functions">Exported generic functions</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Method_002c-map_002darray"><code><span class="roman">Method, </span>map-array</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-generic-functions">Exported generic functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Method_002c-mean"><code><span class="roman">Method, </span>mean</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-generic-functions">Exported generic functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Method_002c-mean-1"><code><span class="roman">Method, </span>mean</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-generic-functions">Exported generic functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Method_002c-median"><code><span class="roman">Method, </span>median</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Exported-generic-functions">Exported generic functions</a></td></tr>
@@ -10955,6 +11367,7 @@ Previous: <a href="#Variable-index" accesskey="p" rel="prev">Variable index</a>,
 <tr><td></td><td valign="top"><a href="#index-num_002dutils_002eelementwise"><code>num-utils.elementwise</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-num_002dutils_2024elementwise-package">The num-utils․elementwise package</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-num_002dutils_002eextended_002dreal"><code>num-utils.extended-real</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-num_002dutils_2024extended_002dreal-package">The num-utils․extended-real package</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-num_002dutils_002einterval"><code>num-utils.interval</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-num_002dutils_2024interval-package">The num-utils․interval package</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-num_002dutils_002elog_002dexp"><code>num-utils.log-exp</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-num_002dutils_2024log_002dexp-package">The num-utils․log-exp package</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-num_002dutils_002ematrix"><code>num-utils.matrix</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-num_002dutils_2024matrix-package">The num-utils․matrix package</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-num_002dutils_002ematrix_002dshorthand"><code>num-utils.matrix-shorthand</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-num_002dutils_2024matrix_002dshorthand-package">The num-utils․matrix-shorthand package</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-num_002dutils_002enum_003d"><code>num-utils.num=</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-num_002dutils_2024num_003d-package">The num-utils․num= package</a></td></tr>
@@ -10973,6 +11386,7 @@ Previous: <a href="#Variable-index" accesskey="p" rel="prev">Variable index</a>,
 <tr><td></td><td valign="top"><a href="#index-Package_002c-num_002dutils_002eelementwise"><code><span class="roman">Package, </span>num-utils.elementwise</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-num_002dutils_2024elementwise-package">The num-utils․elementwise package</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Package_002c-num_002dutils_002eextended_002dreal"><code><span class="roman">Package, </span>num-utils.extended-real</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-num_002dutils_2024extended_002dreal-package">The num-utils․extended-real package</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Package_002c-num_002dutils_002einterval"><code><span class="roman">Package, </span>num-utils.interval</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-num_002dutils_2024interval-package">The num-utils․interval package</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Package_002c-num_002dutils_002elog_002dexp"><code><span class="roman">Package, </span>num-utils.log-exp</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-num_002dutils_2024log_002dexp-package">The num-utils․log-exp package</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Package_002c-num_002dutils_002ematrix"><code><span class="roman">Package, </span>num-utils.matrix</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-num_002dutils_2024matrix-package">The num-utils․matrix package</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Package_002c-num_002dutils_002ematrix_002dshorthand"><code><span class="roman">Package, </span>num-utils.matrix-shorthand</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-num_002dutils_2024matrix_002dshorthand-package">The num-utils․matrix-shorthand package</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Package_002c-num_002dutils_002enum_003d"><code><span class="roman">Package, </span>num-utils.num=</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-num_002dutils_2024num_003d-package">The num-utils․num= package</a></td></tr>

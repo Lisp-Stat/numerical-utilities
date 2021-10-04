@@ -167,6 +167,7 @@ If value is below (or above) the first (last) break, NIL (T) is returned."
   (:method (object)
     (alist-plist (as-alist object))))
 
+;; TODO Remove this, as it's now in Alexandria
 (declaim (inline sequencep))
 (defun sequencep (x)
   "Return T if X is type SEQUENCE."

@@ -90,7 +90,6 @@
 * [let-plus](https://github.com/sharplispers/let-plus)
 
 
-
 <!-- GETTING STARTED -->
 ## Getting Started
 
@@ -102,21 +101,48 @@ An ANSI Common Lisp implementation. Developed and tested with
 [SBCL](http://www.sbcl.org/) and
 [CCL](https://github.com/Clozure/ccl).
 
-### Installation
+#### Installation
 
-1. Clone the repository
-   ```sh
-   cd ~/quicklisp/local-projects &&
-   git clone https://github.com/Lisp-Stat/numerical-utilities.git
-   ```
-2. Reset the ASDF source-registry to find the new system (from the REPL)
+To make the system accessible to [ASDF](https://common-lisp.net/project/asdf/) (a build facility, similar to `make` in the C world), clone the repository in a directory ASDF knows about.  By default the `common-lisp` directory in your home directory is known. Create this if it doesn't already exist and then:
+
+1. Clone the repositories
+```sh
+cd ~/common-lisp && \
+git clone https://github.com/Lisp-Stat/numerical-utilities.git && \
+git clone https://gitlab.common-lisp.net/alexandria/alexandria.git && \
+git clone https://github.com/tokenrove/anaphora.git && \
+git clone https://github.com/Lisp-Stat/array-operations.git && \
+git clone https://github.com/Lisp-Stat/select && \
+git clone https://github.com/sharplispers/let-plus.git
+```
+
+2. From the REPL reset the ASDF source-registry to find the new systems:
    ```lisp
    (asdf:clear-source-registry)
    ```
 3. Load the system
    ```lisp
-   (ql:quickload :num-utils)
+   (asdf:load-system :num-utils)
    ```
+
+If you have installed the slime ASDF extensions, you can invoke this
+with a comma (',') from the slime REPL.
+
+#### Getting dependencies
+
+To get the third party systems that these system may depend on, you can use a dependency manager, such as [Quicklisp](https://www.quicklisp.org/beta/) or [CLPM](https://www.clpm.dev/) Once installed, get the dependencies with either of:
+
+```lisp
+(clpm-client:sync :sources "clpi") ;sources may vary
+```
+
+```lisp
+(ql:quickload :num-utils)
+```
+
+You need do this only once. After obtaining the dependencies, you can
+load the system with `ASDF` as described above without first syncing
+sources.
 
 ### Documentation
 

@@ -119,6 +119,40 @@ overflow or underflow."
     (rotatef x y))
   (* x (sqrt (+ 1 (square (/ y x))))))
 
+;; Julia, the source of this, has only three basic tests (NaN, +/-
+;; infinity). My spot-testing against the R implementation shows exact
+;; match to 16 decimals.
+(defun log1pmx (x)
+  "Compute (- (log (1+ x)) x)
+Accuracy within ~2ulps for -0.227 < x < 0.315"
+  (declare (double-float x))
+  (let+ (((&flet kernel (x)
+	    (let* ((r (/ x (+ 2 x)))
+		   (s (square r))
+		   (w (evaluate-polynomial (coerce #(1.17647058823529412d-1 ;2/17
+						     1.33333333333333333d-1 ;2/15
+						     1.53846153846153846d-1 ;2/13
+						     1.81818181818181818d-1 ;2/11
+						     2.22222222222222222d-1 ;2/9
+						     2.85714285714285714d-1 ;2/7
+						     4d-1		    ;2/5
+						     6.66666666666666667d-1);2/3
+						   'simple-double-float-vector)
+					   s))
+		   (hxsq (* 0.5d0 x x)))
+	      (- (* r (+ hxsq (* w s))) hxsq)))))
+    (cond
+      ((not (< -0.7 x 0.9)) (- (log1+ x) x))
+      ((> x 0.315) (let ((u (/ (- x 0.5) 1.5)))
+		     (- (kernel u) 9.45348918918356180d-2 (* 0.5 u))))
+      ((> x -0.227) (kernel x))
+      ((> x -0.4) (let ((u (/ (+ x 0.25) 0.75)))
+		    (+ (kernel u) -3.76820724517809274d-2 (* 0.25 u))))
+      ((> x -0.6) (let ((u (* (+ x 0.5) 2)))
+		    (+ (kernel u) -1.93147180559945309d-1 (* 0.5 u))))
+      (t (let ((u (/ (+ x 0.625) 0.375)))
+	   (+ (kernel u) -3.55829253011726237d-1 (* 0.625 u)))))))
+
 #|
 References:
   https://github.com/ruricolist/floating-point-contractions/blob/master/floating-point-contractions.lisp
