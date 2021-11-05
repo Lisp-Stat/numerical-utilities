@@ -24,7 +24,6 @@ Example: `(,foo ,@(splice-when add-bar? bar))"
      (list
       (progn ,@forms))))
 
-;;; Replace with alexandria curry?
 (defmacro curry* (function &rest arguments)
   "Currying in all variables that are not *.  Note that this is a macro, so * should not be quoted, and FUNCTION will be used as is, ie it can be a LAMBDA form."
   (let ((arguments (loop for arg in arguments

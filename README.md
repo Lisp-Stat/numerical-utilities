@@ -22,7 +22,7 @@
   <p align="center">
   For statistical computing and numerical methods
 	<br />
-    <a href="https://github.com/Lisp-Stat/numerical-utilities/blob/master/docs/numerical-utilities.md"><strong>Explore the docs »</strong></a>
+    <a href="https://lisp-stat.github.io/numerical-utilities/"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <a href="https://github.com/lisp-stat/numerical-utilities/issues">Report Bug</a>
@@ -98,8 +98,8 @@ To get a local copy up and running follow these steps:
 ### Prerequisites
 
 An ANSI Common Lisp implementation. Developed and tested with
-[SBCL](http://www.sbcl.org/) and
-[CCL](https://github.com/Clozure/ccl).
+[SBCL](http://www.sbcl.org/) ~~and
+[CCL](https://github.com/Clozure/ccl)~~.
 
 #### Installation
 
@@ -161,7 +161,7 @@ Note a [ratio](https://www.cs.cmu.edu/Groups/AI/html/cltl/clm/node18.html) is re
 [Common Lisp numerical
 tower](https://en.wikipedia.org/wiki/Numerical_tower).
 
-For more examples, please refer to the [Reference Manual](https://lisp-stat/github.io/numerical-utilities/)
+For more examples, please refer to the [Reference Manual](https://lisp-stat.github.io/numerical-utilities/)
 
 
 <!-- ROADMAP -->
