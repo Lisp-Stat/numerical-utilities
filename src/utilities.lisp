@@ -122,7 +122,12 @@ Example:
   `(simple-array single-float (,length)))
 
 (defun generate-sequence (result-type size function)
-  "Like MAKE-SEQUENCE, but using a function to fill the result."
+  "Like MAKE-SEQUENCE, but using a function to fill the result.
+
+Example to create a sequence of random numbers between 0-1 from the uniform distribution:
+(generate-sequence '(vector double-float) 100 (lambda () (random 1.0))).
+Essentially the initial values are ignored when using this function.
+See also: aops:generate"
   (map-into (make-sequence result-type size) function))
 
 (defmacro expanding (&body body)

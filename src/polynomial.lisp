@@ -50,15 +50,6 @@ X must be of the same type as COEFFICIENTS."
        sum))))
 
 
-;; Imported from:
-
-
-
-
-
-
-
-
 #+ignore
 (defun evaluate-polynomial (coefficients x)
   "Return the sum of polynomials, weighted by the list of COEFFICIENTS, at X.

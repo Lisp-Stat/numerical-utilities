@@ -1,6 +1,6 @@
 ;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: ASDF -*-
 ;;; Copyright (c) 2010 by Tamas K. Papp <tkpapp@gmail.com>
-;;; Copyright (c) 2019-2020 by Symbolics Pte. Ltd. All rights reserved.
+;;; Copyright (c) 2019-2022 by Symbolics Pte. Ltd. All rights reserved.
 
 (defsystem "num-utils"
   :description "Numerical utilities for Common Lisp"
@@ -34,7 +34,7 @@
    (:file "quadrature")
    (:file "log-exp")
    (:file "test-utilities")
-   (:file "common-package")))
+   (:file "pkgdcl")))
 
 (defsystem "num-utils/tests"
   :description "Unit tests for NUM-UTILS."
