@@ -12,7 +12,6 @@
    #:curry*
    #:check-types
    #:define-with-multiple-bindings
-   #:unlessf
    #:within?
    #:fixnum?
    #:simple-fixnum-vector
@@ -28,7 +27,8 @@
    #:binary-search
    #:sequencep				;remove and use alexandria?
    #:as-alist
-   #:as-plist))
+   #:as-plist)
+  (:documentation "A collection of utilities to work with floating point values. Optimised for double-float."))
 
 (defpackage #:num-utils.arithmetic
   (:use #:cl
@@ -129,7 +129,8 @@
         #:alexandria
         #:num-utils.utilities)
   (:nicknames #:poly)
-  (:export #:evaluate-polynomial))
+  (:export #:evaluate-polynomial)
+  (:documentation "Efficient evaluation of polynomial functions using Horner's method"))
 
 (cl:defpackage #:num-utils.elementwise
   (:use #:cl
@@ -165,7 +166,9 @@
    #:econjugate
    #:ereduce
    #:emin
-   #:emax))
+   #:emax
+   #:esin
+   #:ecos))
 
 (defpackage #:num-utils.extended-real
   (:use #:cl #:alexandria)
