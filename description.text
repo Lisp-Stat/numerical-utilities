@@ -1,0 +1,10 @@
+This library implements simple numerical functions for Common Lisp, including
+
+    num=, a comparison operator for floats
+    simple arithmeric functions, like sum and l2norm
+    elementwise operations for arrays
+    intervals
+    special matrices and shorthand for their input
+    sample statistics
+    Chebyshev polynomials
+    univariate rootfinding

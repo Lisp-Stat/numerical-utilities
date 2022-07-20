@@ -3,10 +3,17 @@
 ;;; Copyright (c) 2019-2022 by Symbolics Pte. Ltd. All rights reserved.
 
 (defsystem "num-utils"
-  :description "Numerical utilities for Common Lisp"
-  :version      (:read-file-form "version.sexp")
+  :version     "1.0.0"
+  :license :MS-PL
   :author "Steven Nunez <steve@symbolics.tech>"
-  :license "MS-PL"
+  :long-name "Numerical Utilities"
+  :description "Numerical utilities for Common Lisp"
+  :long-description  #.(uiop:read-file-string
+			(uiop:subpathname *load-pathname* "description.text"))
+  ;:homepage    "https://lisp-stat.dev/docs/tasks/plotting/"
+  :source-control (:git "https://github.com/Lisp-Stat/numerical-utilities.git")
+  :bug-tracker "https://github.com/Lisp-Stat/numerical-utilities/issues"
+
   :depends-on (#:anaphora
                #:alexandria
                #:array-operations
@@ -37,6 +44,7 @@
    (:file "pkgdcl")))
 
 (defsystem "num-utils/tests"
+  :version "1.0.0"
   :description "Unit tests for NUM-UTILS."
   :author "Steven Nunez <steve@symbolics.tech>"
   :license "Same as NUM-UTILS -- this is part of the NUM-UTILS library."

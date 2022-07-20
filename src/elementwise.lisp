@@ -95,6 +95,9 @@
 (define-e1 sqrt      :function esqrt)
 (define-e1 conjugate :function econjugate)
 (define-e1 square    :function esquare)
+(define-e1 sin       :function esin)
+(define-e1 cos       :function ecos)
+
 
 (defmacro define-e2 (operation
                      &key (function (symbolicate '#:e2 operation))

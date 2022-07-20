@@ -10,7 +10,7 @@
 ;;   (:documentation "Filter rows of a matrix, with predicate applied to each row
 ;; as vectors (which should not be modified).")
 ;;   (:method (predicate (object array))
-;;     (sub object (which-rows predicate object) t)))
+;;     (sub object (which-rows predicate object) t))) ; SN: I believe 'sub' became 'slice/select'. which-rows might now be 'which' or 'df:mask-rows'
 
 ;; (defmacro with-filter-rows (matrix (&rest name-column-pairs) &body body)
 ;;   "Use BODY to filter rows of MATRIX, binding NAMEs to the given COLUMNs.

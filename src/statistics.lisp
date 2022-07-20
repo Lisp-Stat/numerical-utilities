@@ -38,7 +38,7 @@
 
 ;;; Central moments
 ;;;
-;;; Sample central moments (and relates measures, such as skewness and
+;;; Sample central moments (and related measures, such as skewness and
 ;;; kurtosis) are calculated using a one-pass algorithm, with the results
 ;;; accumulated in a CENTRAL-SAMPLE-MOMENTS object.
 
@@ -946,7 +946,7 @@ for any vector SAMPLE."
 ;;   (maybe-copy-array (indexes binned-data) copy?))
 
 ;; (defgeneric bin-limit (binned-data)
-;;   (:documentation "Return an integer which larger than all indexes (but does not
+;;   (:documentation "Return an integer that is larger than all indexes (but does not
 ;;   have to be the smallest of such values).")
 ;;   (:method ((vector vector))
 ;;     (1+ (reduce #'max vector)))
