@@ -1,12 +1,12 @@
 ;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS.POLYNOMIAL -*-
-;;; Copyright (c) 2019 by Symbolics Pte. Ltd. All rights reserved.
+;;; Copyright (c) 2019-2022 by Symbolics Pte. Ltd. All rights reserved.
 (in-package #:num-utils.polynomial)
 
 ;;; If this turns out to have poor performance, see
-;;; https://github.com/ruricolist/horner
-;;; or the assembler version from Cephes
+;;; https://github.com/ruricolist/horner or the assembler version from
+;;; Cephes
 
-;;; Expect optimisation warnings here for FIXNUM and T branches. T
+;;; Expect optimisation notes here for FIXNUM and T branches. T
 ;;; branch could probably be removed, as it covers relatively few use
 ;;; cases.
 (declaim (inline evaluate-polynomial))
@@ -50,46 +50,52 @@ X must be of the same type as COEFFICIENTS."
        sum))))
 
 
-#+ignore
-(defun evaluate-polynomial (coefficients x)
-  "Return the sum of polynomials, weighted by the list of COEFFICIENTS, at X.
-X and contents of COEFFICIENTS must be of the same type.
-COEFFICIENTS are in descending order from the highest degree down to the constant term."
-  (declare (optimize(speed 3)(safety 0))
-	   #+sbcl (sb-ext:muffle-conditions sb-ext:compiler-note)) ; Function declared inline, but SBCL whines
-	   ;; See https://groups.google.com/forum/#!msg/comp.lang.lisp/AsKvR0emFtU/ILVjmLTlJ50J
-  (assert (and (plusp (length coefficients))
-  	       (every (lambda (elt)
-  			(typep elt (class-of x)))
-  		      coefficients))
-	  (coefficients x)
-	  "Coefficients and X must be of the same type.")
-  (typecase x
-    (double-float
-     (let((sum (car coefficients)))
-       (declare (double-float sum x))
-       (loop for i double-float in (cdr coefficients)
-	  do (setf sum (+ i (* x sum))))
-       sum))
-    (single-float
-     (let((sum (car coefficients)))
-       (declare (single-float sum x))
-       (loop for i single-float in (cdr coefficients)
-	  do (setf sum (+ i (* x sum))))
-       sum))
-    (fixnum
-     (let((sum (car coefficients)))
-       (declare (fixnum sum x))
-       (loop for i fixnum in (cdr coefficients)
-	  do (setf sum (+ i (* x sum))))
-       sum))
-    (t
-     (let((sum (car coefficients)))
-       (loop for i in (cdr coefficients)
-	  do (setf sum (+ i (* x sum))))
-       sum))))
+
+;;;
+;;; Evaluate ratios of polynomial functions
+;;;
+
+;;; See https://www.boost.org/doc/libs/1_68_0/libs/math/doc/html/math_toolkit/tuning.html
+;;; https://en.wikipedia.org/wiki/Rational_function
+;;; See: https://www.boost.org/doc/libs/1_76_0/boost/math/tools/rational.hpp"
+
+;;; Note that the order of the coefficients here differs from
+;;; evaluate-polynomial.  Here it is from the constant term up to the
+;;; highest order polynomial.  This is because evaluate-polynomial was
+;;; taken from Cephes, which orders coefficients highest->lowest, and
+;;; evaluate-rational was taken from Boost, which orders them
+;;; lowest->highest
+
+(defun evaluate-rational (numerator denominator z)
+  "Evaluate a rational function using Horner's method.  NUMERATOR and DENOMINATOR must be equal in size.  These always have a loop and so may be less efficient than evaluating a pair of polynomials.  However, there are some tricks we can use to prevent overflow that might otherwise occur in polynomial evaluation if z is large.  This is important in our Lanczos code for example.
+
+N.B. The order of coefficients for this function is NOT the same as evaluate-polynomial. "
+  (assert (= (length numerator)
+	     (length denominator)) () "Numerator and denominator must be the same length")
+  (let (s1 s2)
+    (if (<= z 1)
+	(progn
+	  (setf s1 (last-elt numerator)
+		s2 (last-elt denominator))
+	  (loop for i from (- (length numerator) 2) downto 0
+		do  (setf s1 (* s1 z)
+			  s1 (+ s1 (aref numerator i))
+			  s2 (* s2 z)
+			  s2 (+ s2 (aref denominator i)))))
+	(progn
+	  (setf z (/ z)
+		s1 (first-elt numerator)
+		s2 (first-elt denominator))
+	  (loop for i from 1 below (length numerator)
+		do (setf s1 (* s1 z)
+			  s1 (+ s1 (aref numerator i))
+			  s2 (* s2 z)
+			  s2 (+ s2 (aref denominator i))))))
+    (/ s1 s2)))
 
 
+
+
 #| Implementation Notes
 
 [1] From a discussion on the CCL mailing list, this was a message from

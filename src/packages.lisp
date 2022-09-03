@@ -17,6 +17,8 @@
    #:simple-fixnum-vector
    #:simple-single-float-vector
    #:as-simple-fixnum-vector
+   #:simple-boolean-vector
+   #:as-bit-vector
    #:as-double-float
    #:with-double-floats
    #:simple-double-float-vector
@@ -129,7 +131,7 @@
         #:alexandria
         #:num-utils.utilities)
   (:nicknames #:poly)
-  (:export #:evaluate-polynomial)
+  (:export #:evaluate-polynomial #:evaluate-rational)
   (:documentation "Efficient evaluation of polynomial functions using Horner's method"))
 
 (cl:defpackage #:num-utils.elementwise

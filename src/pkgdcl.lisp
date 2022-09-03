@@ -14,6 +14,7 @@
 		 #:num-utils.statistics
 		 #:num-utils.utilities
 		 #:num-utils.rootfinding
+		 #:num-utils.polynomial
 		 #:num-utils.test-utilities
 		 #:num-utils.quadrature
 		 #:num-utils.log-exp))
