@@ -39,7 +39,6 @@
         #:num-utils.utilities
         #:let-plus)
   (:export
-   #:multf
    #:same-sign-p
    #:square
    #:cube
