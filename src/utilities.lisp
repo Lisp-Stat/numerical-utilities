@@ -1,4 +1,5 @@
 ;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS.UTILITIES -*-
+;;; Copyright (c) 2019, 2022 by Symbolics Pte. Ltd. All rights reserved.
 (cl:in-package :num-utils.utilities)
 
 (defmacro gethash* (key hash-table
@@ -70,13 +71,15 @@ Example: `(,foo ,@(splice-when add-bar? bar))"
   "Return non-nil iff value is in [left,right)."
   (and (<= left value) (< value right)))
 
+
+;;; fixnum
 (declaim (inline fixnum?))
 (defun fixnum? (object)
   "Check of type of OBJECT is fixnum."
   (typep object 'fixnum))
 
 (deftype simple-fixnum-vector ()
-  "Simple vector or fixnum elements."
+  "Simple vector of fixnum elements."
   '(simple-array fixnum (*)))
 
 (defun as-simple-fixnum-vector (sequence &optional copy?)
@@ -85,9 +88,30 @@ Example: `(,foo ,@(splice-when add-bar? bar))"
       (copy-seq sequence)
       (coerce sequence 'simple-fixnum-vector)))
 
-(defun as-double-float (v)
+
+;;; boolean
+(declaim (inline boolean?))
+(defun boolean? (object)
+  "Check type of OBJECT is BOOLEAN."
+  (typep object 'boolean))
+
+(defun boolean-sequence-p (x)
+  (every #'boolean? x))
+
+(deftype simple-boolean-vector (&optional (length '*))
+  "Vector of BOOLEAN elements."
+  `(and (simple-array * (,length))
+	(satisfies boolean-sequence-p)))
+
+(defun as-bit-vector (v)
+  "Return a bit vector where each non-nil element of V is mapped to 1 and each NIL element is mapped to 0"
+  (map 'simple-bit-vector #'(lambda (x) (if x 1 0)) v))
+
+
+;;; double-float
+(defun as-double-float (x)
   "Convert argument to DOUBLE-FLOAT."
-  (coerce v 'double-float))
+  (coerce x 'double-float))
 
 (defmacro with-double-floats (bindings &body body)
   "For each binding = (variable value), coerce VALUE to DOUBLE-FLOAT and bind it to VARIABLE for BODY.  When VALUE is omitted, VARIABLE is used instead.  When BINDING is an atom, it is used for both the value and the variable.
@@ -111,6 +135,7 @@ Example:
 (deftype simple-single-float-vector (&optional (length '*))
   "Simple vector of single-float elements."
   `(simple-array single-float (,length)))
+
 
 (defun generate-sequence (result-type size function)
   "Like MAKE-SEQUENCE, but using a function to fill the result.
@@ -161,12 +186,6 @@ If value is below (or above) the first (last) break, NIL (T) is returned."
   (:documentation "Return OBJECT as a PLIST.  Semantics depends on OBJECT.  The default method uses AS-ALIST.")
   (:method (object)
     (alist-plist (as-alist object))))
-
-;; TODO Remove this, as it's now in Alexandria
-(declaim (inline sequencep))
-(defun sequencep (x)
-  "Return T if X is type SEQUENCE."
-  (typep x 'sequence))
 
 (defun make-vector (element-type &rest initial-contents)
   (make-array (length initial-contents) :element-type element-type

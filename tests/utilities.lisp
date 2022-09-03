@@ -1,9 +1,9 @@
 ;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS-TESTS -*-
-;;; Copyright (c) 2019 by Symbolics Pte. Ltd. All rights reserved.
+;;; Copyright (c) 2019, 2022 by Symbolics Pte. Ltd. All rights reserved.
 (in-package #:num-utils-tests)
 
 (def-suite utilities
-    :description "Tests root finding functions"
+    :description "Test utility functions"
     :in all-tests)
 (in-suite utilities)
 
@@ -38,7 +38,13 @@
       (is (= c 4d0))
       (is (= d 5d0)))))
 
-
+(test boolean
+  (let ((a #(nil nil t t))
+	(b #(nil nil t 5))
+	(c #*0011))
+    (is  (typep a 'simple-boolean-vector))
+    (not (typep b 'simple-boolean-vector))
+    (is  (equal c (as-bit-vector a)))))
 
 ;;; TODO (Papp): write tests for other utilities
 
