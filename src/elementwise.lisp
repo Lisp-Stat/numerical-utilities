@@ -138,6 +138,12 @@
 (define-e2 expt :function eexpt)
 (define-e2 log)
 (define-e2 mod :function emod)
+(define-e2 <)
+(define-e2 <=)
+(define-e2 >)
+(define-e2 >=)
+(define-e2 =)
+
 
 (defun elog (a &optional (base nil base?))
   "Elementwise logarithm."

@@ -170,7 +170,12 @@
    #:emin
    #:emax
    #:esin
-   #:ecos))
+   #:ecos
+   #:e2<
+   #:e2<=
+   #:e2>
+   #:e2>=
+   #:e2=))
 
 (defpackage #:num-utils.extended-real
   (:use #:cl #:alexandria)

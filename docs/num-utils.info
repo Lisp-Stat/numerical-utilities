@@ -1,0 +1,721 @@
+This is num-utils.info, produced by makeinfo version 6.8 from
+num-utils.texi.
+
+     Copyright © 2019-2022 Steven Nunez
+
+     Permission is granted to make and distribute verbatim copies of
+     this manual provided the copyright notice and this permission
+     notice are preserved on all copies.
+
+     Permission is granted to copy and distribute modified versions of
+     this manual under the conditions for verbatim copying, provided
+     also that the section entitled “Copying” is included exactly as in
+     the original.
+
+     Permission is granted to copy and distribute translations of this
+     manual into another language, under the above conditions for
+     modified versions, except that this permission notice may be
+     translated as well.
+INFO-DIR-SECTION Common Lisp
+START-INFO-DIR-ENTRY
+* NUM-UTILS Reference Manual: (num-utils). The NUM-UTILS Reference Manual.
+END-INFO-DIR-ENTRY
+
+
+Indirect:
+num-utils.info-1: 908
+num-utils.info-2: 328854
+
+Tag Table:
+(Indirect)
+Node: Top908
+Node: Copying2101
+Node: Systems2284
+Node: The num-utils system2490
+Ref: ❨1❩2602
+Node: Files4447
+Node: Lisp files4659
+Node: The num-utils/num-utils․asd file5487
+Ref: ❨2❩5694
+Node: The num-utils/packages․lisp file5845
+Ref: ❨3❩6077
+Node: The num-utils/utilities․lisp file6943
+Ref: ❨4❩7173
+Node: The num-utils/num=․lisp file8928
+Ref: ❨5❩9150
+Node: The num-utils/arithmetic․lisp file9688
+Ref: ❨6❩9924
+Node: The num-utils/elementwise․lisp file11678
+Ref: ❨7❩11925
+Node: The num-utils/extended-real․lisp file14111
+Ref: ❨8❩14360
+Node: The num-utils/interval․lisp file15162
+Ref: ❨9❩15402
+Node: The num-utils/print-matrix․lisp file18016
+Ref: ❨10❩18257
+Node: The num-utils/matrix․lisp file18701
+Ref: ❨11❩18940
+Node: The num-utils/matrix-shorthand․lisp file25324
+Ref: ❨12❩25580
+Node: The num-utils/chebyshev․lisp file26137
+Ref: ❨13❩26383
+Node: The num-utils/polynomial․lisp file27219
+Ref: ❨14❩27462
+Node: The num-utils/rootfinding․lisp file27766
+Ref: ❨15❩28012
+Node: The num-utils/quadrature․lisp file28710
+Ref: ❨16❩28951
+Node: The num-utils/log-exp․lisp file33619
+Ref: ❨17❩33857
+Node: The num-utils/test-utilities․lisp file34635
+Ref: ❨18❩34883
+Node: The num-utils/pkgdcl․lisp file36320
+Ref: ❨19❩36510
+Node: Packages36721
+Node: The num-utils․quadrature package37492
+Ref: ❨20❩37687
+Node: The num-utils․print-matrix package42558
+Ref: ❨21❩42782
+Node: The num-utils․chebyshev package43298
+Ref: ❨22❩43514
+Node: The num-utils․interval package44473
+Ref: ❨23❩44691
+Node: The num-utils․matrix-shorthand package47382
+Ref: ❨24❩47614
+Node: The num-utils․log-exp package48277
+Ref: ❨25❩48489
+Node: The num-utils․matrix package49253
+Ref: ❨26❩49460
+Node: The num-utils․extended-real package53012
+Ref: ❨27❩53235
+Node: The num-utils․utilities package54000
+Ref: ❨28❩54223
+Node: The num-utils․test-utilities package56612
+Ref: ❨29❩56844
+Node: The num-utils․arithmetic package58241
+Ref: ❨30❩58467
+Node: The num-utils․elementwise package60567
+Ref: ❨31❩60785
+Node: The num-utils․num= package63205
+Ref: ❨32❩63409
+Node: The num-utils․polynomial package64136
+Ref: ❨33❩64338
+Node: The num-utils package64808
+Ref: ❨34❩64995
+Node: The num-utils․rootfinding package65717
+Ref: ❨35❩65885
+Node: Definitions66690
+Node: Public Interface66945
+Node: Public special variables67324
+Ref: ❨594❩67539
+Ref: ❨117❩67726
+Ref: ❨599❩67984
+Ref: ❨597❩68204
+Node: Public macros68415
+Ref: ❨153❩68609
+Ref: ❨290❩68925
+Ref: ❨302❩69220
+Ref: ❨581❩69566
+Ref: ❨580❩69840
+Ref: ❨293❩70101
+Ref: ❨303❩70452
+Ref: ❨134❩70675
+Ref: ❨300❩70909
+Ref: ❨201❩71169
+Ref: ❨275❩71620
+Ref: ❨200❩71846
+Ref: ❨202❩72272
+Ref: ❨311❩72615
+Ref: ❨307❩72825
+Ref: ❨198❩73106
+Ref: ❨291❩73477
+Ref: ❨279❩73974
+Node: Public compiler macros74231
+Ref: ❨288❩74480
+Node: Public ordinary functions74598
+Ref: ❨371❩74820
+Ref: ❨281❩75080
+Ref: ❨274❩75250
+Ref: ❨282❩75419
+Ref: ❨277❩75588
+Ref: ❨280❩75758
+Ref: ❨348❩75912
+Ref: ❨354❩76107
+Ref: ❨312❩76307
+Ref: ❨309❩76571
+Ref: ❨366❩76761
+Ref: ❨301❩77125
+Ref: ❨286❩77381
+Ref: ❨292❩77585
+Ref: ❨373❩78139
+Ref: ❨121❩78432
+Ref: ❨123❩78773
+Ref: ❨122❩79074
+Ref: ❨124❩79305
+Ref: ❨336❩79566
+Ref: ❨335❩79809
+Ref: ❨370❩80038
+Ref: ❨369❩80239
+Ref: ❨372❩80595
+Ref: ❨235❩80918
+Ref: ❨231❩81078
+Ref: ❨232❩81133
+Ref: ❨197❩81357
+Ref: ❨310❩81590
+Ref: ❨368❩81885
+Ref: ❨402❩82199
+Ref: ❨557❩82389
+Ref: ❨500❩82579
+Ref: ❨498❩82769
+Ref: ❨501❩82968
+Ref: ❨410❩83244
+Ref: ❨499❩83421
+Ref: ❨497❩83592
+Ref: ❨125❩83785
+Ref: ❨596❩84037
+Ref: ❨595❩84413
+Ref: ❨204❩85065
+Ref: ❨215❩85261
+Ref: ❨214❩85468
+Ref: ❨299❩85695
+Ref: ❨357❩85907
+Ref: ❨308❩86174
+Ref: ❨152❩86708
+Ref: ❨221❩87255
+Ref: ❨213❩87432
+Ref: ❨133❩87691
+Ref: ❨276❩87926
+Ref: ❨169❩88180
+Ref: ❨167❩88357
+Ref: ❨151❩88598
+Ref: ❨176❩88812
+Ref: ❨365❩89090
+Ref: ❨364❩89597
+Ref: ❨205❩89767
+Ref: ❨208❩89963
+Ref: ❨207❩90170
+Ref: ❨206❩90372
+Ref: ❨210❩90573
+Ref: ❨374❩90983
+Ref: ❨209❩91169
+Ref: ❨367❩91394
+Ref: ❨212❩91580
+Ref: ❨211❩91781
+Ref: ❨233❩92000
+Ref: ❨289❩92215
+Ref: ❨331❩92365
+Ref: ❨332❩92405
+Ref: ❨329❩92624
+Ref: ❨330❩92665
+Ref: ❨318❩92884
+Ref: ❨319❩92924
+Ref: ❨296❩93143
+Ref: ❨352❩93469
+Ref: ❨582❩93916
+Ref: ❨593❩94121
+Ref: ❨375❩94331
+Ref: ❨168❩95083
+Ref: ❨119❩95287
+Ref: ❨118❩95607
+Ref: ❨159❩96276
+Ref: ❨341❩96418
+Ref: ❨342❩96452
+Ref: ❨36❩96733
+Ref: ❨598❩97190
+Ref: ❨362❩97903
+Ref: ❨363❩98270
+Ref: ❨353❩98522
+Ref: ❨356❩98724
+Ref: ❨158❩98975
+Ref: ❨145❩99365
+Ref: ❨154❩99530
+Ref: ❨358❩100036
+Ref: ❨149❩100251
+Ref: ❨337❩100659
+Ref: ❨338❩100700
+Ref: ❨317❩100952
+Ref: ❨355❩101211
+Ref: ❨217❩101493
+Ref: ❨333❩101677
+Ref: ❨334❩101717
+Ref: ❨315❩101935
+Ref: ❨316❩101975
+Ref: ❨199❩102208
+Ref: ❨297❩102441
+Ref: ❨339❩102642
+Ref: ❨340❩102683
+Ref: ❨230❩102916
+Node: Public generic functions103085
+Ref: ❨287❩103322
+Ref: ❨304❩103540
+Ref: ❨305❩103811
+Ref: ❨223❩103858
+Ref: ❨224❩104097
+Ref: ❨225❩104144
+Ref: ❨226❩104198
+Ref: ❨227❩104442
+Ref: ❨460❩104472
+Ref: ❨461❩104705
+Ref: ❨462❩104845
+Ref: ❨463❩104992
+Ref: ❨464❩105139
+Ref: ❨465❩105251
+Ref: ❨466❩105289
+Ref: ❨384❩105319
+Ref: ❨385❩105552
+Ref: ❨386❩105692
+Ref: ❨387❩105839
+Ref: ❨388❩105986
+Ref: ❨389❩106098
+Ref: ❨390❩106136
+Ref: ❨542❩106168
+Ref: ❨543❩106405
+Ref: ❨544❩106547
+Ref: ❨545❩106696
+Ref: ❨546❩106845
+Ref: ❨547❩106959
+Ref: ❨548❩106999
+Ref: ❨411❩107031
+Ref: ❨412❩107321
+Ref: ❨413❩107520
+Ref: ❨414❩107733
+Ref: ❨415❩107946
+Ref: ❨416❩108096
+Ref: ❨417❩108246
+Ref: ❨418❩108417
+Ref: ❨419❩108588
+Ref: ❨420❩108766
+Ref: ❨421❩108944
+Ref: ❨422❩109122
+Ref: ❨423❩109300
+Ref: ❨424❩109440
+Ref: ❨425❩109580
+Ref: ❨426❩109703
+Ref: ❨427❩109753
+Ref: ❨428❩109803
+Ref: ❨429❩109853
+Ref: ❨430❩109902
+Ref: ❨431❩109951
+Ref: ❨432❩109999
+Ref: ❨513❩110031
+Ref: ❨514❩110321
+Ref: ❨515❩110520
+Ref: ❨516❩110733
+Ref: ❨517❩110946
+Ref: ❨518❩111086
+Ref: ❨519❩111226
+Ref: ❨520❩111349
+Ref: ❨521❩111399
+Ref: ❨522❩111449
+Ref: ❨523❩111499
+Ref: ❨524❩111548
+Ref: ❨525❩111597
+Ref: ❨526❩111645
+Ref: ❨483❩111677
+Ref: ❨484❩111967
+Ref: ❨485❩112166
+Ref: ❨486❩112379
+Ref: ❨487❩112592
+Ref: ❨488❩112732
+Ref: ❨489❩112872
+Ref: ❨490❩112995
+Ref: ❨491❩113045
+Ref: ❨492❩113095
+Ref: ❨493❩113145
+Ref: ❨494❩113194
+Ref: ❨495❩113243
+Ref: ❨496❩113291
+Ref: ❨467❩113323
+Ref: ❨468❩113566
+Ref: ❨469❩113716
+Ref: ❨470❩113887
+Ref: ❨471❩114058
+Ref: ❨472❩114236
+Ref: ❨473❩114414
+Ref: ❨474❩114592
+Ref: ❨475❩114770
+Ref: ❨476❩114893
+Ref: ❨477❩114943
+Ref: ❨478❩114993
+Ref: ❨479❩115043
+Ref: ❨480❩115092
+Ref: ❨481❩115141
+Ref: ❨482❩115189
+Ref: ❨433❩115221
+Ref: ❨434❩115437
+Ref: ❨435❩115487
+Ref: ❨436❩115537
+Ref: ❨437❩115587
+Ref: ❨438❩115636
+Ref: ❨439❩115685
+Ref: ❨440❩115733
+Ref: ❨452❩115766
+Ref: ❨453❩115984
+Ref: ❨454❩116035
+Ref: ❨455❩116086
+Ref: ❨456❩116137
+Ref: ❨457❩116187
+Ref: ❨458❩116237
+Ref: ❨459❩116286
+Ref: ❨549❩116318
+Ref: ❨550❩116534
+Ref: ❨551❩116584
+Ref: ❨552❩116634
+Ref: ❨553❩116684
+Ref: ❨554❩116733
+Ref: ❨555❩116782
+Ref: ❨556❩116830
+Ref: ❨444❩116862
+Ref: ❨445❩117078
+Ref: ❨446❩117128
+Ref: ❨447❩117178
+Ref: ❨448❩117228
+Ref: ❨449❩117277
+Ref: ❨450❩117326
+Ref: ❨451❩117374
+Ref: ❨527❩117407
+Ref: ❨528❩117625
+Ref: ❨529❩117676
+Ref: ❨530❩117727
+Ref: ❨531❩117778
+Ref: ❨532❩117828
+Ref: ❨533❩117878
+Ref: ❨534❩117927
+Ref: ❨561❩117961
+Ref: ❨562❩118181
+Ref: ❨563❩118233
+Ref: ❨564❩118285
+Ref: ❨565❩118337
+Ref: ❨566❩118388
+Ref: ❨567❩118439
+Ref: ❨568❩118489
+Ref: ❨569❩118524
+Ref: ❨570❩118741
+Ref: ❨571❩118784
+Ref: ❨441❩118821
+Ref: ❨442❩119042
+Ref: ❨443❩119087
+Ref: ❨399❩119118
+Ref: ❨400❩119327
+Ref: ❨401❩119366
+Ref: ❨535❩119397
+Ref: ❨536❩119633
+Ref: ❨537❩119774
+Ref: ❨538❩119922
+Ref: ❨539❩120070
+Ref: ❨540❩120183
+Ref: ❨541❩120222
+Ref: ❨391❩120256
+Ref: ❨392❩120477
+Ref: ❨393❩120529
+Ref: ❨394❩120581
+Ref: ❨395❩120633
+Ref: ❨396❩120684
+Ref: ❨397❩120735
+Ref: ❨398❩120785
+Ref: ❨558❩120818
+Ref: ❨559❩121031
+Ref: ❨560❩121072
+Ref: ❨502❩121105
+Ref: ❨503❩121324
+Ref: ❨504❩121375
+Ref: ❨505❩121426
+Ref: ❨506❩121477
+Ref: ❨507❩121527
+Ref: ❨508❩121577
+Ref: ❨509❩121626
+Ref: ❨380❩121683
+Ref: ❨381❩121939
+Ref: ❨382❩122009
+Ref: ❨383❩122066
+Ref: ❨510❩122097
+Ref: ❨511❩122306
+Ref: ❨512❩122345
+Ref: ❨403❩122377
+Ref: ❨404❩122615
+Ref: ❨405❩122757
+Ref: ❨406❩122906
+Ref: ❨407❩123055
+Ref: ❨408❩123169
+Ref: ❨409❩123209
+Ref: ❨138❩123265
+Ref: ❨139❩123559
+Ref: ❨140❩123629
+Ref: ❨141❩123741
+Ref: ❨142❩123846
+Ref: ❨143❩123907
+Ref: ❨144❩123970
+Ref: ❨346❩124015
+Ref: ❨347❩124248
+Ref: ❨155❩124286
+Ref: ❨156❩124549
+Ref: ❨157❩124667
+Ref: ❨219❩124858
+Ref: ❨220❩124998
+Ref: ❨583❩125270
+Ref: ❨584❩125972
+Ref: ❨585❩126188
+Ref: ❨586❩126406
+Ref: ❨587❩126613
+Ref: ❨588❩126740
+Ref: ❨589❩126811
+Ref: ❨590❩126880
+Ref: ❨591❩126947
+Ref: ❨592❩127014
+Ref: ❨135❩127058
+Ref: ❨136❩127352
+Ref: ❨137❩127476
+Ref: ❨173❩127652
+Ref: ❨174❩127949
+Ref: ❨175❩128076
+Ref: ❨359❩128247
+Ref: ❨360❩128469
+Ref: ❨361❩128515
+Ref: ❨164❩128554
+Ref: ❨165❩128820
+Ref: ❨166❩128941
+Ref: ❨162❩129122
+Ref: ❨163❩129370
+Ref: ❨349❩129414
+Ref: ❨350❩129670
+Ref: ❨351❩129721
+Ref: ❨238❩129761
+Ref: ❨239❩129952
+Ref: ❨240❩130057
+Ref: ❨241❩130162
+Ref: ❨242❩130260
+Ref: ❨243❩130359
+Node: Public standalone methods130360
+Ref: ❨633❩130626
+Ref: ❨636❩130798
+Ref: ❨642❩130977
+Ref: ❨645❩131156
+Ref: ❨638❩131329
+Ref: ❨643❩131504
+Ref: ❨639❩131685
+Ref: ❨644❩131878
+Ref: ❨630❩132101
+Ref: ❨629❩132227
+Ref: ❨632❩132378
+Ref: ❨635❩132521
+Ref: ❨641❩132671
+Ref: ❨631❩132820
+Ref: ❨634❩132995
+Ref: ❨640❩133177
+Node: Public structures133264
+Ref: ❨236❩133460
+Ref: ❨237❩134469
+Ref: ❨222❩134733
+Ref: ❨234❩136013
+Ref: ❨160❩136981
+Ref: ❨161❩137243
+Ref: ❨146❩137466
+Ref: ❨147❩137740
+Ref: ❨320❩138013
+Ref: ❨321❩138309
+Ref: ❨322❩138592
+Ref: ❨323❩138882
+Ref: ❨324❩139173
+Ref: ❨325❩139466
+Ref: ❨326❩139749
+Ref: ❨327❩140039
+Ref: ❨328❩140323
+Ref: ❨218❩140610
+Ref: ❨228❩141584
+Ref: ❨229❩142537
+Node: Public classes142752
+Ref: ❨172❩142925
+Ref: ❨170❩143577
+Ref: ❨171❩144163
+Ref: ❨150❩144526
+Ref: ❨148❩145031
+Node: Public types145434
+Ref: ❨278❩145591
+Ref: ❨298❩145794
+Ref: ❨295❩146000
+Ref: ❨294❩146196
+Ref: ❨306❩146408
+Ref: ❨216❩146601
+Node: Internals146762
+Node: Private macros147027
+Ref: ❨250❩147209
+Ref: ❨264❩147423
+Ref: ❨285❩147646
+Ref: ❨577❩147961
+Ref: ❨576❩148139
+Ref: ❨572❩148366
+Ref: ❨257❩148595
+Ref: ❨578❩148896
+Ref: ❨261❩149108
+Ref: ❨251❩149408
+Ref: ❨248❩149713
+Ref: ❨379❩149990
+Ref: ❨268❩150270
+Ref: ❨579❩150438
+Ref: ❨600❩150675
+Node: Private ordinary functions151689
+Ref: ❨132❩151921
+Ref: ❨130❩152179
+Ref: ❨260❩152365
+Ref: ❨256❩152602
+Ref: ❨314❩152836
+Ref: ❨313❩152985
+Ref: ❨131❩153199
+Ref: ❨129❩153397
+Ref: ❨258❩153646
+Ref: ❨265❩153805
+Ref: ❨38❩153968
+Ref: ❨244❩154142
+Ref: ❨56❩154304
+Ref: ❨195❩154463
+Ref: ❨83❩154633
+Ref: ❨186❩154790
+Ref: ❨343❩154948
+Ref: ❨78❩155129
+Ref: ❨269❩155303
+Ref: ❨262❩155460
+Ref: ❨247❩155613
+Ref: ❨273❩155791
+Ref: ❨284❩156153
+Ref: ❨249❩156438
+Ref: ❨253❩156592
+Ref: ❨41❩156750
+Ref: ❨42❩156803
+Ref: ❨91❩157018
+Ref: ❨92❩157071
+Ref: ❨76❩157286
+Ref: ❨77❩157339
+Ref: ❨89❩157553
+Ref: ❨90❩157606
+Ref: ❨111❩157821
+Ref: ❨112❩157874
+Ref: ❨113❩158089
+Ref: ❨66❩158257
+Ref: ❨67❩158312
+Ref: ❨378❩158504
+Ref: ❨254❩158705
+Ref: ❨259❩158866
+Ref: ❨245❩159029
+Ref: ❨266❩159193
+Ref: ❨57❩159366
+Ref: ❨272❩159545
+Ref: ❨344❩159783
+Ref: ❨271❩159970
+Ref: ❨252❩160132
+Ref: ❨85❩160286
+Ref: ❨88❩160462
+Ref: ❨74❩160629
+Ref: ❨75❩160803
+Ref: ❨43❩160970
+Ref: ❨44❩161144
+Ref: ❨47❩161311
+Ref: ❨48❩161485
+Ref: ❨39❩161652
+Ref: ❨40❩161826
+Ref: ❨49❩161993
+Ref: ❨50❩162167
+Ref: ❨110❩162332
+Ref: ❨105❩162501
+Ref: ❨106❩162677
+Ref: ❨604❩162839
+Ref: ❨602❩163037
+Ref: ❨603❩163233
+Ref: ❨203❩163457
+Ref: ❨120❩163729
+Ref: ❨178❩164028
+Ref: ❨193❩164233
+Ref: ❨93❩164412
+Ref: ❨64❩164592
+Ref: ❨65❩164659
+Ref: ❨79❩164894
+Ref: ❨80❩164958
+Ref: ❨62❩165183
+Ref: ❨63❩165240
+Ref: ❨61❩165458
+Ref: ❨84❩165634
+Ref: ❨87❩165967
+Ref: ❨601❩166404
+Ref: ❨377❩166640
+Ref: ❨376❩166936
+Ref: ❨177❩167169
+Ref: ❨194❩167321
+Ref: ❨345❩167528
+Ref: ❨58❩167701
+Ref: ❨37❩167880
+Ref: ❨81❩168050
+Ref: ❨82❩168227
+Ref: ❨45❩168397
+Ref: ❨46❩168574
+Ref: ❨70❩168744
+Ref: ❨71❩168921
+Ref: ❨72❩169091
+Ref: ❨73❩169268
+Ref: ❨68❩169438
+Ref: ❨69❩169615
+Ref: ❨60❩169783
+Ref: ❨54❩169955
+Ref: ❨55❩170134
+Ref: ❨246❩170312
+Ref: ❨267❩170473
+Ref: ❨255❩170625
+Ref: ❨263❩170891
+Ref: ❨270❩171035
+Node: Private generic functions171265
+Ref: ❨126❩171555
+Ref: ❨127❩171906
+Ref: ❨128❩172077
+Ref: ❨573❩172111
+Ref: ❨574❩172326
+Ref: ❨575❩172368
+Ref: ❨183❩172428
+Ref: ❨184❩172679
+Ref: ❨185❩172802
+Ref: ❨179❩172863
+Ref: ❨180❩173116
+Ref: ❨181❩173241
+Ref: ❨114❩173294
+Ref: ❨115❩173621
+Ref: ❨116❩173736
+Ref: ❨107❩173794
+Ref: ❨108❩174108
+Ref: ❨109❩174228
+Ref: ❨51❩174318
+Ref: ❨52❩174835
+Ref: ❨53❩174979
+Node: Private structures174980
+Ref: ❨98❩175176
+Ref: ❨99❩175644
+Ref: ❨100❩175924
+Ref: ❨101❩176178
+Ref: ❨102❩176432
+Ref: ❨103❩176686
+Ref: ❨104❩176986
+Ref: ❨86❩177392
+Ref: ❨94❩177760
+Ref: ❨95❩178421
+Ref: ❨96❩178723
+Ref: ❨97❩179034
+Ref: ❨59❩179358
+Node: Private classes179687
+Ref: ❨190❩179861
+Ref: ❨191❩180346
+Ref: ❨192❩180613
+Ref: ❨187❩180897
+Ref: ❨188❩181388
+Ref: ❨189❩181658
+Ref: ❨182❩181945
+Ref: ❨196❩182409
+Node: Private types182841
+Ref: ❨283❩182974
+Node: Indexes183154
+Node: Concept index183349
+Node: Function index183475
+Node: Variable index328854
+Node: Data type index333799
+
+End Tag Table
+
+
+Local Variables:
+coding: utf-8
+End:

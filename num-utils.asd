@@ -3,7 +3,7 @@
 ;;; Copyright (c) 2019-2022 by Symbolics Pte. Ltd. All rights reserved.
 
 (defsystem "num-utils"
-  :version "1.1.0"
+  :version "1.2.0"
   :license :MS-PL
   :author "Steven Nunez <steve@symbolics.tech>"
   :long-name "Numerical Utilities"

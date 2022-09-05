@@ -13,7 +13,7 @@
 @c Commentary:
 
 @c Generated automatically by Declt version 4.0 beta 2 "William Riker"
-@c on Mon Sep 05 14:50:58 2022 GMT+8.
+@c on Mon Sep 05 15:18:50 2022 GMT+8.
 
 
 @c ====================================================================
@@ -93,7 +93,7 @@
 @c ====================================================================
 @setchapternewpage odd
 @documentdescription
-The NUM-UTILS Reference Manual, version 1.1.0.
+The NUM-UTILS Reference Manual, version 1.3.0.
 @end documentdescription
 
 
@@ -255,7 +255,7 @@ except that this permission notice may be translated as well.
 @c ====================================================================
 @titlepage
 @title The NUM-UTILS Reference Manual
-@subtitle Numerical Utilities, version 1.1.0
+@subtitle Numerical Utilities, version 1.3.0
 
 @author Steven Nunez <@email{steve@atchar{}symbolics.tech}>
 
@@ -282,7 +282,7 @@ This manual was generated automatically by Declt 4.0b2.
 @ifnottex
 @node Top, Copying, (dir), (dir)
 @top The NUM-UTILS Reference Manual
-This is the NUM-UTILS Reference Manual, version 1.1.0,
+This is the NUM-UTILS Reference Manual, version 1.3.0,
 generated automatically by Declt version 4.0b2.
 
 @menu
@@ -354,7 +354,7 @@ This library implements simple numerical functions for Common Lisp@comma{} inclu
     Chebyshev polynomials@*
     univariate rootfinding
 @item Version
-1.1.0
+1.3.0
 @item Dependencies
 @itemize @bullet
 @item
@@ -523,13 +523,13 @@ components trees.
 @item
 @ref{❨287❩, , @t{as-alist}}@: (generic function).
 @item
-@ref{❨310❩, , @t{as-bit-vector}}@: (function).
+@ref{❨312❩, , @t{as-bit-vector}}@: (function).
 @item
-@ref{❨308❩, , @t{as-double-float}}@: (function).
+@ref{❨309❩, , @t{as-double-float}}@: (function).
 @item
-@ref{❨303❩, , @t{as-plist}}@: (generic function).
+@ref{❨304❩, , @t{as-plist}}@: (generic function).
 @item
-@ref{❨300❩, , @t{as-simple-fixnum-vector}}@: (function).
+@ref{❨301❩, , @t{as-simple-fixnum-vector}}@: (function).
 @item
 @ref{❨286❩, , @t{bic}}@: (function).
 @item
@@ -537,44 +537,48 @@ components trees.
 @item
 @ref{❨290❩, , @t{check-types}}@: (macro).
 @item
-@ref{❨301❩, , @t{curry*}}@: (macro).
+@ref{❨302❩, , @t{curry*}}@: (macro).
 @item
 @ref{❨293❩, , @t{define-with-multiple-bindings}}@: (macro).
 @item
-@ref{❨302❩, , @t{expanding}}@: (macro).
+@ref{❨310❩, , @t{distinct}}@: (function).
 @item
-@ref{❨298❩, , @t{fixnum?}}@: (function).
+@ref{❨303❩, , @t{expanding}}@: (macro).
 @item
-@ref{❨307❩, , @t{generate-sequence}}@: (function).
+@ref{❨299❩, , @t{fixnum?}}@: (function).
 @item
-@ref{❨299❩, , @t{gethash*}}@: (macro).
+@ref{❨308❩, , @t{generate-sequence}}@: (function).
+@item
+@ref{❨300❩, , @t{gethash*}}@: (macro).
 @item
 @ref{❨288❩, , @t{make-vector}}@: (compiler macro).
 @item
 @ref{❨289❩, , @t{make-vector}}@: (function).
 @item
-@ref{❨297❩, , @t{simple-boolean-vector}}@: (type).
+@ref{❨296❩, , @t{monotonicp}}@: (function).
+@item
+@ref{❨298❩, , @t{simple-boolean-vector}}@: (type).
 @item
 @ref{❨295❩, , @t{simple-double-float-vector}}@: (type).
 @item
 @ref{❨294❩, , @t{simple-fixnum-vector}}@: (type).
 @item
-@ref{❨305❩, , @t{simple-single-float-vector}}@: (type).
+@ref{❨306❩, , @t{simple-single-float-vector}}@: (type).
 @item
-@ref{❨309❩, , @t{splice-awhen}}@: (macro).
+@ref{❨311❩, , @t{splice-awhen}}@: (macro).
 @item
-@ref{❨306❩, , @t{splice-when}}@: (macro).
+@ref{❨307❩, , @t{splice-when}}@: (macro).
 @item
 @ref{❨291❩, , @t{with-double-floats}}@: (macro).
 @item
-@ref{❨296❩, , @t{within?}}@: (function).
+@ref{❨297❩, , @t{within?}}@: (function).
 @end itemize
 @item Internals
 @itemize @bullet
 @item
-@ref{❨312❩, , @t{boolean-sequence-p}}@: (function).
+@ref{❨314❩, , @t{boolean-sequence-p}}@: (function).
 @item
-@ref{❨311❩, , @t{boolean?}}@: (function).
+@ref{❨313❩, , @t{boolean?}}@: (function).
 @end itemize
 @end table
 
@@ -592,17 +596,17 @@ components trees.
 @item Public Interface
 @itemize @bullet
 @item
-@ref{❨552❩, , @t{*num=-tolerance*}}@: (special variable).
+@ref{❨594❩, , @t{*num=-tolerance*}}@: (special variable).
 @item
-@ref{❨539❩, , @t{define-num=-with-accessors}}@: (macro).
+@ref{❨581❩, , @t{define-num=-with-accessors}}@: (macro).
 @item
-@ref{❨538❩, , @t{define-structure-num=}}@: (macro).
+@ref{❨580❩, , @t{define-structure-num=}}@: (macro).
 @item
-@ref{❨540❩, , @t{num-delta}}@: (function).
+@ref{❨582❩, , @t{num-delta}}@: (function).
 @item
-@ref{❨541❩, , @t{num=}}@: (generic function).
+@ref{❨583❩, , @t{num=}}@: (generic function).
 @item
-@ref{❨551❩, , @t{num=-function}}@: (function).
+@ref{❨593❩, , @t{num=-function}}@: (function).
 @end itemize
 @end table
 
@@ -620,66 +624,66 @@ components trees.
 @item Public Interface
 @itemize @bullet
 @item
-@ref{❨369❩, , @t{1c}}@: (function).
+@ref{❨371❩, , @t{1c}}@: (function).
 @item
-@ref{❨346❩, , @t{abs-diff}}@: (function).
+@ref{❨348❩, , @t{abs-diff}}@: (function).
 @item
-@ref{❨352❩, , @t{absolute-square}}@: (function).
+@ref{❨354❩, , @t{absolute-square}}@: (function).
 @item
-@ref{❨364❩, , @t{as-integer}}@: (function).
+@ref{❨366❩, , @t{as-integer}}@: (function).
 @item
-@ref{❨371❩, , @t{ceiling*}}@: (function).
+@ref{❨373❩, , @t{ceiling*}}@: (function).
 @item
-@ref{❨368❩, , @t{cube}}@: (function).
+@ref{❨370❩, , @t{cube}}@: (function).
 @item
-@ref{❨367❩, , @t{cumulative-product}}@: (function).
+@ref{❨369❩, , @t{cumulative-product}}@: (function).
 @item
-@ref{❨370❩, , @t{cumulative-sum}}@: (function).
+@ref{❨372❩, , @t{cumulative-sum}}@: (function).
 @item
-@ref{❨366❩, , @t{divides?}}@: (function).
+@ref{❨368❩, , @t{divides?}}@: (function).
 @item
-@ref{❨355❩, , @t{floor*}}@: (function).
+@ref{❨357❩, , @t{floor*}}@: (function).
 @item
-@ref{❨363❩, , @t{ivec}}@: (function).
+@ref{❨365❩, , @t{ivec}}@: (function).
 @item
-@ref{❨362❩, , @t{l2norm}}@: (function).
+@ref{❨364❩, , @t{l2norm}}@: (function).
 @item
-@ref{❨344❩, , @t{l2norm-square}}@: (generic function).
+@ref{❨346❩, , @t{l2norm-square}}@: (generic function).
 @item
-@ref{❨372❩, , @t{log10}}@: (function).
+@ref{❨374❩, , @t{log10}}@: (function).
 @item
-@ref{❨365❩, , @t{log2}}@: (function).
+@ref{❨367❩, , @t{log2}}@: (function).
 @item
-@ref{❨350❩, , @t{normalize-probabilities}}@: (function).
+@ref{❨352❩, , @t{normalize-probabilities}}@: (function).
 @item
-@ref{❨373❩, , @t{numseq}}@: (function).
+@ref{❨375❩, , @t{numseq}}@: (function).
 @item
-@ref{❨357❩, , @t{product}}@: (generic function).
+@ref{❨359❩, , @t{product}}@: (generic function).
 @item
-@ref{❨360❩, , @t{round*}}@: (function).
+@ref{❨362❩, , @t{round*}}@: (function).
 @item
-@ref{❨361❩, , @t{same-sign-p}}@: (function).
+@ref{❨363❩, , @t{same-sign-p}}@: (function).
 @item
-@ref{❨351❩, , @t{sequence-maximum}}@: (function).
+@ref{❨353❩, , @t{sequence-maximum}}@: (function).
 @item
-@ref{❨354❩, , @t{sequence-minimum}}@: (function).
+@ref{❨356❩, , @t{sequence-minimum}}@: (function).
 @item
-@ref{❨356❩, , @t{square}}@: (function).
+@ref{❨358❩, , @t{square}}@: (function).
 @item
-@ref{❨347❩, , @t{sum}}@: (generic function).
+@ref{❨349❩, , @t{sum}}@: (generic function).
 @item
-@ref{❨353❩, , @t{truncate*}}@: (function).
+@ref{❨355❩, , @t{truncate*}}@: (function).
 @end itemize
 @item Internals
 @itemize @bullet
 @item
-@ref{❨377❩, , @t{define-rounding-with-offset}}@: (macro).
+@ref{❨379❩, , @t{define-rounding-with-offset}}@: (macro).
 @item
-@ref{❨376❩, , @t{ln}}@: (function).
+@ref{❨378❩, , @t{ln}}@: (function).
 @item
-@ref{❨375❩, , @t{similar-element-type}}@: (function).
+@ref{❨377❩, , @t{similar-element-type}}@: (function).
 @item
-@ref{❨374❩, , @t{similar-sequence-type}}@: (function).
+@ref{❨376❩, , @t{similar-sequence-type}}@: (function).
 @end itemize
 @end table
 
@@ -697,72 +701,82 @@ components trees.
 @item Public Interface
 @itemize @bullet
 @item
-@ref{❨404❩, , @t{e*}}@: (function).
+@ref{❨402❩, , @t{e*}}@: (function).
 @item
-@ref{❨505❩, , @t{e+}}@: (function).
+@ref{❨557❩, , @t{e+}}@: (function).
 @item
-@ref{❨506❩, , @t{e-}}@: (function).
+@ref{❨500❩, , @t{e-}}@: (function).
 @item
-@ref{❨399❩, , @t{e/}}@: (function).
+@ref{❨498❩, , @t{e/}}@: (function).
 @item
-@ref{❨385❩, , @t{e1-}}@: (generic function).
+@ref{❨460❩, , @t{e1-}}@: (generic function).
 @item
-@ref{❨378❩, , @t{e1/}}@: (generic function).
+@ref{❨384❩, , @t{e1/}}@: (generic function).
 @item
-@ref{❨454❩, , @t{e1log}}@: (generic function).
+@ref{❨542❩, , @t{e1log}}@: (generic function).
 @item
-@ref{❨475❩, , @t{e2*}}@: (generic function).
+@ref{❨411❩, , @t{e2*}}@: (generic function).
 @item
-@ref{❨461❩, , @t{e2+}}@: (generic function).
+@ref{❨513❩, , @t{e2+}}@: (generic function).
 @item
-@ref{❨516❩, , @t{e2-}}@: (generic function).
+@ref{❨483❩, , @t{e2-}}@: (generic function).
 @item
-@ref{❨423❩, , @t{e2/}}@: (generic function).
+@ref{❨467❩, , @t{e2/}}@: (generic function).
 @item
-@ref{❨497❩, , @t{e2log}}@: (generic function).
+@ref{❨433❩, , @t{e2<}}@: (generic function).
 @item
-@ref{❨393❩, , @t{eceiling}}@: (generic function).
+@ref{❨452❩, , @t{e2<=}}@: (generic function).
 @item
-@ref{❨451❩, , @t{econjugate}}@: (generic function).
+@ref{❨549❩, , @t{e2=}}@: (generic function).
 @item
-@ref{❨396❩, , @t{ecos}}@: (generic function).
+@ref{❨444❩, , @t{e2>}}@: (generic function).
 @item
-@ref{❨441❩, , @t{eexp}}@: (generic function).
+@ref{❨527❩, , @t{e2>=}}@: (generic function).
 @item
-@ref{❨415❩, , @t{eexpt}}@: (generic function).
+@ref{❨561❩, , @t{e2log}}@: (generic function).
 @item
-@ref{❨448❩, , @t{efloor}}@: (generic function).
+@ref{❨569❩, , @t{eceiling}}@: (generic function).
 @item
-@ref{❨440❩, , @t{elementwise-float-contagion}}@: (function).
+@ref{❨441❩, , @t{econjugate}}@: (generic function).
 @item
-@ref{❨392❩, , @t{elog}}@: (function).
+@ref{❨399❩, , @t{ecos}}@: (generic function).
 @item
-@ref{❨515❩, , @t{emax}}@: (function).
+@ref{❨535❩, , @t{eexp}}@: (generic function).
 @item
-@ref{❨439❩, , @t{emin}}@: (function).
+@ref{❨391❩, , @t{eexpt}}@: (generic function).
 @item
-@ref{❨507❩, , @t{emod}}@: (generic function).
+@ref{❨558❩, , @t{efloor}}@: (generic function).
 @item
-@ref{❨400❩, , @t{ereduce}}@: (generic function).
+@ref{❨501❩, , @t{elementwise-float-contagion}}@: (function).
 @item
-@ref{❨405❩, , @t{esin}}@: (generic function).
+@ref{❨410❩, , @t{elog}}@: (function).
 @item
-@ref{❨408❩, , @t{esqrt}}@: (generic function).
+@ref{❨499❩, , @t{emax}}@: (function).
+@item
+@ref{❨497❩, , @t{emin}}@: (function).
+@item
+@ref{❨502❩, , @t{emod}}@: (generic function).
+@item
+@ref{❨380❩, , @t{ereduce}}@: (generic function).
+@item
+@ref{❨510❩, , @t{esin}}@: (generic function).
+@item
+@ref{❨403❩, , @t{esqrt}}@: (generic function).
 @end itemize
 @item Internals
 @itemize @bullet
 @item
-@ref{❨535❩, , @t{define-e@ampchar{}}}@: (macro).
+@ref{❨577❩, , @t{define-e@ampchar{}}}@: (macro).
 @item
-@ref{❨534❩, , @t{define-e1}}@: (macro).
+@ref{❨576❩, , @t{define-e1}}@: (macro).
 @item
-@ref{❨530❩, , @t{define-e2}}@: (macro).
+@ref{❨572❩, , @t{define-e2}}@: (macro).
 @item
-@ref{❨536❩, , @t{define-elementwise-reduction}}@: (macro).
+@ref{❨578❩, , @t{define-elementwise-reduction}}@: (macro).
 @item
-@ref{❨531❩, , @t{esquare}}@: (generic function).
+@ref{❨573❩, , @t{esquare}}@: (generic function).
 @item
-@ref{❨537❩, , @t{mapping-array}}@: (macro).
+@ref{❨579❩, , @t{mapping-array}}@: (macro).
 @end itemize
 @end table
 
@@ -835,7 +849,7 @@ components trees.
 @item
 @ref{❨133❩, , @t{in-interval?}}@: (function).
 @item
-@ref{❨588❩, , @t{initialize-instance}}@: (method).
+@ref{❨630❩, , @t{initialize-instance}}@: (method).
 @item
 @ref{❨169❩, , @t{interval}}@: (function).
 @item
@@ -851,9 +865,9 @@ components trees.
 @item
 @ref{❨171❩, , @t{minusinf-interval}}@: (class).
 @item
-@ref{❨544❩, , @t{num=}}@: (method).
+@ref{❨586❩, , @t{num=}}@: (method).
 @item
-@ref{❨545❩, , @t{num=}}@: (method).
+@ref{❨587❩, , @t{num=}}@: (method).
 @item
 @ref{❨135❩, , @t{open-left?}}@: (generic function).
 @item
@@ -863,7 +877,7 @@ components trees.
 @item
 @ref{❨168❩, , @t{plusminus-interval}}@: (function).
 @item
-@ref{❨587❩, , @t{print-object}}@: (method).
+@ref{❨629❩, , @t{print-object}}@: (method).
 @item
 @ref{❨148❩, , @t{real-line}}@: (class).
 @item
@@ -952,13 +966,13 @@ components trees.
 @item Public Interface
 @itemize @bullet
 @item
-@ref{❨591❩, , @t{as-array}}@: (method).
+@ref{❨633❩, , @t{as-array}}@: (method).
 @item
-@ref{❨594❩, , @t{as-array}}@: (method).
+@ref{❨636❩, , @t{as-array}}@: (method).
 @item
-@ref{❨600❩, , @t{as-array}}@: (method).
+@ref{❨642❩, , @t{as-array}}@: (method).
 @item
-@ref{❨603❩, , @t{as-array}}@: (method).
+@ref{❨645❩, , @t{as-array}}@: (method).
 @item
 @ref{❨235❩, , @t{diagonal-matrix}}@: (function).
 @item
@@ -972,121 +986,121 @@ components trees.
 @item
 @ref{❨226❩, , @t{(setf diagonal-vector)}}@: (generic function).
 @item
-@ref{❨596❩, , @t{dims}}@: (method).
+@ref{❨638❩, , @t{dims}}@: (method).
 @item
-@ref{❨601❩, , @t{dims}}@: (method).
+@ref{❨643❩, , @t{dims}}@: (method).
 @item
-@ref{❨386❩, , @t{e1-}}@: (method).
+@ref{❨461❩, , @t{e1-}}@: (method).
 @item
-@ref{❨387❩, , @t{e1-}}@: (method).
+@ref{❨462❩, , @t{e1-}}@: (method).
 @item
-@ref{❨388❩, , @t{e1-}}@: (method).
+@ref{❨463❩, , @t{e1-}}@: (method).
 @item
-@ref{❨389❩, , @t{e1-}}@: (method).
+@ref{❨464❩, , @t{e1-}}@: (method).
 @item
-@ref{❨379❩, , @t{e1/}}@: (method).
+@ref{❨385❩, , @t{e1/}}@: (method).
 @item
-@ref{❨380❩, , @t{e1/}}@: (method).
+@ref{❨386❩, , @t{e1/}}@: (method).
 @item
-@ref{❨381❩, , @t{e1/}}@: (method).
+@ref{❨387❩, , @t{e1/}}@: (method).
 @item
-@ref{❨382❩, , @t{e1/}}@: (method).
+@ref{❨388❩, , @t{e1/}}@: (method).
 @item
-@ref{❨455❩, , @t{e1log}}@: (method).
+@ref{❨543❩, , @t{e1log}}@: (method).
 @item
-@ref{❨456❩, , @t{e1log}}@: (method).
+@ref{❨544❩, , @t{e1log}}@: (method).
 @item
-@ref{❨457❩, , @t{e1log}}@: (method).
+@ref{❨545❩, , @t{e1log}}@: (method).
 @item
-@ref{❨458❩, , @t{e1log}}@: (method).
+@ref{❨546❩, , @t{e1log}}@: (method).
 @item
-@ref{❨476❩, , @t{e2*}}@: (method).
+@ref{❨412❩, , @t{e2*}}@: (method).
 @item
-@ref{❨477❩, , @t{e2*}}@: (method).
+@ref{❨413❩, , @t{e2*}}@: (method).
 @item
-@ref{❨478❩, , @t{e2*}}@: (method).
+@ref{❨414❩, , @t{e2*}}@: (method).
 @item
-@ref{❨479❩, , @t{e2*}}@: (method).
+@ref{❨415❩, , @t{e2*}}@: (method).
 @item
-@ref{❨480❩, , @t{e2*}}@: (method).
+@ref{❨416❩, , @t{e2*}}@: (method).
 @item
-@ref{❨481❩, , @t{e2*}}@: (method).
+@ref{❨417❩, , @t{e2*}}@: (method).
 @item
-@ref{❨482❩, , @t{e2*}}@: (method).
+@ref{❨418❩, , @t{e2*}}@: (method).
 @item
-@ref{❨483❩, , @t{e2*}}@: (method).
+@ref{❨419❩, , @t{e2*}}@: (method).
 @item
-@ref{❨484❩, , @t{e2*}}@: (method).
+@ref{❨420❩, , @t{e2*}}@: (method).
 @item
-@ref{❨485❩, , @t{e2*}}@: (method).
+@ref{❨421❩, , @t{e2*}}@: (method).
 @item
-@ref{❨486❩, , @t{e2*}}@: (method).
+@ref{❨422❩, , @t{e2*}}@: (method).
 @item
-@ref{❨487❩, , @t{e2*}}@: (method).
+@ref{❨423❩, , @t{e2*}}@: (method).
 @item
-@ref{❨488❩, , @t{e2*}}@: (method).
+@ref{❨424❩, , @t{e2*}}@: (method).
 @item
-@ref{❨489❩, , @t{e2*}}@: (method).
+@ref{❨425❩, , @t{e2*}}@: (method).
 @item
-@ref{❨462❩, , @t{e2+}}@: (method).
+@ref{❨514❩, , @t{e2+}}@: (method).
 @item
-@ref{❨463❩, , @t{e2+}}@: (method).
+@ref{❨515❩, , @t{e2+}}@: (method).
 @item
-@ref{❨464❩, , @t{e2+}}@: (method).
+@ref{❨516❩, , @t{e2+}}@: (method).
 @item
-@ref{❨465❩, , @t{e2+}}@: (method).
+@ref{❨517❩, , @t{e2+}}@: (method).
 @item
-@ref{❨466❩, , @t{e2+}}@: (method).
+@ref{❨518❩, , @t{e2+}}@: (method).
 @item
-@ref{❨467❩, , @t{e2+}}@: (method).
+@ref{❨519❩, , @t{e2+}}@: (method).
 @item
-@ref{❨517❩, , @t{e2-}}@: (method).
+@ref{❨484❩, , @t{e2-}}@: (method).
 @item
-@ref{❨518❩, , @t{e2-}}@: (method).
+@ref{❨485❩, , @t{e2-}}@: (method).
 @item
-@ref{❨519❩, , @t{e2-}}@: (method).
+@ref{❨486❩, , @t{e2-}}@: (method).
 @item
-@ref{❨520❩, , @t{e2-}}@: (method).
+@ref{❨487❩, , @t{e2-}}@: (method).
 @item
-@ref{❨521❩, , @t{e2-}}@: (method).
+@ref{❨488❩, , @t{e2-}}@: (method).
 @item
-@ref{❨522❩, , @t{e2-}}@: (method).
+@ref{❨489❩, , @t{e2-}}@: (method).
 @item
-@ref{❨424❩, , @t{e2/}}@: (method).
+@ref{❨468❩, , @t{e2/}}@: (method).
 @item
-@ref{❨425❩, , @t{e2/}}@: (method).
+@ref{❨469❩, , @t{e2/}}@: (method).
 @item
-@ref{❨426❩, , @t{e2/}}@: (method).
+@ref{❨470❩, , @t{e2/}}@: (method).
 @item
-@ref{❨427❩, , @t{e2/}}@: (method).
+@ref{❨471❩, , @t{e2/}}@: (method).
 @item
-@ref{❨428❩, , @t{e2/}}@: (method).
+@ref{❨472❩, , @t{e2/}}@: (method).
 @item
-@ref{❨429❩, , @t{e2/}}@: (method).
+@ref{❨473❩, , @t{e2/}}@: (method).
 @item
-@ref{❨430❩, , @t{e2/}}@: (method).
+@ref{❨474❩, , @t{e2/}}@: (method).
 @item
-@ref{❨431❩, , @t{e2/}}@: (method).
+@ref{❨475❩, , @t{e2/}}@: (method).
 @item
-@ref{❨442❩, , @t{eexp}}@: (method).
+@ref{❨536❩, , @t{eexp}}@: (method).
 @item
-@ref{❨443❩, , @t{eexp}}@: (method).
+@ref{❨537❩, , @t{eexp}}@: (method).
 @item
-@ref{❨444❩, , @t{eexp}}@: (method).
+@ref{❨538❩, , @t{eexp}}@: (method).
 @item
-@ref{❨445❩, , @t{eexp}}@: (method).
+@ref{❨539❩, , @t{eexp}}@: (method).
 @item
-@ref{❨597❩, , @t{element-type}}@: (method).
+@ref{❨639❩, , @t{element-type}}@: (method).
 @item
-@ref{❨602❩, , @t{element-type}}@: (method).
+@ref{❨644❩, , @t{element-type}}@: (method).
 @item
-@ref{❨409❩, , @t{esqrt}}@: (method).
+@ref{❨404❩, , @t{esqrt}}@: (method).
 @item
-@ref{❨410❩, , @t{esqrt}}@: (method).
+@ref{❨405❩, , @t{esqrt}}@: (method).
 @item
-@ref{❨411❩, , @t{esqrt}}@: (method).
+@ref{❨406❩, , @t{esqrt}}@: (method).
 @item
-@ref{❨412❩, , @t{esqrt}}@: (method).
+@ref{❨407❩, , @t{esqrt}}@: (method).
 @item
 @ref{❨221❩, , @t{hermitian-matrix}}@: (function).
 @item
@@ -1098,21 +1112,21 @@ components trees.
 @item
 @ref{❨220❩, , @t{map-array}}@: (method).
 @item
-@ref{❨542❩, , @t{num=}}@: (method).
+@ref{❨584❩, , @t{num=}}@: (method).
 @item
-@ref{❨543❩, , @t{num=}}@: (method).
+@ref{❨585❩, , @t{num=}}@: (method).
 @item
-@ref{❨590❩, , @t{print-object}}@: (method).
+@ref{❨632❩, , @t{print-object}}@: (method).
 @item
-@ref{❨593❩, , @t{print-object}}@: (method).
+@ref{❨635❩, , @t{print-object}}@: (method).
 @item
-@ref{❨599❩, , @t{print-object}}@: (method).
+@ref{❨641❩, , @t{print-object}}@: (method).
 @item
-@ref{❨589❩, , @t{select}}@: (method).
+@ref{❨631❩, , @t{select}}@: (method).
 @item
-@ref{❨592❩, , @t{select}}@: (method).
+@ref{❨634❩, , @t{select}}@: (method).
 @item
-@ref{❨598❩, , @t{select}}@: (method).
+@ref{❨640❩, , @t{select}}@: (method).
 @item
 @ref{❨238❩, , @t{transpose}}@: (generic function).
 @item
@@ -1274,9 +1288,9 @@ components trees.
 @item Public Interface
 @itemize @bullet
 @item
-@ref{❨554❩, , @t{evaluate-polynomial}}@: (function).
+@ref{❨596❩, , @t{evaluate-polynomial}}@: (function).
 @item
-@ref{❨553❩, , @t{evaluate-rational}}@: (function).
+@ref{❨595❩, , @t{evaluate-rational}}@: (function).
 @end itemize
 @end table
 
@@ -1294,24 +1308,24 @@ components trees.
 @item Public Interface
 @itemize @bullet
 @item
-@ref{❨557❩, , @t{*rootfinding-delta-relative*}}@: (special variable).
+@ref{❨599❩, , @t{*rootfinding-delta-relative*}}@: (special variable).
 @item
-@ref{❨555❩, , @t{*rootfinding-epsilon*}}@: (special variable).
+@ref{❨597❩, , @t{*rootfinding-epsilon*}}@: (special variable).
 @item
-@ref{❨556❩, , @t{root-bisection}}@: (function).
+@ref{❨598❩, , @t{root-bisection}}@: (function).
 @end itemize
 @item Internals
 @itemize @bullet
 @item
-@ref{❨562❩, , @t{narrow-bracket?}}@: (function).
+@ref{❨604❩, , @t{narrow-bracket?}}@: (function).
 @item
-@ref{❨560❩, , @t{near-root?}}@: (function).
+@ref{❨602❩, , @t{near-root?}}@: (function).
 @item
-@ref{❨561❩, , @t{opposite-sign?}}@: (function).
+@ref{❨603❩, , @t{opposite-sign?}}@: (function).
 @item
-@ref{❨559❩, , @t{rootfinding-delta}}@: (function).
+@ref{❨601❩, , @t{rootfinding-delta}}@: (function).
 @item
-@ref{❨558❩, , @t{univariate-rootfinder-loop%}}@: (macro).
+@ref{❨600❩, , @t{univariate-rootfinder-loop%}}@: (macro).
 @end itemize
 @end table
 
@@ -1517,54 +1531,54 @@ components trees.
 @item Public Interface
 @itemize @bullet
 @item
-@ref{❨334❩, , @t{compare-fns}}@: (function).
+@ref{❨336❩, , @t{compare-fns}}@: (function).
 @item
-@ref{❨333❩, , @t{compare-vectors}}@: (function).
+@ref{❨335❩, , @t{compare-vectors}}@: (function).
 @item
-@ref{❨329❩, , @t{max-error}}@: (reader).
+@ref{❨331❩, , @t{max-error}}@: (reader).
 @item
-@ref{❨330❩, , @t{(setf max-error)}}@: (writer).
+@ref{❨332❩, , @t{(setf max-error)}}@: (writer).
 @item
-@ref{❨327❩, , @t{mean-error}}@: (reader).
+@ref{❨329❩, , @t{mean-error}}@: (reader).
 @item
-@ref{❨328❩, , @t{(setf mean-error)}}@: (writer).
+@ref{❨330❩, , @t{(setf mean-error)}}@: (writer).
 @item
-@ref{❨316❩, , @t{min-error}}@: (reader).
+@ref{❨318❩, , @t{min-error}}@: (reader).
 @item
-@ref{❨317❩, , @t{(setf min-error)}}@: (writer).
+@ref{❨319❩, , @t{(setf min-error)}}@: (writer).
 @item
-@ref{❨339❩, , @t{rms}}@: (reader).
+@ref{❨341❩, , @t{rms}}@: (reader).
 @item
-@ref{❨340❩, , @t{(setf rms)}}@: (writer).
+@ref{❨342❩, , @t{(setf rms)}}@: (writer).
 @item
-@ref{❨335❩, , @t{test-count}}@: (reader).
+@ref{❨337❩, , @t{test-count}}@: (reader).
 @item
-@ref{❨336❩, , @t{(setf test-count)}}@: (writer).
+@ref{❨338❩, , @t{(setf test-count)}}@: (writer).
 @item
-@ref{❨315❩, , @t{test-fn}}@: (function).
+@ref{❨317❩, , @t{test-fn}}@: (function).
 @item
-@ref{❨318❩, , @t{test-results}}@: (structure).
+@ref{❨320❩, , @t{test-results}}@: (structure).
 @item
-@ref{❨331❩, , @t{variance0}}@: (reader).
+@ref{❨333❩, , @t{variance0}}@: (reader).
 @item
-@ref{❨332❩, , @t{(setf variance0)}}@: (writer).
+@ref{❨334❩, , @t{(setf variance0)}}@: (writer).
 @item
-@ref{❨313❩, , @t{variance1}}@: (reader).
+@ref{❨315❩, , @t{variance1}}@: (reader).
 @item
-@ref{❨314❩, , @t{(setf variance1)}}@: (writer).
+@ref{❨316❩, , @t{(setf variance1)}}@: (writer).
 @item
-@ref{❨337❩, , @t{worst-case}}@: (reader).
+@ref{❨339❩, , @t{worst-case}}@: (reader).
 @item
-@ref{❨338❩, , @t{(setf worst-case)}}@: (writer).
+@ref{❨340❩, , @t{(setf worst-case)}}@: (writer).
 @end itemize
 @item Internals
 @itemize @bullet
 @item
-@ref{❨341❩, , @t{copy-test-results}}@: (function).
+@ref{❨343❩, , @t{copy-test-results}}@: (function).
 @item
-@ref{❨342❩, , @t{make-test-results}}@: (function).
+@ref{❨344❩, , @t{make-test-results}}@: (function).
 @item
-@ref{❨343❩, , @t{test-results-p}}@: (function).
+@ref{❨345❩, , @t{test-results-p}}@: (function).
 @end itemize
 @end table
 
@@ -2347,13 +2361,13 @@ A collection of utilities to work with floating point values. Optimised for doub
 @item
 @ref{❨287❩, , @t{as-alist}}@: (generic function).
 @item
-@ref{❨310❩, , @t{as-bit-vector}}@: (function).
+@ref{❨312❩, , @t{as-bit-vector}}@: (function).
 @item
-@ref{❨308❩, , @t{as-double-float}}@: (function).
+@ref{❨309❩, , @t{as-double-float}}@: (function).
 @item
-@ref{❨303❩, , @t{as-plist}}@: (generic function).
+@ref{❨304❩, , @t{as-plist}}@: (generic function).
 @item
-@ref{❨300❩, , @t{as-simple-fixnum-vector}}@: (function).
+@ref{❨301❩, , @t{as-simple-fixnum-vector}}@: (function).
 @item
 @ref{❨286❩, , @t{bic}}@: (function).
 @item
@@ -2361,44 +2375,48 @@ A collection of utilities to work with floating point values. Optimised for doub
 @item
 @ref{❨290❩, , @t{check-types}}@: (macro).
 @item
-@ref{❨301❩, , @t{curry*}}@: (macro).
+@ref{❨302❩, , @t{curry*}}@: (macro).
 @item
 @ref{❨293❩, , @t{define-with-multiple-bindings}}@: (macro).
 @item
-@ref{❨302❩, , @t{expanding}}@: (macro).
+@ref{❨310❩, , @t{distinct}}@: (function).
 @item
-@ref{❨298❩, , @t{fixnum?}}@: (function).
+@ref{❨303❩, , @t{expanding}}@: (macro).
 @item
-@ref{❨307❩, , @t{generate-sequence}}@: (function).
+@ref{❨299❩, , @t{fixnum?}}@: (function).
 @item
-@ref{❨299❩, , @t{gethash*}}@: (macro).
+@ref{❨308❩, , @t{generate-sequence}}@: (function).
+@item
+@ref{❨300❩, , @t{gethash*}}@: (macro).
 @item
 @ref{❨288❩, , @t{make-vector}}@: (compiler macro).
 @item
 @ref{❨289❩, , @t{make-vector}}@: (function).
 @item
-@ref{❨297❩, , @t{simple-boolean-vector}}@: (type).
+@ref{❨296❩, , @t{monotonicp}}@: (function).
+@item
+@ref{❨298❩, , @t{simple-boolean-vector}}@: (type).
 @item
 @ref{❨295❩, , @t{simple-double-float-vector}}@: (type).
 @item
 @ref{❨294❩, , @t{simple-fixnum-vector}}@: (type).
 @item
-@ref{❨305❩, , @t{simple-single-float-vector}}@: (type).
+@ref{❨306❩, , @t{simple-single-float-vector}}@: (type).
 @item
-@ref{❨309❩, , @t{splice-awhen}}@: (macro).
+@ref{❨311❩, , @t{splice-awhen}}@: (macro).
 @item
-@ref{❨306❩, , @t{splice-when}}@: (macro).
+@ref{❨307❩, , @t{splice-when}}@: (macro).
 @item
 @ref{❨291❩, , @t{with-double-floats}}@: (macro).
 @item
-@ref{❨296❩, , @t{within?}}@: (function).
+@ref{❨297❩, , @t{within?}}@: (function).
 @end itemize
 @item Internals
 @itemize @bullet
 @item
-@ref{❨312❩, , @t{boolean-sequence-p}}@: (function).
+@ref{❨314❩, , @t{boolean-sequence-p}}@: (function).
 @item
-@ref{❨311❩, , @t{boolean?}}@: (function).
+@ref{❨313❩, , @t{boolean?}}@: (function).
 @end itemize
 @end table
 
@@ -2420,54 +2438,54 @@ A collection of utilities to work with floating point values. Optimised for doub
 @item Public Interface
 @itemize @bullet
 @item
-@ref{❨334❩, , @t{compare-fns}}@: (function).
+@ref{❨336❩, , @t{compare-fns}}@: (function).
 @item
-@ref{❨333❩, , @t{compare-vectors}}@: (function).
+@ref{❨335❩, , @t{compare-vectors}}@: (function).
 @item
-@ref{❨329❩, , @t{max-error}}@: (reader).
+@ref{❨331❩, , @t{max-error}}@: (reader).
 @item
-@ref{❨330❩, , @t{(setf max-error)}}@: (writer).
+@ref{❨332❩, , @t{(setf max-error)}}@: (writer).
 @item
-@ref{❨327❩, , @t{mean-error}}@: (reader).
+@ref{❨329❩, , @t{mean-error}}@: (reader).
 @item
-@ref{❨328❩, , @t{(setf mean-error)}}@: (writer).
+@ref{❨330❩, , @t{(setf mean-error)}}@: (writer).
 @item
-@ref{❨316❩, , @t{min-error}}@: (reader).
+@ref{❨318❩, , @t{min-error}}@: (reader).
 @item
-@ref{❨317❩, , @t{(setf min-error)}}@: (writer).
+@ref{❨319❩, , @t{(setf min-error)}}@: (writer).
 @item
-@ref{❨339❩, , @t{rms}}@: (reader).
+@ref{❨341❩, , @t{rms}}@: (reader).
 @item
-@ref{❨340❩, , @t{(setf rms)}}@: (writer).
+@ref{❨342❩, , @t{(setf rms)}}@: (writer).
 @item
-@ref{❨335❩, , @t{test-count}}@: (reader).
+@ref{❨337❩, , @t{test-count}}@: (reader).
 @item
-@ref{❨336❩, , @t{(setf test-count)}}@: (writer).
+@ref{❨338❩, , @t{(setf test-count)}}@: (writer).
 @item
-@ref{❨315❩, , @t{test-fn}}@: (function).
+@ref{❨317❩, , @t{test-fn}}@: (function).
 @item
-@ref{❨318❩, , @t{test-results}}@: (structure).
+@ref{❨320❩, , @t{test-results}}@: (structure).
 @item
-@ref{❨331❩, , @t{variance0}}@: (reader).
+@ref{❨333❩, , @t{variance0}}@: (reader).
 @item
-@ref{❨332❩, , @t{(setf variance0)}}@: (writer).
+@ref{❨334❩, , @t{(setf variance0)}}@: (writer).
 @item
-@ref{❨313❩, , @t{variance1}}@: (reader).
+@ref{❨315❩, , @t{variance1}}@: (reader).
 @item
-@ref{❨314❩, , @t{(setf variance1)}}@: (writer).
+@ref{❨316❩, , @t{(setf variance1)}}@: (writer).
 @item
-@ref{❨337❩, , @t{worst-case}}@: (reader).
+@ref{❨339❩, , @t{worst-case}}@: (reader).
 @item
-@ref{❨338❩, , @t{(setf worst-case)}}@: (writer).
+@ref{❨340❩, , @t{(setf worst-case)}}@: (writer).
 @end itemize
 @item Internals
 @itemize @bullet
 @item
-@ref{❨341❩, , @t{copy-test-results}}@: (function).
+@ref{❨343❩, , @t{copy-test-results}}@: (function).
 @item
-@ref{❨342❩, , @t{make-test-results}}@: (function).
+@ref{❨344❩, , @t{make-test-results}}@: (function).
 @item
-@ref{❨343❩, , @t{test-results-p}}@: (function).
+@ref{❨345❩, , @t{test-results-p}}@: (function).
 @end itemize
 @end table
 
@@ -2515,68 +2533,68 @@ A collection of utilities to work with floating point values. Optimised for doub
 @item Public Interface
 @itemize @bullet
 @item
-@ref{❨369❩, , @t{1c}}@: (function).
+@ref{❨371❩, , @t{1c}}@: (function).
 @item
-@ref{❨346❩, , @t{abs-diff}}@: (function).
+@ref{❨348❩, , @t{abs-diff}}@: (function).
 @item
-@ref{❨352❩, , @t{absolute-square}}@: (function).
+@ref{❨354❩, , @t{absolute-square}}@: (function).
 @item
-@ref{❨364❩, , @t{as-integer}}@: (function).
+@ref{❨366❩, , @t{as-integer}}@: (function).
 @item
-@ref{❨371❩, , @t{ceiling*}}@: (function).
+@ref{❨373❩, , @t{ceiling*}}@: (function).
 @item
-@ref{❨368❩, , @t{cube}}@: (function).
+@ref{❨370❩, , @t{cube}}@: (function).
 @item
-@ref{❨367❩, , @t{cumulative-product}}@: (function).
+@ref{❨369❩, , @t{cumulative-product}}@: (function).
 @item
-@ref{❨370❩, , @t{cumulative-sum}}@: (function).
+@ref{❨372❩, , @t{cumulative-sum}}@: (function).
 @item
-@ref{❨366❩, , @t{divides?}}@: (function).
+@ref{❨368❩, , @t{divides?}}@: (function).
 @item
-@ref{❨355❩, , @t{floor*}}@: (function).
+@ref{❨357❩, , @t{floor*}}@: (function).
 @item
-@ref{❨363❩, , @t{ivec}}@: (function).
+@ref{❨365❩, , @t{ivec}}@: (function).
 @item
-@ref{❨362❩, , @t{l2norm}}@: (function).
+@ref{❨364❩, , @t{l2norm}}@: (function).
 @item
-@ref{❨344❩, , @t{l2norm-square}}@: (generic function).
+@ref{❨346❩, , @t{l2norm-square}}@: (generic function).
 @item
-@ref{❨372❩, , @t{log10}}@: (function).
+@ref{❨374❩, , @t{log10}}@: (function).
 @item
-@ref{❨365❩, , @t{log2}}@: (function).
+@ref{❨367❩, , @t{log2}}@: (function).
 @item
-@ref{❨350❩, , @t{normalize-probabilities}}@: (function).
+@ref{❨352❩, , @t{normalize-probabilities}}@: (function).
 @item
-@ref{❨373❩, , @t{numseq}}@: (function).
+@ref{❨375❩, , @t{numseq}}@: (function).
 @item
-@ref{❨357❩, , @t{product}}@: (generic function).
+@ref{❨359❩, , @t{product}}@: (generic function).
 @item
-@ref{❨360❩, , @t{round*}}@: (function).
+@ref{❨362❩, , @t{round*}}@: (function).
 @item
-@ref{❨361❩, , @t{same-sign-p}}@: (function).
+@ref{❨363❩, , @t{same-sign-p}}@: (function).
 @item
-@ref{❨351❩, , @t{sequence-maximum}}@: (function).
+@ref{❨353❩, , @t{sequence-maximum}}@: (function).
 @item
-@ref{❨354❩, , @t{sequence-minimum}}@: (function).
+@ref{❨356❩, , @t{sequence-minimum}}@: (function).
 @item
-@ref{❨356❩, , @t{square}}@: (function).
+@ref{❨358❩, , @t{square}}@: (function).
 @item
 @ref{❨104❩, , @t{sum}}@: (slot).
 @item
-@ref{❨347❩, , @t{sum}}@: (generic function).
+@ref{❨349❩, , @t{sum}}@: (generic function).
 @item
-@ref{❨353❩, , @t{truncate*}}@: (function).
+@ref{❨355❩, , @t{truncate*}}@: (function).
 @end itemize
 @item Internals
 @itemize @bullet
 @item
-@ref{❨377❩, , @t{define-rounding-with-offset}}@: (macro).
+@ref{❨379❩, , @t{define-rounding-with-offset}}@: (macro).
 @item
-@ref{❨376❩, , @t{ln}}@: (function).
+@ref{❨378❩, , @t{ln}}@: (function).
 @item
-@ref{❨375❩, , @t{similar-element-type}}@: (function).
+@ref{❨377❩, , @t{similar-element-type}}@: (function).
 @item
-@ref{❨374❩, , @t{similar-sequence-type}}@: (function).
+@ref{❨376❩, , @t{similar-sequence-type}}@: (function).
 @end itemize
 @end table
 
@@ -2620,72 +2638,82 @@ A collection of utilities to work with floating point values. Optimised for doub
 @item Public Interface
 @itemize @bullet
 @item
-@ref{❨404❩, , @t{e*}}@: (function).
+@ref{❨402❩, , @t{e*}}@: (function).
 @item
-@ref{❨505❩, , @t{e+}}@: (function).
+@ref{❨557❩, , @t{e+}}@: (function).
 @item
-@ref{❨506❩, , @t{e-}}@: (function).
+@ref{❨500❩, , @t{e-}}@: (function).
 @item
-@ref{❨399❩, , @t{e/}}@: (function).
+@ref{❨498❩, , @t{e/}}@: (function).
 @item
-@ref{❨385❩, , @t{e1-}}@: (generic function).
+@ref{❨460❩, , @t{e1-}}@: (generic function).
 @item
-@ref{❨378❩, , @t{e1/}}@: (generic function).
+@ref{❨384❩, , @t{e1/}}@: (generic function).
 @item
-@ref{❨454❩, , @t{e1log}}@: (generic function).
+@ref{❨542❩, , @t{e1log}}@: (generic function).
 @item
-@ref{❨475❩, , @t{e2*}}@: (generic function).
+@ref{❨411❩, , @t{e2*}}@: (generic function).
 @item
-@ref{❨461❩, , @t{e2+}}@: (generic function).
+@ref{❨513❩, , @t{e2+}}@: (generic function).
 @item
-@ref{❨516❩, , @t{e2-}}@: (generic function).
+@ref{❨483❩, , @t{e2-}}@: (generic function).
 @item
-@ref{❨423❩, , @t{e2/}}@: (generic function).
+@ref{❨467❩, , @t{e2/}}@: (generic function).
 @item
-@ref{❨497❩, , @t{e2log}}@: (generic function).
+@ref{❨433❩, , @t{e2<}}@: (generic function).
 @item
-@ref{❨393❩, , @t{eceiling}}@: (generic function).
+@ref{❨452❩, , @t{e2<=}}@: (generic function).
 @item
-@ref{❨451❩, , @t{econjugate}}@: (generic function).
+@ref{❨549❩, , @t{e2=}}@: (generic function).
 @item
-@ref{❨396❩, , @t{ecos}}@: (generic function).
+@ref{❨444❩, , @t{e2>}}@: (generic function).
 @item
-@ref{❨441❩, , @t{eexp}}@: (generic function).
+@ref{❨527❩, , @t{e2>=}}@: (generic function).
 @item
-@ref{❨415❩, , @t{eexpt}}@: (generic function).
+@ref{❨561❩, , @t{e2log}}@: (generic function).
 @item
-@ref{❨448❩, , @t{efloor}}@: (generic function).
+@ref{❨569❩, , @t{eceiling}}@: (generic function).
 @item
-@ref{❨440❩, , @t{elementwise-float-contagion}}@: (function).
+@ref{❨441❩, , @t{econjugate}}@: (generic function).
 @item
-@ref{❨392❩, , @t{elog}}@: (function).
+@ref{❨399❩, , @t{ecos}}@: (generic function).
 @item
-@ref{❨515❩, , @t{emax}}@: (function).
+@ref{❨535❩, , @t{eexp}}@: (generic function).
 @item
-@ref{❨439❩, , @t{emin}}@: (function).
+@ref{❨391❩, , @t{eexpt}}@: (generic function).
 @item
-@ref{❨507❩, , @t{emod}}@: (generic function).
+@ref{❨558❩, , @t{efloor}}@: (generic function).
 @item
-@ref{❨400❩, , @t{ereduce}}@: (generic function).
+@ref{❨501❩, , @t{elementwise-float-contagion}}@: (function).
 @item
-@ref{❨405❩, , @t{esin}}@: (generic function).
+@ref{❨410❩, , @t{elog}}@: (function).
 @item
-@ref{❨408❩, , @t{esqrt}}@: (generic function).
+@ref{❨499❩, , @t{emax}}@: (function).
+@item
+@ref{❨497❩, , @t{emin}}@: (function).
+@item
+@ref{❨502❩, , @t{emod}}@: (generic function).
+@item
+@ref{❨380❩, , @t{ereduce}}@: (generic function).
+@item
+@ref{❨510❩, , @t{esin}}@: (generic function).
+@item
+@ref{❨403❩, , @t{esqrt}}@: (generic function).
 @end itemize
 @item Internals
 @itemize @bullet
 @item
-@ref{❨535❩, , @t{define-e@ampchar{}}}@: (macro).
+@ref{❨577❩, , @t{define-e@ampchar{}}}@: (macro).
 @item
-@ref{❨534❩, , @t{define-e1}}@: (macro).
+@ref{❨576❩, , @t{define-e1}}@: (macro).
 @item
-@ref{❨530❩, , @t{define-e2}}@: (macro).
+@ref{❨572❩, , @t{define-e2}}@: (macro).
 @item
-@ref{❨536❩, , @t{define-elementwise-reduction}}@: (macro).
+@ref{❨578❩, , @t{define-elementwise-reduction}}@: (macro).
 @item
-@ref{❨531❩, , @t{esquare}}@: (generic function).
+@ref{❨573❩, , @t{esquare}}@: (generic function).
 @item
-@ref{❨537❩, , @t{mapping-array}}@: (macro).
+@ref{❨579❩, , @t{mapping-array}}@: (macro).
 @end itemize
 @end table
 
@@ -2727,17 +2755,17 @@ A collection of utilities to work with floating point values. Optimised for doub
 @item Public Interface
 @itemize @bullet
 @item
-@ref{❨552❩, , @t{*num=-tolerance*}}@: (special variable).
+@ref{❨594❩, , @t{*num=-tolerance*}}@: (special variable).
 @item
-@ref{❨539❩, , @t{define-num=-with-accessors}}@: (macro).
+@ref{❨581❩, , @t{define-num=-with-accessors}}@: (macro).
 @item
-@ref{❨538❩, , @t{define-structure-num=}}@: (macro).
+@ref{❨580❩, , @t{define-structure-num=}}@: (macro).
 @item
-@ref{❨540❩, , @t{num-delta}}@: (function).
+@ref{❨582❩, , @t{num-delta}}@: (function).
 @item
-@ref{❨541❩, , @t{num=}}@: (generic function).
+@ref{❨583❩, , @t{num=}}@: (generic function).
 @item
-@ref{❨551❩, , @t{num=-function}}@: (function).
+@ref{❨593❩, , @t{num=-function}}@: (function).
 @end itemize
 @end table
 
@@ -2774,9 +2802,9 @@ Efficient evaluation of polynomial functions using Horner's method
 @item Public Interface
 @itemize @bullet
 @item
-@ref{❨554❩, , @t{evaluate-polynomial}}@: (function).
+@ref{❨596❩, , @t{evaluate-polynomial}}@: (function).
 @item
-@ref{❨553❩, , @t{evaluate-rational}}@: (function).
+@ref{❨595❩, , @t{evaluate-rational}}@: (function).
 @end itemize
 @end table
 
@@ -2854,24 +2882,24 @@ Numerical utilities for Lisp-Stat
 @item Public Interface
 @itemize @bullet
 @item
-@ref{❨557❩, , @t{*rootfinding-delta-relative*}}@: (special variable).
+@ref{❨599❩, , @t{*rootfinding-delta-relative*}}@: (special variable).
 @item
-@ref{❨555❩, , @t{*rootfinding-epsilon*}}@: (special variable).
+@ref{❨597❩, , @t{*rootfinding-epsilon*}}@: (special variable).
 @item
-@ref{❨556❩, , @t{root-bisection}}@: (function).
+@ref{❨598❩, , @t{root-bisection}}@: (function).
 @end itemize
 @item Internals
 @itemize @bullet
 @item
-@ref{❨562❩, , @t{narrow-bracket?}}@: (function).
+@ref{❨604❩, , @t{narrow-bracket?}}@: (function).
 @item
-@ref{❨560❩, , @t{near-root?}}@: (function).
+@ref{❨602❩, , @t{near-root?}}@: (function).
 @item
-@ref{❨561❩, , @t{opposite-sign?}}@: (function).
+@ref{❨603❩, , @t{opposite-sign?}}@: (function).
 @item
-@ref{❨559❩, , @t{rootfinding-delta}}@: (function).
+@ref{❨601❩, , @t{rootfinding-delta}}@: (function).
 @item
-@ref{❨558❩, , @t{univariate-rootfinder-loop%}}@: (macro).
+@ref{❨600❩, , @t{univariate-rootfinder-loop%}}@: (macro).
 @end itemize
 @end table
 
@@ -2911,7 +2939,7 @@ lexicographic order.
 @node Public special variables, Public macros, Public Interface, Public Interface
 @subsection Special variables
 @defvr {Special Variable} {*num=-tolerance*}
-@anchor{❨552❩}@c
+@anchor{❨594❩}@c
 @specialsubindex{*num=-tolerance*}@c
 Default tolerance for NUM=.
 @table @strong
@@ -2933,7 +2961,7 @@ Number of digits after the decimal point when printing numeric matrices.
 @end table
 @end defvr
 @defvr {Special Variable} {*rootfinding-delta-relative*}
-@anchor{❨557❩}@c
+@anchor{❨599❩}@c
 @specialsubindex{*rootfinding-delta-relative*}@c
 Default relative interval width for rootfinding.
 @table @strong
@@ -2944,7 +2972,7 @@ Default relative interval width for rootfinding.
 @end table
 @end defvr
 @defvr {Special Variable} {*rootfinding-epsilon*}
-@anchor{❨555❩}@c
+@anchor{❨597❩}@c
 @specialsubindex{*rootfinding-epsilon*}@c
 Default maximum for the absolute value of the function@comma{} used for rootfinding.
 @table @strong
@@ -2981,7 +3009,7 @@ CHECK-TYPE for multiple places of the same type.  Each argument is either a plac
 @end table
 @end deffn
 @deffn {Macro} {curry*} (function &rest arguments)
-@anchor{❨301❩}@c
+@anchor{❨302❩}@c
 @macrosubindex{curry*}@c
 Currying in all variables that are not *.  Note that this is a macro@comma{} so * should not be quoted@comma{} and FUNCTION will be used as is@comma{} ie it can be a LAMBDA form.
 @table @strong
@@ -2992,7 +3020,7 @@ Currying in all variables that are not *.  Note that this is a macro@comma{} so 
 @end table
 @end deffn
 @deffn {Macro} {define-num=-with-accessors} (class accessors)
-@anchor{❨539❩}@c
+@anchor{❨581❩}@c
 @macrosubindex{define-num=-with-accessors}@c
 Define a method for NUM=@comma{} specialized to the given class@comma{} comparing values obtained with accessors.
 @table @strong
@@ -3003,7 +3031,7 @@ Define a method for NUM=@comma{} specialized to the given class@comma{} comparin
 @end table
 @end deffn
 @deffn {Macro} {define-structure-num=} (structure &rest slots)
-@anchor{❨538❩}@c
+@anchor{❨580❩}@c
 @macrosubindex{define-structure-num=}@c
 Define a NUM= method for the given structure@comma{} comparing the given slots.
 @table @strong
@@ -3025,7 +3053,7 @@ Define a version of MACRO with multiple arguments@comma{} given as a list.  Appl
 @end table
 @end deffn
 @deffn {Macro} {expanding} (&body body)
-@anchor{❨302❩}@c
+@anchor{❨303❩}@c
 @macrosubindex{expanding}@c
 Expand BODY. Useful for generating code programmatically.
 @table @strong
@@ -3047,7 +3075,7 @@ Apply EXTEND-INTERVAL on PLACE using OBJECT.
 @end table
 @end deffn
 @deffn {Macro} {gethash*} (key hash-table &optional datum &rest arguments)
-@anchor{❨299❩}@c
+@anchor{❨300❩}@c
 @macrosubindex{gethash*}@c
 Like GETHASH@comma{} but checking that KEY is present and raising the given error if not.
 @table @strong
@@ -3102,7 +3130,7 @@ Macro for creating a (dense) matrix (ie a rank 2 array).  ROWS should be a list 
 @end table
 @end deffn
 @deffn {Macro} {splice-awhen} (test &body forms)
-@anchor{❨309❩}@c
+@anchor{❨311❩}@c
 @macrosubindex{splice-awhen}@c
 Similar to splice-when@comma{} but binds IT to test.
 @table @strong
@@ -3113,7 +3141,7 @@ Similar to splice-when@comma{} but binds IT to test.
 @end table
 @end deffn
 @deffn {Macro} {splice-when} (test &body forms)
-@anchor{❨306❩}@c
+@anchor{❨307❩}@c
 @macrosubindex{splice-when}@c
 Similar to when@comma{} but wraps the result in list.
 
@@ -3181,7 +3209,7 @@ Define the function (PREFIX @ampchar{}rest VARIABLES) which can be used to match
 @node Public ordinary functions, Public generic functions, Public compiler macros, Public Interface
 @subsection Ordinary functions
 @deffn {Function} {1c} (number)
-@anchor{❨369❩}@c
+@anchor{❨371❩}@c
 @functionsubindex{1c}@c
 Return 1-number.  The mnemonic is "1 complement"@comma{} 1- is already a CL library function.
 @table @strong
@@ -3242,7 +3270,7 @@ Return 1-number.  The mnemonic is "1 complement"@comma{} 1- is already a CL libr
 @end table
 @end deffn
 @deffn {Function} {abs-diff} (a b)
-@anchor{❨346❩}@c
+@anchor{❨348❩}@c
 @functionsubindex{abs-diff}@c
 Absolute difference of A and B.
 @table @strong
@@ -3253,7 +3281,7 @@ Absolute difference of A and B.
 @end table
 @end deffn
 @deffn {Function} {absolute-square} (number)
-@anchor{❨352❩}@c
+@anchor{❨354❩}@c
 @functionsubindex{absolute-square}@c
 Number multiplied by its complex conjugate.
 @table @strong
@@ -3264,7 +3292,7 @@ Number multiplied by its complex conjugate.
 @end table
 @end deffn
 @deffn {Function} {as-bit-vector} (v)
-@anchor{❨310❩}@c
+@anchor{❨312❩}@c
 @functionsubindex{as-bit-vector}@c
 Return a bit vector where each non-nil element of V is mapped to 1 and each NIL element is mapped to 0
 @table @strong
@@ -3275,7 +3303,7 @@ Return a bit vector where each non-nil element of V is mapped to 1 and each NIL 
 @end table
 @end deffn
 @deffn {Function} {as-double-float} (x)
-@anchor{❨308❩}@c
+@anchor{❨309❩}@c
 @functionsubindex{as-double-float}@c
 Convert argument to DOUBLE-FLOAT.
 @table @strong
@@ -3286,7 +3314,7 @@ Convert argument to DOUBLE-FLOAT.
 @end table
 @end deffn
 @deffn {Function} {as-integer} (number)
-@anchor{❨364❩}@c
+@anchor{❨366❩}@c
 @functionsubindex{as-integer}@c
 If NUMBER represents an integer (as an integer@comma{} complex@comma{} or float@comma{} etc)@comma{} return it as an integer@comma{} otherwise signal an error.  Floats are converted with RATIONALIZE.
 @table @strong
@@ -3297,7 +3325,7 @@ If NUMBER represents an integer (as an integer@comma{} complex@comma{} or float@
 @end table
 @end deffn
 @deffn {Function} {as-simple-fixnum-vector} (sequence &optional copy?)
-@anchor{❨300❩}@c
+@anchor{❨301❩}@c
 @functionsubindex{as-simple-fixnum-vector}@c
 Convert SEQUENCE to a SIMPLE-FIXNUM-VECTOR.  When COPY?@comma{} make sure that the they don't share structure.
 @table @strong
@@ -3336,7 +3364,7 @@ If value is below (or above) the first (last) break@comma{} NIL (T) is returned.
 @end table
 @end deffn
 @deffn {Function} {ceiling*} (number &optional divisor offset)
-@anchor{❨371❩}@c
+@anchor{❨373❩}@c
 @functionsubindex{ceiling*}@c
 Find the lowest A=I*DIVISOR+OFFSET >= NUMBER@comma{} return (values A (- A NUMBER).
 @table @strong
@@ -3394,7 +3422,7 @@ double-floats.
 @end table
 @end deffn
 @deffn {Function} {compare-fns} (fn-1 fn-2 &rest fn-params)
-@anchor{❨334❩}@c
+@anchor{❨336❩}@c
 @functionsubindex{compare-fns}@c
 Compare the values returned by two functions
 @table @strong
@@ -3405,7 +3433,7 @@ Compare the values returned by two functions
 @end table
 @end deffn
 @deffn {Function} {compare-vectors} (reference-values computed-values)
-@anchor{❨333❩}@c
+@anchor{❨335❩}@c
 @functionsubindex{compare-vectors}@c
 Compare two vectors containing the results of previous computations
 @table @strong
@@ -3416,7 +3444,7 @@ Compare two vectors containing the results of previous computations
 @end table
 @end deffn
 @deffn {Function} {cube} (number)
-@anchor{❨368❩}@c
+@anchor{❨370❩}@c
 @functionsubindex{cube}@c
 Cube of number.
 @table @strong
@@ -3427,7 +3455,7 @@ Cube of number.
 @end table
 @end deffn
 @deffn {Function} {cumulative-product} (sequence &key result-type)
-@anchor{❨367❩}@c
+@anchor{❨369❩}@c
 @functionsubindex{cumulative-product}@c
 Cumulative product of sequence.  Return a sequence of the same kind and length; last element is the total product.  The latter is also returned as the second value.
 @table @strong
@@ -3438,7 +3466,7 @@ Cumulative product of sequence.  Return a sequence of the same kind and length; 
 @end table
 @end deffn
 @deffn {Function} {cumulative-sum} (sequence &key result-type)
-@anchor{❨370❩}@c
+@anchor{❨372❩}@c
 @functionsubindex{cumulative-sum}@c
 Cumulative sum of sequence.  Return a sequence of the same kind and length; last element is the total.  The latter is returned as the second value.
 @table @strong
@@ -3484,8 +3512,20 @@ Return a DIAGONAL-MATRIX with elements coerced to ELEMENT-TYPE.
 @ref{❨12❩, , @t{matrix-shorthand.lisp}}.
 @end table
 @end deffn
+@deffn {Function} {distinct} (column)
+@anchor{❨310❩}@c
+@functionsubindex{distinct}@c
+Returns the number of distinct elements in COLUMN@comma{} a symbol naming a variable.
+Useful for formatting columns for human output.
+@table @strong
+@item Package
+@ref{❨28❩, , @t{num-utils.utilities}}.
+@item Source
+@ref{❨4❩, , @t{utilities.lisp}}.
+@end table
+@end deffn
 @deffn {Function} {divides?} (number divisor)
-@anchor{❨366❩}@c
+@anchor{❨368❩}@c
 @functionsubindex{divides?}@c
 Test if DIVISOR divides NUMBER without remainder@comma{} and if so@comma{} return the
   quotient.  Works generally@comma{} but makes most sense for rationals.
@@ -3497,7 +3537,7 @@ Test if DIVISOR divides NUMBER without remainder@comma{} and if so@comma{} retur
 @end table
 @end deffn
 @deffn {Function} {e*} (argument &rest more-arguments)
-@anchor{❨404❩}@c
+@anchor{❨402❩}@c
 @functionsubindex{e*}@c
 Elementwise *.
 @table @strong
@@ -3508,7 +3548,7 @@ Elementwise *.
 @end table
 @end deffn
 @deffn {Function} {e+} (argument &rest more-arguments)
-@anchor{❨505❩}@c
+@anchor{❨557❩}@c
 @functionsubindex{e+}@c
 Elementwise +.
 @table @strong
@@ -3519,7 +3559,7 @@ Elementwise +.
 @end table
 @end deffn
 @deffn {Function} {e-} (argument &rest more-arguments)
-@anchor{❨506❩}@c
+@anchor{❨500❩}@c
 @functionsubindex{e-}@c
 Elementwise -.
 @table @strong
@@ -3530,7 +3570,7 @@ Elementwise -.
 @end table
 @end deffn
 @deffn {Function} {e/} (argument &rest more-arguments)
-@anchor{❨399❩}@c
+@anchor{❨498❩}@c
 @functionsubindex{e/}@c
 Elementwise /.
 @table @strong
@@ -3541,7 +3581,7 @@ Elementwise /.
 @end table
 @end deffn
 @deffn {Function} {elementwise-float-contagion} (&rest objects)
-@anchor{❨440❩}@c
+@anchor{❨501❩}@c
 @functionsubindex{elementwise-float-contagion}@c
 Return the resulting float type when objects (or their elements) are combined using arithmetic operations.
 @table @strong
@@ -3552,7 +3592,7 @@ Return the resulting float type when objects (or their elements) are combined us
 @end table
 @end deffn
 @deffn {Function} {elog} (a &optional base)
-@anchor{❨392❩}@c
+@anchor{❨410❩}@c
 @functionsubindex{elog}@c
 Elementwise logarithm.
 @table @strong
@@ -3563,7 +3603,7 @@ Elementwise logarithm.
 @end table
 @end deffn
 @deffn {Function} {emax} (object)
-@anchor{❨515❩}@c
+@anchor{❨499❩}@c
 @functionsubindex{emax}@c
 Elementwise MAX.
 @table @strong
@@ -3574,7 +3614,7 @@ Elementwise MAX.
 @end table
 @end deffn
 @deffn {Function} {emin} (object)
-@anchor{❨439❩}@c
+@anchor{❨497❩}@c
 @functionsubindex{emin}@c
 Elementwise MIN.
 @table @strong
@@ -3596,7 +3636,7 @@ Return the sum of Chebyshev polynomials@comma{} weighted by COEFFICIENTS@comma{}
 @end table
 @end deffn
 @deffn {Function} {evaluate-polynomial} (coefficients x)
-@anchor{❨554❩}@c
+@anchor{❨596❩}@c
 @functionsubindex{evaluate-polynomial}@c
 Return the sum of polynomials@comma{} weighted by COEFFICIENTS@comma{} at X.
 COFFICIENTS are ordered from the highest degree down to the constant term.
@@ -3609,7 +3649,7 @@ X must be of the same type as COEFFICIENTS.
 @end table
 @end deffn
 @deffn {Function} {evaluate-rational} (numerator denominator z)
-@anchor{❨553❩}@c
+@anchor{❨595❩}@c
 @functionsubindex{evaluate-rational}@c
 Evaluate a rational function using Horner's method.  NUMERATOR and DENOMINATOR must be equal in size.  These always have a loop and so may be less efficient than evaluating a pair of polynomials.  However@comma{} there are some tricks we can use to prevent overflow that might otherwise occur in polynomial evaluation if z is large.  This is important in our Lanczos code for example.
 @*
@@ -3656,7 +3696,7 @@ zero.
 @end table
 @end deffn
 @deffn {Function} {fixnum?} (object)
-@anchor{❨298❩}@c
+@anchor{❨299❩}@c
 @functionsubindex{fixnum?}@c
 Check of type of OBJECT is fixnum.
 @table @strong
@@ -3667,7 +3707,7 @@ Check of type of OBJECT is fixnum.
 @end table
 @end deffn
 @deffn {Function} {floor*} (number &optional divisor offset)
-@anchor{❨355❩}@c
+@anchor{❨357❩}@c
 @functionsubindex{floor*}@c
 Find the highest A=I*DIVISOR+OFFSET <= NUMBER@comma{} return (values A (- A NUMBER).
 @table @strong
@@ -3678,7 +3718,7 @@ Find the highest A=I*DIVISOR+OFFSET <= NUMBER@comma{} return (values A (- A NUMB
 @end table
 @end deffn
 @deffn {Function} {generate-sequence} (result-type size function)
-@anchor{❨307❩}@c
+@anchor{❨308❩}@c
 @functionsubindex{generate-sequence}@c
 Like MAKE-SEQUENCE@comma{} but using a function to fill the result.@*
 
@@ -3800,7 +3840,7 @@ weight on right.
 @end table
 @end deffn
 @deffn {Function} {ivec} (end-or-start &optional end by strict-direction?)
-@anchor{❨363❩}@c
+@anchor{❨365❩}@c
 @functionsubindex{ivec}@c
 Return a vector of fixnums.@*
 
@@ -3817,7 +3857,7 @@ When BY is given it determines the increment@comma{} adjusted to match the direc
 @end table
 @end deffn
 @deffn {Function} {l2norm} (object)
-@anchor{❨362❩}@c
+@anchor{❨364❩}@c
 @functionsubindex{l2norm}@c
 $L_2$ norm of OBJECT.
 @table @strong
@@ -3886,7 +3926,7 @@ https://cran.r-project.org/web/packages/Rmpfr/vignettes/log1mexp-note.pdf
 @end table
 @end deffn
 @deffn {Function} {log10} (number)
-@anchor{❨372❩}@c
+@anchor{❨374❩}@c
 @functionsubindex{log10}@c
 Abbreviation for decimal logarithm.
 @table @strong
@@ -3909,7 +3949,7 @@ Accuracy within ~2ulps for -0.227 < x < 0.315
 @end table
 @end deffn
 @deffn {Function} {log2} (number)
-@anchor{❨365❩}@c
+@anchor{❨367❩}@c
 @functionsubindex{log2}@c
 Abbreviation for binary logarithm.
 @table @strong
@@ -3963,10 +4003,10 @@ Create a lower-triangular-matrix.
 @end table
 @end deffn
 @deffn {Reader} {max-error} (instance)
-@anchor{❨329❩}@c
+@anchor{❨331❩}@c
 @functionsubindex{max-error}@c
 @deffnx {Writer} {(setf max-error)} (instance)
-@anchor{❨330❩}@c
+@anchor{❨332❩}@c
 @functionsubindex{(setf max-error)}@c
 @table @strong
 @item Package
@@ -3974,14 +4014,14 @@ Create a lower-triangular-matrix.
 @item Source
 @ref{❨18❩, , @t{test-utilities.lisp}}.
 @item Target Slot
-@ref{❨321❩, , @t{max-error}}.
+@ref{❨323❩, , @t{max-error}}.
 @end table
 @end deffn
 @deffn {Reader} {mean-error} (instance)
-@anchor{❨327❩}@c
+@anchor{❨329❩}@c
 @functionsubindex{mean-error}@c
 @deffnx {Writer} {(setf mean-error)} (instance)
-@anchor{❨328❩}@c
+@anchor{❨330❩}@c
 @functionsubindex{(setf mean-error)}@c
 @table @strong
 @item Package
@@ -3989,14 +4029,14 @@ Create a lower-triangular-matrix.
 @item Source
 @ref{❨18❩, , @t{test-utilities.lisp}}.
 @item Target Slot
-@ref{❨322❩, , @t{mean-error}}.
+@ref{❨324❩, , @t{mean-error}}.
 @end table
 @end deffn
 @deffn {Reader} {min-error} (instance)
-@anchor{❨316❩}@c
+@anchor{❨318❩}@c
 @functionsubindex{min-error}@c
 @deffnx {Writer} {(setf min-error)} (instance)
-@anchor{❨317❩}@c
+@anchor{❨319❩}@c
 @functionsubindex{(setf min-error)}@c
 @table @strong
 @item Package
@@ -4004,11 +4044,23 @@ Create a lower-triangular-matrix.
 @item Source
 @ref{❨18❩, , @t{test-utilities.lisp}}.
 @item Target Slot
-@ref{❨320❩, , @t{min-error}}.
+@ref{❨322❩, , @t{min-error}}.
+@end table
+@end deffn
+@deffn {Function} {monotonicp} (column)
+@anchor{❨296❩}@c
+@functionsubindex{monotonicp}@c
+Returns T if all elements of COLUMN@comma{} a SYMBOL@comma{} are increasing monotonically
+Useful for detecting row numbers in imported data.
+@table @strong
+@item Package
+@ref{❨28❩, , @t{num-utils.utilities}}.
+@item Source
+@ref{❨4❩, , @t{utilities.lisp}}.
 @end table
 @end deffn
 @deffn {Function} {normalize-probabilities} (vector &key element-type result)
-@anchor{❨350❩}@c
+@anchor{❨352❩}@c
 @functionsubindex{normalize-probabilities}@c
 Verify that each element of VECTOR is nonnegative and return a vector multiplied so that they sum to 1.  ELEMENT-TYPE can be used to specify the element-type of the result.  When RESULT is given@comma{} the result is placed there.  When RESULT is NIL@comma{} VECTOR is modified instead.
 @table @strong
@@ -4019,7 +4071,7 @@ Verify that each element of VECTOR is nonnegative and return a vector multiplied
 @end table
 @end deffn
 @deffn {Function} {num-delta} (a b)
-@anchor{❨540❩}@c
+@anchor{❨582❩}@c
 @functionsubindex{num-delta}@c
 |a-b|/max(1@comma{}|a|@comma{}|b|).  Useful for comparing numbers.
 @table @strong
@@ -4030,7 +4082,7 @@ Verify that each element of VECTOR is nonnegative and return a vector multiplied
 @end table
 @end deffn
 @deffn {Function} {num=-function} (tolerance)
-@anchor{❨551❩}@c
+@anchor{❨593❩}@c
 @functionsubindex{num=-function}@c
 Curried version of num=@comma{} with given tolerance.
 @table @strong
@@ -4041,7 +4093,7 @@ Curried version of num=@comma{} with given tolerance.
 @end table
 @end deffn
 @deffn {Function} {numseq} (from to &key length by type)
-@anchor{❨373❩}@c
+@anchor{❨375❩}@c
 @functionsubindex{numseq}@c
 Return a sequence between FROM and TO@comma{} progressing by BY@comma{} of the given LENGTH.  Only 3 of these a parameters should be given@comma{} the missing one (NIL) should be inferred automatically.  The sign of BY is adjusted if necessary.  If TYPE is LIST@comma{} the result is a list@comma{} otherwise it determines the element type of the resulting simple array.  If TYPE is nil@comma{} it as autodetected from the arguments (as a FIXNUM@comma{} a RATIONAL@comma{} or some subtype of FLOAT).  Note that the implementation may upgrade the element type.
 @table @strong
@@ -4099,10 +4151,10 @@ If ALIGNED?@comma{} columns will be right-aligned.  At most *PRINT-LENGTH* rows 
 @end table
 @end deffn
 @deffn {Reader} {rms} (instance)
-@anchor{❨339❩}@c
+@anchor{❨341❩}@c
 @functionsubindex{rms}@c
 @deffnx {Writer} {(setf rms)} (instance)
-@anchor{❨340❩}@c
+@anchor{❨342❩}@c
 @functionsubindex{(setf rms)}@c
 @table @strong
 @item Package
@@ -4110,7 +4162,7 @@ If ALIGNED?@comma{} columns will be right-aligned.  At most *PRINT-LENGTH* rows 
 @item Source
 @ref{❨18❩, , @t{test-utilities.lisp}}.
 @item Target Slot
-@ref{❨326❩, , @t{rms}}.
+@ref{❨328❩, , @t{rms}}.
 @end table
 @end deffn
 @deffn {Function} {romberg-quadrature} (f interval &key epsilon min-iter max-iter transformation)
@@ -4125,7 +4177,7 @@ Romberg quadrature of F on the interval.  The iteration stops if the relative ch
 @end table
 @end deffn
 @deffn {Function} {root-bisection} (f bracket &key delta epsilon)
-@anchor{❨556❩}@c
+@anchor{❨598❩}@c
 @functionsubindex{root-bisection}@c
 Find the root of f bracketed between a and b using bisection.@*
 The algorithm stops when either the root is bracketed in an interval of length
@@ -4144,7 +4196,7 @@ interval@comma{} otherwise they are undefined.
 @end table
 @end deffn
 @deffn {Function} {round*} (number &optional divisor offset)
-@anchor{❨360❩}@c
+@anchor{❨362❩}@c
 @functionsubindex{round*}@c
 Find A=I*DIVISOR+OFFSET that minimizes |A-NUMBER|@comma{} return (values A (- A NUMBER).  When NUMBER is exactly in between two possible A's@comma{} the rounding rule of ROUND is used on NUMBER-OFFSET.
 @table @strong
@@ -4155,7 +4207,7 @@ Find A=I*DIVISOR+OFFSET that minimizes |A-NUMBER|@comma{} return (values A (- A 
 @end table
 @end deffn
 @deffn {Function} {same-sign-p} (&rest arguments)
-@anchor{❨361❩}@c
+@anchor{❨363❩}@c
 @functionsubindex{same-sign-p}@c
 Test whether all arguments have the same sign (ie all are positive@comma{} negative@comma{} or zero).
 @table @strong
@@ -4166,7 +4218,7 @@ Test whether all arguments have the same sign (ie all are positive@comma{} negat
 @end table
 @end deffn
 @deffn {Function} {sequence-maximum} (x)
-@anchor{❨351❩}@c
+@anchor{❨353❩}@c
 @functionsubindex{sequence-maximum}@c
 Return the maximum value in the sequence X
 @table @strong
@@ -4177,7 +4229,7 @@ Return the maximum value in the sequence X
 @end table
 @end deffn
 @deffn {Function} {sequence-minimum} (x)
-@anchor{❨354❩}@c
+@anchor{❨356❩}@c
 @functionsubindex{sequence-minimum}@c
 Return the minimum value in the sequence X
 @table @strong
@@ -4226,7 +4278,7 @@ interval@comma{} and error is signalled.
 @end table
 @end deffn
 @deffn {Function} {square} (number)
-@anchor{❨356❩}@c
+@anchor{❨358❩}@c
 @functionsubindex{square}@c
 Square of number.
 @table @strong
@@ -4248,10 +4300,10 @@ Return INTERVAL evenly divided into COUNT subintervals as a vector.  When MID-OP
 @end table
 @end deffn
 @deffn {Reader} {test-count} (instance)
-@anchor{❨335❩}@c
+@anchor{❨337❩}@c
 @functionsubindex{test-count}@c
 @deffnx {Writer} {(setf test-count)} (instance)
-@anchor{❨336❩}@c
+@anchor{❨338❩}@c
 @functionsubindex{(setf test-count)}@c
 @table @strong
 @item Package
@@ -4259,11 +4311,11 @@ Return INTERVAL evenly divided into COUNT subintervals as a vector.  When MID-OP
 @item Source
 @ref{❨18❩, , @t{test-utilities.lisp}}.
 @item Target Slot
-@ref{❨323❩, , @t{test-count}}.
+@ref{❨325❩, , @t{test-count}}.
 @end table
 @end deffn
 @deffn {Function} {test-fn} (expected-column fn &rest fn-param-columns)
-@anchor{❨315❩}@c
+@anchor{❨317❩}@c
 @functionsubindex{test-fn}@c
 Test the differences between expected values and the given function
 @table @strong
@@ -4274,7 +4326,7 @@ Test the differences between expected values and the given function
 @end table
 @end deffn
 @deffn {Function} {truncate*} (number &optional divisor offset)
-@anchor{❨353❩}@c
+@anchor{❨355❩}@c
 @functionsubindex{truncate*}@c
 Find A=I*DIVISOR+OFFSET that maximizes |A|<=|NUMBER| with the same sign@comma{} return (values A (- A NUMBER).
 @table @strong
@@ -4296,10 +4348,10 @@ Create a lower-triangular-matrix.
 @end table
 @end deffn
 @deffn {Reader} {variance0} (instance)
-@anchor{❨331❩}@c
+@anchor{❨333❩}@c
 @functionsubindex{variance0}@c
 @deffnx {Writer} {(setf variance0)} (instance)
-@anchor{❨332❩}@c
+@anchor{❨334❩}@c
 @functionsubindex{(setf variance0)}@c
 @table @strong
 @item Package
@@ -4307,14 +4359,14 @@ Create a lower-triangular-matrix.
 @item Source
 @ref{❨18❩, , @t{test-utilities.lisp}}.
 @item Target Slot
-@ref{❨324❩, , @t{variance0}}.
+@ref{❨326❩, , @t{variance0}}.
 @end table
 @end deffn
 @deffn {Reader} {variance1} (instance)
-@anchor{❨313❩}@c
+@anchor{❨315❩}@c
 @functionsubindex{variance1}@c
 @deffnx {Writer} {(setf variance1)} (instance)
-@anchor{❨314❩}@c
+@anchor{❨316❩}@c
 @functionsubindex{(setf variance1)}@c
 @table @strong
 @item Package
@@ -4322,7 +4374,7 @@ Create a lower-triangular-matrix.
 @item Source
 @ref{❨18❩, , @t{test-utilities.lisp}}.
 @item Target Slot
-@ref{❨325❩, , @t{variance1}}.
+@ref{❨327❩, , @t{variance1}}.
 @end table
 @end deffn
 @deffn {Function} {vec} (element-type &rest elements)
@@ -4337,7 +4389,7 @@ Return a vector with elements coerced to ELEMENT-TYPE.
 @end table
 @end deffn
 @deffn {Function} {within?} (left value right)
-@anchor{❨296❩}@c
+@anchor{❨297❩}@c
 @functionsubindex{within?}@c
 Return non-nil iff value is in [left@comma{}right).
 @table @strong
@@ -4348,10 +4400,10 @@ Return non-nil iff value is in [left@comma{}right).
 @end table
 @end deffn
 @deffn {Reader} {worst-case} (instance)
-@anchor{❨337❩}@c
+@anchor{❨339❩}@c
 @functionsubindex{worst-case}@c
 @deffnx {Writer} {(setf worst-case)} (instance)
-@anchor{❨338❩}@c
+@anchor{❨340❩}@c
 @functionsubindex{(setf worst-case)}@c
 @table @strong
 @item Package
@@ -4359,7 +4411,7 @@ Return non-nil iff value is in [left@comma{}right).
 @item Source
 @ref{❨18❩, , @t{test-utilities.lisp}}.
 @item Target Slot
-@ref{❨319❩, , @t{worst-case}}.
+@ref{❨321❩, , @t{worst-case}}.
 @end table
 @end deffn
 @deffn {Reader} {wrapped-matrix-elements} (instance)
@@ -4389,7 +4441,7 @@ Return OBJECT as an ALIST.  Semantics depends on OBJECT.
 @end table
 @end deffn
 @deffn {Generic Function} {as-plist} (object)
-@anchor{❨303❩}@c
+@anchor{❨304❩}@c
 @genericsubindex{as-plist}@c
 Return OBJECT as a PLIST.  Semantics depends on OBJECT.  The default method uses AS-ALIST.
 @table @strong
@@ -4399,7 +4451,7 @@ Return OBJECT as a PLIST.  Semantics depends on OBJECT.  The default method uses
 @ref{❨4❩, , @t{utilities.lisp}}.
 @item Methods
 @deffn {Method} {as-plist} (object)
-@anchor{❨304❩}@c
+@anchor{❨305❩}@c
 @methodsubindex{as-plist}@c
 @table @strong
 @end table
@@ -4449,7 +4501,7 @@ Set the diagonal elements of MATRIX using VECTOR.
 @end table
 @end deffn
 @deffn {Generic Function} {e1-} (a)
-@anchor{❨385❩}@c
+@anchor{❨460❩}@c
 @genericsubindex{e1-}@c
 Univariate elementwise -.
 @table @strong
@@ -4459,7 +4511,7 @@ Univariate elementwise -.
 @ref{❨7❩, , @t{elementwise.lisp}}.
 @item Methods
 @deffn {Method} {e1-} ((a @ref{❨236❩, , @t{diagonal-matrix}}))
-@anchor{❨386❩}@c
+@anchor{❨461❩}@c
 @methodsubindex{e1-}@c
 @table @strong
 @item Source
@@ -4467,7 +4519,7 @@ Univariate elementwise -.
 @end table
 @end deffn
 @deffn {Method} {e1-} ((a @ref{❨222❩, , @t{hermitian-matrix}}))
-@anchor{❨387❩}@c
+@anchor{❨462❩}@c
 @methodsubindex{e1-}@c
 @table @strong
 @item Source
@@ -4475,7 +4527,7 @@ Univariate elementwise -.
 @end table
 @end deffn
 @deffn {Method} {e1-} ((a @ref{❨218❩, , @t{upper-triangular-matrix}}))
-@anchor{❨388❩}@c
+@anchor{❨463❩}@c
 @methodsubindex{e1-}@c
 @table @strong
 @item Source
@@ -4483,7 +4535,7 @@ Univariate elementwise -.
 @end table
 @end deffn
 @deffn {Method} {e1-} ((a @ref{❨234❩, , @t{lower-triangular-matrix}}))
-@anchor{❨389❩}@c
+@anchor{❨464❩}@c
 @methodsubindex{e1-}@c
 @table @strong
 @item Source
@@ -4491,13 +4543,13 @@ Univariate elementwise -.
 @end table
 @end deffn
 @deffn {Method} {e1-} ((a @t{number}))
-@anchor{❨390❩}@c
+@anchor{❨465❩}@c
 @methodsubindex{e1-}@c
 @table @strong
 @end table
 @end deffn
 @deffn {Method} {e1-} ((a @t{array}))
-@anchor{❨391❩}@c
+@anchor{❨466❩}@c
 @methodsubindex{e1-}@c
 @table @strong
 @end table
@@ -4505,7 +4557,7 @@ Univariate elementwise -.
 @end table
 @end deffn
 @deffn {Generic Function} {e1/} (a)
-@anchor{❨378❩}@c
+@anchor{❨384❩}@c
 @genericsubindex{e1/}@c
 Univariate elementwise /.
 @table @strong
@@ -4515,7 +4567,7 @@ Univariate elementwise /.
 @ref{❨7❩, , @t{elementwise.lisp}}.
 @item Methods
 @deffn {Method} {e1/} ((a @ref{❨236❩, , @t{diagonal-matrix}}))
-@anchor{❨379❩}@c
+@anchor{❨385❩}@c
 @methodsubindex{e1/}@c
 @table @strong
 @item Source
@@ -4523,7 +4575,7 @@ Univariate elementwise /.
 @end table
 @end deffn
 @deffn {Method} {e1/} ((a @ref{❨222❩, , @t{hermitian-matrix}}))
-@anchor{❨380❩}@c
+@anchor{❨386❩}@c
 @methodsubindex{e1/}@c
 @table @strong
 @item Source
@@ -4531,7 +4583,7 @@ Univariate elementwise /.
 @end table
 @end deffn
 @deffn {Method} {e1/} ((a @ref{❨218❩, , @t{upper-triangular-matrix}}))
-@anchor{❨381❩}@c
+@anchor{❨387❩}@c
 @methodsubindex{e1/}@c
 @table @strong
 @item Source
@@ -4539,7 +4591,7 @@ Univariate elementwise /.
 @end table
 @end deffn
 @deffn {Method} {e1/} ((a @ref{❨234❩, , @t{lower-triangular-matrix}}))
-@anchor{❨382❩}@c
+@anchor{❨388❩}@c
 @methodsubindex{e1/}@c
 @table @strong
 @item Source
@@ -4547,13 +4599,13 @@ Univariate elementwise /.
 @end table
 @end deffn
 @deffn {Method} {e1/} ((a @t{number}))
-@anchor{❨383❩}@c
+@anchor{❨389❩}@c
 @methodsubindex{e1/}@c
 @table @strong
 @end table
 @end deffn
 @deffn {Method} {e1/} ((a @t{array}))
-@anchor{❨384❩}@c
+@anchor{❨390❩}@c
 @methodsubindex{e1/}@c
 @table @strong
 @end table
@@ -4561,7 +4613,7 @@ Univariate elementwise /.
 @end table
 @end deffn
 @deffn {Generic Function} {e1log} (a)
-@anchor{❨454❩}@c
+@anchor{❨542❩}@c
 @genericsubindex{e1log}@c
 Univariate elementwise LOG.
 @table @strong
@@ -4571,7 +4623,7 @@ Univariate elementwise LOG.
 @ref{❨7❩, , @t{elementwise.lisp}}.
 @item Methods
 @deffn {Method} {e1log} ((a @ref{❨236❩, , @t{diagonal-matrix}}))
-@anchor{❨455❩}@c
+@anchor{❨543❩}@c
 @methodsubindex{e1log}@c
 @table @strong
 @item Source
@@ -4579,7 +4631,7 @@ Univariate elementwise LOG.
 @end table
 @end deffn
 @deffn {Method} {e1log} ((a @ref{❨222❩, , @t{hermitian-matrix}}))
-@anchor{❨456❩}@c
+@anchor{❨544❩}@c
 @methodsubindex{e1log}@c
 @table @strong
 @item Source
@@ -4587,7 +4639,7 @@ Univariate elementwise LOG.
 @end table
 @end deffn
 @deffn {Method} {e1log} ((a @ref{❨218❩, , @t{upper-triangular-matrix}}))
-@anchor{❨457❩}@c
+@anchor{❨545❩}@c
 @methodsubindex{e1log}@c
 @table @strong
 @item Source
@@ -4595,7 +4647,7 @@ Univariate elementwise LOG.
 @end table
 @end deffn
 @deffn {Method} {e1log} ((a @ref{❨234❩, , @t{lower-triangular-matrix}}))
-@anchor{❨458❩}@c
+@anchor{❨546❩}@c
 @methodsubindex{e1log}@c
 @table @strong
 @item Source
@@ -4603,13 +4655,13 @@ Univariate elementwise LOG.
 @end table
 @end deffn
 @deffn {Method} {e1log} ((a @t{number}))
-@anchor{❨459❩}@c
+@anchor{❨547❩}@c
 @methodsubindex{e1log}@c
 @table @strong
 @end table
 @end deffn
 @deffn {Method} {e1log} ((a @t{array}))
-@anchor{❨460❩}@c
+@anchor{❨548❩}@c
 @methodsubindex{e1log}@c
 @table @strong
 @end table
@@ -4617,7 +4669,7 @@ Univariate elementwise LOG.
 @end table
 @end deffn
 @deffn {Generic Function} {e2*} (a b)
-@anchor{❨475❩}@c
+@anchor{❨411❩}@c
 @genericsubindex{e2*}@c
 Bivariate elementwise *.
 @table @strong
@@ -4627,7 +4679,7 @@ Bivariate elementwise *.
 @ref{❨7❩, , @t{elementwise.lisp}}.
 @item Methods
 @deffn {Method} {e2*} ((a @ref{❨236❩, , @t{diagonal-matrix}}) (b @ref{❨236❩, , @t{diagonal-matrix}}))
-@anchor{❨476❩}@c
+@anchor{❨412❩}@c
 @methodsubindex{e2*}@c
 @table @strong
 @item Source
@@ -4635,7 +4687,7 @@ Bivariate elementwise *.
 @end table
 @end deffn
 @deffn {Method} {e2*} ((a @ref{❨222❩, , @t{hermitian-matrix}}) (b @ref{❨222❩, , @t{hermitian-matrix}}))
-@anchor{❨477❩}@c
+@anchor{❨413❩}@c
 @methodsubindex{e2*}@c
 @table @strong
 @item Source
@@ -4643,7 +4695,7 @@ Bivariate elementwise *.
 @end table
 @end deffn
 @deffn {Method} {e2*} ((a @ref{❨218❩, , @t{upper-triangular-matrix}}) (b @ref{❨218❩, , @t{upper-triangular-matrix}}))
-@anchor{❨478❩}@c
+@anchor{❨414❩}@c
 @methodsubindex{e2*}@c
 @table @strong
 @item Source
@@ -4651,7 +4703,7 @@ Bivariate elementwise *.
 @end table
 @end deffn
 @deffn {Method} {e2*} ((a @ref{❨234❩, , @t{lower-triangular-matrix}}) (b @ref{❨234❩, , @t{lower-triangular-matrix}}))
-@anchor{❨479❩}@c
+@anchor{❨415❩}@c
 @methodsubindex{e2*}@c
 @table @strong
 @item Source
@@ -4659,7 +4711,7 @@ Bivariate elementwise *.
 @end table
 @end deffn
 @deffn {Method} {e2*} ((a @t{number}) (b @ref{❨236❩, , @t{diagonal-matrix}}))
-@anchor{❨480❩}@c
+@anchor{❨416❩}@c
 @methodsubindex{e2*}@c
 @table @strong
 @item Source
@@ -4667,7 +4719,7 @@ Bivariate elementwise *.
 @end table
 @end deffn
 @deffn {Method} {e2*} ((a @ref{❨236❩, , @t{diagonal-matrix}}) (b @t{number}))
-@anchor{❨481❩}@c
+@anchor{❨417❩}@c
 @methodsubindex{e2*}@c
 @table @strong
 @item Source
@@ -4675,7 +4727,7 @@ Bivariate elementwise *.
 @end table
 @end deffn
 @deffn {Method} {e2*} ((a @t{number}) (b @ref{❨222❩, , @t{hermitian-matrix}}))
-@anchor{❨482❩}@c
+@anchor{❨418❩}@c
 @methodsubindex{e2*}@c
 @table @strong
 @item Source
@@ -4683,7 +4735,7 @@ Bivariate elementwise *.
 @end table
 @end deffn
 @deffn {Method} {e2*} ((a @ref{❨222❩, , @t{hermitian-matrix}}) (b @t{number}))
-@anchor{❨483❩}@c
+@anchor{❨419❩}@c
 @methodsubindex{e2*}@c
 @table @strong
 @item Source
@@ -4691,7 +4743,7 @@ Bivariate elementwise *.
 @end table
 @end deffn
 @deffn {Method} {e2*} ((a @t{number}) (b @ref{❨218❩, , @t{upper-triangular-matrix}}))
-@anchor{❨484❩}@c
+@anchor{❨420❩}@c
 @methodsubindex{e2*}@c
 @table @strong
 @item Source
@@ -4699,7 +4751,7 @@ Bivariate elementwise *.
 @end table
 @end deffn
 @deffn {Method} {e2*} ((a @ref{❨218❩, , @t{upper-triangular-matrix}}) (b @t{number}))
-@anchor{❨485❩}@c
+@anchor{❨421❩}@c
 @methodsubindex{e2*}@c
 @table @strong
 @item Source
@@ -4707,7 +4759,7 @@ Bivariate elementwise *.
 @end table
 @end deffn
 @deffn {Method} {e2*} ((a @t{number}) (b @ref{❨234❩, , @t{lower-triangular-matrix}}))
-@anchor{❨486❩}@c
+@anchor{❨422❩}@c
 @methodsubindex{e2*}@c
 @table @strong
 @item Source
@@ -4715,7 +4767,7 @@ Bivariate elementwise *.
 @end table
 @end deffn
 @deffn {Method} {e2*} ((a @ref{❨234❩, , @t{lower-triangular-matrix}}) (b @t{number}))
-@anchor{❨487❩}@c
+@anchor{❨423❩}@c
 @methodsubindex{e2*}@c
 @table @strong
 @item Source
@@ -4723,7 +4775,7 @@ Bivariate elementwise *.
 @end table
 @end deffn
 @deffn {Method} {e2*} (a (b @ref{❨228❩, , @t{wrapped-matrix}}))
-@anchor{❨488❩}@c
+@anchor{❨424❩}@c
 @methodsubindex{e2*}@c
 @table @strong
 @item Source
@@ -4731,7 +4783,7 @@ Bivariate elementwise *.
 @end table
 @end deffn
 @deffn {Method} {e2*} ((a @ref{❨228❩, , @t{wrapped-matrix}}) b)
-@anchor{❨489❩}@c
+@anchor{❨425❩}@c
 @methodsubindex{e2*}@c
 @table @strong
 @item Source
@@ -4739,43 +4791,43 @@ Bivariate elementwise *.
 @end table
 @end deffn
 @deffn {Method} {e2*} ((a @t{number}) (b @t{number}))
-@anchor{❨490❩}@c
+@anchor{❨426❩}@c
 @methodsubindex{e2*}@c
 @table @strong
 @end table
 @end deffn
 @deffn {Method} {e2*} ((a @t{vector}) (b @t{number}))
-@anchor{❨491❩}@c
+@anchor{❨427❩}@c
 @methodsubindex{e2*}@c
 @table @strong
 @end table
 @end deffn
 @deffn {Method} {e2*} ((a @t{number}) (b @t{vector}))
-@anchor{❨492❩}@c
+@anchor{❨428❩}@c
 @methodsubindex{e2*}@c
 @table @strong
 @end table
 @end deffn
 @deffn {Method} {e2*} ((a @t{vector}) (b @t{vector}))
-@anchor{❨493❩}@c
+@anchor{❨429❩}@c
 @methodsubindex{e2*}@c
 @table @strong
 @end table
 @end deffn
 @deffn {Method} {e2*} ((a @t{array}) (b @t{number}))
-@anchor{❨494❩}@c
+@anchor{❨430❩}@c
 @methodsubindex{e2*}@c
 @table @strong
 @end table
 @end deffn
 @deffn {Method} {e2*} ((a @t{number}) (b @t{array}))
-@anchor{❨495❩}@c
+@anchor{❨431❩}@c
 @methodsubindex{e2*}@c
 @table @strong
 @end table
 @end deffn
 @deffn {Method} {e2*} ((a @t{array}) (b @t{array}))
-@anchor{❨496❩}@c
+@anchor{❨432❩}@c
 @methodsubindex{e2*}@c
 @table @strong
 @end table
@@ -4783,7 +4835,7 @@ Bivariate elementwise *.
 @end table
 @end deffn
 @deffn {Generic Function} {e2+} (a b)
-@anchor{❨461❩}@c
+@anchor{❨513❩}@c
 @genericsubindex{e2+}@c
 Bivariate elementwise +.
 @table @strong
@@ -4793,7 +4845,7 @@ Bivariate elementwise +.
 @ref{❨7❩, , @t{elementwise.lisp}}.
 @item Methods
 @deffn {Method} {e2+} ((a @ref{❨236❩, , @t{diagonal-matrix}}) (b @ref{❨236❩, , @t{diagonal-matrix}}))
-@anchor{❨462❩}@c
+@anchor{❨514❩}@c
 @methodsubindex{e2+}@c
 @table @strong
 @item Source
@@ -4801,7 +4853,7 @@ Bivariate elementwise +.
 @end table
 @end deffn
 @deffn {Method} {e2+} ((a @ref{❨222❩, , @t{hermitian-matrix}}) (b @ref{❨222❩, , @t{hermitian-matrix}}))
-@anchor{❨463❩}@c
+@anchor{❨515❩}@c
 @methodsubindex{e2+}@c
 @table @strong
 @item Source
@@ -4809,7 +4861,7 @@ Bivariate elementwise +.
 @end table
 @end deffn
 @deffn {Method} {e2+} ((a @ref{❨218❩, , @t{upper-triangular-matrix}}) (b @ref{❨218❩, , @t{upper-triangular-matrix}}))
-@anchor{❨464❩}@c
+@anchor{❨516❩}@c
 @methodsubindex{e2+}@c
 @table @strong
 @item Source
@@ -4817,7 +4869,7 @@ Bivariate elementwise +.
 @end table
 @end deffn
 @deffn {Method} {e2+} ((a @ref{❨234❩, , @t{lower-triangular-matrix}}) (b @ref{❨234❩, , @t{lower-triangular-matrix}}))
-@anchor{❨465❩}@c
+@anchor{❨517❩}@c
 @methodsubindex{e2+}@c
 @table @strong
 @item Source
@@ -4825,7 +4877,7 @@ Bivariate elementwise +.
 @end table
 @end deffn
 @deffn {Method} {e2+} (a (b @ref{❨228❩, , @t{wrapped-matrix}}))
-@anchor{❨466❩}@c
+@anchor{❨518❩}@c
 @methodsubindex{e2+}@c
 @table @strong
 @item Source
@@ -4833,7 +4885,7 @@ Bivariate elementwise +.
 @end table
 @end deffn
 @deffn {Method} {e2+} ((a @ref{❨228❩, , @t{wrapped-matrix}}) b)
-@anchor{❨467❩}@c
+@anchor{❨519❩}@c
 @methodsubindex{e2+}@c
 @table @strong
 @item Source
@@ -4841,43 +4893,43 @@ Bivariate elementwise +.
 @end table
 @end deffn
 @deffn {Method} {e2+} ((a @t{number}) (b @t{number}))
-@anchor{❨468❩}@c
+@anchor{❨520❩}@c
 @methodsubindex{e2+}@c
 @table @strong
 @end table
 @end deffn
 @deffn {Method} {e2+} ((a @t{vector}) (b @t{number}))
-@anchor{❨469❩}@c
+@anchor{❨521❩}@c
 @methodsubindex{e2+}@c
 @table @strong
 @end table
 @end deffn
 @deffn {Method} {e2+} ((a @t{number}) (b @t{vector}))
-@anchor{❨470❩}@c
+@anchor{❨522❩}@c
 @methodsubindex{e2+}@c
 @table @strong
 @end table
 @end deffn
 @deffn {Method} {e2+} ((a @t{vector}) (b @t{vector}))
-@anchor{❨471❩}@c
+@anchor{❨523❩}@c
 @methodsubindex{e2+}@c
 @table @strong
 @end table
 @end deffn
 @deffn {Method} {e2+} ((a @t{array}) (b @t{number}))
-@anchor{❨472❩}@c
+@anchor{❨524❩}@c
 @methodsubindex{e2+}@c
 @table @strong
 @end table
 @end deffn
 @deffn {Method} {e2+} ((a @t{number}) (b @t{array}))
-@anchor{❨473❩}@c
+@anchor{❨525❩}@c
 @methodsubindex{e2+}@c
 @table @strong
 @end table
 @end deffn
 @deffn {Method} {e2+} ((a @t{array}) (b @t{array}))
-@anchor{❨474❩}@c
+@anchor{❨526❩}@c
 @methodsubindex{e2+}@c
 @table @strong
 @end table
@@ -4885,7 +4937,7 @@ Bivariate elementwise +.
 @end table
 @end deffn
 @deffn {Generic Function} {e2-} (a b)
-@anchor{❨516❩}@c
+@anchor{❨483❩}@c
 @genericsubindex{e2-}@c
 Bivariate elementwise -.
 @table @strong
@@ -4895,7 +4947,7 @@ Bivariate elementwise -.
 @ref{❨7❩, , @t{elementwise.lisp}}.
 @item Methods
 @deffn {Method} {e2-} ((a @ref{❨236❩, , @t{diagonal-matrix}}) (b @ref{❨236❩, , @t{diagonal-matrix}}))
-@anchor{❨517❩}@c
+@anchor{❨484❩}@c
 @methodsubindex{e2-}@c
 @table @strong
 @item Source
@@ -4903,7 +4955,7 @@ Bivariate elementwise -.
 @end table
 @end deffn
 @deffn {Method} {e2-} ((a @ref{❨222❩, , @t{hermitian-matrix}}) (b @ref{❨222❩, , @t{hermitian-matrix}}))
-@anchor{❨518❩}@c
+@anchor{❨485❩}@c
 @methodsubindex{e2-}@c
 @table @strong
 @item Source
@@ -4911,7 +4963,7 @@ Bivariate elementwise -.
 @end table
 @end deffn
 @deffn {Method} {e2-} ((a @ref{❨218❩, , @t{upper-triangular-matrix}}) (b @ref{❨218❩, , @t{upper-triangular-matrix}}))
-@anchor{❨519❩}@c
+@anchor{❨486❩}@c
 @methodsubindex{e2-}@c
 @table @strong
 @item Source
@@ -4919,7 +4971,7 @@ Bivariate elementwise -.
 @end table
 @end deffn
 @deffn {Method} {e2-} ((a @ref{❨234❩, , @t{lower-triangular-matrix}}) (b @ref{❨234❩, , @t{lower-triangular-matrix}}))
-@anchor{❨520❩}@c
+@anchor{❨487❩}@c
 @methodsubindex{e2-}@c
 @table @strong
 @item Source
@@ -4927,7 +4979,7 @@ Bivariate elementwise -.
 @end table
 @end deffn
 @deffn {Method} {e2-} (a (b @ref{❨228❩, , @t{wrapped-matrix}}))
-@anchor{❨521❩}@c
+@anchor{❨488❩}@c
 @methodsubindex{e2-}@c
 @table @strong
 @item Source
@@ -4935,7 +4987,7 @@ Bivariate elementwise -.
 @end table
 @end deffn
 @deffn {Method} {e2-} ((a @ref{❨228❩, , @t{wrapped-matrix}}) b)
-@anchor{❨522❩}@c
+@anchor{❨489❩}@c
 @methodsubindex{e2-}@c
 @table @strong
 @item Source
@@ -4943,43 +4995,43 @@ Bivariate elementwise -.
 @end table
 @end deffn
 @deffn {Method} {e2-} ((a @t{number}) (b @t{number}))
-@anchor{❨523❩}@c
+@anchor{❨490❩}@c
 @methodsubindex{e2-}@c
 @table @strong
 @end table
 @end deffn
 @deffn {Method} {e2-} ((a @t{vector}) (b @t{number}))
-@anchor{❨524❩}@c
+@anchor{❨491❩}@c
 @methodsubindex{e2-}@c
 @table @strong
 @end table
 @end deffn
 @deffn {Method} {e2-} ((a @t{number}) (b @t{vector}))
-@anchor{❨525❩}@c
+@anchor{❨492❩}@c
 @methodsubindex{e2-}@c
 @table @strong
 @end table
 @end deffn
 @deffn {Method} {e2-} ((a @t{vector}) (b @t{vector}))
-@anchor{❨526❩}@c
+@anchor{❨493❩}@c
 @methodsubindex{e2-}@c
 @table @strong
 @end table
 @end deffn
 @deffn {Method} {e2-} ((a @t{array}) (b @t{number}))
-@anchor{❨527❩}@c
+@anchor{❨494❩}@c
 @methodsubindex{e2-}@c
 @table @strong
 @end table
 @end deffn
 @deffn {Method} {e2-} ((a @t{number}) (b @t{array}))
-@anchor{❨528❩}@c
+@anchor{❨495❩}@c
 @methodsubindex{e2-}@c
 @table @strong
 @end table
 @end deffn
 @deffn {Method} {e2-} ((a @t{array}) (b @t{array}))
-@anchor{❨529❩}@c
+@anchor{❨496❩}@c
 @methodsubindex{e2-}@c
 @table @strong
 @end table
@@ -4987,7 +5039,7 @@ Bivariate elementwise -.
 @end table
 @end deffn
 @deffn {Generic Function} {e2/} (a b)
-@anchor{❨423❩}@c
+@anchor{❨467❩}@c
 @genericsubindex{e2/}@c
 Bivariate elementwise /.
 @table @strong
@@ -4997,7 +5049,7 @@ Bivariate elementwise /.
 @ref{❨7❩, , @t{elementwise.lisp}}.
 @item Methods
 @deffn {Method} {e2/} ((a @t{number}) (b @ref{❨236❩, , @t{diagonal-matrix}}))
-@anchor{❨424❩}@c
+@anchor{❨468❩}@c
 @methodsubindex{e2/}@c
 @table @strong
 @item Source
@@ -5005,7 +5057,7 @@ Bivariate elementwise /.
 @end table
 @end deffn
 @deffn {Method} {e2/} ((a @ref{❨236❩, , @t{diagonal-matrix}}) (b @t{number}))
-@anchor{❨425❩}@c
+@anchor{❨469❩}@c
 @methodsubindex{e2/}@c
 @table @strong
 @item Source
@@ -5013,7 +5065,7 @@ Bivariate elementwise /.
 @end table
 @end deffn
 @deffn {Method} {e2/} ((a @t{number}) (b @ref{❨222❩, , @t{hermitian-matrix}}))
-@anchor{❨426❩}@c
+@anchor{❨470❩}@c
 @methodsubindex{e2/}@c
 @table @strong
 @item Source
@@ -5021,7 +5073,7 @@ Bivariate elementwise /.
 @end table
 @end deffn
 @deffn {Method} {e2/} ((a @ref{❨222❩, , @t{hermitian-matrix}}) (b @t{number}))
-@anchor{❨427❩}@c
+@anchor{❨471❩}@c
 @methodsubindex{e2/}@c
 @table @strong
 @item Source
@@ -5029,7 +5081,7 @@ Bivariate elementwise /.
 @end table
 @end deffn
 @deffn {Method} {e2/} ((a @t{number}) (b @ref{❨218❩, , @t{upper-triangular-matrix}}))
-@anchor{❨428❩}@c
+@anchor{❨472❩}@c
 @methodsubindex{e2/}@c
 @table @strong
 @item Source
@@ -5037,7 +5089,7 @@ Bivariate elementwise /.
 @end table
 @end deffn
 @deffn {Method} {e2/} ((a @ref{❨218❩, , @t{upper-triangular-matrix}}) (b @t{number}))
-@anchor{❨429❩}@c
+@anchor{❨473❩}@c
 @methodsubindex{e2/}@c
 @table @strong
 @item Source
@@ -5045,7 +5097,7 @@ Bivariate elementwise /.
 @end table
 @end deffn
 @deffn {Method} {e2/} ((a @t{number}) (b @ref{❨234❩, , @t{lower-triangular-matrix}}))
-@anchor{❨430❩}@c
+@anchor{❨474❩}@c
 @methodsubindex{e2/}@c
 @table @strong
 @item Source
@@ -5053,7 +5105,7 @@ Bivariate elementwise /.
 @end table
 @end deffn
 @deffn {Method} {e2/} ((a @ref{❨234❩, , @t{lower-triangular-matrix}}) (b @t{number}))
-@anchor{❨431❩}@c
+@anchor{❨475❩}@c
 @methodsubindex{e2/}@c
 @table @strong
 @item Source
@@ -5061,51 +5113,321 @@ Bivariate elementwise /.
 @end table
 @end deffn
 @deffn {Method} {e2/} ((a @t{number}) (b @t{number}))
-@anchor{❨432❩}@c
+@anchor{❨476❩}@c
 @methodsubindex{e2/}@c
 @table @strong
 @end table
 @end deffn
 @deffn {Method} {e2/} ((a @t{vector}) (b @t{number}))
-@anchor{❨433❩}@c
+@anchor{❨477❩}@c
 @methodsubindex{e2/}@c
 @table @strong
 @end table
 @end deffn
 @deffn {Method} {e2/} ((a @t{number}) (b @t{vector}))
-@anchor{❨434❩}@c
+@anchor{❨478❩}@c
 @methodsubindex{e2/}@c
 @table @strong
 @end table
 @end deffn
 @deffn {Method} {e2/} ((a @t{vector}) (b @t{vector}))
-@anchor{❨435❩}@c
+@anchor{❨479❩}@c
 @methodsubindex{e2/}@c
 @table @strong
 @end table
 @end deffn
 @deffn {Method} {e2/} ((a @t{array}) (b @t{number}))
-@anchor{❨436❩}@c
+@anchor{❨480❩}@c
 @methodsubindex{e2/}@c
 @table @strong
 @end table
 @end deffn
 @deffn {Method} {e2/} ((a @t{number}) (b @t{array}))
-@anchor{❨437❩}@c
+@anchor{❨481❩}@c
 @methodsubindex{e2/}@c
 @table @strong
 @end table
 @end deffn
 @deffn {Method} {e2/} ((a @t{array}) (b @t{array}))
-@anchor{❨438❩}@c
+@anchor{❨482❩}@c
 @methodsubindex{e2/}@c
+@table @strong
+@end table
+@end deffn
+@end table
+@end deffn
+@deffn {Generic Function} {e2<} (a b)
+@anchor{❨433❩}@c
+@genericsubindex{e2<}@c
+Bivariate elementwise <.
+@table @strong
+@item Package
+@ref{❨31❩, , @t{num-utils.elementwise}}.
+@item Source
+@ref{❨7❩, , @t{elementwise.lisp}}.
+@item Methods
+@deffn {Method} {e2<} ((a @t{number}) (b @t{number}))
+@anchor{❨434❩}@c
+@methodsubindex{e2<}@c
+@table @strong
+@end table
+@end deffn
+@deffn {Method} {e2<} ((a @t{vector}) (b @t{number}))
+@anchor{❨435❩}@c
+@methodsubindex{e2<}@c
+@table @strong
+@end table
+@end deffn
+@deffn {Method} {e2<} ((a @t{number}) (b @t{vector}))
+@anchor{❨436❩}@c
+@methodsubindex{e2<}@c
+@table @strong
+@end table
+@end deffn
+@deffn {Method} {e2<} ((a @t{vector}) (b @t{vector}))
+@anchor{❨437❩}@c
+@methodsubindex{e2<}@c
+@table @strong
+@end table
+@end deffn
+@deffn {Method} {e2<} ((a @t{array}) (b @t{number}))
+@anchor{❨438❩}@c
+@methodsubindex{e2<}@c
+@table @strong
+@end table
+@end deffn
+@deffn {Method} {e2<} ((a @t{number}) (b @t{array}))
+@anchor{❨439❩}@c
+@methodsubindex{e2<}@c
+@table @strong
+@end table
+@end deffn
+@deffn {Method} {e2<} ((a @t{array}) (b @t{array}))
+@anchor{❨440❩}@c
+@methodsubindex{e2<}@c
+@table @strong
+@end table
+@end deffn
+@end table
+@end deffn
+@deffn {Generic Function} {e2<=} (a b)
+@anchor{❨452❩}@c
+@genericsubindex{e2<=}@c
+Bivariate elementwise <=.
+@table @strong
+@item Package
+@ref{❨31❩, , @t{num-utils.elementwise}}.
+@item Source
+@ref{❨7❩, , @t{elementwise.lisp}}.
+@item Methods
+@deffn {Method} {e2<=} ((a @t{number}) (b @t{number}))
+@anchor{❨453❩}@c
+@methodsubindex{e2<=}@c
+@table @strong
+@end table
+@end deffn
+@deffn {Method} {e2<=} ((a @t{vector}) (b @t{number}))
+@anchor{❨454❩}@c
+@methodsubindex{e2<=}@c
+@table @strong
+@end table
+@end deffn
+@deffn {Method} {e2<=} ((a @t{number}) (b @t{vector}))
+@anchor{❨455❩}@c
+@methodsubindex{e2<=}@c
+@table @strong
+@end table
+@end deffn
+@deffn {Method} {e2<=} ((a @t{vector}) (b @t{vector}))
+@anchor{❨456❩}@c
+@methodsubindex{e2<=}@c
+@table @strong
+@end table
+@end deffn
+@deffn {Method} {e2<=} ((a @t{array}) (b @t{number}))
+@anchor{❨457❩}@c
+@methodsubindex{e2<=}@c
+@table @strong
+@end table
+@end deffn
+@deffn {Method} {e2<=} ((a @t{number}) (b @t{array}))
+@anchor{❨458❩}@c
+@methodsubindex{e2<=}@c
+@table @strong
+@end table
+@end deffn
+@deffn {Method} {e2<=} ((a @t{array}) (b @t{array}))
+@anchor{❨459❩}@c
+@methodsubindex{e2<=}@c
+@table @strong
+@end table
+@end deffn
+@end table
+@end deffn
+@deffn {Generic Function} {e2=} (a b)
+@anchor{❨549❩}@c
+@genericsubindex{e2=}@c
+Bivariate elementwise =.
+@table @strong
+@item Package
+@ref{❨31❩, , @t{num-utils.elementwise}}.
+@item Source
+@ref{❨7❩, , @t{elementwise.lisp}}.
+@item Methods
+@deffn {Method} {e2=} ((a @t{number}) (b @t{number}))
+@anchor{❨550❩}@c
+@methodsubindex{e2=}@c
+@table @strong
+@end table
+@end deffn
+@deffn {Method} {e2=} ((a @t{vector}) (b @t{number}))
+@anchor{❨551❩}@c
+@methodsubindex{e2=}@c
+@table @strong
+@end table
+@end deffn
+@deffn {Method} {e2=} ((a @t{number}) (b @t{vector}))
+@anchor{❨552❩}@c
+@methodsubindex{e2=}@c
+@table @strong
+@end table
+@end deffn
+@deffn {Method} {e2=} ((a @t{vector}) (b @t{vector}))
+@anchor{❨553❩}@c
+@methodsubindex{e2=}@c
+@table @strong
+@end table
+@end deffn
+@deffn {Method} {e2=} ((a @t{array}) (b @t{number}))
+@anchor{❨554❩}@c
+@methodsubindex{e2=}@c
+@table @strong
+@end table
+@end deffn
+@deffn {Method} {e2=} ((a @t{number}) (b @t{array}))
+@anchor{❨555❩}@c
+@methodsubindex{e2=}@c
+@table @strong
+@end table
+@end deffn
+@deffn {Method} {e2=} ((a @t{array}) (b @t{array}))
+@anchor{❨556❩}@c
+@methodsubindex{e2=}@c
+@table @strong
+@end table
+@end deffn
+@end table
+@end deffn
+@deffn {Generic Function} {e2>} (a b)
+@anchor{❨444❩}@c
+@genericsubindex{e2>}@c
+Bivariate elementwise >.
+@table @strong
+@item Package
+@ref{❨31❩, , @t{num-utils.elementwise}}.
+@item Source
+@ref{❨7❩, , @t{elementwise.lisp}}.
+@item Methods
+@deffn {Method} {e2>} ((a @t{number}) (b @t{number}))
+@anchor{❨445❩}@c
+@methodsubindex{e2>}@c
+@table @strong
+@end table
+@end deffn
+@deffn {Method} {e2>} ((a @t{vector}) (b @t{number}))
+@anchor{❨446❩}@c
+@methodsubindex{e2>}@c
+@table @strong
+@end table
+@end deffn
+@deffn {Method} {e2>} ((a @t{number}) (b @t{vector}))
+@anchor{❨447❩}@c
+@methodsubindex{e2>}@c
+@table @strong
+@end table
+@end deffn
+@deffn {Method} {e2>} ((a @t{vector}) (b @t{vector}))
+@anchor{❨448❩}@c
+@methodsubindex{e2>}@c
+@table @strong
+@end table
+@end deffn
+@deffn {Method} {e2>} ((a @t{array}) (b @t{number}))
+@anchor{❨449❩}@c
+@methodsubindex{e2>}@c
+@table @strong
+@end table
+@end deffn
+@deffn {Method} {e2>} ((a @t{number}) (b @t{array}))
+@anchor{❨450❩}@c
+@methodsubindex{e2>}@c
+@table @strong
+@end table
+@end deffn
+@deffn {Method} {e2>} ((a @t{array}) (b @t{array}))
+@anchor{❨451❩}@c
+@methodsubindex{e2>}@c
+@table @strong
+@end table
+@end deffn
+@end table
+@end deffn
+@deffn {Generic Function} {e2>=} (a b)
+@anchor{❨527❩}@c
+@genericsubindex{e2>=}@c
+Bivariate elementwise >=.
+@table @strong
+@item Package
+@ref{❨31❩, , @t{num-utils.elementwise}}.
+@item Source
+@ref{❨7❩, , @t{elementwise.lisp}}.
+@item Methods
+@deffn {Method} {e2>=} ((a @t{number}) (b @t{number}))
+@anchor{❨528❩}@c
+@methodsubindex{e2>=}@c
+@table @strong
+@end table
+@end deffn
+@deffn {Method} {e2>=} ((a @t{vector}) (b @t{number}))
+@anchor{❨529❩}@c
+@methodsubindex{e2>=}@c
+@table @strong
+@end table
+@end deffn
+@deffn {Method} {e2>=} ((a @t{number}) (b @t{vector}))
+@anchor{❨530❩}@c
+@methodsubindex{e2>=}@c
+@table @strong
+@end table
+@end deffn
+@deffn {Method} {e2>=} ((a @t{vector}) (b @t{vector}))
+@anchor{❨531❩}@c
+@methodsubindex{e2>=}@c
+@table @strong
+@end table
+@end deffn
+@deffn {Method} {e2>=} ((a @t{array}) (b @t{number}))
+@anchor{❨532❩}@c
+@methodsubindex{e2>=}@c
+@table @strong
+@end table
+@end deffn
+@deffn {Method} {e2>=} ((a @t{number}) (b @t{array}))
+@anchor{❨533❩}@c
+@methodsubindex{e2>=}@c
+@table @strong
+@end table
+@end deffn
+@deffn {Method} {e2>=} ((a @t{array}) (b @t{array}))
+@anchor{❨534❩}@c
+@methodsubindex{e2>=}@c
 @table @strong
 @end table
 @end deffn
 @end table
 @end deffn
 @deffn {Generic Function} {e2log} (a b)
-@anchor{❨497❩}@c
+@anchor{❨561❩}@c
 @genericsubindex{e2log}@c
 Bivariate elementwise LOG.
 @table @strong
@@ -5115,43 +5437,43 @@ Bivariate elementwise LOG.
 @ref{❨7❩, , @t{elementwise.lisp}}.
 @item Methods
 @deffn {Method} {e2log} ((a @t{number}) (b @t{number}))
-@anchor{❨498❩}@c
+@anchor{❨562❩}@c
 @methodsubindex{e2log}@c
 @table @strong
 @end table
 @end deffn
 @deffn {Method} {e2log} ((a @t{vector}) (b @t{number}))
-@anchor{❨499❩}@c
+@anchor{❨563❩}@c
 @methodsubindex{e2log}@c
 @table @strong
 @end table
 @end deffn
 @deffn {Method} {e2log} ((a @t{number}) (b @t{vector}))
-@anchor{❨500❩}@c
+@anchor{❨564❩}@c
 @methodsubindex{e2log}@c
 @table @strong
 @end table
 @end deffn
 @deffn {Method} {e2log} ((a @t{vector}) (b @t{vector}))
-@anchor{❨501❩}@c
+@anchor{❨565❩}@c
 @methodsubindex{e2log}@c
 @table @strong
 @end table
 @end deffn
 @deffn {Method} {e2log} ((a @t{array}) (b @t{number}))
-@anchor{❨502❩}@c
+@anchor{❨566❩}@c
 @methodsubindex{e2log}@c
 @table @strong
 @end table
 @end deffn
 @deffn {Method} {e2log} ((a @t{number}) (b @t{array}))
-@anchor{❨503❩}@c
+@anchor{❨567❩}@c
 @methodsubindex{e2log}@c
 @table @strong
 @end table
 @end deffn
 @deffn {Method} {e2log} ((a @t{array}) (b @t{array}))
-@anchor{❨504❩}@c
+@anchor{❨568❩}@c
 @methodsubindex{e2log}@c
 @table @strong
 @end table
@@ -5159,7 +5481,7 @@ Bivariate elementwise LOG.
 @end table
 @end deffn
 @deffn {Generic Function} {eceiling} (a)
-@anchor{❨393❩}@c
+@anchor{❨569❩}@c
 @genericsubindex{eceiling}@c
 Univariate elementwise CEILING.
 @table @strong
@@ -5169,13 +5491,13 @@ Univariate elementwise CEILING.
 @ref{❨7❩, , @t{elementwise.lisp}}.
 @item Methods
 @deffn {Method} {eceiling} ((a @t{number}))
-@anchor{❨394❩}@c
+@anchor{❨570❩}@c
 @methodsubindex{eceiling}@c
 @table @strong
 @end table
 @end deffn
 @deffn {Method} {eceiling} ((a @t{array}))
-@anchor{❨395❩}@c
+@anchor{❨571❩}@c
 @methodsubindex{eceiling}@c
 @table @strong
 @end table
@@ -5183,7 +5505,7 @@ Univariate elementwise CEILING.
 @end table
 @end deffn
 @deffn {Generic Function} {econjugate} (a)
-@anchor{❨451❩}@c
+@anchor{❨441❩}@c
 @genericsubindex{econjugate}@c
 Univariate elementwise CONJUGATE.
 @table @strong
@@ -5193,13 +5515,13 @@ Univariate elementwise CONJUGATE.
 @ref{❨7❩, , @t{elementwise.lisp}}.
 @item Methods
 @deffn {Method} {econjugate} ((a @t{number}))
-@anchor{❨452❩}@c
+@anchor{❨442❩}@c
 @methodsubindex{econjugate}@c
 @table @strong
 @end table
 @end deffn
 @deffn {Method} {econjugate} ((a @t{array}))
-@anchor{❨453❩}@c
+@anchor{❨443❩}@c
 @methodsubindex{econjugate}@c
 @table @strong
 @end table
@@ -5207,7 +5529,7 @@ Univariate elementwise CONJUGATE.
 @end table
 @end deffn
 @deffn {Generic Function} {ecos} (a)
-@anchor{❨396❩}@c
+@anchor{❨399❩}@c
 @genericsubindex{ecos}@c
 Univariate elementwise COS.
 @table @strong
@@ -5217,13 +5539,13 @@ Univariate elementwise COS.
 @ref{❨7❩, , @t{elementwise.lisp}}.
 @item Methods
 @deffn {Method} {ecos} ((a @t{number}))
-@anchor{❨397❩}@c
+@anchor{❨400❩}@c
 @methodsubindex{ecos}@c
 @table @strong
 @end table
 @end deffn
 @deffn {Method} {ecos} ((a @t{array}))
-@anchor{❨398❩}@c
+@anchor{❨401❩}@c
 @methodsubindex{ecos}@c
 @table @strong
 @end table
@@ -5231,7 +5553,7 @@ Univariate elementwise COS.
 @end table
 @end deffn
 @deffn {Generic Function} {eexp} (a)
-@anchor{❨441❩}@c
+@anchor{❨535❩}@c
 @genericsubindex{eexp}@c
 Univariate elementwise EXP.
 @table @strong
@@ -5241,7 +5563,7 @@ Univariate elementwise EXP.
 @ref{❨7❩, , @t{elementwise.lisp}}.
 @item Methods
 @deffn {Method} {eexp} ((a @ref{❨236❩, , @t{diagonal-matrix}}))
-@anchor{❨442❩}@c
+@anchor{❨536❩}@c
 @methodsubindex{eexp}@c
 @table @strong
 @item Source
@@ -5249,7 +5571,7 @@ Univariate elementwise EXP.
 @end table
 @end deffn
 @deffn {Method} {eexp} ((a @ref{❨222❩, , @t{hermitian-matrix}}))
-@anchor{❨443❩}@c
+@anchor{❨537❩}@c
 @methodsubindex{eexp}@c
 @table @strong
 @item Source
@@ -5257,7 +5579,7 @@ Univariate elementwise EXP.
 @end table
 @end deffn
 @deffn {Method} {eexp} ((a @ref{❨218❩, , @t{upper-triangular-matrix}}))
-@anchor{❨444❩}@c
+@anchor{❨538❩}@c
 @methodsubindex{eexp}@c
 @table @strong
 @item Source
@@ -5265,7 +5587,7 @@ Univariate elementwise EXP.
 @end table
 @end deffn
 @deffn {Method} {eexp} ((a @ref{❨234❩, , @t{lower-triangular-matrix}}))
-@anchor{❨445❩}@c
+@anchor{❨539❩}@c
 @methodsubindex{eexp}@c
 @table @strong
 @item Source
@@ -5273,13 +5595,13 @@ Univariate elementwise EXP.
 @end table
 @end deffn
 @deffn {Method} {eexp} ((a @t{number}))
-@anchor{❨446❩}@c
+@anchor{❨540❩}@c
 @methodsubindex{eexp}@c
 @table @strong
 @end table
 @end deffn
 @deffn {Method} {eexp} ((a @t{array}))
-@anchor{❨447❩}@c
+@anchor{❨541❩}@c
 @methodsubindex{eexp}@c
 @table @strong
 @end table
@@ -5287,7 +5609,7 @@ Univariate elementwise EXP.
 @end table
 @end deffn
 @deffn {Generic Function} {eexpt} (a b)
-@anchor{❨415❩}@c
+@anchor{❨391❩}@c
 @genericsubindex{eexpt}@c
 Bivariate elementwise EXPT.
 @table @strong
@@ -5297,43 +5619,43 @@ Bivariate elementwise EXPT.
 @ref{❨7❩, , @t{elementwise.lisp}}.
 @item Methods
 @deffn {Method} {eexpt} ((a @t{number}) (b @t{number}))
-@anchor{❨416❩}@c
+@anchor{❨392❩}@c
 @methodsubindex{eexpt}@c
 @table @strong
 @end table
 @end deffn
 @deffn {Method} {eexpt} ((a @t{vector}) (b @t{number}))
-@anchor{❨417❩}@c
+@anchor{❨393❩}@c
 @methodsubindex{eexpt}@c
 @table @strong
 @end table
 @end deffn
 @deffn {Method} {eexpt} ((a @t{number}) (b @t{vector}))
-@anchor{❨418❩}@c
+@anchor{❨394❩}@c
 @methodsubindex{eexpt}@c
 @table @strong
 @end table
 @end deffn
 @deffn {Method} {eexpt} ((a @t{vector}) (b @t{vector}))
-@anchor{❨419❩}@c
+@anchor{❨395❩}@c
 @methodsubindex{eexpt}@c
 @table @strong
 @end table
 @end deffn
 @deffn {Method} {eexpt} ((a @t{array}) (b @t{number}))
-@anchor{❨420❩}@c
+@anchor{❨396❩}@c
 @methodsubindex{eexpt}@c
 @table @strong
 @end table
 @end deffn
 @deffn {Method} {eexpt} ((a @t{number}) (b @t{array}))
-@anchor{❨421❩}@c
+@anchor{❨397❩}@c
 @methodsubindex{eexpt}@c
 @table @strong
 @end table
 @end deffn
 @deffn {Method} {eexpt} ((a @t{array}) (b @t{array}))
-@anchor{❨422❩}@c
+@anchor{❨398❩}@c
 @methodsubindex{eexpt}@c
 @table @strong
 @end table
@@ -5341,7 +5663,7 @@ Bivariate elementwise EXPT.
 @end table
 @end deffn
 @deffn {Generic Function} {efloor} (a)
-@anchor{❨448❩}@c
+@anchor{❨558❩}@c
 @genericsubindex{efloor}@c
 Univariate elementwise FLOOR.
 @table @strong
@@ -5351,13 +5673,13 @@ Univariate elementwise FLOOR.
 @ref{❨7❩, , @t{elementwise.lisp}}.
 @item Methods
 @deffn {Method} {efloor} ((a @t{number}))
-@anchor{❨449❩}@c
+@anchor{❨559❩}@c
 @methodsubindex{efloor}@c
 @table @strong
 @end table
 @end deffn
 @deffn {Method} {efloor} ((a @t{array}))
-@anchor{❨450❩}@c
+@anchor{❨560❩}@c
 @methodsubindex{efloor}@c
 @table @strong
 @end table
@@ -5365,7 +5687,7 @@ Univariate elementwise FLOOR.
 @end table
 @end deffn
 @deffn {Generic Function} {emod} (a b)
-@anchor{❨507❩}@c
+@anchor{❨502❩}@c
 @genericsubindex{emod}@c
 Bivariate elementwise MOD.
 @table @strong
@@ -5375,43 +5697,43 @@ Bivariate elementwise MOD.
 @ref{❨7❩, , @t{elementwise.lisp}}.
 @item Methods
 @deffn {Method} {emod} ((a @t{number}) (b @t{number}))
-@anchor{❨508❩}@c
+@anchor{❨503❩}@c
 @methodsubindex{emod}@c
 @table @strong
 @end table
 @end deffn
 @deffn {Method} {emod} ((a @t{vector}) (b @t{number}))
-@anchor{❨509❩}@c
+@anchor{❨504❩}@c
 @methodsubindex{emod}@c
 @table @strong
 @end table
 @end deffn
 @deffn {Method} {emod} ((a @t{number}) (b @t{vector}))
-@anchor{❨510❩}@c
+@anchor{❨505❩}@c
 @methodsubindex{emod}@c
 @table @strong
 @end table
 @end deffn
 @deffn {Method} {emod} ((a @t{vector}) (b @t{vector}))
-@anchor{❨511❩}@c
+@anchor{❨506❩}@c
 @methodsubindex{emod}@c
 @table @strong
 @end table
 @end deffn
 @deffn {Method} {emod} ((a @t{array}) (b @t{number}))
-@anchor{❨512❩}@c
+@anchor{❨507❩}@c
 @methodsubindex{emod}@c
 @table @strong
 @end table
 @end deffn
 @deffn {Method} {emod} ((a @t{number}) (b @t{array}))
-@anchor{❨513❩}@c
+@anchor{❨508❩}@c
 @methodsubindex{emod}@c
 @table @strong
 @end table
 @end deffn
 @deffn {Method} {emod} ((a @t{array}) (b @t{array}))
-@anchor{❨514❩}@c
+@anchor{❨509❩}@c
 @methodsubindex{emod}@c
 @table @strong
 @end table
@@ -5419,7 +5741,7 @@ Bivariate elementwise MOD.
 @end table
 @end deffn
 @deffn {Generic Function} {ereduce} (function object &key key)
-@anchor{❨400❩}@c
+@anchor{❨380❩}@c
 @genericsubindex{ereduce}@c
 Elementwise reduce@comma{} traversing in row-major order.
 @table @strong
@@ -5429,19 +5751,19 @@ Elementwise reduce@comma{} traversing in row-major order.
 @ref{❨7❩, , @t{elementwise.lisp}}.
 @item Methods
 @deffn {Method} {ereduce} (function (array @t{array}) &key key)
-@anchor{❨401❩}@c
+@anchor{❨381❩}@c
 @methodsubindex{ereduce}@c
 @table @strong
 @end table
 @end deffn
 @deffn {Method} {ereduce} (function (sequence @t{sequence}) &key key)
-@anchor{❨402❩}@c
+@anchor{❨382❩}@c
 @methodsubindex{ereduce}@c
 @table @strong
 @end table
 @end deffn
 @deffn {Method} {ereduce} (function object &key key)
-@anchor{❨403❩}@c
+@anchor{❨383❩}@c
 @methodsubindex{ereduce}@c
 @table @strong
 @end table
@@ -5449,7 +5771,7 @@ Elementwise reduce@comma{} traversing in row-major order.
 @end table
 @end deffn
 @deffn {Generic Function} {esin} (a)
-@anchor{❨405❩}@c
+@anchor{❨510❩}@c
 @genericsubindex{esin}@c
 Univariate elementwise SIN.
 @table @strong
@@ -5459,13 +5781,13 @@ Univariate elementwise SIN.
 @ref{❨7❩, , @t{elementwise.lisp}}.
 @item Methods
 @deffn {Method} {esin} ((a @t{number}))
-@anchor{❨406❩}@c
+@anchor{❨511❩}@c
 @methodsubindex{esin}@c
 @table @strong
 @end table
 @end deffn
 @deffn {Method} {esin} ((a @t{array}))
-@anchor{❨407❩}@c
+@anchor{❨512❩}@c
 @methodsubindex{esin}@c
 @table @strong
 @end table
@@ -5473,7 +5795,7 @@ Univariate elementwise SIN.
 @end table
 @end deffn
 @deffn {Generic Function} {esqrt} (a)
-@anchor{❨408❩}@c
+@anchor{❨403❩}@c
 @genericsubindex{esqrt}@c
 Univariate elementwise SQRT.
 @table @strong
@@ -5483,7 +5805,7 @@ Univariate elementwise SQRT.
 @ref{❨7❩, , @t{elementwise.lisp}}.
 @item Methods
 @deffn {Method} {esqrt} ((a @ref{❨236❩, , @t{diagonal-matrix}}))
-@anchor{❨409❩}@c
+@anchor{❨404❩}@c
 @methodsubindex{esqrt}@c
 @table @strong
 @item Source
@@ -5491,7 +5813,7 @@ Univariate elementwise SQRT.
 @end table
 @end deffn
 @deffn {Method} {esqrt} ((a @ref{❨222❩, , @t{hermitian-matrix}}))
-@anchor{❨410❩}@c
+@anchor{❨405❩}@c
 @methodsubindex{esqrt}@c
 @table @strong
 @item Source
@@ -5499,7 +5821,7 @@ Univariate elementwise SQRT.
 @end table
 @end deffn
 @deffn {Method} {esqrt} ((a @ref{❨218❩, , @t{upper-triangular-matrix}}))
-@anchor{❨411❩}@c
+@anchor{❨406❩}@c
 @methodsubindex{esqrt}@c
 @table @strong
 @item Source
@@ -5507,7 +5829,7 @@ Univariate elementwise SQRT.
 @end table
 @end deffn
 @deffn {Method} {esqrt} ((a @ref{❨234❩, , @t{lower-triangular-matrix}}))
-@anchor{❨412❩}@c
+@anchor{❨407❩}@c
 @methodsubindex{esqrt}@c
 @table @strong
 @item Source
@@ -5515,13 +5837,13 @@ Univariate elementwise SQRT.
 @end table
 @end deffn
 @deffn {Method} {esqrt} ((a @t{number}))
-@anchor{❨413❩}@c
+@anchor{❨408❩}@c
 @methodsubindex{esqrt}@c
 @table @strong
 @end table
 @end deffn
 @deffn {Method} {esqrt} ((a @t{array}))
-@anchor{❨414❩}@c
+@anchor{❨409❩}@c
 @methodsubindex{esqrt}@c
 @table @strong
 @end table
@@ -5578,7 +5900,7 @@ stands for the empty set.
 @end table
 @end deffn
 @deffn {Generic Function} {l2norm-square} (object)
-@anchor{❨344❩}@c
+@anchor{❨346❩}@c
 @genericsubindex{l2norm-square}@c
 Square of the $L_2$ norm of OBJECT.
 @table @strong
@@ -5588,7 +5910,7 @@ Square of the $L_2$ norm of OBJECT.
 @ref{❨6❩, , @t{arithmetic.lisp}}.
 @item Methods
 @deffn {Method} {l2norm-square} ((sequence @t{sequence}))
-@anchor{❨345❩}@c
+@anchor{❨347❩}@c
 @methodsubindex{l2norm-square}@c
 @table @strong
 @end table
@@ -5642,7 +5964,7 @@ Return a new array@comma{} or write into the optional 3rd argument.
 @end table
 @end deffn
 @deffn {Generic Function} {num=} (a b &optional tolerance)
-@anchor{❨541❩}@c
+@anchor{❨583❩}@c
 @genericsubindex{num=}@c
 Compare A and B for approximate equality@comma{} checking corresponding elements when applicable (using TOLERANCE).@*
 
@@ -5658,7 +5980,7 @@ Generally@comma{} methods should be defined so that two objects are NUM= if they
 @ref{❨5❩, , @t{num=.lisp}}.
 @item Methods
 @deffn {Method} {num=} ((a @ref{❨236❩, , @t{diagonal-matrix}}) (b @ref{❨236❩, , @t{diagonal-matrix}}) &optional tolerance)
-@anchor{❨542❩}@c
+@anchor{❨584❩}@c
 @methodsubindex{num=}@c
 @table @strong
 @item Source
@@ -5666,7 +5988,7 @@ Generally@comma{} methods should be defined so that two objects are NUM= if they
 @end table
 @end deffn
 @deffn {Method} {num=} ((a @ref{❨228❩, , @t{wrapped-matrix}}) (b @ref{❨228❩, , @t{wrapped-matrix}}) &optional tolerance)
-@anchor{❨543❩}@c
+@anchor{❨585❩}@c
 @methodsubindex{num=}@c
 @table @strong
 @item Source
@@ -5674,7 +5996,7 @@ Generally@comma{} methods should be defined so that two objects are NUM= if they
 @end table
 @end deffn
 @deffn {Method} {num=} ((a @ref{❨172❩, , @t{finite-interval}}) (b @ref{❨172❩, , @t{finite-interval}}) &optional tolerance)
-@anchor{❨544❩}@c
+@anchor{❨586❩}@c
 @methodsubindex{num=}@c
 @table @strong
 @item Source
@@ -5682,7 +6004,7 @@ Generally@comma{} methods should be defined so that two objects are NUM= if they
 @end table
 @end deffn
 @deffn {Method} {num=} ((a @ref{❨148❩, , @t{real-line}}) (b @ref{❨148❩, , @t{real-line}}) &optional tolerance)
-@anchor{❨545❩}@c
+@anchor{❨587❩}@c
 @methodsubindex{num=}@c
 @table @strong
 @item Source
@@ -5690,31 +6012,31 @@ Generally@comma{} methods should be defined so that two objects are NUM= if they
 @end table
 @end deffn
 @deffn {Method} {num=} (a b &optional tolerance)
-@anchor{❨546❩}@c
+@anchor{❨588❩}@c
 @methodsubindex{num=}@c
 @table @strong
 @end table
 @end deffn
 @deffn {Method} {num=} ((a @t{number}) (b @t{number}) &optional tolerance)
-@anchor{❨547❩}@c
+@anchor{❨589❩}@c
 @methodsubindex{num=}@c
 @table @strong
 @end table
 @end deffn
 @deffn {Method} {num=} ((a @t{array}) (b @t{array}) &optional tolerance)
-@anchor{❨548❩}@c
+@anchor{❨590❩}@c
 @methodsubindex{num=}@c
 @table @strong
 @end table
 @end deffn
 @deffn {Method} {num=} ((a @t{cons}) (b @t{cons}) &optional tolerance)
-@anchor{❨549❩}@c
+@anchor{❨591❩}@c
 @methodsubindex{num=}@c
 @table @strong
 @end table
 @end deffn
 @deffn {Method} {num=} ((a @t{null}) (b @t{null}) &optional tolerance)
-@anchor{❨550❩}@c
+@anchor{❨592❩}@c
 @methodsubindex{num=}@c
 @table @strong
 @end table
@@ -5776,7 +6098,7 @@ automatically generated reader method
 @end table
 @end deffn
 @deffn {Generic Function} {product} (object)
-@anchor{❨357❩}@c
+@anchor{❨359❩}@c
 @genericsubindex{product}@c
 Product of elements in object.
 @table @strong
@@ -5786,13 +6108,13 @@ Product of elements in object.
 @ref{❨6❩, , @t{arithmetic.lisp}}.
 @item Methods
 @deffn {Method} {product} ((sequence @t{sequence}))
-@anchor{❨358❩}@c
+@anchor{❨360❩}@c
 @methodsubindex{product}@c
 @table @strong
 @end table
 @end deffn
 @deffn {Method} {product} ((array @t{array}))
-@anchor{❨359❩}@c
+@anchor{❨361❩}@c
 @methodsubindex{product}@c
 @table @strong
 @end table
@@ -5844,7 +6166,7 @@ automatically generated reader method
 @end table
 @end deffn
 @deffn {Generic Function} {sum} (object &key key)
-@anchor{❨347❩}@c
+@anchor{❨349❩}@c
 @genericsubindex{sum}@c
 Sum of elements in object.  KEY is applied to each
   element.
@@ -5855,13 +6177,13 @@ Sum of elements in object.  KEY is applied to each
 @ref{❨6❩, , @t{arithmetic.lisp}}.
 @item Methods
 @deffn {Method} {sum} ((sequence @t{sequence}) &key key)
-@anchor{❨348❩}@c
+@anchor{❨350❩}@c
 @methodsubindex{sum}@c
 @table @strong
 @end table
 @end deffn
 @deffn {Method} {sum} ((array @t{array}) &key key)
-@anchor{❨349❩}@c
+@anchor{❨351❩}@c
 @methodsubindex{sum}@c
 @table @strong
 @end table
@@ -5914,7 +6236,7 @@ Transpose.
 @node Public standalone methods, Public structures, Public generic functions, Public Interface
 @subsection Standalone methods
 @deffn {Method} {as-array} ((matrix0 @ref{❨218❩, , @t{upper-triangular-matrix}}))
-@anchor{❨591❩}@c
+@anchor{❨633❩}@c
 @methodsubindex{as-array}@c
 @table @strong
 @item Package
@@ -5924,7 +6246,7 @@ Transpose.
 @end table
 @end deffn
 @deffn {Method} {as-array} ((matrix0 @ref{❨222❩, , @t{hermitian-matrix}}))
-@anchor{❨594❩}@c
+@anchor{❨636❩}@c
 @methodsubindex{as-array}@c
 @table @strong
 @item Package
@@ -5934,7 +6256,7 @@ Transpose.
 @end table
 @end deffn
 @deffn {Method} {as-array} ((matrix0 @ref{❨234❩, , @t{lower-triangular-matrix}}))
-@anchor{❨600❩}@c
+@anchor{❨642❩}@c
 @methodsubindex{as-array}@c
 @table @strong
 @item Package
@@ -5944,7 +6266,7 @@ Transpose.
 @end table
 @end deffn
 @deffn {Method} {as-array} ((diagonal-matrix @ref{❨236❩, , @t{diagonal-matrix}}))
-@anchor{❨603❩}@c
+@anchor{❨645❩}@c
 @methodsubindex{as-array}@c
 @table @strong
 @item Package
@@ -5954,7 +6276,7 @@ Transpose.
 @end table
 @end deffn
 @deffn {Method} {dims} ((wrapped-matrix @ref{❨228❩, , @t{wrapped-matrix}}))
-@anchor{❨596❩}@c
+@anchor{❨638❩}@c
 @methodsubindex{dims}@c
 @table @strong
 @item Package
@@ -5964,7 +6286,7 @@ Transpose.
 @end table
 @end deffn
 @deffn {Method} {dims} ((diagonal-matrix @ref{❨236❩, , @t{diagonal-matrix}}))
-@anchor{❨601❩}@c
+@anchor{❨643❩}@c
 @methodsubindex{dims}@c
 @table @strong
 @item Package
@@ -5974,7 +6296,7 @@ Transpose.
 @end table
 @end deffn
 @deffn {Method} {element-type} ((wrapped-matrix @ref{❨228❩, , @t{wrapped-matrix}}))
-@anchor{❨597❩}@c
+@anchor{❨639❩}@c
 @methodsubindex{element-type}@c
 @table @strong
 @item Package
@@ -5984,7 +6306,7 @@ Transpose.
 @end table
 @end deffn
 @deffn {Method} {element-type} ((diagonal-matrix @ref{❨236❩, , @t{diagonal-matrix}}))
-@anchor{❨602❩}@c
+@anchor{❨644❩}@c
 @methodsubindex{element-type}@c
 @table @strong
 @item Package
@@ -5994,7 +6316,7 @@ Transpose.
 @end table
 @end deffn
 @deffn {Method} {initialize-instance} :after ((interval @ref{❨172❩, , @t{finite-interval}}) &key &allow-other-keys)
-@anchor{❨588❩}@c
+@anchor{❨630❩}@c
 @methodsubindex{initialize-instance}@c
 @table @strong
 @item Source
@@ -6002,7 +6324,7 @@ Transpose.
 @end table
 @end deffn
 @deffn {Method} {print-object} ((interval @ref{❨170❩, , @t{interval}}) stream)
-@anchor{❨587❩}@c
+@anchor{❨629❩}@c
 @methodsubindex{print-object}@c
 @table @strong
 @item Source
@@ -6010,7 +6332,7 @@ Transpose.
 @end table
 @end deffn
 @deffn {Method} {print-object} ((matrix0 @ref{❨218❩, , @t{upper-triangular-matrix}}) stream1)
-@anchor{❨590❩}@c
+@anchor{❨632❩}@c
 @methodsubindex{print-object}@c
 @table @strong
 @item Source
@@ -6018,7 +6340,7 @@ Transpose.
 @end table
 @end deffn
 @deffn {Method} {print-object} ((matrix0 @ref{❨222❩, , @t{hermitian-matrix}}) stream1)
-@anchor{❨593❩}@c
+@anchor{❨635❩}@c
 @methodsubindex{print-object}@c
 @table @strong
 @item Source
@@ -6026,7 +6348,7 @@ Transpose.
 @end table
 @end deffn
 @deffn {Method} {print-object} ((matrix0 @ref{❨234❩, , @t{lower-triangular-matrix}}) stream1)
-@anchor{❨599❩}@c
+@anchor{❨641❩}@c
 @methodsubindex{print-object}@c
 @table @strong
 @item Source
@@ -6034,7 +6356,7 @@ Transpose.
 @end table
 @end deffn
 @deffn {Method} {select} ((matrix0 @ref{❨218❩, , @t{upper-triangular-matrix}}) &rest slices)
-@anchor{❨589❩}@c
+@anchor{❨631❩}@c
 @methodsubindex{select}@c
 @table @strong
 @item Package
@@ -6044,7 +6366,7 @@ Transpose.
 @end table
 @end deffn
 @deffn {Method} {select} ((matrix0 @ref{❨222❩, , @t{hermitian-matrix}}) &rest slices)
-@anchor{❨592❩}@c
+@anchor{❨634❩}@c
 @methodsubindex{select}@c
 @table @strong
 @item Package
@@ -6054,7 +6376,7 @@ Transpose.
 @end table
 @end deffn
 @deffn {Method} {select} ((matrix0 @ref{❨234❩, , @t{lower-triangular-matrix}}) &rest slices)
-@anchor{❨598❩}@c
+@anchor{❨640❩}@c
 @methodsubindex{select}@c
 @table @strong
 @item Package
@@ -6080,37 +6402,37 @@ Diagonal matrix.  The elements in the diagonal are stored in a vector.
 @item Direct methods
 @itemize @bullet
 @item
-@ref{❨603❩, , @t{as-array}}.
+@ref{❨645❩, , @t{as-array}}.
 @item
-@ref{❨601❩, , @t{dims}}.
+@ref{❨643❩, , @t{dims}}.
 @item
-@ref{❨386❩, , @t{e1-}}.
+@ref{❨461❩, , @t{e1-}}.
 @item
-@ref{❨379❩, , @t{e1/}}.
+@ref{❨385❩, , @t{e1/}}.
 @item
-@ref{❨455❩, , @t{e1log}}.
+@ref{❨543❩, , @t{e1log}}.
 @item
-@ref{❨476❩, , @t{e2*}}.
+@ref{❨412❩, , @t{e2*}}.
 @item
-@ref{❨480❩, , @t{e2*}}.
+@ref{❨416❩, , @t{e2*}}.
 @item
-@ref{❨481❩, , @t{e2*}}.
+@ref{❨417❩, , @t{e2*}}.
 @item
-@ref{❨462❩, , @t{e2+}}.
+@ref{❨514❩, , @t{e2+}}.
 @item
-@ref{❨517❩, , @t{e2-}}.
+@ref{❨484❩, , @t{e2-}}.
 @item
-@ref{❨424❩, , @t{e2/}}.
+@ref{❨468❩, , @t{e2/}}.
 @item
-@ref{❨425❩, , @t{e2/}}.
+@ref{❨469❩, , @t{e2/}}.
 @item
-@ref{❨442❩, , @t{eexp}}.
+@ref{❨536❩, , @t{eexp}}.
 @item
-@ref{❨602❩, , @t{element-type}}.
+@ref{❨644❩, , @t{element-type}}.
 @item
-@ref{❨409❩, , @t{esqrt}}.
+@ref{❨404❩, , @t{esqrt}}.
 @item
-@ref{❨542❩, , @t{num=}}.
+@ref{❨584❩, , @t{num=}}.
 @item
 @ref{❨243❩, , @t{transpose}}.
 @end itemize
@@ -6145,35 +6467,35 @@ Implements _both_ real symmetric and complex Hermitian matrices --- as technical
 @item Direct methods
 @itemize @bullet
 @item
-@ref{❨594❩, , @t{as-array}}.
+@ref{❨636❩, , @t{as-array}}.
 @item
-@ref{❨387❩, , @t{e1-}}.
+@ref{❨462❩, , @t{e1-}}.
 @item
-@ref{❨380❩, , @t{e1/}}.
+@ref{❨386❩, , @t{e1/}}.
 @item
-@ref{❨456❩, , @t{e1log}}.
+@ref{❨544❩, , @t{e1log}}.
 @item
-@ref{❨477❩, , @t{e2*}}.
+@ref{❨413❩, , @t{e2*}}.
 @item
-@ref{❨482❩, , @t{e2*}}.
+@ref{❨418❩, , @t{e2*}}.
 @item
-@ref{❨483❩, , @t{e2*}}.
+@ref{❨419❩, , @t{e2*}}.
 @item
-@ref{❨463❩, , @t{e2+}}.
+@ref{❨515❩, , @t{e2+}}.
 @item
-@ref{❨518❩, , @t{e2-}}.
+@ref{❨485❩, , @t{e2-}}.
 @item
-@ref{❨426❩, , @t{e2/}}.
+@ref{❨470❩, , @t{e2/}}.
 @item
-@ref{❨427❩, , @t{e2/}}.
+@ref{❨471❩, , @t{e2/}}.
 @item
-@ref{❨443❩, , @t{eexp}}.
+@ref{❨537❩, , @t{eexp}}.
 @item
-@ref{❨410❩, , @t{esqrt}}.
+@ref{❨405❩, , @t{esqrt}}.
 @item
-@ref{❨593❩, , @t{print-object}}.
+@ref{❨635❩, , @t{print-object}}.
 @item
-@ref{❨592❩, , @t{select}}.
+@ref{❨634❩, , @t{select}}.
 @item
 @ref{❨242❩, , @t{transpose}}.
 @end itemize
@@ -6193,35 +6515,35 @@ Lower triangular matrix.  ELEMENTS in the upper triangle are treated as zero.
 @item Direct methods
 @itemize @bullet
 @item
-@ref{❨600❩, , @t{as-array}}.
+@ref{❨642❩, , @t{as-array}}.
 @item
-@ref{❨389❩, , @t{e1-}}.
+@ref{❨464❩, , @t{e1-}}.
 @item
-@ref{❨382❩, , @t{e1/}}.
+@ref{❨388❩, , @t{e1/}}.
 @item
-@ref{❨458❩, , @t{e1log}}.
+@ref{❨546❩, , @t{e1log}}.
 @item
-@ref{❨479❩, , @t{e2*}}.
+@ref{❨415❩, , @t{e2*}}.
 @item
-@ref{❨486❩, , @t{e2*}}.
+@ref{❨422❩, , @t{e2*}}.
 @item
-@ref{❨487❩, , @t{e2*}}.
+@ref{❨423❩, , @t{e2*}}.
 @item
-@ref{❨465❩, , @t{e2+}}.
+@ref{❨517❩, , @t{e2+}}.
 @item
-@ref{❨520❩, , @t{e2-}}.
+@ref{❨487❩, , @t{e2-}}.
 @item
-@ref{❨430❩, , @t{e2/}}.
+@ref{❨474❩, , @t{e2/}}.
 @item
-@ref{❨431❩, , @t{e2/}}.
+@ref{❨475❩, , @t{e2/}}.
 @item
-@ref{❨445❩, , @t{eexp}}.
+@ref{❨539❩, , @t{eexp}}.
 @item
-@ref{❨412❩, , @t{esqrt}}.
+@ref{❨407❩, , @t{esqrt}}.
 @item
-@ref{❨599❩, , @t{print-object}}.
+@ref{❨641❩, , @t{print-object}}.
 @item
-@ref{❨598❩, , @t{select}}.
+@ref{❨640❩, , @t{select}}.
 @item
 @ref{❨240❩, , @t{transpose}}.
 @end itemize
@@ -6282,7 +6604,7 @@ Spacers divide the leftover portion of an interval.
 @end table
 @end deftp
 @deftp {Structure} {test-results}
-@anchor{❨318❩}@c
+@anchor{❨320❩}@c
 @structuresubindex{test-results}@c
 Differences between reference values and computed values
 @table @strong
@@ -6294,7 +6616,7 @@ Differences between reference values and computed values
 @t{structure-object}.
 @item Direct slots
 @defvr {Slot} {worst-case}
-@anchor{❨319❩}@c
+@anchor{❨321❩}@c
 @slotsubindex{worst-case}@c
 @table @strong
 @item Type
@@ -6302,13 +6624,13 @@ Differences between reference values and computed values
 @item Initform
 @t{0}
 @item Readers
-@ref{❨337❩, , @t{worst-case}}.
+@ref{❨339❩, , @t{worst-case}}.
 @item Writers
-@ref{❨338❩, , @t{(setf worst-case)}}.
+@ref{❨340❩, , @t{(setf worst-case)}}.
 @end table
 @end defvr
 @defvr {Slot} {min-error}
-@anchor{❨320❩}@c
+@anchor{❨322❩}@c
 @slotsubindex{min-error}@c
 @table @strong
 @item Type
@@ -6316,13 +6638,13 @@ Differences between reference values and computed values
 @item Initform
 @t{0.0d0}
 @item Readers
-@ref{❨316❩, , @t{min-error}}.
+@ref{❨318❩, , @t{min-error}}.
 @item Writers
-@ref{❨317❩, , @t{(setf min-error)}}.
+@ref{❨319❩, , @t{(setf min-error)}}.
 @end table
 @end defvr
 @defvr {Slot} {max-error}
-@anchor{❨321❩}@c
+@anchor{❨323❩}@c
 @slotsubindex{max-error}@c
 @table @strong
 @item Type
@@ -6330,13 +6652,13 @@ Differences between reference values and computed values
 @item Initform
 @t{0.0d0}
 @item Readers
-@ref{❨329❩, , @t{max-error}}.
+@ref{❨331❩, , @t{max-error}}.
 @item Writers
-@ref{❨330❩, , @t{(setf max-error)}}.
+@ref{❨332❩, , @t{(setf max-error)}}.
 @end table
 @end defvr
 @defvr {Slot} {mean-error}
-@anchor{❨322❩}@c
+@anchor{❨324❩}@c
 @slotsubindex{mean-error}@c
 @table @strong
 @item Type
@@ -6344,13 +6666,13 @@ Differences between reference values and computed values
 @item Initform
 @t{0.0d0}
 @item Readers
-@ref{❨327❩, , @t{mean-error}}.
+@ref{❨329❩, , @t{mean-error}}.
 @item Writers
-@ref{❨328❩, , @t{(setf mean-error)}}.
+@ref{❨330❩, , @t{(setf mean-error)}}.
 @end table
 @end defvr
 @defvr {Slot} {test-count}
-@anchor{❨323❩}@c
+@anchor{❨325❩}@c
 @slotsubindex{test-count}@c
 @table @strong
 @item Type
@@ -6358,13 +6680,13 @@ Differences between reference values and computed values
 @item Initform
 @t{0}
 @item Readers
-@ref{❨335❩, , @t{test-count}}.
+@ref{❨337❩, , @t{test-count}}.
 @item Writers
-@ref{❨336❩, , @t{(setf test-count)}}.
+@ref{❨338❩, , @t{(setf test-count)}}.
 @end table
 @end defvr
 @defvr {Slot} {variance0}
-@anchor{❨324❩}@c
+@anchor{❨326❩}@c
 @slotsubindex{variance0}@c
 @table @strong
 @item Type
@@ -6372,13 +6694,13 @@ Differences between reference values and computed values
 @item Initform
 @t{0.0d0}
 @item Readers
-@ref{❨331❩, , @t{variance0}}.
+@ref{❨333❩, , @t{variance0}}.
 @item Writers
-@ref{❨332❩, , @t{(setf variance0)}}.
+@ref{❨334❩, , @t{(setf variance0)}}.
 @end table
 @end defvr
 @defvr {Slot} {variance1}
-@anchor{❨325❩}@c
+@anchor{❨327❩}@c
 @slotsubindex{variance1}@c
 @table @strong
 @item Type
@@ -6386,13 +6708,13 @@ Differences between reference values and computed values
 @item Initform
 @t{0.0d0}
 @item Readers
-@ref{❨313❩, , @t{variance1}}.
+@ref{❨315❩, , @t{variance1}}.
 @item Writers
-@ref{❨314❩, , @t{(setf variance1)}}.
+@ref{❨316❩, , @t{(setf variance1)}}.
 @end table
 @end defvr
 @defvr {Slot} {rms}
-@anchor{❨326❩}@c
+@anchor{❨328❩}@c
 @slotsubindex{rms}@c
 @table @strong
 @item Type
@@ -6400,9 +6722,9 @@ Differences between reference values and computed values
 @item Initform
 @t{0.0d0}
 @item Readers
-@ref{❨339❩, , @t{rms}}.
+@ref{❨341❩, , @t{rms}}.
 @item Writers
-@ref{❨340❩, , @t{(setf rms)}}.
+@ref{❨342❩, , @t{(setf rms)}}.
 @end table
 @end defvr
 @end table
@@ -6421,35 +6743,35 @@ Upper triangular matrix.  ELEMENTS in the lower triangle are treated as zero.
 @item Direct methods
 @itemize @bullet
 @item
-@ref{❨591❩, , @t{as-array}}.
+@ref{❨633❩, , @t{as-array}}.
 @item
-@ref{❨388❩, , @t{e1-}}.
+@ref{❨463❩, , @t{e1-}}.
 @item
-@ref{❨381❩, , @t{e1/}}.
+@ref{❨387❩, , @t{e1/}}.
 @item
-@ref{❨457❩, , @t{e1log}}.
+@ref{❨545❩, , @t{e1log}}.
 @item
-@ref{❨478❩, , @t{e2*}}.
+@ref{❨414❩, , @t{e2*}}.
 @item
-@ref{❨484❩, , @t{e2*}}.
+@ref{❨420❩, , @t{e2*}}.
 @item
-@ref{❨485❩, , @t{e2*}}.
+@ref{❨421❩, , @t{e2*}}.
 @item
-@ref{❨464❩, , @t{e2+}}.
+@ref{❨516❩, , @t{e2+}}.
 @item
-@ref{❨519❩, , @t{e2-}}.
+@ref{❨486❩, , @t{e2-}}.
 @item
-@ref{❨428❩, , @t{e2/}}.
+@ref{❨472❩, , @t{e2/}}.
 @item
-@ref{❨429❩, , @t{e2/}}.
+@ref{❨473❩, , @t{e2/}}.
 @item
-@ref{❨444❩, , @t{eexp}}.
+@ref{❨538❩, , @t{eexp}}.
 @item
-@ref{❨411❩, , @t{esqrt}}.
+@ref{❨406❩, , @t{esqrt}}.
 @item
-@ref{❨590❩, , @t{print-object}}.
+@ref{❨632❩, , @t{print-object}}.
 @item
-@ref{❨589❩, , @t{select}}.
+@ref{❨631❩, , @t{select}}.
 @item
 @ref{❨241❩, , @t{transpose}}.
 @end itemize
@@ -6478,23 +6800,23 @@ A matrix that has some special structure (eg triangular@comma{} symmetric/hermit
 @item Direct methods
 @itemize @bullet
 @item
-@ref{❨596❩, , @t{dims}}.
+@ref{❨638❩, , @t{dims}}.
 @item
-@ref{❨488❩, , @t{e2*}}.
+@ref{❨424❩, , @t{e2*}}.
 @item
-@ref{❨489❩, , @t{e2*}}.
+@ref{❨425❩, , @t{e2*}}.
 @item
-@ref{❨466❩, , @t{e2+}}.
+@ref{❨518❩, , @t{e2+}}.
 @item
-@ref{❨467❩, , @t{e2+}}.
+@ref{❨519❩, , @t{e2+}}.
 @item
-@ref{❨521❩, , @t{e2-}}.
+@ref{❨488❩, , @t{e2-}}.
 @item
-@ref{❨522❩, , @t{e2-}}.
+@ref{❨489❩, , @t{e2-}}.
 @item
-@ref{❨597❩, , @t{element-type}}.
+@ref{❨639❩, , @t{element-type}}.
 @item
-@ref{❨543❩, , @t{num=}}.
+@ref{❨585❩, , @t{num=}}.
 @end itemize
 @item Direct slots
 @defvr {Slot} {elements}
@@ -6537,9 +6859,9 @@ Interval with finite endpoints.
 @item
 @ref{❨128❩, , @t{chebyshev-approximate-implementation}}.
 @item
-@ref{❨588❩, , @t{initialize-instance}}.
+@ref{❨630❩, , @t{initialize-instance}}.
 @item
-@ref{❨544❩, , @t{num=}}.
+@ref{❨586❩, , @t{num=}}.
 @item
 @ref{❨163❩, , @t{shift-interval}}.
 @item
@@ -6574,7 +6896,7 @@ Abstract superclass for all intervals.
 @item
 @ref{❨142❩, , @t{extend-interval}}.
 @item
-@ref{❨587❩, , @t{print-object}}.
+@ref{❨629❩, , @t{print-object}}.
 @end itemize
 @end table
 @end deftp
@@ -6644,7 +6966,7 @@ Representing the real line (-∞@comma{}∞).
 @ref{❨196❩, , @t{interval/infinite-right}}.
 @end itemize
 @item Direct methods
-@ref{❨545❩, , @t{num=}}.
+@ref{❨587❩, , @t{num=}}.
 @end table
 @end deftp
 
@@ -6662,7 +6984,7 @@ Extended real number.
 @end table
 @end deftp
 @deftp {Type} {simple-boolean-vector} (&optional length)
-@anchor{❨297❩}@c
+@anchor{❨298❩}@c
 @typesubindex{simple-boolean-vector}@c
 Vector of BOOLEAN elements.
 @table @strong
@@ -6695,7 +7017,7 @@ Simple vector of fixnum elements.
 @end table
 @end deftp
 @deftp {Type} {simple-single-float-vector} (&optional length)
-@anchor{❨305❩}@c
+@anchor{❨306❩}@c
 @typesubindex{simple-single-float-vector}@c
 Simple vector of single-float elements.
 @table @strong
@@ -6768,7 +7090,7 @@ Define a comparison@comma{} extendeding a pairwise comparison to an arbitrary nu
 @end table
 @end deffn
 @deffn {Macro} {define-e@ampchar{}} (operation &key function bivariate univariate docstring)
-@anchor{❨535❩}@c
+@anchor{❨577❩}@c
 @macrosubindex{define-e@ampchar{}}@c
 @table @strong
 @item Package
@@ -6778,7 +7100,7 @@ Define a comparison@comma{} extendeding a pairwise comparison to an arbitrary nu
 @end table
 @end deffn
 @deffn {Macro} {define-e1} (operation &key function docstring)
-@anchor{❨534❩}@c
+@anchor{❨576❩}@c
 @macrosubindex{define-e1}@c
 Define an univariate elementwise operation.
 @table @strong
@@ -6789,7 +7111,7 @@ Define an univariate elementwise operation.
 @end table
 @end deffn
 @deffn {Macro} {define-e2} (operation &key function docstring)
-@anchor{❨530❩}@c
+@anchor{❨572❩}@c
 @macrosubindex{define-e2}@c
 Define a bivariate elementwise operation.
 @table @strong
@@ -6811,7 +7133,7 @@ Define binary elementwise operations for FUNCTION@comma{} implemented by convert
 @end table
 @end deffn
 @deffn {Macro} {define-elementwise-reduction} (name function &optional docstring)
-@anchor{❨536❩}@c
+@anchor{❨578❩}@c
 @macrosubindex{define-elementwise-reduction}@c
 @table @strong
 @item Package
@@ -6854,7 +7176,7 @@ Define binary elementwise operations for FUNCTION for all subclasses of wrapped-
 @end table
 @end deffn
 @deffn {Macro} {define-rounding-with-offset} (name function docstring)
-@anchor{❨377❩}@c
+@anchor{❨379❩}@c
 @macrosubindex{define-rounding-with-offset}@c
 @table @strong
 @item Package
@@ -6874,7 +7196,7 @@ Define binary elementwise operations for FUNCTION for all subclasses of wrapped-
 @end table
 @end deffn
 @deffn {Macro} {mapping-array} ((ref array &rest other) form)
-@anchor{❨537❩}@c
+@anchor{❨579❩}@c
 @macrosubindex{mapping-array}@c
 @table @strong
 @item Package
@@ -6884,7 +7206,7 @@ Define binary elementwise operations for FUNCTION for all subclasses of wrapped-
 @end table
 @end deffn
 @deffn {Macro} {univariate-rootfinder-loop%} (((f a b fa fb) (f-tested test-bracket delta epsilon)) &body body)
-@anchor{❨558❩}@c
+@anchor{❨600❩}@c
 @macrosubindex{univariate-rootfinder-loop%}@c
 Common parts for univariate rootfinder functions.@*
 
@@ -6955,7 +7277,7 @@ Test if element with indexes row and col is (strictly) below the diagonal.
 @end table
 @end deffn
 @deffn {Function} {boolean-sequence-p} (x)
-@anchor{❨312❩}@c
+@anchor{❨314❩}@c
 @functionsubindex{boolean-sequence-p}@c
 @table @strong
 @item Package
@@ -6965,7 +7287,7 @@ Test if element with indexes row and col is (strictly) below the diagonal.
 @end table
 @end deffn
 @deffn {Function} {boolean?} (object)
-@anchor{❨311❩}@c
+@anchor{❨313❩}@c
 @functionsubindex{boolean?}@c
 Check type of OBJECT is BOOLEAN.
 @table @strong
@@ -7078,7 +7400,7 @@ Map x in [c@comma{}plus-infinity) to z in [a@comma{}b] using x -> (x-c)/(1+x-c)+
 @end table
 @end deffn
 @deffn {Function} {copy-test-results} (instance)
-@anchor{❨341❩}@c
+@anchor{❨343❩}@c
 @functionsubindex{copy-test-results}@c
 @table @strong
 @item Package
@@ -7278,7 +7600,7 @@ Extend TEST (a pairwise comparison) to an arbitrary number of arguments (but at 
 @end table
 @end deffn
 @deffn {Function} {ln} (n)
-@anchor{❨376❩}@c
+@anchor{❨378❩}@c
 @functionsubindex{ln}@c
 Natural logarithm.
 @table @strong
@@ -7349,7 +7671,7 @@ Natural logarithm.
 @end table
 @end deffn
 @deffn {Function} {make-test-results} (&key worst-case min-error max-error mean-error test-count variance0 variance1 rms)
-@anchor{❨342❩}@c
+@anchor{❨344❩}@c
 @functionsubindex{make-test-results}@c
 @table @strong
 @item Package
@@ -7529,7 +7851,7 @@ Natural logarithm.
 @end table
 @end deffn
 @deffn {Function} {narrow-bracket?} (a b delta)
-@anchor{❨562❩}@c
+@anchor{❨604❩}@c
 @functionsubindex{narrow-bracket?}@c
 Return true iff $|a-b| < @backslashchar{}delta$.
 @table @strong
@@ -7540,7 +7862,7 @@ Return true iff $|a-b| < @backslashchar{}delta$.
 @end table
 @end deffn
 @deffn {Function} {near-root?} (f epsilon)
-@anchor{❨560❩}@c
+@anchor{❨602❩}@c
 @functionsubindex{near-root?}@c
 Return true iff $|f| < @backslashchar{}epsilon$.
 @table @strong
@@ -7551,7 +7873,7 @@ Return true iff $|f| < @backslashchar{}epsilon$.
 @end table
 @end deffn
 @deffn {Function} {opposite-sign?} (a b)
-@anchor{❨561❩}@c
+@anchor{❨603❩}@c
 @functionsubindex{opposite-sign?}@c
 Return true iff A and B are on opposite sides of 0.
 @table @strong
@@ -7693,7 +8015,7 @@ Internal function implementing Romberg quadrature.  Requires an iterative quadra
 @end table
 @end deffn
 @deffn {Function} {rootfinding-delta} (interval &optional delta-relative)
-@anchor{❨559❩}@c
+@anchor{❨601❩}@c
 @functionsubindex{rootfinding-delta}@c
 Default DELTA for rootfinding methods@comma{} uses bracket width.
 @table @strong
@@ -7704,7 +8026,7 @@ Default DELTA for rootfinding methods@comma{} uses bracket width.
 @end table
 @end deffn
 @deffn {Function} {similar-element-type} (element-type)
-@anchor{❨375❩}@c
+@anchor{❨377❩}@c
 @functionsubindex{similar-element-type}@c
 Return a type that is a supertype of ELEMENT-TYPE and is closed under arithmetic operations.  May not be the narrowest.
 @table @strong
@@ -7715,7 +8037,7 @@ Return a type that is a supertype of ELEMENT-TYPE and is closed under arithmetic
 @end table
 @end deffn
 @deffn {Function} {similar-sequence-type} (sequence)
-@anchor{❨374❩}@c
+@anchor{❨376❩}@c
 @functionsubindex{similar-sequence-type}@c
 Return type that sequence can be mapped to using arithmetic operations.
 @table @strong
@@ -7748,7 +8070,7 @@ Return type that sequence can be mapped to using arithmetic operations.
 @end table
 @end deffn
 @deffn {Function} {test-results-p} (object)
-@anchor{❨343❩}@c
+@anchor{❨345❩}@c
 @functionsubindex{test-results-p}@c
 @table @strong
 @item Package
@@ -7987,7 +8309,7 @@ Implementation of CHEBYSHEV-APPROXIMATE.
 @end table
 @end deffn
 @deffn {Generic Function} {esquare} (a)
-@anchor{❨531❩}@c
+@anchor{❨573❩}@c
 @genericsubindex{esquare}@c
 Univariate elementwise SQUARE.
 @table @strong
@@ -7997,13 +8319,13 @@ Univariate elementwise SQUARE.
 @ref{❨7❩, , @t{elementwise.lisp}}.
 @item Methods
 @deffn {Method} {esquare} ((a @t{number}))
-@anchor{❨532❩}@c
+@anchor{❨574❩}@c
 @methodsubindex{esquare}@c
 @table @strong
 @end table
 @end deffn
 @deffn {Method} {esquare} ((a @t{array}))
-@anchor{❨533❩}@c
+@anchor{❨575❩}@c
 @methodsubindex{esquare}@c
 @table @strong
 @end table
