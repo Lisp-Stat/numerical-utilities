@@ -1,5 +1,5 @@
 ;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: CL-USER -*-
-;;; Copyright (c) 2021 by Symbolics Pte. Ltd. All rights reserved.
+;;; Copyright (c) 2021-2022 by Symbolics Pte. Ltd. All rights reserved.
 
 (uiop:define-package #:num-utils-tests
   (:use #:cl
@@ -21,9 +21,6 @@
         #:num-utils.polynomial
         #:num-utils.quadrature
         #:num-utils.rootfinding
-        #:num-utils.statistics
 	#:num-utils.test-utilities
         #:num-utils.utilities)
-  (:shadowing-import-from #:num-utils.statistics #:mean #:variance #:median)
-  (:export
-   #:run))
+  (:export #:run))

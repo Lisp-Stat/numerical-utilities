@@ -35,6 +35,7 @@
 (defpackage #:num-utils.arithmetic
   (:use #:cl
         #:alexandria-2
+	#:alexandria+
         #:anaphora
         #:num-utils.utilities
         #:let-plus)
@@ -240,6 +241,7 @@
 (cl:defpackage #:num-utils.quadrature
   (:use #:cl
         #:alexandria
+	#:alexandria+
         #:anaphora
         #:num-utils.arithmetic
         #:num-utils.interval
@@ -258,53 +260,6 @@
    #:*rootfinding-epsilon*
    #:*rootfinding-delta-relative*
    #:root-bisection))
-
-(cl:defpackage #:num-utils.statistics
-  (:nicknames #:nu.stats)
-  (:use #:cl
-        #:anaphora
-        #:alexandria
-        #:num-utils.arithmetic
-        #:num-utils.num=
-        #:num-utils.utilities
-        #:let-plus)
-  (:shadow #:mean
-           #:variance
-           #:median)
-  (:export
-   #:tally
-   #:add
-   #:pool
-   #:empty-accumulator
-   #:not-enough-elements-in-accumulator
-   #:information-not-collected-in-accumulator
-   #:central-sample-moments
-   #:central-sample-moments-degree
-   #:*central-sample-moments-default-degree*
-   #:mean
-   #:variance
-   #:sd
-   #:central-m2
-   #:central-m3
-   #:central-m4
-   #:skewness
-   #:kurtosis
-   #:median
-   #:sorted-reals
-   #:sorted-reals-elements
-   #:empirical-quantile
-   #:empirical-quantile-probabilities
-   #:quantile
-   #:quantiles
-   #:ensure-sorted-reals
-   #:ensure-sorted-vector
-   #:weighted-quantiles
-   #:make-sparse-counter
-   #:sparse-counter
-   #:sparse-counter-count
-   #:sparse-counter-table
-   #:tabulate
-   #:cross-tabulate))
 
 (uiop:define-package #:num-utils.log-exp
     (:use #:cl #:let-plus)

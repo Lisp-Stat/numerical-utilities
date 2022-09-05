@@ -11,7 +11,6 @@
 		 #:num-utils.interval
 		 #:num-utils.matrix
 		 #:num-utils.num=
-		 #:num-utils.statistics
 		 #:num-utils.utilities
 		 #:num-utils.rootfinding
 		 #:num-utils.polynomial
