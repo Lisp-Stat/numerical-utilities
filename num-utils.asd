@@ -16,6 +16,7 @@
 
   :depends-on (#:anaphora
                #:alexandria
+	       #:alexandria+
                #:array-operations
                #:select
                #:let-plus)
