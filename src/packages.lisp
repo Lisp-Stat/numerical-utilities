@@ -166,6 +166,7 @@
    #:efloor
    #:eceiling
    #:econjugate
+   #:esquare
    #:ereduce
    #:emin
    #:emax

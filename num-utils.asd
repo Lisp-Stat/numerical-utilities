@@ -1,9 +1,9 @@
 ;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: ASDF -*-
 ;;; Copyright (c) 2010 by Tamas K. Papp <tkpapp@gmail.com>
-;;; Copyright (c) 2019-2022 by Symbolics Pte. Ltd. All rights reserved.
+;;; Copyright (c) 2019-2023 by Symbolics Pte. Ltd. All rights reserved.
 
 (defsystem "num-utils"
-  :version "1.2.0"
+  :version "1.2.1"
   :license :MS-PL
   :author "Steven Nunez <steve@symbolics.tech>"
   :long-name "Numerical Utilities"
