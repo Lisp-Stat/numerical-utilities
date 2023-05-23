@@ -1,0 +1,1 @@
+../tests/matrix-shorthand.lisp
