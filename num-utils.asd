@@ -52,6 +52,7 @@
                #:select
                #:let-plus
                #:static-dispatch)
+  :in-order-to ((test-op (test-op "num-utils/static-dispatch/tests")))
   :pathname "static-dispatch/"
   :serial t
   :components
@@ -80,7 +81,7 @@
   :author "Steven Nunez <steve@symbolics.tech>"
   :license "Same as NUM-UTILS -- this is part of the NUM-UTILS library."
   #+asdf-unicode :encoding #+asdf-unicode :utf-8
-  :depends-on (#:num-utils/static-dispatch
+  :depends-on (#:num-utils
                #:fiveam
                #:select) ; matrix test needs this
   :pathname "tests/"
