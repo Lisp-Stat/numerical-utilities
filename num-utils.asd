@@ -3,7 +3,7 @@
 ;;; Copyright (c) 2019-2023 by Symbolics Pte. Ltd. All rights reserved.
 
 (defsystem "num-utils"
-  :version "1.2.1"
+  :version "1.3.0"
   :license :MS-PL
   :author "Steven Nunez <steve@symbolics.tech>"
   :long-name "Numerical Utilities"
@@ -28,7 +28,6 @@
    (:file "utilities")
    (:file "num=")
    (:file "arithmetic")
-;;   (:file "arithmetic-type") ; now in src/old/ Looks like it was a WIP
    (:file "elementwise")
    (:file "extended-real")
    (:file "interval")

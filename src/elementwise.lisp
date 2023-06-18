@@ -89,6 +89,7 @@
 (define-e1 -)
 (define-e1 /)
 (define-e1 log)
+(define-e1 abs       :function eabs)
 (define-e1 floor     :function efloor)
 (define-e1 ceiling   :function eceiling)
 (define-e1 exp       :function eexp)

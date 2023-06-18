@@ -176,7 +176,8 @@
    #:e2<=
    #:e2>
    #:e2>=
-   #:e2=))
+   #:e2=
+   #:eabs))
 
 (defpackage #:num-utils.extended-real
   (:use #:cl #:alexandria)
