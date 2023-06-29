@@ -16,4 +16,5 @@
 		 #:num-utils.polynomial
 		 #:num-utils.test-utilities
 		 #:num-utils.quadrature
-		 #:num-utils.log-exp))
+		 #:num-utils.log-exp
+		 #:num-utils.print-matrix))
