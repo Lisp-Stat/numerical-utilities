@@ -68,3 +68,22 @@ If ALIGNED?, columns will be right-aligned.  At most *PRINT-LENGTH* rows and col
 	(princ "..." stream)))
     (when row-trunc?
       (format stream "~&..."))))
+
+;;; Sometimes we want an unwrapped matrix (rank 2 array) to be printed
+;;; in human, as opposed to machine, readable format.  For this we need
+;;; to overide the implementation's print-object method.  Here's how to
+;;; do that for SBCL:
+#|
+(defun output-matrix (array stream)
+  (print-unreadable-object (array stream :type t)
+    (format stream "~%")
+      (print-matrix array stream)))
+
+From SBCL:print.lisp
+(defmethod sb-impl::print-object ((array array) stream)
+  (if (and (or *print-array* *print-readably*) (array-element-type array))
+      (if (= 2 (array-rank array))
+	  (output-matrix array stream)
+	  (sb-impl::output-array-guts array stream))
+      (sb-impl::output-terse-array array stream)))
+|#
