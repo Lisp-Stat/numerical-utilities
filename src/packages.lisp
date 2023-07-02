@@ -21,6 +21,7 @@
    #:as-bit-vector
    #:as-double-float
    #:with-double-floats
+   #:as-simple-double-float-vector
    #:simple-double-float-vector
    #:make-vector
    #:generate-sequence

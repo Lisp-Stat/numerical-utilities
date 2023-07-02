@@ -1,5 +1,5 @@
 ;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS.UTILITIES -*-
-;;; Copyright (c) 2019, 2022 by Symbolics Pte. Ltd. All rights reserved.
+;;; Copyright (c) 2019-2023 by Symbolics Pte. Ltd. All rights reserved.
 (cl:in-package :num-utils.utilities)
 
 (defmacro gethash* (key hash-table
@@ -83,7 +83,7 @@ Example: `(,foo ,@(splice-when add-bar? bar))"
   '(simple-array fixnum (*)))
 
 (defun as-simple-fixnum-vector (sequence &optional copy?)
-  "Convert SEQUENCE to a SIMPLE-FIXNUM-VECTOR.  When COPY?, make sure that the they don't share structure."
+  "Convert SEQUENCE to a SIMPLE-FIXNUM-VECTOR.  When COPY?, make sure that they don't share structure."
   (if (and (typep sequence 'simple-fixnum-vector) copy?)
       (copy-seq sequence)
       (coerce sequence 'simple-fixnum-vector)))
@@ -135,6 +135,14 @@ Example:
 (deftype simple-single-float-vector (&optional (length '*))
   "Simple vector of single-float elements."
   `(simple-array single-float (,length)))
+
+(defun as-simple-double-float-vector (sequence &optional copy?)
+  "Convert SEQUENCE to a SIMPLE-DOUBLE-FLOAT-VECTOR.  When COPY?, make sure they don't share structure."
+  (assert (every #'realp sequence) (sequence) "SEQUENCE ~S contains non-numeric values." sequence)
+  (if (and (typep sequence 'simple-double-float-vector) copy?)
+      (copy-seq sequence)
+      (map 'simple-double-float-vector 'as-double-float sequence)))
+
 
 
 (defun generate-sequence (result-type size function)
