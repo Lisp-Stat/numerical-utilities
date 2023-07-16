@@ -1,5 +1,28 @@
 ;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS.LOG-EXP -*-
-;;; Copyright (c) 2021 by Symbolics Pte. Ltd. All rights reserved.
+;;; Copyright (c) 2021, 2023 by Symbolics Pte. Ltd. All rights reserved.
+;;; SPDX-License-identifier: MS-PL
+
+(uiop:define-package #:num-utils.log-exp
+  (:use #:cl #:let-plus)
+  (:import-from #:num-utils.arithmetic
+		#:ln
+		#:square)
+  (:import-from #:num-utils.polynomial
+		#:evaluate-polynomial)
+  (:import-from #:num-utils.utilities
+		#:simple-double-float-vector)
+  (:export #:log1+
+	   #:log1-
+	   #:log1+/x
+	   #:exp-1
+	   #:exp-1/x
+	   #:expt-1
+	   #:log1-exp
+	   #:log1+exp
+	   #:log2-exp
+	   #:logexp-1
+	   #:hypot
+	   #:log1pmx))
 (in-package #:num-utils.log-exp)
 
 ;;; Functions based on log and exp that require special handling near

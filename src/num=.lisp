@@ -1,5 +1,21 @@
 ;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS.NUM= -*-
+;;; Copyright (c) 2011-2014 Tamas Papp
+;;; Copyright (c) 2023 Symbolics Pte Ltd
+;;; SPDX-License-identifier: MS-PL
+
+(uiop:define-package #:num-utils.num=
+  (:use #:cl
+        #:alexandria
+        #:anaphora
+        #:let-plus)
+  (:export #:num-delta
+	   #:*num=-tolerance*
+	   #:num=
+	   #:num=-function
+	   #:define-num=-with-accessors
+	   #:define-structure-num=))
 (in-package #:num-utils.num=)
+
 
 (defparameter *num=-tolerance* 1d-5 "Default tolerance for NUM=.")
 

@@ -1,5 +1,5 @@
 ;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS-TESTS -*-
-;;; Copyright (c) 2019 by Symbolics Pte. Ltd. All rights reserved.
+;;; Copyright (c) 2019, 2023 by Symbolics Pte. Ltd. All rights reserved.
 (in-package #:num-utils-tests)
 
 #+genera (setf *print-array* t)
@@ -135,8 +135,5 @@
     (assert-slice lower-triangular-matrix)
     (assert-slice hermitian-matrix)))
 
-(test map-array
-  (let ((a #2A((1 2) (3 4))))
-    (is (equalp #2A((2 3) (4 5))
-		(map-array a #'1+)))))
+
 

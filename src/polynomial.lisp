@@ -1,6 +1,17 @@
 ;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS.POLYNOMIAL -*-
-;;; Copyright (c) 2019-2022 by Symbolics Pte. Ltd. All rights reserved.
+;;; Copyright (c) 2011-2014 Tamas Papp
+;;; Copyright (c) 2023 Symbolics Pte Ltd
+;;; SPDX-License-identifier: MS-PL
+
+(uiop:define-package #:num-utils.polynomial
+  (:use #:cl
+        #:alexandria
+        #:num-utils.utilities)
+  (:nicknames #:poly)
+  (:export #:evaluate-polynomial #:evaluate-rational)
+  (:documentation "Efficient evaluation of polynomial functions using Horner's method"))
 (in-package #:num-utils.polynomial)
+
 
 ;;; If this turns out to have poor performance, see
 ;;; https://github.com/ruricolist/horner or the assembler version from

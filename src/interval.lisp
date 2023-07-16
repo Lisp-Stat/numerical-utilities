@@ -1,4 +1,40 @@
 ;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS.INTERVAL -*-
+;;; Copyright (c) 2011-2014 Tamas Papp
+;;; Copyright (c) 2023 Symbolics Pte Ltd
+;;; SPDX-License-identifier: MS-PL
+
+(uiop:define-package #:num-utils.interval
+  (:use #:cl
+        #:alexandria
+        #:anaphora
+        #:num-utils.num=
+        #:num-utils.utilities
+        #:let-plus)
+  (:export
+   #:left
+   #:open-left?
+   #:right
+   #:open-right?
+   #:&interval
+   #:interval
+   #:finite-interval
+   #:plusinf-interval
+   #:minusinf-interval
+   #:real-line
+   #:plusminus-interval
+   #:interval-length
+   #:interval-midpoint
+   #:in-interval?
+   #:extend-interval
+   #:extendf-interval
+   #:interval-hull
+   #:relative
+   #:spacer
+   #:split-interval
+   #:shrink-interval
+   #:grid-in
+   #:subintervals-in
+   #:shift-interval))
 (in-package #:num-utils.interval)
 
 ;;; TODO: rewrite interface

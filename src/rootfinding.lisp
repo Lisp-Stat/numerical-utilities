@@ -1,5 +1,18 @@
 ;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS.ROOTFINDING -*-
-(cl:in-package #:num-utils.rootfinding)
+;;; Copyright (c) 2011-2014 Tamas Papp
+;;; Copyright (c) 2023 Symbolics Pte Ltd
+;;; SPDX-License-identifier: MS-PL
+
+(uiop:define-package #:num-utils.rootfinding
+  (:use #:cl
+        #:alexandria
+        #:num-utils.interval
+        #:num-utils.utilities
+        #:let-plus)
+  (:export #:*rootfinding-epsilon*
+	   #:*rootfinding-delta-relative*
+	   #:root-bisection))
+(in-package #:num-utils.rootfinding)
 
 ;;; Testing convergence of rootfinding methods
 

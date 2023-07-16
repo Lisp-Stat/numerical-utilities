@@ -1,7 +1,42 @@
-;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS.ARITHMETIC -*-
-(in-package #:num-utils.arithmetic)
+;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS.ELEMENTWISE -*-
+;;; Copyright (c) 2011-2014 Tamas Papp
+;;; Copyright (c) 2023 Symbolics Pte Ltd
+;;; SPDX-License-identifier: MS-PL
 
 ;;; simple arithmetic
+
+(uiop:define-package #:num-utils.arithmetic
+  (:use #:cl
+        #:alexandria-2
+	#:alexandria+
+        #:anaphora
+        #:num-utils.utilities
+        #:let-plus)
+  (:export
+   #:same-sign-p
+   #:square
+   #:cube
+   #:absolute-square
+   #:abs-diff
+   #:log10
+   #:log2
+   #:1c
+   #:divides?
+   #:as-integer
+   #:numseq
+   #:ivec
+   #:sum
+   #:product
+   #:cumulative-sum
+   #:cumulative-product
+   #:normalize-probabilities
+   #:floor*
+   #:ceiling*
+   #:round*
+   #:truncate*
+   #:seq-max
+   #:seq-min))
+(in-package #:num-utils.arithmetic)
 
 (defun same-sign-p (&rest arguments)
   "Test whether all arguments have the same sign (ie all are positive, negative, or zero)."
@@ -50,7 +85,6 @@
 
 
 (declaim (inline 1c))
-
 (defun 1c (number)
   "Return 1-number.  The mnemonic is \"1 complement\", 1- is already a CL library function."
   (- 1 number))
@@ -77,13 +111,13 @@
 
 ;;; arithmetic sequences
 
-(defun sequence-minimum (x)
+(defun seq-min (x)
   "Return the minimum value in the sequence X"
   (check-type x alexandria:proper-sequence)
   (cond ((listp x) (apply 'min x))
 	((vectorp x) (reduce #'min x))))
 
-(defun sequence-maximum (x)
+(defun seq-max (x)
   "Return the maximum value in the sequence X"
   (check-type x alexandria:proper-sequence)
   (cond ((listp x) (apply 'max x))
@@ -165,8 +199,7 @@ When BY is given it determines the increment, adjusted to match the direction un
 ;;; sums and products
 
 (defgeneric sum (object &key key)
-  (:documentation "Sum of elements in object.  KEY is applied to each
-  element.")
+  (:documentation "Sum of elements in object.  KEY is applied to each element.")
   (:method ((sequence sequence) &key (key #'identity))
     (reduce #'+ sequence :key key))
   (:method ((array array) &key (key #'identity))
@@ -214,16 +247,7 @@ When BY is given it determines the increment, adjusted to match the direction un
                  sequence)
             product)))
 
-;;; norms
 
-(defgeneric l2norm-square (object)
-  (:documentation "Square of the $L_2$ norm of OBJECT.")
-  (:method ((sequence sequence))
-    (sum sequence :key #'absolute-square)))
-
-(defun l2norm (object)
-  "$L_2$ norm of OBJECT."
-  (sqrt (l2norm-square object)))
 
 (defun normalize-probabilities (vector
                                 &key

@@ -1,5 +1,19 @@
 ;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS.PRINT-MATRIX -*-
-(cl:in-package #:num-utils.print-matrix)
+;;; Copyright (c) 2011-2014 Tamas Papp
+;;; Copyright (c) 2023 Symbolics Pte Ltd
+;;; SPDX-License-identifier: MS-PL
+
+(uiop:define-package #:num-utils.print-matrix
+  (:use #:cl
+        #:alexandria
+        #:anaphora
+        #:let-plus)
+  (:export
+   #:print-length-truncate
+   #:*print-matrix-precision*
+   #:print-matrix))
+(in-package #:num-utils.print-matrix)
+
 
 (defun print-length-truncate (dimension)
   "Return values (min dimension *print-length*) and whether the constraint is binding."

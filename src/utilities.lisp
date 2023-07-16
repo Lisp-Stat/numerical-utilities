@@ -1,6 +1,38 @@
 ;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS.UTILITIES -*-
 ;;; Copyright (c) 2019-2023 by Symbolics Pte. Ltd. All rights reserved.
-(cl:in-package :num-utils.utilities)
+;;; SPDX-License-identifier: MS-PL
+
+(uiop:define-package #:num-utils.utilities
+  (:use #:cl
+        #:alexandria
+        #:anaphora
+        #:let-plus)
+  (:export #:gethash*
+	   #:splice-when
+	   #:splice-awhen
+	   #:curry*
+	   #:check-types
+	   #:define-with-multiple-bindings
+	   #:within?
+	   #:fixnum?
+	   #:simple-fixnum-vector
+	   #:simple-single-float-vector
+	   #:as-simple-fixnum-vector
+	   #:simple-boolean-vector
+	   #:as-bit-vector
+	   #:as-double-float
+	   #:with-double-floats
+	   #:as-simple-double-float-vector
+	   #:simple-double-float-vector
+	   #:make-vector
+	   #:generate-sequence
+	   #:expanding
+	   #:bic
+	   #:binary-search
+	   #:as-alist
+	   #:as-plist)
+  (:documentation "A collection of utilities to work with floating point values. Optimised for double-float."))
+(in-package #:num-utils.utilities)
 
 (defmacro gethash* (key hash-table
                     &optional (datum "Key not found.")

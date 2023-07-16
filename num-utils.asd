@@ -1,9 +1,10 @@
 ;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: ASDF -*-
 ;;; Copyright (c) 2010 by Tamas K. Papp <tkpapp@gmail.com>
 ;;; Copyright (c) 2019-2023 by Symbolics Pte. Ltd. All rights reserved.
+;;; SPDX-License-identifier: MS-PL
 
 (defsystem "num-utils"
-  :version "1.4.0"
+  :version "1.5.0"
   :license :MS-PL
   :author "Steven Nunez <steve@symbolics.tech>"
   :long-name "Numerical Utilities"
@@ -13,7 +14,6 @@
   ;:homepage    "https://lisp-stat.dev/docs/tasks/plotting/"
   :source-control (:git "https://github.com/Lisp-Stat/numerical-utilities.git")
   :bug-tracker "https://github.com/Lisp-Stat/numerical-utilities/issues"
-
   :depends-on (#:anaphora
                #:alexandria
 	       #:alexandria+
@@ -23,24 +23,23 @@
   :in-order-to ((test-op (test-op "num-utils/tests")))
   :pathname "src/"
   :serial t
-  :components
-  ((:file "packages")
-   (:file "utilities")
-   (:file "num=")
-   (:file "arithmetic")
-   (:file "elementwise")
-   (:file "extended-real")
-   (:file "interval")
-   (:file "print-matrix")
-   (:file "matrix")
-   (:file "matrix-shorthand")
-   (:file "chebyshev")
-   (:file "polynomial")
-   (:file "rootfinding")
-   (:file "quadrature")
-   (:file "log-exp")
-   (:file "test-utilities")
-   (:file "pkgdcl")))
+  :components ((:file "utilities")
+               (:file "arithmetic")
+               (:file "num=")
+               (:file "extended-real")
+               (:file "interval")
+               (:file "chebyshev")
+               (:file "polynomial")
+               (:file "elementwise")
+               (:file "print-matrix")
+               (:file "matrix")
+               (:file "matrix-shorthand")
+               (:file "quadrature")
+	       (:file "norms")
+               (:file "rootfinding")
+               (:file "log-exp")
+               (:file "test-utilities")
+               (:file "pkgdcl")))
 
 (defsystem "num-utils/tests"
   :version "1.0.0"
@@ -70,8 +69,9 @@
    (:file "quadrature")
    (:file "rootfinding")
    (:file "log-exp")
+   (:file "norms")
    (:file "utilities"))
   :perform (test-op (o s)
-			 (uiop:symbol-call :fiveam :run!
-					   (uiop:find-symbol* :all-tests
-							      :num-utils-tests))))
+		    (uiop:symbol-call :fiveam :run!
+				      (uiop:find-symbol* :all-tests
+							 :num-utils-tests))))

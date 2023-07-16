@@ -1,5 +1,53 @@
 ;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS.ELEMENTWISE -*-
-(cl:in-package #:num-utils.elementwise)
+;;; Copyright (c) 2011-2014 Tamas Papp
+;;; Copyright (c) 2023 Symbolics Pte Ltd
+;;; SPDX-License-identifier: MS-PL
+
+(uiop:define-package #:num-utils.elementwise
+  (:use #:cl
+        #:alexandria
+        #:num-utils.arithmetic
+        #:num-utils.utilities
+        #:let-plus)
+  (:nicknames #:elmt)			;num-util elementwise mathematics
+  (:export
+   #:elementwise-float-contagion
+   #:e+
+   #:e-
+   #:e*
+   #:e/
+   #:e2+
+   #:e2-
+   #:e2*
+   #:e2/
+   #:e1-
+   #:e1/
+   #:e2log
+   #:e2exp
+   #:e2mod
+   #:e1log
+   #:e1exp
+   #:eexpt
+   #:eexp
+   #:elog
+   #:emod
+   #:esqrt
+   #:efloor
+   #:eceiling
+   #:econjugate
+   #:esquare
+   #:ereduce
+   #:emin
+   #:emax
+   #:esin
+   #:ecos
+   #:e2<
+   #:e2<=
+   #:e2>
+   #:e2>=
+   #:e2=
+   #:eabs))
+(in-package #:num-utils.elementwise)
 
 (defun elementwise-float-contagion (&rest objects)
   "Return the resulting float type when objects (or their elements) are combined using arithmetic operations."

@@ -1,4 +1,21 @@
 ;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS.CHEBYSHEV -*-
+;;; Copyright (c) 2011-2014 Tamas Papp
+;;; Copyright (c) 2023 Symbolics Pte Ltd
+;;; SPDX-License-identifier: MS-PL
+
+(uiop:define-package #:num-utils.chebyshev
+  (:use #:cl
+        #:alexandria
+        #:anaphora
+        #:num-utils.interval
+        #:num-utils.utilities
+        #:let-plus)
+  (:export ; These should probably be renamed in verb-object form
+   #:chebyshev-root
+   #:chebyshev-roots
+   #:chebyshev-regression
+   #:evaluate-chebyshev
+   #:chebyshev-approximate))
 (in-package #:num-utils.chebyshev)
 
 (declaim (inline chebyshev-recursion))

@@ -23,10 +23,10 @@
   (is  (divides? 8 2))
   (not (divides? 8 3))
   (is (= 2 (as-integer 2.0)))
-  (is (= 5 (sequence-maximum #(0 1 2 3 4 5))))
-  (is (= 5 (sequence-maximum '(0 1 2 3 4 5))))
-  (is (= 0 (sequence-minimum #(0 1 2 3 4 5))))
-  (is (= 0 (sequence-minimum '(0 1 2 3 4 5))))
+  (is (= 5 (seq-max #(0 1 2 3 4 5))))
+  (is (= 5 (seq-max '(0 1 2 3 4 5))))
+  (is (= 0 (seq-min #(0 1 2 3 4 5))))
+  (is (= 0 (seq-min '(0 1 2 3 4 5))))
   (signals error (as-integer 2.5)))
 
 (test arithmetic-sequences
@@ -47,16 +47,6 @@
     (is (= 1 (product #())))
     (is (equalp #() (cumulative-sum #())))
     (is (equalp #() (cumulative-product #())))))
-
-(test norms
-  (let* ((a #(2 3 4))
-         (a-list (coerce a 'list))
-         (b #(#C(3 4) 0 5 5 5))
-         (b-list (coerce b 'list)))
-    (is (num= (sqrt 29) (l2norm a)))
-    (is (num= (sqrt 29) (l2norm a-list)))
-    (is (num= 10 (l2norm b)))
-    (is (num= 10 (l2norm b-list)))))
 
 (test normalize-probabilities
   (let* ((a (vector 1 2 7))

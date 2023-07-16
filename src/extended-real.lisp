@@ -1,5 +1,26 @@
 ;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS.EXTENDED-REAL -*-
+;;; Copyright (c) 2011-2014 Tamas Papp
+;;; Copyright (c) 2023 Symbolics Pte Ltd
+;;; SPDX-License-identifier: MS-PL
+
+(uiop:define-package #:num-utils.extended-real
+  (:use #:cl #:alexandria)
+  (:nicknames #:xreal)
+  (:shadow #:= #:< #:> #:<= #:>=)
+  (:export
+   :infinite?
+   :extended-real
+   :=
+   :<
+   :>
+   :<=
+   :>=
+   :plusinf
+   :minusinf
+   :with-template
+   :lambda-template))
 (in-package #:num-utils.extended-real)
+
 
 (deftype infinite ()
   "Representing infinity (extending the real line)."

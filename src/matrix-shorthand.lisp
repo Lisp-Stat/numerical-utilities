@@ -1,5 +1,25 @@
 ;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS.MATRIX-SHORTHAND -*-
+;;; Copyright (c) 2011-2014 Tamas Papp
+;;; Copyright (c) 2023 Symbolics Pte Ltd
+;;; SPDX-License-identifier: MS-PL
+
+(uiop:define-package #:num-utils.matrix-shorthand
+  (:nicknames #:nu.mx)
+  (:use #:cl
+        #:alexandria
+        #:anaphora
+        #:num-utils.matrix
+        #:num-utils.utilities
+        #:let-plus)
+  (:export
+   #:vec
+   #:mx
+   #:diagonal-mx
+   #:lower-triangular-mx
+   #:hermitian-mx
+   #:upper-triangular-mx))
 (in-package #:num-utils.matrix-shorthand)
+
 
 (defun vec (element-type &rest elements)
   "Return a vector with elements coerced to ELEMENT-TYPE."
@@ -12,7 +32,7 @@
   (diagonal-matrix (apply #'vec element-type elements)))
 
 (defmacro mx (element-type &body rows)
-  "Macro for creating a (dense) matrix (ie a rank 2 array).  ROWS should be a list of lists (or atoms, which are treated as lists), elements are evaluated."
+  "Macro for creating a dense matrix (ie a rank 2 array).  ROWS should be a list of lists (or atoms, which are treated as lists), elements are evaluated."
   (let+ ((rows (map 'vector #'ensure-list rows))
          (nrow (length rows))
          (ncol (length (aref rows 0)))

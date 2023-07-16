@@ -1,7 +1,31 @@
 ;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS.MATRIX -*-
+;;; Copyright (c) 2011-2014 Tamas Papp
+;;; Copyright (c) 2023 Symbolics Pte Ltd
+;;; SPDX-License-identifier: MS-PL
+
+(uiop:define-package #:num-utils.matrix
+  (:use #:cl
+        #:alexandria
+        #:anaphora
+        #:num-utils.elementwise
+        #:num-utils.num=
+        #:num-utils.print-matrix
+        #:num-utils.utilities
+        #:select
+        #:let-plus)
+  (:export
+   #:diagonal-vector
+   #:diagonal-matrix
+   #:wrapped-matrix
+   #:lower-triangular-matrix
+   #:upper-triangular-matrix
+   #:triangular-matrix
+   #:hermitian-matrix
+   #:diagonal-matrix-elements
+   #:wrapped-matrix-elements
+   #:transpose))
 (in-package #:num-utils.matrix)
 
-;;; This package should be moved to array-operations
 
 (defgeneric diagonal-vector (matrix)
   (:documentation "Return the diagonal elements of MATRIX as a vector.")
@@ -33,9 +57,7 @@
   "Convert OBJECT to an array, check that it
 
 1. has the required rank,
-
 2. has a valid sparse element type, and
-
 3. that it satisfies PREDICATES.
 
 Return the array."
@@ -262,15 +284,3 @@ Implements _both_ real symmetric and complex Hermitian matrices --- as technical
         (hermitian-matrix (transpose (aops:as-array matrix)))))
   (:method ((diagonal diagonal-matrix))
     diagonal))
-
-
-;;; map
-
-;; This is similar to the unexported elementwise:mapping-array macro
-(defmethod map-array (array function
-			   &optional (retval (make-array (array-dimensions array))))
-  "Apply FUNCTION to each element of ARRAY
-Return a new array, or write into the optional 3rd argument."
-  (dotimes (i (array-total-size array) retval)
-    (setf (row-major-aref retval i)
-          (funcall function (row-major-aref array i)))))

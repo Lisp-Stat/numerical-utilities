@@ -1,8 +1,33 @@
 ;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS.TEST-UTILITIES -*-
-;;; Copyright (c) 2020-2021 by Symbolics Pte. Ltd. All rights reserved.
-(cl:in-package :num-utils.test-utilities)
+;;; Copyright (c) 2020-2023 by Symbolics Pte. Ltd. All rights reserved.
+;;; SPDX-License-identifier: MS-PL
 
-;;; Utilities for testing accuracy of mathmatical functions
+(uiop:define-package #:num-utils.test-utilities
+  (:use #:cl)
+  (:import-from #:num-utils.num=
+		#:num-delta)
+  (:import-from #:num-utils.arithmetic
+		#:square)
+  (:export #:test-results
+
+	   ;; struct accessors
+	   #:worst-case ; row at which the worst error occurred
+	   #:min-error  ; smallest relative error found
+	   #:max-error  ; largest relative error found
+	   #:mean-error ; mean error found
+	   #:test-count ; number of test cases
+	   #:variance0  ; variance of the errors found
+	   #:variance1  ; unbiased variance of the errors found
+	   #:rms        ; Root Mean Square, or quadratic mean of the error
+
+	   ;; Testing functions
+	   #:test-fn
+	   #:compare-fns
+	   #:compare-vectors))
+(in-package #:num-utils.test-utilities)
+
+
+;;; Utilities for testing accuracy of mathematical functions
 ;;; This does not test the utility functions in num-utils, it is for
 ;;; testing the accuracy of the functions in special-functions
 
