@@ -13,17 +13,16 @@
         #:num-utils.utilities
         #:select
         #:let-plus)
-  (:export
-   #:diagonal-vector
-   #:diagonal-matrix
-   #:wrapped-matrix
-   #:lower-triangular-matrix
-   #:upper-triangular-matrix
-   #:triangular-matrix
-   #:hermitian-matrix
-   #:diagonal-matrix-elements
-   #:wrapped-matrix-elements
-   #:transpose))
+  (:export #:diagonal-vector
+	   #:diagonal-matrix
+	   #:wrapped-matrix
+	   #:lower-triangular-matrix
+	   #:upper-triangular-matrix
+	   #:triangular-matrix
+	   #:hermitian-matrix
+	   #:diagonal-matrix-elements
+	   #:wrapped-matrix-elements
+	   #:transpose))
 (in-package #:num-utils.matrix)
 
 

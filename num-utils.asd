@@ -4,7 +4,7 @@
 ;;; SPDX-License-identifier: MS-PL
 
 (defsystem "num-utils"
-  :version "1.5.0"
+  :version "1.6.0"
   :license :MS-PL
   :author "Steven Nunez <steve@symbolics.tech>"
   :long-name "Numerical Utilities"
@@ -35,7 +35,6 @@
                (:file "matrix")
                (:file "matrix-shorthand")
                (:file "quadrature")
-	       (:file "norms")
                (:file "rootfinding")
                (:file "log-exp")
                (:file "test-utilities")

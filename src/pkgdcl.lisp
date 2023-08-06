@@ -10,7 +10,6 @@
 		 #:num-utils.elementwise
 		 #:num-utils.interval
 		 #:num-utils.matrix
-		 #:num-utils.norms
 		 #:num-utils.num=
 		 #:num-utils.utilities
 		 #:num-utils.rootfinding

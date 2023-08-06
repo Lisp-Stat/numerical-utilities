@@ -76,7 +76,9 @@ Example: `(,foo ,@(splice-when add-bar? bar))"
                                         arg)))))))
 
 (defmacro check-types ((&rest arguments) type)
-  "CHECK-TYPE for multiple places of the same type.  Each argument is either a place, or a list of a place and a type-string."
+  "CHECK-TYPE for multiple places of the same type.  Each argument is either a place, or a list of places and a type-string.
+
+Example: (check-types (a b) double-float)"
   `(progn
      ,@(loop
          for argument :in arguments
