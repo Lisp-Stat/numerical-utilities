@@ -21,7 +21,8 @@
 	   #:triangular-matrix
 	   #:hermitian-matrix
 	   #:diagonal-matrix-elements
-	   #:wrapped-matrix-elements))
+	   #:wrapped-matrix-elements
+	   #:transpose))
 (in-package #:num-utils.matrix)
 
 
@@ -258,5 +259,30 @@ Implements _both_ real symmetric and complex Hermitian matrices --- as technical
 (defmethod num= ((a diagonal-matrix) (b diagonal-matrix)
                &optional (tolerance *num=-tolerance*))
     (num= (diagonal-matrix-elements a) (diagonal-matrix-elements b) tolerance))
+
+
+
+;;; transpose
+
+(defgeneric transpose (array)
+  (:documentation "Transpose.")
+  (:method ((array array))
+    (let+ (((nrow ncol) (array-dimensions array)))
+      (aprog1 (aops:make-array-like array :dimensions (list ncol nrow))
+        (dotimes (row nrow)
+          (dotimes (col ncol)
+            (setf (aref it col row) (aref array row col)))))))
+  (:method ((matrix lower-triangular-matrix))
+    (upper-triangular-matrix
+     (transpose (lower-triangular-matrix-elements matrix))))
+  (:method ((matrix upper-triangular-matrix))
+    (lower-triangular-matrix
+     (transpose (upper-triangular-matrix-elements matrix))))
+  (:method ((matrix hermitian-matrix))
+    (if (subtypep (aops:element-type matrix) 'real)
+        matrix
+        (hermitian-matrix (transpose (aops:as-array matrix)))))
+  (:method ((diagonal diagonal-matrix))
+    diagonal))
 
 
