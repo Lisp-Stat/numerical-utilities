@@ -54,14 +54,14 @@
                   (replace it row :start1 0 :end1 (min ncol (1+ row-index))))))
 
 (defmacro lower-triangular-mx (element-type &body rows)
-  "Macro for creating a lower triangular matrix.  ROWS should be a list of lists, elements are evaluated.  Masked elements (above the diagonal) are ignored at the expansion, rows which don't have enough elements are padded with zeros."
+  "Create a lower triangular matrix.  ROWS should be a list of lists, elements are evaluated.  Masked elements (above the diagonal) are ignored at the expansion, rows which don't have enough elements are padded with zeros."
   `(lower-triangular-matrix
     (mx ,element-type
       ,@(pad-left-expansion (mapcar #'ensure-list rows)
                             (reduce #'max rows :key #'length)))))
 
 (defmacro hermitian-mx (element-type &body rows)
-  "Macro for creating a lower triangular matrix.  ROWS should be a list of lists, elements are evaluated.  Masked elements (above the diagonal) are ignored at the expansion, rows which don't have enough elements are padded with zeros."
+  "Create a lower triangular matrix.  ROWS should be a list of lists, elements are evaluated.  Masked elements (above the diagonal) are ignored at the expansion, rows which don't have enough elements are padded with zeros."
   `(hermitian-matrix
     (mx ,element-type
       ,@(pad-left-expansion (mapcar #'ensure-list rows)
@@ -69,7 +69,7 @@
                                  (reduce #'max rows :key #'length))))))
 
 (defmacro upper-triangular-mx (element-type &body rows)
-  "Macro for creating an upper triangular matrix.  ROWS should be a list of lists, elements are evaluated.  Masked elements (below the diagonal) are ignored at the expansion."
+  "Create an upper triangular matrix.  ROWS should be a list of lists, elements are evaluated.  Masked elements (below the diagonal) are ignored at the expansion."
   `(upper-triangular-matrix
     (mx ,element-type
       ,@(loop for row-index from 0

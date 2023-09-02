@@ -4,7 +4,7 @@
 ;;; SPDX-License-identifier: MS-PL
 
 (defsystem "num-utils"
-  :version "1.6.0"
+  :version "1.6.1"
   :license :MS-PL
   :author "Steven Nunez <steve@symbolics.tech>"
   :long-name "Numerical Utilities"

@@ -7,14 +7,10 @@
              :initform (make-hash-table :test #'equal))
    (limits :accessor limits :initarg :limits)
    (initial-value :accessor initial-value :initarg :initial-value :initform nil))
-  (:documentation "Sparse arrays are indexed by a rectilinear coordinate
- system.  Unless set, elements are left at their initial value.  If
- initial-value is a function, it is called with the subscripts to initialize
- the elements."))
+  (:documentation "Sparse arrays are indexed by a rectilinear coordinate  system.  Unless set, elements are left at their initial value.  If  initial-value is a function, it is called with the subscripts to initialize the elements."))
 
 (defun sparse-array-extend-limits (limits subscripts)
-  "Extend limits to incorporate subscripts.  Does error checking on the length
-of subscripts."
+  "Extend limits to incorporate subscripts.  Does error checking on the length of subscripts."
   (let ((rank (length limits)))
     (assert (= rank (length subscripts)))
     (loop :for index :below rank
@@ -27,8 +23,7 @@ of subscripts."
                    (setf (aref limits index) (cons subscript (1+ subscript)))))))
 
 (defun sparse-array-initial-value (initial-value subscripts)
-  "Initial value semantics for sparse arrays -- functions are called with
-subscripts."
+  "Initial value semantics for sparse arrays -- functions are called with subscripts."
   (if (functionp initial-value)
       (apply initial-value subscripts)
       initial-value))
