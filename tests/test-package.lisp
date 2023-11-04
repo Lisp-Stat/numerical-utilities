@@ -23,6 +23,5 @@
         #:num-utils.quadrature
         #:num-utils.rootfinding
 	#:num-utils.test-utilities
-	#:num-utils.norms
         #:num-utils.utilities)
   (:export #:run))
