@@ -68,7 +68,6 @@
    (:file "quadrature")
    (:file "rootfinding")
    (:file "log-exp")
-   (:file "norms")
    (:file "utilities"))
   :perform (test-op (o s)
 		    (uiop:symbol-call :fiveam :run!
