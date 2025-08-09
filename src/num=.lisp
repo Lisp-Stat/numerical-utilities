@@ -1,6 +1,6 @@
 ;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS.NUM= -*-
 ;;; Copyright (c) 2011-2014 Tamas Papp
-;;; Copyright (c) 2023 Symbolics Pte Ltd
+;;; Copyright (c) 2023, 2025 Symbolics Pte Ltd
 ;;; SPDX-License-identifier: MS-PL
 
 (uiop:define-package #:num-utils.num=
@@ -13,7 +13,8 @@
 	   #:num=
 	   #:num=-function
 	   #:define-num=-with-accessors
-	   #:define-structure-num=))
+	   #:define-structure-num=)
+  (:documentation "Provides approximate equality comparison for numeric values and structures containing numbers. Features tolerance-based floating-point comparison using relative error metrics, with support for numbers, arrays, lists, and custom structures. Includes num= generic function, num-delta for relative differences, configurable default tolerance, and macros for defining comparison methods on user-defined types."))
 (in-package #:num-utils.num=)
 
 

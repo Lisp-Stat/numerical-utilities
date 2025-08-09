@@ -1,6 +1,6 @@
 ;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS.EXTENDED-REAL -*-
 ;;; Copyright (c) 2011-2014 Tamas Papp
-;;; Copyright (c) 2023 Symbolics Pte Ltd
+;;; Copyright (c) 2023, 2025 Symbolics Pte Ltd
 ;;; SPDX-License-identifier: MS-PL
 
 (uiop:define-package #:num-utils.extended-real
@@ -18,7 +18,8 @@
    :plusinf
    :minusinf
    :with-template
-   :lambda-template))
+   :lambda-template)
+   (:documentation "Extends the real number line with positive and negative infinity (:plusinf, :minusinf). Provides comparison operators (=, <, >, <=, >=) that work seamlessly with both real numbers and infinities. Includes type definitions for extended reals, infinity testing, and template macros for pattern matching on extended real values."))
 (in-package #:num-utils.extended-real)
 
 

@@ -1,5 +1,5 @@
 ;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS.LOG-EXP -*-
-;;; Copyright (c) 2021, 2023 by Symbolics Pte. Ltd. All rights reserved.
+;;; Copyright (c) 2021, 2023, 2025 by Symbolics Pte. Ltd. All rights reserved.
 ;;; SPDX-License-identifier: MS-PL
 
 (uiop:define-package #:num-utils.log-exp
@@ -22,7 +22,8 @@
 	   #:log2-exp
 	   #:logexp-1
 	   #:hypot
-	   #:log1pmx))
+	   #:log1pmx)
+     (:documentation "Provides numerically stable implementations of logarithmic and exponential functions that require special handling near zero. Includes log1+, log1-, exp-1, log1+exp, log1-exp, expt-1, hypot, and log1pmx functions. These implementations avoid floating-point overflow, underflow, and loss of precision in critical numerical computations involving values close to mathematical singularities."))
 (in-package #:num-utils.log-exp)
 
 ;;; Functions based on log and exp that require special handling near

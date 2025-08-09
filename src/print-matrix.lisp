@@ -1,6 +1,6 @@
 ;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS.PRINT-MATRIX -*-
 ;;; Copyright (c) 2011-2014 Tamas Papp
-;;; Copyright (c) 2023 Symbolics Pte Ltd
+;;; Copyright (c) 2023, 2025 Symbolics Pte Ltd
 ;;; SPDX-License-identifier: MS-PL
 
 (uiop:define-package #:num-utils.print-matrix
@@ -11,7 +11,8 @@
   (:export
    #:print-length-truncate
    #:*print-matrix-precision*
-   #:print-matrix))
+   #:print-matrix)
+  (:documentation "Provides formatted printing of 2D matrices with configurable precision, alignment, and truncation. Features include column alignment, custom element formatting, masking specific elements, respecting *print-length* for large matrices, and special handling for complex numbers. Supports customizable padding, indentation, and precision control through *print-matrix-precision* for human-readable matrix display."))
 (in-package #:num-utils.print-matrix)
 
 

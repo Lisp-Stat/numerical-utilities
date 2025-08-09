@@ -1,6 +1,6 @@
 ;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS.CHEBYSHEV -*-
 ;;; Copyright (c) 2011-2014 Tamas Papp
-;;; Copyright (c) 2023 Symbolics Pte Ltd
+;;; Copyright (c) 2023, 2025 Symbolics Pte Ltd
 ;;; SPDX-License-identifier: MS-PL
 
 (uiop:define-package #:num-utils.chebyshev
@@ -15,7 +15,8 @@
    #:chebyshev-roots
    #:chebyshev-regression
    #:evaluate-chebyshev
-   #:chebyshev-approximate))
+   #:chebyshev-approximate)
+   (:documentation "Provides efficient Chebyshev polynomial approximation for functions on finite and semi-infinite intervals. Includes computation of Chebyshev polynomial roots, regression coefficients, and evaluation. Supports high-accuracy function approximation through customizable polynomial counts and sampling points. Particularly useful for approximating expensive functions with smooth, polynomial-like behavior."))
 (in-package #:num-utils.chebyshev)
 
 (declaim (inline chebyshev-recursion))

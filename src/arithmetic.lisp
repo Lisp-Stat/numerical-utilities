@@ -1,6 +1,6 @@
 ;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS.ARITHMETIC -*-
 ;;; Copyright (c) 2011-2014 Tamas Papp
-;;; Copyright (c) 2023 Symbolics Pte Ltd
+;;; Copyright (c) 2023, 2025 Symbolics Pte Ltd
 ;;; SPDX-License-identifier: MS-PL
 
 ;;; simple arithmetic
@@ -35,7 +35,8 @@
    #:round*
    #:truncate*
    #:seq-max
-   #:seq-min))
+   #:seq-min)
+   (:documentation "The arithmetic package provides a collection of mathematical and arithmetic functions for Common Lisp. It includes basic operations like square, cube, and absolute-square for complex numbers, logarithmic functions (log10, log2), and utilities for working with signs and differences. The package offers sequence generation with numseq and ivec, aggregate operations (sum, product, cumulative-sum, cumulative-product), and specialized rounding functions (floor*, ceiling*, round*, truncate*) that support custom offsets. Additional features include probability normalization, divisibility testing, integer conversion, and sequence min/max operations. These utilities are designed to simplify common numerical computations while maintaining efficiency through inline declarations where appropriate."))
 (in-package #:num-utils.arithmetic)
 
 (defun same-sign-p (&rest arguments)

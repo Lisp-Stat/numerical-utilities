@@ -1,6 +1,6 @@
 ;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS.ROOTFINDING -*-
 ;;; Copyright (c) 2011-2014 Tamas Papp
-;;; Copyright (c) 2023 Symbolics Pte Ltd
+;;; Copyright (c) 2023, 2025 Symbolics Pte Ltd
 ;;; SPDX-License-identifier: MS-PL
 
 (uiop:define-package #:num-utils.rootfinding
@@ -10,8 +10,9 @@
         #:num-utils.utilities
         #:let-plus)
   (:export #:*rootfinding-epsilon*
-	   #:*rootfinding-delta-relative*
-	   #:root-bisection))
+	         #:*rootfinding-delta-relative*
+	         #:root-bisection)
+  (:documentation "Provides numerical root-finding algorithms for univariate functions with configurable convergence criteria. Currently implements bisection method with automatic bracketing validation. Features adjustable tolerance (interval width) and epsilon (function value) parameters, supports double-float precision, and returns detailed convergence information including final bracket bounds and whether the root satisfies the epsilon criterion."))
 (in-package #:num-utils.rootfinding)
 
 ;;; Testing convergence of rootfinding methods

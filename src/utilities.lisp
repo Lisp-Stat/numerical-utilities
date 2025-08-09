@@ -1,5 +1,5 @@
 ;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS.UTILITIES -*-
-;;; Copyright (c) 2019-2023 by Symbolics Pte. Ltd. All rights reserved.
+;;; Copyright (c) 2019-2023, 2025 by Symbolics Pte. Ltd. All rights reserved.
 ;;; SPDX-License-identifier: MS-PL
 
 (uiop:define-package #:num-utils.utilities
@@ -31,7 +31,7 @@
 	   #:binary-search
 	   #:as-alist
 	   #:as-plist)
-  (:documentation "A collection of utilities to work with floating point values. Optimised for double-float."))
+  (:documentation "A collection of utilities to work with floating point values. Optimised for double-float. Provides type conversion functions, vector creation utilities, sequence generation, binary search, and utility macros including currying, multiple bindings, and conditional splicing. Features specialized array types for fixnum, boolean, and floating-point vectors with conversion functions."))
 (in-package #:num-utils.utilities)
 
 (defmacro gethash* (key hash-table

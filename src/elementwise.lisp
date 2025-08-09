@@ -1,6 +1,6 @@
 ;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS.ELEMENTWISE -*-
 ;;; Copyright (c) 2011-2014 Tamas Papp
-;;; Copyright (c) 2023 Symbolics Pte Ltd
+;;; Copyright (c) 2023, 2025 Symbolics Pte Ltd
 ;;; SPDX-License-identifier: MS-PL
 
 (uiop:define-package #:num-utils.elementwise
@@ -46,7 +46,8 @@
    #:e2>
    #:e2>=
    #:e2=
-   #:eabs))
+   #:eabs)
+   (:documentation "Provides elementwise operations for arrays and numbers with automatic type contagion. Supports unary operations (abs, sqrt, sin, cos, floor, ceiling, conjugate), binary operations (+, -, *, /, expt, mod, comparisons), and variadic operators. Includes reduction functions (min, max) and seamlessly handles scalar-array and array-array operations with broadcasting support."))
 (in-package #:num-utils.elementwise)
 
 (defun elementwise-float-contagion (&rest objects)

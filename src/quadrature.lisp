@@ -1,6 +1,6 @@
 ;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS.QUADRATURE -*-
 ;;; Copyright (c) 2011-2014 Tamas Papp
-;;; Copyright (c) 2023 Symbolics Pte Ltd
+;;; Copyright (c) 2023, 2025 Symbolics Pte Ltd
 ;;; SPDX-License-identifier: MS-PL
 
 (uiop:define-package #:num-utils.quadrature
@@ -12,7 +12,8 @@
         #:num-utils.interval
         #:num-utils.utilities
         #:let-plus)
-  (:export #:romberg-quadrature))
+  (:export #:romberg-quadrature)
+  (:documentation "Provides adaptive numerical integration using Romberg quadrature with Richardson extrapolation. Supports finite and semi-infinite intervals with automatic coordinate transformations. Features trapezoidal and midpoint rule refinements, configurable convergence criteria (epsilon tolerance), and handles open/closed interval endpoints. Efficiently computes definite integrals with controlled accuracy through iterative refinement and extrapolation techniques."))
 (in-package #:num-utils.quadrature)
 
 ;;;; Richardson extrapolation (general framework)

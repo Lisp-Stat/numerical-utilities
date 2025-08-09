@@ -1,6 +1,6 @@
 ;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS.INTERVAL -*-
 ;;; Copyright (c) 2011-2014 Tamas Papp
-;;; Copyright (c) 2023 Symbolics Pte Ltd
+;;; Copyright (c) 2023, 2025 Symbolics Pte Ltd
 ;;; SPDX-License-identifier: MS-PL
 
 (uiop:define-package #:num-utils.interval
@@ -34,7 +34,8 @@
    #:shrink-interval
    #:grid-in
    #:subintervals-in
-   #:shift-interval))
+   #:shift-interval)
+   (:documentation "Provides interval arithmetic on the extended real line, supporting finite, semi-infinite, and infinite intervals with open/closed endpoints. Features include interval creation, length/midpoint calculations, membership testing, hull operations, interval extension, splitting, shrinking, and grid generation. Supports arithmetic sequences within intervals and interval manipulation with relative or absolute specifications."))
 (in-package #:num-utils.interval)
 
 ;;; TODO: rewrite interface

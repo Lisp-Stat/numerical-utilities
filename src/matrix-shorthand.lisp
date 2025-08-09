@@ -1,6 +1,6 @@
 ;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS.MATRIX-SHORTHAND -*-
 ;;; Copyright (c) 2011-2014 Tamas Papp
-;;; Copyright (c) 2023 Symbolics Pte Ltd
+;;; Copyright (c) 2023, 2025 Symbolics Pte Ltd
 ;;; SPDX-License-identifier: MS-PL
 
 (uiop:define-package #:num-utils.matrix-shorthand
@@ -17,7 +17,8 @@
    #:diagonal-mx
    #:lower-triangular-mx
    #:hermitian-mx
-   #:upper-triangular-mx))
+   #:upper-triangular-mx)
+   (:documentation "Provides convenient shorthand functions and macros for creating matrices and vectors. Includes vec for vectors, mx for dense matrices, and specialized constructors for diagonal, lower-triangular, upper-triangular, and Hermitian matrices. All functions support element type coercion and the macros offer concise syntax for matrix construction with automatic padding where needed."))
 (in-package #:num-utils.matrix-shorthand)
 
 

@@ -1,5 +1,5 @@
 ;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS.TEST-UTILITIES -*-
-;;; Copyright (c) 2020-2023 by Symbolics Pte. Ltd. All rights reserved.
+;;; Copyright (c) 2020-2023, 2025 by Symbolics Pte. Ltd. All rights reserved.
 ;;; SPDX-License-identifier: MS-PL
 
 (uiop:define-package #:num-utils.test-utilities
@@ -23,7 +23,8 @@
 	   ;; Testing functions
 	   #:test-fn
 	   #:compare-fns
-	   #:compare-vectors))
+	   #:compare-vectors)
+   (:documentation "Provides utilities for testing accuracy of mathematical functions against reference values. Features functions to compare implementations, measure relative errors, and generate statistical reports including min/max/mean errors, variance, and RMS. Supports testing against known values, reference implementations, or pre-computed vectors. Returns detailed test-results structure with error statistics and worst-case identification."))
 (in-package #:num-utils.test-utilities)
 
 
