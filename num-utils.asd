@@ -1,17 +1,17 @@
 ;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: ASDF -*-
 ;;; Copyright (c) 2010 by Tamas K. Papp <tkpapp@gmail.com>
-;;; Copyright (c) 2019-2023 by Symbolics Pte. Ltd. All rights reserved.
+;;; Copyright (c) 2019-2023, 2026 by Symbolics Pte. Ltd. All rights reserved.
 ;;; SPDX-License-identifier: MS-PL
 
 (defsystem "num-utils"
-  :version "1.6.1"
+  :version "1.6.2"
   :license :MS-PL
   :author "Steven Nunez <steve@symbolics.tech>"
   :long-name "Numerical Utilities"
   :description "Numerical utilities for Common Lisp"
   :long-description  #.(uiop:read-file-string
 			(uiop:subpathname *load-pathname* "description.text"))
-  ;:homepage    "https://lisp-stat.dev/docs/tasks/plotting/"
+  :homepage    "https://lisp-stat.dev/docs/manuals/numerical-utilities/"
   :source-control (:git "https://github.com/Lisp-Stat/numerical-utilities.git")
   :bug-tracker "https://github.com/Lisp-Stat/numerical-utilities/issues"
   :depends-on (#:anaphora
@@ -44,7 +44,7 @@
   :version "1.0.0"
   :description "Unit tests for NUM-UTILS."
   :author "Steven Nunez <steve@symbolics.tech>"
-  :license "Same as NUM-UTILS -- this is part of the NUM-UTILS library."
+  :license :MS-PL
   #+asdf-unicode :encoding #+asdf-unicode :utf-8
   :depends-on (#:num-utils
                #:fiveam

@@ -39,8 +39,7 @@ double-floats."
 
 (defun chebyshev-regression (f n-polynomials
                              &optional (n-points n-polynomials))
-  "Chebyshev polynomial regression using the given number of polynomials and
-points (zeroes of the corresponding Chebyshev polynomial)."
+  "Chebyshev polynomial regression using the given number of polynomials and points (zeroes of the corresponding Chebyshev polynomial)."
   (check-types (n-polynomials n-points) positive-fixnum)
   (assert (<= n-polynomials n-points) ()
           "Can't identify ~A coefficients with only ~A points."
