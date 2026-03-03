@@ -160,8 +160,8 @@
         "All tests pass"
       ],
       "priority": 12,
-      "passes": false,
-      "notes": ""
+      "passes": true,
+      "notes": "Committed in previous iteration."
     },
     {
       "id": "US-013",
@@ -174,8 +174,8 @@
         "All tests pass"
       ],
       "priority": 13,
-      "passes": false,
-      "notes": ""
+      "passes": true,
+      "notes": "elementwise-rounding suite added with tests for e1round, e1truncate, esignum (scalar and array). All pass."
     },
     {
       "id": "US-014",
@@ -188,8 +188,8 @@
         "All tests pass"
       ],
       "priority": 14,
-      "passes": false,
-      "notes": ""
+      "passes": true,
+      "notes": "elementwise-binary suite added with tests for e2atan, e2round, e2truncate, e2floor, e2ceiling, erem, e2/=. Covers scalar-scalar, array-array, and dimension mismatch. All pass."
     },
     {
       "id": "US-015",
@@ -201,8 +201,8 @@
         "Tests pass"
       ],
       "priority": 15,
-      "passes": false,
-      "notes": ""
+      "passes": true,
+      "notes": "eatan wrapper tests added to elementwise-binary suite: eatan-1-arg (dispatches to e1atan) and eatan-2-arg (dispatches to e2atan), both scalar and array cases. All pass."
     },
     {
       "id": "US-016",
@@ -215,8 +215,8 @@
         "All tests pass"
       ],
       "priority": 16,
-      "passes": false,
-      "notes": ""
+      "passes": true,
+      "notes": "elementwise-complex suite added with tests for ephase, erealpart, eimagpart, ecis, ecomplex (scalar and array). All pass."
     },
     {
       "id": "US-017",
@@ -228,8 +228,8 @@
         "All tests pass"
       ],
       "priority": 17,
-      "passes": false,
-      "notes": ""
+      "passes": true,
+      "notes": "Float-rounding tests added to elementwise-rounding suite: e1ffloor, e1fceiling, e1fround, e1ftruncate (with float type assertions), e2ffloor, e2fceiling, e2fround, e2ftruncate. All pass."
     },
     {
       "id": "US-018",
@@ -241,8 +241,8 @@
         "All tests pass"
       ],
       "priority": 18,
-      "passes": false,
-      "notes": ""
+      "passes": true,
+      "notes": "elementwise-reduction suite added with tests for e2max and e2min (scalar-scalar, scalar-array, array-array). All pass."
     },
     {
       "id": "US-019",
