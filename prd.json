@@ -255,7 +255,7 @@
         "All tests pass"
       ],
       "priority": 19,
-      "passes": false,
+      "passes": true,
       "notes": "This is a larger story — may need multiple iterations"
     }
   ]

@@ -43,12 +43,14 @@
   (let ((v #(2 3 4)))
     (assert-eql 9  (sum v))
     (assert-eql 24 (product v))
-    (assert-equalp #(2 5 9)  (cumulative-sum v))
-    (assert-equalp #(2 6 24) (cumulative-product v))
+    (assert-equalp #(2 5 9)  (nth-value 0 (cumulative-sum v)))
+    (assert-equalp #(2 6 24) (nth-value 0 (cumulative-product v)))
+    (assert-eql 9  (nth-value 1 (cumulative-sum v)))
+    (assert-eql 24 (nth-value 1 (cumulative-product v)))
     (assert-eql 0 (sum #()))
     (assert-eql 1 (product #()))
-    (assert-equalp #() (cumulative-sum #()))
-    (assert-equalp #() (cumulative-product #()))))
+    (assert-equalp #() (nth-value 0 (cumulative-sum #())))
+    (assert-equalp #() (nth-value 0 (cumulative-product #())))))
 
 (deftest normalize-probabilities (arithmetic)
   "Test probability normalization."

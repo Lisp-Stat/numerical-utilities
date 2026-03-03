@@ -39,13 +39,15 @@
 
 ;;; Original clunit test from Papp -- now active as deftest.
 (deftest wrapped-bivariate-to-array (matrix)
-  "Test that wrapped operations on arrays give same result."
+  "Test that wrapped operations on arrays give same result.
+Uses diagonal matrices so that all three wrapper types (hermitian,
+lower-triangular, upper-triangular) are transparent (preserve all values)."
   (let+ ((a (mx t
-              (1 2)
-              (3 4)))
+              (2 0)
+              (0 5)))
          (b (mx t
-              (5 7)
-              (11 13))))
+              (3 0)
+              (0 7))))
     (do-matrix-convert-ops (lambda (convert op)
                              (assert-true (num= (funcall op a b)
                                                (funcall op (funcall convert a) b)))
