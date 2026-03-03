@@ -11,43 +11,88 @@
         #:let-plus)
   (:nicknames #:elmt)			;num-util elementwise mathematics
   (:export
+   ;; Infrastructure
    #:elementwise-float-contagion
+   ;; Variadic wrappers
    #:e+
    #:e-
    #:e*
    #:e/
-   #:e2+
-   #:e2-
-   #:e2*
-   #:e2/
+   #:elog
+   #:eatan
+   ;; Unary (e1) operators
    #:e1-
    #:e1/
-   #:e2log
-   #:e2exp
-   #:e2mod
    #:e1log
-   #:e1exp
-   #:eexpt
+   #:e1atan
+   ;; Unary with direct names
+   #:eabs
    #:eexp
-   #:elog
-   #:emod
    #:esqrt
    #:efloor
    #:eceiling
    #:econjugate
    #:esquare
-   #:ereduce
-   #:emin
-   #:emax
    #:esin
    #:ecos
+   #:etan
+   #:easin
+   #:eacos
+   #:esinh
+   #:ecosh
+   #:etanh
+   #:easinh
+   #:eacosh
+   #:eatanh
+   #:e1round
+   #:e1truncate
+   #:esignum
+   ;; Tier 2 unary — complex accessors
+   #:ephase
+   #:erealpart
+   #:eimagpart
+   #:ecis
+   ;; Tier 2 unary — float rounding
+   #:e1ffloor
+   #:e1fceiling
+   #:e1fround
+   #:e1ftruncate
+   ;; Binary (e2) operators
+   #:e2+
+   #:e2-
+   #:e2*
+   #:e2/
+   #:e2log
+   #:eexpt
+   #:emod
+   #:e2mod
    #:e2<
    #:e2<=
    #:e2>
    #:e2>=
    #:e2=
-   #:eabs)
-   (:documentation "Provides elementwise operations for arrays and numbers with automatic type contagion. Supports unary operations (abs, sqrt, sin, cos, floor, ceiling, conjugate), binary operations (+, -, *, /, expt, mod, comparisons), and variadic operators. Includes reduction functions (min, max) and seamlessly handles scalar-array and array-array operations with broadcasting support."))
+   #:e2/=
+   #:e2atan
+   #:e2round
+   #:e2truncate
+   #:e2floor
+   #:e2ceiling
+   #:erem
+   ;; Tier 2 binary — complex construction
+   #:ecomplex
+   ;; Tier 2 binary — float rounding
+   #:e2ffloor
+   #:e2fceiling
+   #:e2fround
+   #:e2ftruncate
+   ;; Tier 2 binary — max/min
+   #:e2max
+   #:e2min
+   ;; Reductions
+   #:ereduce
+   #:emin
+   #:emax)
+  (:documentation "Provides elementwise operations for arrays and numbers with automatic type contagion. Supports unary operations (abs, sqrt, sin, cos, tan, asin, acos, atan, sinh, cosh, tanh, asinh, acosh, atanh, floor, ceiling, round, truncate, signum, conjugate, phase, realpart, imagpart, cis, ffloor, fceiling, fround, ftruncate), binary operations (+, -, *, /, expt, log, mod, rem, atan, floor, ceiling, round, truncate, complex, ffloor, fceiling, fround, ftruncate, max, min, comparisons), and variadic operators (+, -, *, /, log, atan). Includes reduction functions (min, max, reduce) and seamlessly handles scalar-array and array-array operations."))
 (in-package #:num-utils.elementwise)
 
 (defun elementwise-float-contagion (&rest objects)
@@ -148,6 +193,36 @@
 (define-e1 sin       :function esin)
 (define-e1 cos       :function ecos)
 
+;;; Tier 1 — trigonometric family
+(define-e1 tan       :function etan)
+(define-e1 asin      :function easin)
+(define-e1 acos      :function eacos)
+(define-e1 atan      :function e1atan
+  :docstring "Univariate elementwise atan (single-argument arctangent).")
+(define-e1 sinh      :function esinh)
+(define-e1 cosh      :function ecosh)
+(define-e1 tanh      :function etanh)
+(define-e1 asinh     :function easinh)
+(define-e1 acosh     :function eacosh)
+(define-e1 atanh     :function eatanh)
+
+;;; Tier 1 — rounding and misc
+(define-e1 round     :function e1round)
+(define-e1 truncate  :function e1truncate)
+(define-e1 signum    :function esignum)
+
+;;; Tier 2 — complex accessors
+(define-e1 phase     :function ephase)
+(define-e1 realpart  :function erealpart)
+(define-e1 imagpart  :function eimagpart)
+(define-e1 cis       :function ecis)
+
+;;; Tier 2 — float rounding (unary)
+(define-e1 ffloor    :function e1ffloor)
+(define-e1 fceiling  :function e1fceiling)
+(define-e1 fround    :function e1fround)
+(define-e1 ftruncate :function e1ftruncate)
+
 
 (defmacro define-e2 (operation
                      &key (function (symbolicate '#:e2 operation))
@@ -194,12 +269,40 @@
 (define-e2 >=)
 (define-e2 =)
 
+;;; Tier 1 — additional binary ops
+(define-e2 /=)
+(define-e2 atan)
+(define-e2 round)
+(define-e2 truncate)
+(define-e2 floor)
+(define-e2 ceiling)
+(define-e2 rem :function erem)
+
+;;; Tier 2 — complex construction
+(define-e2 complex :function ecomplex)
+
+;;; Tier 2 — float rounding (binary)
+(define-e2 ffloor)
+(define-e2 fceiling)
+(define-e2 fround)
+(define-e2 ftruncate)
+
+;;; Tier 2 — binary max/min
+(define-e2 max)
+(define-e2 min)
+
 
 (defun elog (a &optional (base nil base?))
   "Elementwise logarithm."
   (if base?
       (e2log a base)
       (e1log a)))
+
+(defun eatan (a &optional (b nil b?))
+  "Elementwise arctangent.  With one argument, returns atan(a).  With two arguments, returns atan(a, b) (i.e. atan2)."
+  (if b?
+      (e2atan a b)
+      (e1atan a)))
 
 (defmacro define-e& (operation &key (function (symbolicate '#:e operation))
                                     (bivariate (symbolicate '#:e2 operation))

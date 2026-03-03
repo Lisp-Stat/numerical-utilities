@@ -1,22 +1,22 @@
 ;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS-TESTS -*-
 ;;; Copyright (c) 2019 by Symbolics Pte. Ltd. All rights reserved.
+;;; SPDX-License-identifier: MS-PL
 (in-package #:num-utils-tests)
 
 #+genera (setf *print-array* t)
 
-(def-suite elementwise
-    :description "Test elementwise functions"
-    :in all-tests)
-(in-suite elementwise)
+(defsuite elementwise (all-tests))
 
-(test elementwise-float-contagion
+(deftest elementwise-float-contagion (elementwise)
+  "Test that elementwise-float-contagion returns the correct promoted type."
   (flet ((compare (type &rest objects)
            (type= (apply #'num-utils.elementwise::elementwise-float-contagion
                          objects) type)))
-    (is (compare 'double-float 1d0) 0)
-    (is (compare 'real 0 1))))
+    (assert-true (compare 'double-float 1d0) 0)
+    (assert-true (compare 'real 0 1))))
 
-(test e-operations-tests
+(deftest e-operations-tests (elementwise)
+  "Test scalar and array element-wise arithmetic operations."
   (let+ (((&flet arr (dimensions element-type &rest elements)
             (aprog1 (make-array dimensions :element-type element-type)
               (assert (length= elements (array-total-size it)))
@@ -30,23 +30,19 @@
          (b (arr '(2 3) 'single-float
                  2 3 5
                  7 11 13)))
-    (is (equalp (e+ a b) (arr '(2 3) 'double-float
-			      3 5 8
-			      11 16 19)))
-    (is (equalp (e* a 2s0) (arr '(2 3) 'double-float
-				2 4 6
-				8 10 12)))
-    (is (equalp (e+ a 2 b) (e+ (e+ a b) 2)))
-    (is (equalp (e+ a a) (e* a 2)))
-    (signals error (e/ a 0))             ; division by 0
-    (signals error (e+ a       ; dimension incompatibility
-		       (arr '(1 1) 'double-float 2)))
-    (is (equalp (e+ a) (e+ a 0)))
-    (is (equalp (e* a) (e* a 1)))
-    (is (equalp (e- a) (e- 0d0 a)))
-    (is (equalp (e/ a) (e/ 1d0 a)))
-    (is (num= #(1.0) (elog #(10) 10)))
-    (is (num= a (eexp (elog a))))))
+    (assert-equalp (arr '(2 3) 'double-float 3 5 8 11 16 19) (e+ a b))
+    (assert-equalp (arr '(2 3) 'double-float 2 4 6 8 10 12)  (e* a 2s0))
+    (assert-equalp (e+ (e+ a b) 2) (e+ a 2 b))
+    (assert-equalp (e* a 2)        (e+ a a))
+    (assert-condition error (e/ a 0))           ; division by 0
+    (assert-condition error (e+ a               ; dimension incompatibility
+                                (arr '(1 1) 'double-float 2)))
+    (assert-equalp (e+ a 0)  (e+ a))
+    (assert-equalp (e* a 1)  (e* a))
+    (assert-equalp (e- 0d0 a) (e- a))
+    (assert-equalp (e/ 1d0 a) (e/ a))
+    (assert-true (num= #(1.0) (elog #(10) 10)))
+    (assert-true (num= a (eexp (elog a))))))
 
 ;;; Commented out by Papp. Should these be in array-operations?
 ;; (deftest (elementwise-tests)

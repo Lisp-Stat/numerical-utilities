@@ -1,18 +1,17 @@
 ;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS-TESTS -*-
 ;;; Copyright (c) 2019, 2023 by Symbolics Pte. Ltd. All rights reserved.
+;;; SPDX-License-identifier: MS-PL
 (in-package #:num-utils-tests)
 
 #+genera (setf *print-array* t)
 
-(def-suite matrix
-    :description "Test matrix functions"
-    :in all-tests)
-(in-suite matrix)
+(defsuite matrix (all-tests))
 
-(test wrapped-univariate-operation
-  (is (num= (e- (upper-triangular-mx t 2)) (upper-triangular-mx t -2)))
-  (is (num= (e/ (upper-triangular-mx t 2)) (upper-triangular-mx t 0.5)))
-  (is (num= (e+ (upper-triangular-mx t 2)) (upper-triangular-mx t 2))))
+(deftest wrapped-univariate-operation (matrix)
+  "Test element-wise unary operations on wrapped matrices."
+  (assert-true (num= (e- (upper-triangular-mx t 2)) (upper-triangular-mx t -2)))
+  (assert-true (num= (e/ (upper-triangular-mx t 2)) (upper-triangular-mx t 0.5)))
+  (assert-true (num= (e+ (upper-triangular-mx t 2)) (upper-triangular-mx t 2))))
 
 (defun do-matrix-convert-ops (test converts &key (ops (list #'e+ #'e- #'e*)))
   "Funcall TEST with CONVERT and each operation in OPs."
@@ -22,37 +21,11 @@
 
 (defun assert-distributive-convert-op (a b convert op)
   "Check that OP distributes over CONVERT."
-  (is (num= (funcall convert (funcall op a b))
-	    (funcall op (funcall convert a) (funcall convert b)))))
+  (assert-true (num= (funcall convert (funcall op a b))
+                     (funcall op (funcall convert a) (funcall convert b)))))
 
-#| 20191001 (SN) Added during debugging process
-(defun assert-associative-convert-op (a b convert op)
-  "Check that OP is associative over CONVERT."
-  ;; (declare (ignore a b convert op))
-  ;; (skip "op a b = op b a. Bug somewhere.")
-  ;; (skip "op b a = op a b. Bug somewhere.")
-  ;; (let* ((x (funcall op a b))
-  ;; 	 (y (funcall op (funcall convert a) b)))
-  ;;   (is (num= x y)
-  ;; 	"Expected x, ~A, to be equal to y, ~A.~%funcall op a b returns: ~A~%funcall op funcall convert a returns: ~A~%"
-  ;; 	x
-  ;; 	y
-  ;; 	(funcall op a b)
-  ;; 	(funcall op (funcall convert a) b)
-  ;; 	)))
-  (format t "~%num= returns ~A~%" (num= (funcall op a b)
-  					(funcall op (funcall convert a) b)))
-  (is (num= (funcall op a b)
-  	    (funcall op (funcall convert a) b));)
-      "Expected ~A to be equal to ~A" (funcall op a b) (funcall op (funcall convert a) b))
-  (format t "~%num= returns ~A~%" (num= (funcall op a b)
-  					(funcall op (funcall convert a) b)))
-  (is (num= (funcall op a b)
-  	    (funcall op a (funcall convert b)))
-      "Expected ~A to be equal to ~A" (funcall op a b) (funcall op a (funcall convert b))))
-|#
-
-(test wrapped-bivariate-operation
+(deftest wrapped-bivariate-operation (matrix)
+  "Test distributivity of bivariate element-wise operations over matrix wrappers."
   (do-matrix-convert-ops (curry #'assert-distributive-convert-op
                                 (mx t
                                   (1 2)
@@ -63,22 +36,10 @@
     (list #'hermitian-matrix
           #'lower-triangular-matrix
           #'upper-triangular-matrix)))
-#+ignore
-(test wrapped-bivariate-to-array
-  (let+ ((a (mx t
-              (1 2)
-              (3 4)))
-         (b (mx t
-              (5 7)
-              (11 13))))
-    (do-matrix-convert-ops (curry #'assert-associative-convert-op a b)
-      (list #'hermitian-matrix
-            #'lower-triangular-matrix
-            #'upper-triangular-matrix))))
 
-;;; Transliteration of clunit deftest
-;;; Commented out reason-args because they make the failure appear to be a false positive
-(test wrapped-bivariate-to-array
+;;; Original clunit test from Papp -- now active as deftest.
+(deftest wrapped-bivariate-to-array (matrix)
+  "Test that wrapped operations on arrays give same result."
   (let+ ((a (mx t
               (1 2)
               (3 4)))
@@ -86,40 +47,23 @@
               (5 7)
               (11 13))))
     (do-matrix-convert-ops (lambda (convert op)
-                             (is (num= (funcall op a b)
-			     	       (funcall op (funcall convert a) b)))
-			      	 ;; "Expected ~A but received ~A" (funcall op a b) (funcall op (funcall convert a) b))
-                             (is (num= (funcall op a b)
-				       (funcall op a (funcall convert b)))))
-				 ;; "Expected ~A but received ~A" (funcall op a b) (funcall op a (funcall convert b))))
+                             (assert-true (num= (funcall op a b)
+                                               (funcall op (funcall convert a) b)))
+                             (assert-true (num= (funcall op a b)
+                                               (funcall op a (funcall convert b)))))
       (list #'hermitian-matrix
             #'lower-triangular-matrix
             #'upper-triangular-matrix))))
 
-#| Original clunit test from Papp. Works in clunit
-(deftest wrapped-bivariate-to-array (matrix-suite)
-  (let+ ((a (mx t
-              (1 2)
-              (3 4)))
-         (b (mx t
-              (5 7)
-              (11 13))))
-    (do-matrix-convert-ops (lambda (convert op)
-                             (assert-equality #'num= (funcall op a b)
-                                 (funcall op (funcall convert a) b))
-                             (assert-equality #'num= (funcall op a b)
-                                 (funcall op a (funcall convert b))))
-      (list #'hermitian-matrix
-            #'lower-triangular-matrix
-            #'upper-triangular-matrix))))
-|#
-(test diagonal-test
+(deftest diagonal-test (matrix)
+  "Test diagonal matrix operations."
   (do-matrix-convert-ops (curry #'assert-distributive-convert-op
                                 (vec t 1 2 3 4)
                                 (vec t 5 7 11 13))
     (list #'diagonal-matrix)))
 
-(test wrapped-matrix-slice
+(deftest wrapped-matrix-slice (matrix)
+  "Test that slicing a wrapped matrix returns the correct wrapped type."
   (let+ ((mx (mx t
                (1 2 3)
                (4 5 6)
@@ -129,11 +73,8 @@
             `(let* ((wrapped (,type mx))
                     (slice (range 0 2))
                     (sliced (select wrapped slice)))
-               (is (eq ',type (type-of sliced)))
-               (is (num= sliced (,type (select mx slice slice))))))))
+               (assert-true (eq ',type (type-of sliced)))
+               (assert-true (num= sliced (,type (select mx slice slice))))))))
     (assert-slice upper-triangular-matrix)
     (assert-slice lower-triangular-matrix)
     (assert-slice hermitian-matrix)))
-
-
-

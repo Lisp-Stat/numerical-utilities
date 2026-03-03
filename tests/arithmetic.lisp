@@ -1,77 +1,81 @@
 ;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS-TESTS -*-
 ;;; Copyright (c) 2019 by Symbolics Pte. Ltd. All rights reserved.
+;;; SPDX-License-identifier: MS-PL
 (in-package #:num-utils-tests)
 
 #+genera (setf *print-array* t)
 
-(def-suite arithmetic
-    :description "Test arithmetic functions"
-    :in all-tests)
-(in-suite arithmetic)
+(defsuite arithmetic (all-tests))
 
-(test arithmetic-functions
-  (is  (same-sign-p 1 2 3))
-  (not (same-sign-p 1 -2 3))
-  (is (= 4 (square 2)))
-  (is (= 4.0 (absolute-square 2.0)))
-  (is (= 25 (absolute-square #C(3 4))))
-  (is (= 2 (abs-diff 3 5)))
-  (is (= 2 (abs-diff -3 -5)))
-  (is (num= 2 (log10 100)))
-  (is (num= 8 (log2 256)))
-  (is (= 1/5 (1c 4/5)))
-  (is  (divides? 8 2))
-  (not (divides? 8 3))
-  (is (= 2 (as-integer 2.0)))
-  (is (= 5 (seq-max #(0 1 2 3 4 5))))
-  (is (= 5 (seq-max '(0 1 2 3 4 5))))
-  (is (= 0 (seq-min #(0 1 2 3 4 5))))
-  (is (= 0 (seq-min '(0 1 2 3 4 5))))
-  (signals error (as-integer 2.5)))
+(deftest arithmetic-functions (arithmetic)
+  "Test arithmetic functions."
+  (assert-true  (same-sign-p 1 2 3))
+  (assert-false (same-sign-p 1 -2 3))
+  (assert-eql 4 (square 2))
+  (assert-true (= 4.0 (absolute-square 2.0)))
+  (assert-eql 25 (absolute-square #C(3 4)))
+  (assert-eql 2 (abs-diff 3 5))
+  (assert-eql 2 (abs-diff -3 -5))
+  (assert-true (num= 2 (log10 100)))
+  (assert-true (num= 8 (log2 256)))
+  (assert-eql 1/5 (1c 4/5))
+  (assert-true  (divides? 8 2))
+  (assert-false (divides? 8 3))
+  (assert-eql 2 (as-integer 2.0))
+  (assert-eql 5 (seq-max #(0 1 2 3 4 5)))
+  (assert-eql 5 (seq-max '(0 1 2 3 4 5)))
+  (assert-eql 0 (seq-min #(0 1 2 3 4 5)))
+  (assert-eql 0 (seq-min '(0 1 2 3 4 5)))
+  (assert-condition error (as-integer 2.5)))
 
-(test arithmetic-sequences
-  (is (equalp #(2 3 4)   (numseq 2 4)))
-  (is (equalp #(2 4 6 8) (numseq 2 nil :length 4 :by 2)))
-  (is (equalp #(0 1 2 3) (ivec 4)))
-  (is (equalp #(1 2 3)   (ivec 1 4)))
-  (is (equalp #(1 3)     (ivec 1 4 2)))
-  (signals error #(1 3)  (ivec 4 1 1 t)))
+(deftest arithmetic-sequences (arithmetic)
+  "Test arithmetic sequence constructors."
+  (assert-equalp #(2 3 4)   (numseq 2 4))
+  (assert-equalp #(2 4 6 8) (numseq 2 nil :length 4 :by 2))
+  (assert-equalp #(0 1 2 3) (ivec 4))
+  (assert-equalp #(1 2 3)   (ivec 1 4))
+  (assert-equalp #(1 3)     (ivec 1 4 2))
+  ;; ivec signals error when direction conflicts with strict-direction? t
+  (assert-condition error (ivec 4 1 1 t)))
 
-(test arithmetic-summaries
+(deftest arithmetic-summaries (arithmetic)
+  "Test sum, product, and cumulative operations."
   (let ((v #(2 3 4)))
-    (is (= 9 (sum v)))
-    (is (= 24 (product v)))
-    (is (equalp #(2 5 9) (cumulative-sum v)))
-    (is (equalp #(2 6 24) (cumulative-product v)))
-    (is (= 0 (sum #())))
-    (is (= 1 (product #())))
-    (is (equalp #() (cumulative-sum #())))
-    (is (equalp #() (cumulative-product #())))))
+    (assert-eql 9  (sum v))
+    (assert-eql 24 (product v))
+    (assert-equalp #(2 5 9)  (cumulative-sum v))
+    (assert-equalp #(2 6 24) (cumulative-product v))
+    (assert-eql 0 (sum #()))
+    (assert-eql 1 (product #()))
+    (assert-equalp #() (cumulative-sum #()))
+    (assert-equalp #() (cumulative-product #()))))
 
-(test normalize-probabilities
+(deftest normalize-probabilities (arithmetic)
+  "Test probability normalization."
   (let* ((a (vector 1 2 7))
          (a-copy (copy-seq a)))
-    (is (equalp #(1/10 2/10 7/10) (normalize-probabilities a)))
-    (is (equalp a a-copy))            ; not modified
-    (is (equalp #(0.1d0 0.2d0 0.7d0)
-		(normalize-probabilities a :element-type 'double-float)))
-    (is (equalp a a-copy))            ; not modified
-    (signals error (normalize-probabilities #(1 -1)))
+    (assert-equalp #(1/10 2/10 7/10) (normalize-probabilities a))
+    (assert-equalp a a-copy)           ; not modified
+    (assert-equalp #(0.1d0 0.2d0 0.7d0)
+                   (normalize-probabilities a :element-type 'double-float))
+    (assert-equalp a a-copy)           ; still not modified
+    (assert-condition error (normalize-probabilities #(1 -1)))
     (let ((normalized #(0.1d0 0.2d0 0.7d0)))
-      (is (equalp normalized
-		  (normalize-probabilities a
-                                   :element-type 'double-float
-                                   :result nil)))
-      (is (equalp a normalized))
-      (not (equalp a a-copy)))))
+      (assert-equalp normalized
+                     (normalize-probabilities a
+                                              :element-type 'double-float
+                                              :result nil))
+      (assert-equalp a normalized)
+      (assert-false (equalp a a-copy))))) ; a was modified in-place
 
-(test arithmetic-rounding
-  (is (equalp '(25 2) (multiple-value-list (floor* 27 5))))
-  (is (equalp '(26 1) (multiple-value-list (floor* 27 5 1))))
-  (is (equalp '(30 -3) (multiple-value-list (ceiling* 27 5))))
-  (is (equalp '(31 -4) (multiple-value-list (ceiling* 27 5 1))))
-  (is (equalp '(25 2) (multiple-value-list (round* 27 5))))
-  (is (equalp '(29 -2) (multiple-value-list (round* 27 5 -1))))
-  (is (equalp '(-25 -2) (multiple-value-list (truncate* -27 5))))
-  (is (equalp '(-24 -3) (multiple-value-list (truncate* -27 5 1)))))
+(deftest arithmetic-rounding (arithmetic)
+  "Test floor*, ceiling*, round*, and truncate* rounding helpers."
+  (assert-equalp '(25 2)   (multiple-value-list (floor*    27  5)))
+  (assert-equalp '(26 1)   (multiple-value-list (floor*    27  5  1)))
+  (assert-equalp '(30 -3)  (multiple-value-list (ceiling*  27  5)))
+  (assert-equalp '(31 -4)  (multiple-value-list (ceiling*  27  5  1)))
+  (assert-equalp '(25 2)   (multiple-value-list (round*    27  5)))
+  (assert-equalp '(29 -2)  (multiple-value-list (round*    27  5 -1)))
+  (assert-equalp '(-25 -2) (multiple-value-list (truncate* -27 5)))
+  (assert-equalp '(-24 -3) (multiple-value-list (truncate* -27 5  1))))
 

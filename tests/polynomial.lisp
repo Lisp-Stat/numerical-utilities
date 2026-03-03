@@ -1,5 +1,6 @@
 ;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS-TESTS -*-
 ;;; Copyright (c) 2019 by Symbolics Pte. Ltd. All rights reserved.
+;;; SPDX-License-identifier: MS-PL
 (in-package #:num-utils-tests)
 
 #+genera (setf *print-array* t)
@@ -8,10 +9,7 @@
 ;;; https://www.semanticscholar.org/paper/A-Simple-Test-Qualifying-the-Accuracy-of-Horner'S-Boldo-Daumas/fe5b9e5996947395680c9fb0c3dd918728e043fe
 ;;; For a methodology for testing Horner's rule for polynomials.
 
-(def-suite polynomial
-    :description "Test evaluation of polynomials using Horner's rule"
-    :in all-tests)
-(in-suite polynomial)
+(defsuite polynomial (all-tests))
 
 ;;; Fixnum
 (defvar polynomial-f1 (make-vector 'fixnum 2 -6 2 -1)) ; Answer:  5, for x = 3
@@ -33,37 +31,36 @@
 (defvar polynomial-b2 #(2 0 3 1))
 (defvar polynomial-b3 #(1 3 5 7 9))
 
-(test fixnum-polynomial
-  :description "Test Horner's method of polynomial evaluation with fixnum coefficients."
+(deftest fixnum-polynomial (polynomial)
+  "Test Horner's method of polynomial evaluation with fixnum coefficients."
   (let ((answer (evaluate-polynomial polynomial-f1 3)))
-    (is (equal 5 answer) "Expected 5 but got ~A." answer))
+    (assert-eql 5 answer))
   (let ((answer (evaluate-polynomial polynomial-f2 2)))
-    (is (equal 23 answer) "Expected 23 but got ~A." answer))
+    (assert-eql 23 answer))
   (let ((answer (evaluate-polynomial polynomial-f3 2)))
-    (is (equal 83 answer) "Expected 82 but got ~A." answer))
-  (let ((answer (evaluate-polynomial (make-vector 'fixnum 5) 2))) ; Test with single coefficient
-    (is (equal 5 answer) "Expected 5 but got ~A." answer)))
+    (assert-eql 83 answer))
+  (let ((answer (evaluate-polynomial (make-vector 'fixnum 5) 2)))
+    (assert-eql 5 answer)))
 
-(test single-float-polynomial
-  :description "Test Horner's method of polynomial evaluation with single-float coefficients."
+(deftest single-float-polynomial (polynomial)
+  "Test Horner's method of polynomial evaluation with single-float coefficients."
   (let ((answer (evaluate-polynomial polynomial-s1 3.0)))
-    (is (equal 5.0 answer) "Expected 5.0 but got ~A." answer))
+    (assert-true (equal 5.0 answer)))
   (let ((answer (evaluate-polynomial polynomial-s2 2.0)))
-    (is (equal 23.0 answer) "Expected 23.0 but got ~A." answer))
+    (assert-true (equal 23.0 answer)))
   (let ((answer (evaluate-polynomial polynomial-s3 2.0)))
-    (is (equal 83.0 answer) "Expected 82.0 but got ~A." answer)))
+    (assert-true (equal 83.0 answer))))
 
-(test double-float-polynomial
-  :description "Test Horner's method of polynomial evaluation with double-float coefficients."
+(deftest double-float-polynomial (polynomial)
+  "Test Horner's method of polynomial evaluation with double-float coefficients."
   (let ((answer (evaluate-polynomial polynomial-d1 3.0d0)))
-    (is (equal 5.0d0 answer) "Expected 5.0d0 but got ~A." answer))
+    (assert-true (equal 5.0d0 answer)))
   (let ((answer (evaluate-polynomial polynomial-d2 2.0d0)))
-    (is (equal 23.0d0 answer) "Expected 23.0d0 but got ~A." answer))
+    (assert-true (equal 23.0d0 answer)))
   (let ((answer (evaluate-polynomial polynomial-d3 2.0d0)))
-    (is (equal 83.0d0 answer) "Expected 82.0d0 but got ~A." answer)))
+    (assert-true (equal 83.0d0 answer))))
 
-(test untyped-polynomial
-  :description "Test Horner's method of polynomial evaluation with untyped coefficients."
+(deftest untyped-polynomial (polynomial)
+  "Test Horner's method of polynomial evaluation with untyped (bignum) coefficients."
   (let ((answer (evaluate-polynomial polynomial-b1 (1+ most-positive-fixnum))))
-    (is (eql 42535295865117307932921825928971026433 answer)
-	"Expected 42535295865117307932921825928971026433 but got ~A." answer)))
+    (assert-eql 42535295865117307932921825928971026433 answer)))

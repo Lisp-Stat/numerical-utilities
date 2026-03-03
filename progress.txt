@@ -1,0 +1,24 @@
+## Codebase Patterns
+
+- Use `define-e1` for unary ops, `define-e2` for binary, `define-e&` for variadic wrappers
+- Function naming: `e1<op>` (unary), `e2<op>` (binary), `e<op>` (variadic/wrapper)
+- When a CL function has both 1-arg and 2-arg forms (like `atan`, `log`), create both `e1`/`e2` plus a wrapper
+- `mapping-array` captures only the primary return value — correct for rounding functions
+- Use `num=` for floating-point comparisons in tests
+- Complex results: many trig functions return complex for out-of-range inputs (e.g., `(asin 2.0d0)`)
+- FiveAM's bare `(not ...)` is a silent no-op that needs replacing with `(assert-false ...)` in clunit2
+- clunit2's `*test-output-stream*` must be rebound to `*standard-output*` in `run-tests`
+- Always use `d0` suffix for double-float literals in source and test code
+
+## Environment
+
+- Project root is `/workspace` (not `/usr/local/symbolics/src/num-utils` — that path does not exist in this container; no sudo to create it)
+- Test command uses `/workspace` as the project path:
+  ```sh
+  cd /workspace && sbcl --non-interactive \
+    --eval '(push #p"/workspace/" asdf:*central-registry*)' \
+    --eval '(ql:quickload :num-utils :silent t)' \
+    --eval '(ql:quickload :clunit2 :silent t)' \
+    --eval '(asdf:test-system "num-utils")'
+  ```
+

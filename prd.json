@@ -1,0 +1,262 @@
+{
+  "project": "num-utils",
+  "branchName": "ralph/elementwise-tier1-tier2",
+  "description": "Complete vectorized math operators (Tier 1+2) and migrate tests to clunit2",
+  "userStories": [
+    {
+      "id": "US-001",
+      "title": "Migrate test infrastructure to clunit2",
+      "description": "Update test-package.lisp to use clunit2 instead of FiveAM. Update main.lisp with clunit2 runner. Update num-utils.asd test system to depend on clunit2.",
+      "acceptanceCriteria": [
+        "test-package.lisp uses (:use #:clunit) instead of (:use #:fiveam)",
+        "main.lisp defines run-tests with *test-output-stream* rebinding",
+        "num-utils.asd test system depends on clunit2",
+        "Tests compile without errors"
+      ],
+      "priority": 1,
+      "passes": true,
+      "notes": "test-package.lisp and num-utils.asd were already correct. Fixed run-tests in main.lisp to rebind *test-output-stream* to *standard-output* — clunit2 captures the stream at load time when quickloaded silently, discarding all output without this rebinding."
+    },
+    {
+      "id": "US-002",
+      "title": "Migrate elementwise tests to clunit2",
+      "description": "Rewrite tests/elementwise.lisp from FiveAM to clunit2 syntax. Convert def-suite/in-suite to defsuite, test to deftest, is to assert-true, signals to assert-condition.",
+      "acceptanceCriteria": [
+        "All existing elementwise tests converted to clunit2",
+        "Every deftest has a docstring",
+        "Bare (not ...) forms converted to (assert-false ...)",
+        "Tests pass with clunit2 runner"
+      ],
+      "priority": 2,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-003",
+      "title": "Fix stale exports e1exp and e2exp",
+      "description": "Remove e1exp and e2exp from the exports list in elementwise.lisp — they are exported but never defined. e1exp's role is filled by eexp, and e2exp is invalid (exp is unary in CL).",
+      "acceptanceCriteria": [
+        "#:e1exp and #:e2exp removed from :export list",
+        "Package compiles without warnings",
+        "No other code references these symbols"
+      ],
+      "priority": 3,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-004",
+      "title": "Add Tier 1 trig unary ops",
+      "description": "Add define-e1 forms for: tan, asin, acos, atan (1-arg), sinh, cosh, tanh, asinh, acosh, atanh. Add corresponding exports.",
+      "acceptanceCriteria": [
+        "10 new define-e1 forms added",
+        "All 10 symbols exported",
+        "Package compiles without errors"
+      ],
+      "priority": 4,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-005",
+      "title": "Add Tier 1 rounding and misc unary ops",
+      "description": "Add define-e1 forms for: round, truncate, signum. Add corresponding exports.",
+      "acceptanceCriteria": [
+        "3 new define-e1 forms added",
+        "All 3 symbols exported",
+        "Package compiles without errors"
+      ],
+      "priority": 5,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-006",
+      "title": "Add Tier 1 binary ops",
+      "description": "Add define-e2 forms for: atan (2-arg), round, truncate, floor, ceiling, rem, /=. Add corresponding exports.",
+      "acceptanceCriteria": [
+        "7 new define-e2 forms added",
+        "All 7 symbols exported",
+        "Package compiles without errors"
+      ],
+      "priority": 6,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-007",
+      "title": "Add eatan variadic wrapper",
+      "description": "Create eatan function like elog that dispatches between e1atan (1-arg) and e2atan (2-arg). Add export.",
+      "acceptanceCriteria": [
+        "eatan function defined",
+        "Dispatches correctly for 1 and 2 arguments",
+        "Symbol exported",
+        "Package compiles without errors"
+      ],
+      "priority": 7,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-008",
+      "title": "Add Tier 2 complex ops",
+      "description": "Add define-e1 forms for: phase, realpart, imagpart, cis. Add define-e2 for: complex. Add corresponding exports.",
+      "acceptanceCriteria": [
+        "4 unary + 1 binary operations added",
+        "All 5 symbols exported",
+        "Package compiles without errors"
+      ],
+      "priority": 8,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-009",
+      "title": "Add Tier 2 float-rounding ops",
+      "description": "Add define-e1 forms for: ffloor, fceiling, fround, ftruncate. Add define-e2 forms for the same 4. Add corresponding exports.",
+      "acceptanceCriteria": [
+        "4 unary + 4 binary float-rounding operations added",
+        "All 8 symbols exported",
+        "Package compiles without errors"
+      ],
+      "priority": 9,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-010",
+      "title": "Add Tier 2 binary max/min",
+      "description": "Add define-e2 forms for: max, min. Add corresponding exports.",
+      "acceptanceCriteria": [
+        "2 binary operations added",
+        "Both symbols exported",
+        "Package compiles without errors",
+        "Does not conflict with existing emax/emin reductions"
+      ],
+      "priority": 10,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-011",
+      "title": "Update package docstring",
+      "description": "Update the :documentation string in the uiop:define-package form to reflect the expanded operator set including trig, rounding, complex, and float-rounding families.",
+      "acceptanceCriteria": [
+        "Docstring accurately describes all operator families",
+        "Package compiles without errors"
+      ],
+      "priority": 11,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-012",
+      "title": "Write trig unary tests",
+      "description": "Write clunit2 tests for all Tier 1 trig unary ops: etan, easin, eacos, e1atan, esinh, ecosh, etanh, easinh, eacosh, eatanh. Test scalar passthrough, array mapping, and known identities.",
+      "acceptanceCriteria": [
+        "elementwise-trig suite defined",
+        "At least one test per trig function",
+        "Tests cover scalar and array cases",
+        "All tests pass"
+      ],
+      "priority": 12,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-013",
+      "title": "Write rounding and misc unary tests",
+      "description": "Write tests for e1round, e1truncate, esignum on scalars and arrays.",
+      "acceptanceCriteria": [
+        "elementwise-rounding suite defined",
+        "Tests for round, truncate, signum",
+        "Tests cover scalar and array cases",
+        "All tests pass"
+      ],
+      "priority": 13,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-014",
+      "title": "Write Tier 1 binary op tests",
+      "description": "Write tests for e2atan, e2round, e2truncate, e2floor, e2ceiling, erem, e2/=. Test scalar-scalar, scalar-array, array-array, and dimension mismatch.",
+      "acceptanceCriteria": [
+        "Tests for all 7 binary ops",
+        "Tests cover all dispatch combinations",
+        "Dimension mismatch error tested",
+        "All tests pass"
+      ],
+      "priority": 14,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-015",
+      "title": "Write eatan wrapper tests",
+      "description": "Write tests verifying eatan dispatches correctly for 1-arg and 2-arg calls.",
+      "acceptanceCriteria": [
+        "Test 1-arg eatan equals e1atan result",
+        "Test 2-arg eatan equals e2atan result",
+        "Tests pass"
+      ],
+      "priority": 15,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-016",
+      "title": "Write Tier 2 complex op tests",
+      "description": "Write tests for ephase, erealpart, eimagpart, ecis, ecomplex with complex number scalars and arrays.",
+      "acceptanceCriteria": [
+        "elementwise-complex suite defined",
+        "Tests for all 5 complex ops",
+        "Tests use complex number arrays",
+        "All tests pass"
+      ],
+      "priority": 16,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-017",
+      "title": "Write Tier 2 float-rounding tests",
+      "description": "Write tests for all 8 f-rounding variants (e1ffloor, e2ffloor, etc.) with known values.",
+      "acceptanceCriteria": [
+        "Tests for all 8 float-rounding ops",
+        "Tests verify float return type",
+        "All tests pass"
+      ],
+      "priority": 17,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-018",
+      "title": "Write binary max/min tests",
+      "description": "Write tests for e2max, e2min with scalar-array and array-array cases.",
+      "acceptanceCriteria": [
+        "Tests for e2max and e2min",
+        "Tests cover scalar-array and array-array",
+        "All tests pass"
+      ],
+      "priority": 18,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-019",
+      "title": "Migrate remaining test files to clunit2",
+      "description": "Migrate all test files (arithmetic, chebyshev, num=, interval, etc.) from FiveAM to clunit2. Fix all bare (not ...) non-assertions.",
+      "acceptanceCriteria": [
+        "All test files use clunit2 syntax",
+        "All bare (not ...) fixed to (assert-false ...)",
+        "All deftest forms have docstrings",
+        "All tests pass"
+      ],
+      "priority": 19,
+      "passes": false,
+      "notes": "This is a larger story — may need multiple iterations"
+    }
+  ]
+}

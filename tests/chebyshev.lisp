@@ -1,16 +1,14 @@
 ;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS-TESTS -*-
 ;;; Copyright (c) 2019 by Symbolics Pte. Ltd. All rights reserved.
+;;; SPDX-License-identifier: MS-PL
 (in-package #:num-utils-tests)
 
 #+genera (setf *print-array* t)
 
-(def-suite chebyshev
-    :description "Test chebyshev functions"
-    :in all-tests)
-(in-suite chebyshev)
+(defsuite chebyshev (all-tests))
 
 (defun maximum-on-grid (f interval &optional (n-grid 1000))
-  "Maximum of F on a grid of N-GRID equidistand points in INTERVAL."
+  "Maximum of F on a grid of N-GRID equidistant points in INTERVAL."
   (loop for index below n-grid
         maximizing (funcall f
                             (interval-midpoint interval
@@ -27,19 +25,21 @@
   (let ((f-approx (apply #'chebyshev-approximate f interval n-polynomials rest)))
     (approximation-error f f-approx test-interval)))
 
-(test chebyshev-open-inf
-  (is (<= (test-chebyshev-approximate (lambda (x) (/ x (+ 4 x)))
-				      (interval 2 :plusinf) 15
-				      (interval 2 102))
-	  1e-5))
-  (is (<= (test-chebyshev-approximate (lambda (x) (exp (- x)))
-				      (interval 0 :plusinf) 15
-				      (interval 0 10)
-				      :n-points 30)
-	  1e-4)))
+(deftest chebyshev-open-inf (chebyshev)
+  "Test Chebyshev approximation on open/infinite intervals."
+  (assert-true (<= (test-chebyshev-approximate (lambda (x) (/ x (+ 4 x)))
+                                               (interval 2 :plusinf) 15
+                                               (interval 2 102))
+                   1e-5))
+  (assert-true (<= (test-chebyshev-approximate (lambda (x) (exp (- x)))
+                                               (interval 0 :plusinf) 15
+                                               (interval 0 10)
+                                               :n-points 30)
+                   1e-4)))
 
-(test chebyshev-finite-interval
-  (is (<= (test-chebyshev-approximate (lambda (x) (/ (1+ (expt x 2))))
-				      (interval -3d0 2d0) 20
-				      (interval -1.5d0 1d0))
-	  1e-3)))
+(deftest chebyshev-finite-interval (chebyshev)
+  "Test Chebyshev approximation on a finite interval."
+  (assert-true (<= (test-chebyshev-approximate (lambda (x) (/ (1+ (expt x 2))))
+                                               (interval -3d0 2d0) 20
+                                               (interval -1.5d0 1d0))
+                   1e-3)))

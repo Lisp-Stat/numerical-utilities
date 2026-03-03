@@ -47,8 +47,8 @@
   :license :MS-PL
   #+asdf-unicode :encoding #+asdf-unicode :utf-8
   :depends-on (#:num-utils
-               #:fiveam
-	       #:select) ; matrix test needs this
+               #:clunit2
+               #:select)               ; matrix test needs this
   :pathname "tests/"
   :serial t
   :components
@@ -70,6 +70,5 @@
    (:file "log-exp")
    (:file "utilities"))
   :perform (test-op (o s)
-		    (uiop:symbol-call :fiveam :run!
-				      (uiop:find-symbol* :all-tests
-							 :num-utils-tests))))
+                    ;; *test-output-stream* and *print-pretty* managed in run-tests
+                    (uiop:symbol-call :num-utils-tests :run-tests)))

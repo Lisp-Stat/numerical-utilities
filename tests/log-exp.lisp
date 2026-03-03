@@ -1,5 +1,6 @@
-;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: SPECIAL-FUNCTIONS-TESTS -*-
+;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-Lisp; Package: NUM-UTILS-TESTS -*-
 ;;; Copyright (c) 2021 by Symbolics Pte. Ltd. All rights reserved.
+;;; SPDX-License-identifier: MS-PL
 (in-package #:num-utils-tests)
 
 #+genera (setf *print-array* t)
@@ -110,27 +111,24 @@ Each row of data contains three items:
       (0.69504582881927490234375d0 0.5277097781183924897416903820415806504912d0 0.1003800903666412193968978978979482061619d1)))
 
 
-(def-suite log-exp
-  :description "Tests for the logrithm and exponential special functions"
-  :in all-tests)
-(in-suite log-exp)
+(defsuite log-exp (all-tests))
 
-(test log1+
-  :description "Test (log (1+ x)"
+(deftest log1+ (log-exp)
+  "Test (log (1+ x))."
   (let ((result (test-fn (select log1p-expm1 t 1)
-			 #'(lambda (i params)
-			     (log1+ (aref (car params) i)))
-			 (select log1p-expm1 t 0))))
-    (is (> (eps 0.5d0)  (max-error result))  "Maximum error exceeds 0.5ε threshold")
-    (is (> (eps 2.7d-2) (mean-error result)) "Mean error exceeds 2.7d-2ε threshold")
+                         #'(lambda (i params)
+                             (log1+ (aref (car params) i)))
+                         (select log1p-expm1 t 0))))
+    (assert-true (> (eps 0.5d0)  (max-error result)))
+    (assert-true (> (eps 2.7d-2) (mean-error result)))
     (print-test-summary result :report-epsilon t)))
 
-(test exp-1
-  :description "Test (- (exp x) 1)"
+(deftest exp-1 (log-exp)
+  "Test (- (exp x) 1)."
   (let ((result (test-fn (select log1p-expm1 t 2)
-			 #'(lambda (i params)
-			     (exp-1 (aref (car params) i)))
-			 (select log1p-expm1 t 0))))
-    (is (> (eps 2d0)     (max-error result))  "Maximum error exceeds 2ε threshold")
-    (is (> (eps 1.65d-1) (mean-error result)) "Mean error exceeds 1.65d-1ε threshold")
+                         #'(lambda (i params)
+                             (exp-1 (aref (car params) i)))
+                         (select log1p-expm1 t 0))))
+    (assert-true (> (eps 2d0)     (max-error result)))
+    (assert-true (> (eps 1.65d-1) (mean-error result)))
     (print-test-summary result :report-epsilon t)))

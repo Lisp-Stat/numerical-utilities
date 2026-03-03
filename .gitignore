@@ -1,0 +1,21 @@
+# Emacs backup and auto-save files
+*~
+.#*
+\#*\#
+
+# Copilot agent/skill/prompt files
+# .github/  # Tracked — contains agent/skill/prompt/instruction files
+
+/TAGS
+/WIP
+
+# Generated build files
+*.fasl
+*.texi
+
+# Files local to a developer
+TODO.org
+NOTES.org
+*.text
+
+public

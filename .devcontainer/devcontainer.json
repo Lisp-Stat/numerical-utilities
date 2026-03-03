@@ -1,0 +1,27 @@
+{
+  "name": "num-utils - Lisp-Stat Dev",
+  "image": "ghcr.io/lisp-stat/ls-dev:latest",
+  "containerUser": "vscode",
+  "workspaceFolder": "/workspace",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "rheller.alive",
+        "github.copilot",
+        "github.copilot-chat"
+      ],
+      "settings": {
+        "alive.lsp.install.path": "/usr/local/bin/sbcl",
+        "terminal.integrated.defaultProfile.linux": "bash"
+      }
+    }
+  },
+
+  "postCreateCommand": "sbcl --non-interactive --eval '(push #p\"/workspace/\" asdf:*central-registry*)' --eval '(ql:quickload :num-utils :silent t)' --eval '(ql:quickload :clunit2 :silent t)' --eval '(format t \"Dependencies OK~%\")'",
+
+  "remoteEnv": {
+    "CL_SOURCE_REGISTRY": "(:source-registry (:directory \"/workspace/\") :inherit-configuration)"
+  }
+}
