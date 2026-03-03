@@ -178,29 +178,23 @@
 
 (deftest e1round-scalar (elementwise-rounding)
   "e1round on a scalar returns first value of round (banker's rounding)."
-  (assert-true (num= 2 (e1round 2.5d0)))  ; 2.5 → 2 (round to even)
-  (assert-true (num= 4 (e1round 3.5d0)))) ; 3.5 → 4 (round to even)
+  (assert-eql 2 (nth-value 0 (e1round 2.5d0)))  ; 2.5 → 2 (round to even)
+  (assert-eql 4 (nth-value 0 (e1round 3.5d0)))) ; 3.5 → 4 (round to even)
 
 (deftest e1round-array (elementwise-rounding)
   "e1round maps round over each array element, capturing the quotient."
-  (let* ((x #(0.5d0 1.5d0 2.5d0))
-         (r (e1round x)))
-    (assert-true (num= 0 (aref r 0)))  ; 0.5 → 0 (round to even)
-    (assert-true (num= 2 (aref r 1)))  ; 1.5 → 2 (round to even)
-    (assert-true (num= 2 (aref r 2))))) ; 2.5 → 2 (round to even)
+  (let* ((x #(0.5d0 1.5d0 2.5d0)))
+    (assert-equalp #(0 2 2) (e1round x)))) ; banker's rounding: 0.5→0, 1.5→2, 2.5→2
 
 (deftest e1truncate-scalar (elementwise-rounding)
   "e1truncate on a scalar returns first value of truncate."
-  (assert-true (num=  2 (e1truncate  2.7d0)))
-  (assert-true (num= -2 (e1truncate -2.7d0))))
+  (assert-eql  2 (nth-value 0 (e1truncate  2.7d0)))
+  (assert-eql -2 (nth-value 0 (e1truncate -2.7d0))))
 
 (deftest e1truncate-array (elementwise-rounding)
   "e1truncate maps truncate over each array element."
-  (let* ((x #(2.7d0 -2.7d0 0.1d0))
-         (r (e1truncate x)))
-    (assert-true (num=  2 (aref r 0)))
-    (assert-true (num= -2 (aref r 1)))
-    (assert-true (num=  0 (aref r 2)))))
+  (let* ((x #(2.7d0 -2.7d0 0.1d0)))
+    (assert-equalp #(2 -2 0) (e1truncate x))))
 
 (deftest esignum-scalar (elementwise-rounding)
   "esignum on a scalar equals signum."
@@ -285,28 +279,30 @@
 
 (deftest e2round-scalar (elementwise-binary)
   "e2round on two scalars equals round (a divided by b)."
-  (assert-true (num= (round 5.0d0 2.0d0) (e2round 5.0d0 2.0d0))))
+  (assert-eql 2 (nth-value 0 (e2round 5.0d0 2.0d0)))   ; 5/2=2.5 → 2 (round to even)
+  (assert-eql 4 (nth-value 0 (e2round 7.0d0 2.0d0))))  ; 7/2=3.5 → 4 (round to even)
 
 (deftest e2round-array-array (elementwise-binary)
   "e2round maps round over paired array elements."
   (let* ((a #(5.0d0 7.0d0 9.0d0))
-         (b #(2.0d0 3.0d0 4.0d0))
-         (r (e2round a b)))
-    (assert-true (num= (round 5.0d0 2.0d0) (aref r 0)))
-    (assert-true (num= (round 7.0d0 3.0d0) (aref r 1)))
-    (assert-true (num= (round 9.0d0 4.0d0) (aref r 2)))))
+         (b #(2.0d0 3.0d0 4.0d0)))
+    ;; (round 5/2)=2, (round 7/3)=2, (round 9/4)=2
+    (assert-equalp #(2 2 2) (e2round a b))))
 
 (deftest e2truncate-scalar (elementwise-binary)
   "e2truncate on two scalars equals truncate (a divided by b)."
-  (assert-true (num= (truncate 7.0d0 3.0d0) (e2truncate 7.0d0 3.0d0))))
+  (assert-eql 2 (nth-value 0 (e2truncate 7.0d0 3.0d0)))  ; (truncate 7/3) => 2
+  (assert-eql 3 (nth-value 0 (e2truncate 10.0d0 3.0d0)))) ; (truncate 10/3) => 3
 
 (deftest e2floor-scalar (elementwise-binary)
   "e2floor on two scalars equals floor (a divided by b)."
-  (assert-true (num= (floor 7.0d0 3.0d0) (e2floor 7.0d0 3.0d0))))
+  (assert-eql 2 (nth-value 0 (e2floor 7.0d0 3.0d0)))   ; (floor 7/3) => 2
+  (assert-eql -3 (nth-value 0 (e2floor -7.0d0 3.0d0)))) ; (floor -7/3) => -3
 
 (deftest e2ceiling-scalar (elementwise-binary)
   "e2ceiling on two scalars equals ceiling (a divided by b)."
-  (assert-true (num= (ceiling 7.0d0 3.0d0) (e2ceiling 7.0d0 3.0d0))))
+  (assert-eql  3 (nth-value 0 (e2ceiling 7.0d0 3.0d0)))  ; (ceiling 7/3) => 3
+  (assert-eql -2 (nth-value 0 (e2ceiling -7.0d0 3.0d0)))) ; (ceiling -7/3) => -2
 
 (deftest erem-scalar (elementwise-binary)
   "erem on two scalars equals rem."
@@ -321,7 +317,7 @@
     (assert-true (num= (rem 8.0d0 3.0d0) (aref r 1)))
     (assert-true (num= (rem 9.0d0 4.0d0) (aref r 2)))))
 
-(deftest e2/=-scalars (elementwise-binary)
+(deftest e2/=-scalar (elementwise-binary)
   "e2/= on scalars returns T iff arguments are unequal."
   (assert-false (e2/= 1.0d0 1.0d0))
   (assert-true  (e2/= 1.0d0 2.0d0)))
@@ -331,15 +327,15 @@
   (let* ((a #(1.0d0 2.0d0 3.0d0))
          (b #(1.0d0 3.0d0 3.0d0))
          (r (e2/= a b)))
-    (assert-false (aref r 0))  ; 1 /= 1 => NIL
-    (assert-true  (aref r 1))  ; 2 /= 3 => T
-    (assert-false (aref r 2)))) ; 3 /= 3 => NIL
+    (assert-false (aref r 0))  ; 1.0 /= 1.0 → NIL (equal)
+    (assert-true  (aref r 1))  ; 2.0 /= 3.0 → T   (unequal)
+    (assert-false (aref r 2)))) ; 3.0 /= 3.0 → NIL (equal)
 
 (deftest e2-dimension-mismatch (elementwise-binary)
   "Binary elementwise ops signal error on dimension mismatch."
   (assert-condition error
-    (e2+ (make-array 3 :initial-contents '(1.0d0 2.0d0 3.0d0))
-         (make-array 2 :initial-contents '(1.0d0 2.0d0)))))
+    (e+ (make-array 3 :initial-contents '(1.0d0 2.0d0 3.0d0))
+        (make-array 2 :initial-contents '(1.0d0 2.0d0)))))
 
 ;;; US-015: eatan variadic wrapper
 
