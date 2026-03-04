@@ -19,3 +19,29 @@ NOTES.org
 *.text
 
 public
+# Exclude agentic and org-level infra
+prd.json
+progress.txt
+ralph.sh
+ralph.sh.bak
+README-RALPH.md
+setup-lisp-stat-devcontainer.sh
+migration/
+signatures/
+.github-repo/
+.devcontainer/
+
+# Agent framework files (kept on disk, never committed)
+.github/agents/
+.github/prompts/
+.github/hooks/
+.github/skills/
+.github/USAGE.md
+.github/copilot-instructions.md
+
+# VS Code internal indices
+src/.vs/
+
+# Editor scratch files
+src/scratch.lisp
+src/scratch.lisp.*
