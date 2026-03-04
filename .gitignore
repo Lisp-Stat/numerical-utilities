@@ -36,6 +36,7 @@ signatures/
 .github/prompts/
 .github/hooks/
 .github/skills/
+.github/instructions/
 .github/USAGE.md
 .github/copilot-instructions.md
 
