@@ -70,5 +70,4 @@
    (:file "log-exp")
    (:file "utilities"))
   :perform (test-op (o s)
-                    ;; *test-output-stream* and *print-pretty* managed in run-tests
-                    (uiop:symbol-call :num-utils-tests :run-tests)))
+                     (uiop:symbol-call :num-utils-tests :run-tests)))

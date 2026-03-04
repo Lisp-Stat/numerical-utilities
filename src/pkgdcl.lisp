@@ -1,5 +1,5 @@
 ;;; -*- Mode: LISP; Base: 10; Syntax: ANSI-Common-lisp; Package: CL-USER -*-
-;;; Copyright (c) 2022 by Symbolics Pte. Ltd. All rights reserved.
+;;; Copyright (c) 2022, 2026 by Symbolics Pte. Ltd. All rights reserved.
 
 (uiop:define-package #:num-utils
   (:nicknames :nu)
